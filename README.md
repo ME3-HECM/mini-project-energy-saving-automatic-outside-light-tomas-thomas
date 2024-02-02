@@ -41,7 +41,9 @@ The plan
 1. Monitors light level with the LDR and turns on an LED in low light conditions (i.e. night-time) and off in bright conditions (i.e. daytime)
     - LDR sensitive should be straight forward
 1. Displays the current hour of day on the LED array in binary
-    - internal clock 
+    - internal clock
+    - if clock overflows in each second
+    - add to the counter counter resets every 24 hours?
 1. Turns the light off between approx. 1am and 5am
     - requires a global clock
 1. Adjusts for daylight savings time
