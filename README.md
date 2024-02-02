@@ -49,7 +49,7 @@ The plan
 1. Maintain synchronicity with the sun indefinitely
     - needs a recalibration feature 
 1. Be fully automatic (requires zero maintenance after installation)
-
+    - we will need an instaliation date in the code 
 
 
 
