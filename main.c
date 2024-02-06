@@ -4,6 +4,7 @@
  *
  * Created on 02 February 2024, 11:16
  */
+
 // ###############################################################pragma config WDTE = OFF        // WDT operating mode (WDT enabled regardless of sleep)
 
 // CONFIG1L
