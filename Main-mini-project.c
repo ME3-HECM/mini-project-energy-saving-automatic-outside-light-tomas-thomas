@@ -1,31 +1,21 @@
 /*
- * File:   main.c
+ * File:   Main-mini-project.c
  * Author: tjhla
  *
- * Created on 02 February 2024, 11:16
+ * Created on 05 February 2024, 13:01
  */
-// ###############################################################pragma config WDTE = OFF        // WDT operating mode (WDT enabled regardless of sleep)
-
-// CONFIG1L
 #pragma config FEXTOSC = HS     // External Oscillator mode Selection bits (HS (crystal oscillator) above 8 MHz; PFM set to high power)
 #pragma config RSTOSC = EXTOSC_4PLL// Power-up default value for COSC bits (EXTOSC with 4x PLL, with EXTOSC operating per FEXTOSC bits)
-// CONFIG3L
 #pragma config WDTE = OFF        // WDT operating mode (WDT enabled regardless of sleep)
 
-// ##############################################################
-
-// include all .h files here
 #include <xc.h>
 #include "LEDarray.h"
 #include "ADC.h"
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
-// ASUMPTIONS
-// assuming light levels are binary - will output to an LED on the board - RH3 to show the street light is on 
-    // potential to have street lights scale with the LED on the side as sun rises 
 
 void main(void) 
-{
+{ 
     LEDarray_init();        //setting up the LED array 
     ADC_init();             // setting up the ADC
     
