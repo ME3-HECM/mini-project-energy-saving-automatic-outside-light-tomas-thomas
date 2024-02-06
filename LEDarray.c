@@ -90,31 +90,31 @@ void LEDarray_disp_dec(unsigned int number)
 {
 	unsigned int disp_val;
     
-    if (number >= 10){ LATGbits.LATG0 = 1 ; } 
+    if (number >= 1){ LATGbits.LATG0 = 1 ; } 
     else{LATGbits.LATG0 = 0;}
     
-    if (number >= 20){ LATGbits.LATG1 = 1 ; } 
+    if (number >= 2){ LATGbits.LATG1 = 1 ; } 
     else{LATGbits.LATG1 = 0;}
     
-    if (number >= 30){ LATAbits.LATA2 = 1 ; } 
+    if (number >= 3){ LATAbits.LATA2 = 1 ; } 
     else{LATAbits.LATA2 = 0;}
     
-    if (number >= 40){ LATFbits.LATF6 = 1 ; } 
+    if (number >= 4){ LATFbits.LATF6 = 1 ; } 
     else{LATFbits.LATF6 = 0;}
     
-    if (number >= 50){ LATAbits.LATA4 = 1 ; } 
+    if (number >= 5){ LATAbits.LATA4 = 1 ; } 
     else{LATAbits.LATA4 = 0;}
     
-    if (number >= 60){ LATAbits.LATA5 = 1 ; } 
+    if (number >= 6){ LATAbits.LATA5 = 1 ; } 
     else{LATAbits.LATA5 = 0;}
     
-    if (number >= 70){ LATFbits.LATF0 = 1 ; } 
+    if (number >= 7){ LATFbits.LATF0 = 1 ; } 
     else{LATFbits.LATF0 = 0;}
     
-    if (number >= 80){ LATBbits.LATB0 = 1 ; } 
+    if (number >= 8){ LATBbits.LATB0 = 1 ; } 
     else{LATBbits.LATB0 = 0;}
     
-    if (number >= 90){ LATBbits.LATB1 = 1 ; } 
+    if (number >= 9){ LATBbits.LATB1 = 1 ; } 
     else{LATBbits.LATB1 = 0;}
 	
 	//some code to manipulate the variable number into the correct

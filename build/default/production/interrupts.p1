@@ -2064,6 +2064,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40592
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+"8 ./seconds.h
+[; ;./seconds.h: 8: unsigned int secs = 0;
+[v _secs `ui ~T0 @X0 1 e ]
+[i _secs
+-> -> 0 `i `ui
+]
 "9 interrupts.c
 [; ;interrupts.c: 9: void Interrupts_init(void)
 [v _Interrupts_init `(v ~T0 @X0 1 ef ]
@@ -2114,13 +2120,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;interrupts.c: 39:         TMR0L = 0b11011100;
 [e = _TMR0L -> -> 220 `i `uc ]
 "40
-[; ;interrupts.c: 40:         PIR0bits.TMR0IF=0;
-[e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
+[; ;interrupts.c: 40:         secs = secs + 1 ;
+[e = _secs + _secs -> -> 1 `i `ui ]
 "41
-[; ;interrupts.c: 41:  }
+[; ;interrupts.c: 41:         PIR0bits.TMR0IF=0;
+[e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
+"42
+[; ;interrupts.c: 42:  }
 }
 [e :U 2017 ]
-"43
-[; ;interrupts.c: 43: }
+"44
+[; ;interrupts.c: 44: }
 [e :UE 2016 ]
 }

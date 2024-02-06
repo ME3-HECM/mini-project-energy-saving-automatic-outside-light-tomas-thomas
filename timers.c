@@ -1,5 +1,6 @@
 #include <xc.h>
 #include "timers.h"
+#include "seconds.h"
 
 /************************************
  * Function to set up timer 0

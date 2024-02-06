@@ -1,123 +1,48 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"29684 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29684:     struct {
-[s S1390 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1390 . TRISG0 TRISG1 TRISG2 TRISG3 TRISG4 . TRISG6 TRISG7 ]
-"29683
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29683: typedef union {
-[u S1389 `S1390 1 ]
-[n S1389 . . ]
-"29695
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29695: extern volatile TRISGbits_t TRISGbits __attribute__((address(0xF87)));
-[v _TRISGbits `VS1389 ~T0 @X0 0 e@3975 ]
-"28823
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28823:     struct {
-[s S1358 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1358 . LATG0 LATG1 LATG2 LATG3 LATG4 . LATG6 LATG7 ]
-"28833
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28833:     struct {
-[s S1359 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1359 . LG0 LG1 LG2 LG3 LG4 ]
-"28822
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28822: typedef union {
-[u S1357 `S1358 1 `S1359 1 ]
-[n S1357 . . . ]
-"28841
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28841: extern volatile LATGbits_t LATGbits __attribute__((address(0xF7F)));
-[v _LATGbits `VS1357 ~T0 @X0 0 e@3967 ]
-"29017
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29017:     struct {
-[s S1368 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1368 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
-"29016
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29016: typedef union {
-[u S1367 `S1368 1 ]
-[n S1367 . . ]
-"29028
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29028: extern volatile TRISAbits_t TRISAbits __attribute__((address(0xF81)));
-[v _TRISAbits `VS1367 ~T0 @X0 0 e@3969 ]
-"28151
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28151:     struct {
-[s S1340 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1340 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
-"28161
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28161:     struct {
-[s S1341 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1341 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 LA7 ]
-"28150
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28150: typedef union {
-[u S1339 `S1340 1 `S1341 1 ]
-[n S1339 . . . ]
-"28172
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28172: extern volatile LATAbits_t LATAbits __attribute__((address(0xF79)));
-[v _LATAbits `VS1339 ~T0 @X0 0 e@3961 ]
-"29622
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29622:     struct {
-[s S1388 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1388 . TRISF0 TRISF1 TRISF2 TRISF3 TRISF4 TRISF5 TRISF6 TRISF7 ]
-"29621
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29621: typedef union {
-[u S1387 `S1388 1 ]
-[n S1387 . . ]
-"29633
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29633: extern volatile TRISFbits_t TRISFbits __attribute__((address(0xF86)));
-[v _TRISFbits `VS1387 ~T0 @X0 0 e@3974 ]
-"28711
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28711:     struct {
-[s S1355 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1355 . LATF0 LATF1 LATF2 LATF3 LATF4 LATF5 LATF6 LATF7 ]
-"28721
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28721:     struct {
-[s S1356 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1356 . LF0 LF1 LF2 LF3 LF4 LF5 LF6 LF7 ]
-"28710
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28710: typedef union {
-[u S1354 `S1355 1 `S1356 1 ]
-[n S1354 . . . ]
-"28732
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28732: extern volatile LATFbits_t LATFbits __attribute__((address(0xF7E)));
-[v _LATFbits `VS1354 ~T0 @X0 0 e@3966 ]
-"29139
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29139:     struct {
-[s S1372 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1372 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
-"29138
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29138: typedef union {
-[u S1371 `S1372 1 ]
-[n S1371 . . ]
-"29150
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29150: extern volatile TRISBbits_t TRISBbits __attribute__((address(0xF82)));
-[v _TRISBbits `VS1371 ~T0 @X0 0 e@3970 ]
-"28263
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28263:     struct {
-[s S1343 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1343 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
-"28273
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28273:     struct {
-[s S1344 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1344 . LB0 LB1 LB2 LB3 LB4 LB5 LB6 LB7 ]
-"28262
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28262: typedef union {
-[u S1342 `S1343 1 `S1344 1 ]
-[n S1342 . . . ]
-"28284
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28284: extern volatile LATBbits_t LATBbits __attribute__((address(0xF7A)));
-[v _LATBbits `VS1342 ~T0 @X0 0 e@3962 ]
-"28487
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28487:     struct {
-[s S1349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1349 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
-"28497
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28497:     struct {
-[s S1350 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1350 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
-"28486
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28486: typedef union {
-[u S1348 `S1349 1 `S1350 1 ]
-[n S1348 . . . ]
-"28508
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28508: extern volatile LATDbits_t LATDbits __attribute__((address(0xF7C)));
-[v _LATDbits `VS1348 ~T0 @X0 0 e@3964 ]
+"39328 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 39328:     struct {
+[s S1925 :4 `uc 1 :1 `uc 1 :3 `uc 1 ]
+[n S1925 . T0CKPS T0ASYNC T0CS ]
+"39333
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 39333:     struct {
+[s S1926 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1926 . T0CKPS0 T0CKPS1 T0CKPS2 T0CKPS3 . T0CS0 T0CS1 T0CS2 ]
+"39343
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 39343:     struct {
+[s S1927 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1927 . T0PS0 T0PS1 T0PS2 T0PS3 ]
+"39349
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 39349:     struct {
+[s S1928 :4 `uc 1 ]
+[n S1928 . T0PS ]
+"39327
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 39327: typedef union {
+[u S1924 `S1925 1 `S1926 1 `S1927 1 `S1928 1 ]
+[n S1924 . . . . . ]
+"39353
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 39353: extern volatile T0CON1bits_t T0CON1bits __attribute__((address(0xFD6)));
+[v _T0CON1bits `VS1924 ~T0 @X0 0 e@4054 ]
+"39263
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 39263:     struct {
+[s S1922 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1922 . T0OUTPS T016BIT T0OUT . T0EN ]
+"39270
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 39270:     struct {
+[s S1923 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1923 . T0OUTPS0 T0OUTPS1 T0OUTPS2 T0OUTPS3 ]
+"39262
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 39262: typedef union {
+[u S1921 `S1922 1 `S1923 1 ]
+[n S1921 . . . ]
+"39277
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 39277: extern volatile T0CON0bits_t T0CON0bits __attribute__((address(0xFD5)));
+[v _T0CON0bits `VS1921 ~T0 @X0 0 e@4053 ]
+"39003
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 39003: extern volatile unsigned char TMR0H __attribute__((address(0xFD4)));
+[v _TMR0H `Vuc ~T0 @X0 0 e@4052 ]
+"38865
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 38865: extern volatile unsigned char TMR0L __attribute__((address(0xFD3)));
+[v _TMR0L `Vuc ~T0 @X0 0 e@4051 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2092,717 +2017,66 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40592
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"8 LEDarray.c
-[; ;LEDarray.c: 8: void LEDarray_init(void)
-[v _LEDarray_init `(v ~T0 @X0 1 ef ]
+"8 ./seconds.h
+[; ;./seconds.h: 8: unsigned int secs = 0;
+[v _secs `ui ~T0 @X0 1 e ]
+[i _secs
+-> -> 0 `i `ui
+]
+"8 timers.c
+[; ;timers.c: 8: void Timer0_init(void)
+[v _Timer0_init `(v ~T0 @X0 1 ef ]
 "9
-[; ;LEDarray.c: 9: {
+[; ;timers.c: 9: {
 {
-[e :U _LEDarray_init ]
+[e :U _Timer0_init ]
 [f ]
-"16
-[; ;LEDarray.c: 16:     TRISGbits.TRISG0 = 0;
-[e = . . _TRISGbits 0 0 -> -> 0 `i `uc ]
-"17
-[; ;LEDarray.c: 17:     LATGbits.LATG0 = 1;
-[e = . . _LATGbits 0 0 -> -> 1 `i `uc ]
+"10
+[; ;timers.c: 10:     T0CON1bits.T0CS=0b010;
+[e = . . _T0CON1bits 0 2 -> -> 2 `i `uc ]
+"11
+[; ;timers.c: 11:     T0CON1bits.T0ASYNC=1;
+[e = . . _T0CON1bits 0 1 -> -> 1 `i `uc ]
+"13
+[; ;timers.c: 13:     T0CON1bits.T0CKPS=0b1000;
+[e = . . _T0CON1bits 0 0 -> -> 8 `i `uc ]
+"15
+[; ;timers.c: 15:     T0CON0bits.T016BIT=1;
+[e = . . _T0CON0bits 0 1 -> -> 1 `i `uc ]
+"18
+[; ;timers.c: 18:     TMR0H = 0b00001011;
+[e = _TMR0H -> -> 11 `i `uc ]
 "19
-[; ;LEDarray.c: 19:     TRISGbits.TRISG1 = 0;
-[e = . . _TRISGbits 0 1 -> -> 0 `i `uc ]
-"20
-[; ;LEDarray.c: 20:     LATGbits.LATG1 = 1;
-[e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
-"22
-[; ;LEDarray.c: 22:     TRISAbits.TRISA2 = 0;
-[e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
-"23
-[; ;LEDarray.c: 23:     LATAbits.LATA2 = 1;
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
-"25
-[; ;LEDarray.c: 25:     TRISFbits.TRISF6 = 0;
-[e = . . _TRISFbits 0 6 -> -> 0 `i `uc ]
-"26
-[; ;LEDarray.c: 26:     LATFbits.LATF6 = 1;
-[e = . . _LATFbits 0 6 -> -> 1 `i `uc ]
-"28
-[; ;LEDarray.c: 28:     TRISAbits.TRISA4 = 0;
-[e = . . _TRISAbits 0 4 -> -> 0 `i `uc ]
-"29
-[; ;LEDarray.c: 29:     LATAbits.LATA4 = 1;
-[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
-"31
-[; ;LEDarray.c: 31:     TRISAbits.TRISA5 = 0;
-[e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
-"32
-[; ;LEDarray.c: 32:     LATAbits.LATA5 = 1;
-[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
-"34
-[; ;LEDarray.c: 34:     TRISFbits.TRISF0 = 0;
-[e = . . _TRISFbits 0 0 -> -> 0 `i `uc ]
+[; ;timers.c: 19:     TMR0L = 0b11011100;
+[e = _TMR0L -> -> 220 `i `uc ]
 "35
-[; ;LEDarray.c: 35:     LATFbits.LATF0 = 1;
-[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
-"37
-[; ;LEDarray.c: 37:     TRISBbits.TRISB0 = 0;
-[e = . . _TRISBbits 0 0 -> -> 0 `i `uc ]
-"38
-[; ;LEDarray.c: 38:     LATBbits.LATB0 = 1;
-[e = . . _LATBbits 0 0 -> -> 1 `i `uc ]
-"40
-[; ;LEDarray.c: 40:     TRISBbits.TRISB1 = 0;
-[e = . . _TRISBbits 0 1 -> -> 0 `i `uc ]
-"41
-[; ;LEDarray.c: 41:     LATBbits.LATB1 = 1;
-[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
-"43
-[; ;LEDarray.c: 43: }
+[; ;timers.c: 35:     T0CON0bits.T0EN=1;
+[e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
+"36
+[; ;timers.c: 36: }
 [e :UE 2015 ]
 }
-"49
-[; ;LEDarray.c: 49: void LEDarray_disp_bin(unsigned int number)
-[v _LEDarray_disp_bin `(v ~T0 @X0 1 ef1`ui ]
-"50
-[; ;LEDarray.c: 50: {
+"42
+[; ;timers.c: 42: unsigned int get16bitTMR0val(void)
+[v _get16bitTMR0val `(ui ~T0 @X0 1 ef ]
+"43
+[; ;timers.c: 43: {
 {
-[e :U _LEDarray_disp_bin ]
-"49
-[; ;LEDarray.c: 49: void LEDarray_disp_bin(unsigned int number)
-[v _number `ui ~T0 @X0 1 r1 ]
-"50
-[; ;LEDarray.c: 50: {
+[e :U _get16bitTMR0val ]
 [f ]
-"51
-[; ;LEDarray.c: 51:     LATDbits.LATD7 = !LATDbits.LATD7;
-[e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
-"53
-[; ;LEDarray.c: 53:     if (number & 0b000000001){ LATGbits.LATG0 = 1 ; }
-[e $ ! != & _number -> -> 1 `i `ui -> -> 0 `i `ui 2017  ]
-{
-[e = . . _LATGbits 0 0 -> -> 1 `i `uc ]
-}
-[e $U 2018  ]
-"54
-[; ;LEDarray.c: 54:     else{LATGbits.LATG0 = 0;}
-[e :U 2017 ]
-{
-[e = . . _LATGbits 0 0 -> -> 0 `i `uc ]
-}
-[e :U 2018 ]
-"56
-[; ;LEDarray.c: 56:     if (number & 0b000000010){ LATGbits.LATG1 = 1 ; }
-[e $ ! != & _number -> -> 2 `i `ui -> -> 0 `i `ui 2019  ]
-{
-[e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
-}
-[e $U 2020  ]
-"57
-[; ;LEDarray.c: 57:     else{LATGbits.LATG1 = 0;}
-[e :U 2019 ]
-{
-[e = . . _LATGbits 0 1 -> -> 0 `i `uc ]
-}
-[e :U 2020 ]
-"59
-[; ;LEDarray.c: 59:     if (number & 0b000000100){ LATAbits.LATA2 = 1 ; }
-[e $ ! != & _number -> -> 4 `i `ui -> -> 0 `i `ui 2021  ]
-{
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
-}
-[e $U 2022  ]
-"60
-[; ;LEDarray.c: 60:     else{LATAbits.LATA2 = 0;}
-[e :U 2021 ]
-{
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-}
-[e :U 2022 ]
-"62
-[; ;LEDarray.c: 62:     if (number & 0b000001000){ LATFbits.LATF6 = 1 ; }
-[e $ ! != & _number -> -> 8 `i `ui -> -> 0 `i `ui 2023  ]
-{
-[e = . . _LATFbits 0 6 -> -> 1 `i `uc ]
-}
-[e $U 2024  ]
-"63
-[; ;LEDarray.c: 63:     else{LATFbits.LATF6 = 0;}
-[e :U 2023 ]
-{
-[e = . . _LATFbits 0 6 -> -> 0 `i `uc ]
-}
-[e :U 2024 ]
-"65
-[; ;LEDarray.c: 65:     if (number & 0b000010000){ LATAbits.LATA4 = 1 ; }
-[e $ ! != & _number -> -> 16 `i `ui -> -> 0 `i `ui 2025  ]
-{
-[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
-}
-[e $U 2026  ]
-"66
-[; ;LEDarray.c: 66:     else{LATAbits.LATA4 = 0;}
-[e :U 2025 ]
-{
-[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
-}
-[e :U 2026 ]
-"68
-[; ;LEDarray.c: 68:     if (number & 0b000100000){ LATAbits.LATA5 = 1 ; }
-[e $ ! != & _number -> -> 32 `i `ui -> -> 0 `i `ui 2027  ]
-{
-[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
-}
-[e $U 2028  ]
-"69
-[; ;LEDarray.c: 69:     else{LATAbits.LATA5 = 0;}
-[e :U 2027 ]
-{
-[e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
-}
-[e :U 2028 ]
-"71
-[; ;LEDarray.c: 71:     if (number & 0b001000000){ LATFbits.LATF0 = 1 ; }
-[e $ ! != & _number -> -> 64 `i `ui -> -> 0 `i `ui 2029  ]
-{
-[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
-}
-[e $U 2030  ]
-"72
-[; ;LEDarray.c: 72:     else{LATFbits.LATF0 = 0;}
-[e :U 2029 ]
-{
-[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
-}
-[e :U 2030 ]
-"74
-[; ;LEDarray.c: 74:     if (number & 0b010000000){ LATBbits.LATB0 = 1 ; }
-[e $ ! != & _number -> -> 128 `i `ui -> -> 0 `i `ui 2031  ]
-{
-[e = . . _LATBbits 0 0 -> -> 1 `i `uc ]
-}
-[e $U 2032  ]
-"75
-[; ;LEDarray.c: 75:     else{LATBbits.LATB0 = 0;}
-[e :U 2031 ]
-{
-[e = . . _LATBbits 0 0 -> -> 0 `i `uc ]
-}
-[e :U 2032 ]
-"77
-[; ;LEDarray.c: 77:     if (number & 0b100000000){ LATBbits.LATB1 = 1 ; }
-[e $ ! != & _number -> -> 256 `i `ui -> -> 0 `i `ui 2033  ]
-{
-[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
-}
-[e $U 2034  ]
-"78
-[; ;LEDarray.c: 78:     else{LATBbits.LATB1 = 0;}
-[e :U 2033 ]
-{
-[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
-}
-[e :U 2034 ]
-"82
-[; ;LEDarray.c: 82: }
+"45
+[; ;timers.c: 45:     unsigned int low = TMR0L ;
+[v _low `ui ~T0 @X0 1 a ]
+[e = _low -> _TMR0L `ui ]
+"46
+[; ;timers.c: 46:     unsigned int high = TMR0H ;
+[v _high `ui ~T0 @X0 1 a ]
+[e = _high -> _TMR0H `ui ]
+"47
+[; ;timers.c: 47:     return(high) ;
+[e ) _high ]
+[e $UE 2016  ]
+"49
+[; ;timers.c: 49: }
 [e :UE 2016 ]
-}
-"89
-[; ;LEDarray.c: 89: void LEDarray_disp_dec(unsigned int number)
-[v _LEDarray_disp_dec `(v ~T0 @X0 1 ef1`ui ]
-"90
-[; ;LEDarray.c: 90: {
-{
-[e :U _LEDarray_disp_dec ]
-"89
-[; ;LEDarray.c: 89: void LEDarray_disp_dec(unsigned int number)
-[v _number `ui ~T0 @X0 1 r1 ]
-"90
-[; ;LEDarray.c: 90: {
-[f ]
-"91
-[; ;LEDarray.c: 91:  unsigned int disp_val;
-[v _disp_val `ui ~T0 @X0 1 a ]
-"93
-[; ;LEDarray.c: 93:     if (number >= 1){ LATGbits.LATG0 = 1 ; }
-[e $ ! >= _number -> -> 1 `i `ui 2036  ]
-{
-[e = . . _LATGbits 0 0 -> -> 1 `i `uc ]
-}
-[e $U 2037  ]
-"94
-[; ;LEDarray.c: 94:     else{LATGbits.LATG0 = 0;}
-[e :U 2036 ]
-{
-[e = . . _LATGbits 0 0 -> -> 0 `i `uc ]
-}
-[e :U 2037 ]
-"96
-[; ;LEDarray.c: 96:     if (number >= 2){ LATGbits.LATG1 = 1 ; }
-[e $ ! >= _number -> -> 2 `i `ui 2038  ]
-{
-[e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
-}
-[e $U 2039  ]
-"97
-[; ;LEDarray.c: 97:     else{LATGbits.LATG1 = 0;}
-[e :U 2038 ]
-{
-[e = . . _LATGbits 0 1 -> -> 0 `i `uc ]
-}
-[e :U 2039 ]
-"99
-[; ;LEDarray.c: 99:     if (number >= 3){ LATAbits.LATA2 = 1 ; }
-[e $ ! >= _number -> -> 3 `i `ui 2040  ]
-{
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
-}
-[e $U 2041  ]
-"100
-[; ;LEDarray.c: 100:     else{LATAbits.LATA2 = 0;}
-[e :U 2040 ]
-{
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-}
-[e :U 2041 ]
-"102
-[; ;LEDarray.c: 102:     if (number >= 4){ LATFbits.LATF6 = 1 ; }
-[e $ ! >= _number -> -> 4 `i `ui 2042  ]
-{
-[e = . . _LATFbits 0 6 -> -> 1 `i `uc ]
-}
-[e $U 2043  ]
-"103
-[; ;LEDarray.c: 103:     else{LATFbits.LATF6 = 0;}
-[e :U 2042 ]
-{
-[e = . . _LATFbits 0 6 -> -> 0 `i `uc ]
-}
-[e :U 2043 ]
-"105
-[; ;LEDarray.c: 105:     if (number >= 5){ LATAbits.LATA4 = 1 ; }
-[e $ ! >= _number -> -> 5 `i `ui 2044  ]
-{
-[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
-}
-[e $U 2045  ]
-"106
-[; ;LEDarray.c: 106:     else{LATAbits.LATA4 = 0;}
-[e :U 2044 ]
-{
-[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
-}
-[e :U 2045 ]
-"108
-[; ;LEDarray.c: 108:     if (number >= 6){ LATAbits.LATA5 = 1 ; }
-[e $ ! >= _number -> -> 6 `i `ui 2046  ]
-{
-[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
-}
-[e $U 2047  ]
-"109
-[; ;LEDarray.c: 109:     else{LATAbits.LATA5 = 0;}
-[e :U 2046 ]
-{
-[e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
-}
-[e :U 2047 ]
-"111
-[; ;LEDarray.c: 111:     if (number >= 7){ LATFbits.LATF0 = 1 ; }
-[e $ ! >= _number -> -> 7 `i `ui 2048  ]
-{
-[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
-}
-[e $U 2049  ]
-"112
-[; ;LEDarray.c: 112:     else{LATFbits.LATF0 = 0;}
-[e :U 2048 ]
-{
-[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
-}
-[e :U 2049 ]
-"114
-[; ;LEDarray.c: 114:     if (number >= 8){ LATBbits.LATB0 = 1 ; }
-[e $ ! >= _number -> -> 8 `i `ui 2050  ]
-{
-[e = . . _LATBbits 0 0 -> -> 1 `i `uc ]
-}
-[e $U 2051  ]
-"115
-[; ;LEDarray.c: 115:     else{LATBbits.LATB0 = 0;}
-[e :U 2050 ]
-{
-[e = . . _LATBbits 0 0 -> -> 0 `i `uc ]
-}
-[e :U 2051 ]
-"117
-[; ;LEDarray.c: 117:     if (number >= 9){ LATBbits.LATB1 = 1 ; }
-[e $ ! >= _number -> -> 9 `i `ui 2052  ]
-{
-[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
-}
-[e $U 2053  ]
-"118
-[; ;LEDarray.c: 118:     else{LATBbits.LATB1 = 0;}
-[e :U 2052 ]
-{
-[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
-}
-[e :U 2053 ]
-"124
-[; ;LEDarray.c: 124: }
-[e :UE 2035 ]
-}
-"134
-[; ;LEDarray.c: 134: void LEDarray_disp_light(unsigned int number, unsigned int maxLight, unsigned int minLight, unsigned int step)
-[v _LEDarray_disp_light `(v ~T0 @X0 1 ef4`ui`ui`ui`ui ]
-"135
-[; ;LEDarray.c: 135: {
-{
-[e :U _LEDarray_disp_light ]
-"134
-[; ;LEDarray.c: 134: void LEDarray_disp_light(unsigned int number, unsigned int maxLight, unsigned int minLight, unsigned int step)
-[v _number `ui ~T0 @X0 1 r1 ]
-[v _maxLight `ui ~T0 @X0 1 r2 ]
-[v _minLight `ui ~T0 @X0 1 r3 ]
-[v _step `ui ~T0 @X0 1 r4 ]
-"135
-[; ;LEDarray.c: 135: {
-[f ]
-"137
-[; ;LEDarray.c: 137:     if (number > minLight + step*1 ){ LATGbits.LATG0 = 1 ; }
-[e $ ! > _number + _minLight * _step -> -> 1 `i `ui 2055  ]
-{
-[e = . . _LATGbits 0 0 -> -> 1 `i `uc ]
-}
-[e $U 2056  ]
-"138
-[; ;LEDarray.c: 138:     else{LATGbits.LATG0 = 0;}
-[e :U 2055 ]
-{
-[e = . . _LATGbits 0 0 -> -> 0 `i `uc ]
-}
-[e :U 2056 ]
-"140
-[; ;LEDarray.c: 140:     if (number > minLight + step*2 ){ LATGbits.LATG1 = 1 ; }
-[e $ ! > _number + _minLight * _step -> -> 2 `i `ui 2057  ]
-{
-[e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
-}
-[e $U 2058  ]
-"141
-[; ;LEDarray.c: 141:     else{LATGbits.LATG1 = 0;}
-[e :U 2057 ]
-{
-[e = . . _LATGbits 0 1 -> -> 0 `i `uc ]
-}
-[e :U 2058 ]
-"143
-[; ;LEDarray.c: 143:     if (number > minLight + step*3 ){ LATAbits.LATA2 = 1 ; }
-[e $ ! > _number + _minLight * _step -> -> 3 `i `ui 2059  ]
-{
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
-}
-[e $U 2060  ]
-"144
-[; ;LEDarray.c: 144:     else{LATAbits.LATA2 = 0;}
-[e :U 2059 ]
-{
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-}
-[e :U 2060 ]
-"146
-[; ;LEDarray.c: 146:     if (number > minLight + step*4 ){ LATFbits.LATF6 = 1 ; }
-[e $ ! > _number + _minLight * _step -> -> 4 `i `ui 2061  ]
-{
-[e = . . _LATFbits 0 6 -> -> 1 `i `uc ]
-}
-[e $U 2062  ]
-"147
-[; ;LEDarray.c: 147:     else{LATFbits.LATF6 = 0;}
-[e :U 2061 ]
-{
-[e = . . _LATFbits 0 6 -> -> 0 `i `uc ]
-}
-[e :U 2062 ]
-"149
-[; ;LEDarray.c: 149:     if (number > minLight + step*5 ){ LATAbits.LATA4 = 1 ; }
-[e $ ! > _number + _minLight * _step -> -> 5 `i `ui 2063  ]
-{
-[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
-}
-[e $U 2064  ]
-"150
-[; ;LEDarray.c: 150:     else{LATAbits.LATA4 = 0;}
-[e :U 2063 ]
-{
-[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
-}
-[e :U 2064 ]
-"152
-[; ;LEDarray.c: 152:     if (number > minLight + step*6 ){ LATAbits.LATA5 = 1 ; }
-[e $ ! > _number + _minLight * _step -> -> 6 `i `ui 2065  ]
-{
-[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
-}
-[e $U 2066  ]
-"153
-[; ;LEDarray.c: 153:     else{LATAbits.LATA5 = 0;}
-[e :U 2065 ]
-{
-[e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
-}
-[e :U 2066 ]
-"155
-[; ;LEDarray.c: 155:     if (number > minLight + step*7 ){ LATFbits.LATF0 = 1 ; }
-[e $ ! > _number + _minLight * _step -> -> 7 `i `ui 2067  ]
-{
-[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
-}
-[e $U 2068  ]
-"156
-[; ;LEDarray.c: 156:     else{LATFbits.LATF0 = 0;}
-[e :U 2067 ]
-{
-[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
-}
-[e :U 2068 ]
-"158
-[; ;LEDarray.c: 158:     if (number > minLight + step*8 ){ LATBbits.LATB0 = 1 ; }
-[e $ ! > _number + _minLight * _step -> -> 8 `i `ui 2069  ]
-{
-[e = . . _LATBbits 0 0 -> -> 1 `i `uc ]
-}
-[e $U 2070  ]
-"159
-[; ;LEDarray.c: 159:     else{LATBbits.LATB0 = 0;}
-[e :U 2069 ]
-{
-[e = . . _LATBbits 0 0 -> -> 0 `i `uc ]
-}
-[e :U 2070 ]
-"161
-[; ;LEDarray.c: 161:     if (number > minLight + step*9 ){ LATBbits.LATB1 = 1 ; }
-[e $ ! > _number + _minLight * _step -> -> 9 `i `ui 2071  ]
-{
-[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
-}
-[e $U 2072  ]
-"162
-[; ;LEDarray.c: 162:     else{LATBbits.LATB1 = 0;}
-[e :U 2071 ]
-{
-[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
-}
-[e :U 2072 ]
-"164
-[; ;LEDarray.c: 164: }
-[e :UE 2054 ]
-}
-"167
-[; ;LEDarray.c: 167: void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step)
-[v _LEDarray_disp_PPM `(v ~T0 @X0 1 ef5`ui`ui`ui`ui`ui ]
-"170
-[; ;LEDarray.c: 170: {
-{
-[e :U _LEDarray_disp_PPM ]
-"167
-[; ;LEDarray.c: 167: void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step)
-[v _numberIn `ui ~T0 @X0 1 r1 ]
-[v _MaxVal `ui ~T0 @X0 1 r2 ]
-[v _maxLight `ui ~T0 @X0 1 r3 ]
-[v _minLight `ui ~T0 @X0 1 r4 ]
-[v _step `ui ~T0 @X0 1 r5 ]
-"170
-[; ;LEDarray.c: 170: {
-[f ]
-"174
-[; ;LEDarray.c: 174:     if ((MaxVal > minLight + step*1) && (MaxVal <= minLight + step*2)){ LATGbits.LATG0 = 1 ; }
-[e $ ! && > _MaxVal + _minLight * _step -> -> 1 `i `ui <= _MaxVal + _minLight * _step -> -> 2 `i `ui 2074  ]
-{
-[e = . . _LATGbits 0 0 -> -> 1 `i `uc ]
-}
-[e $U 2075  ]
-"175
-[; ;LEDarray.c: 175:     else{LATGbits.LATG0 = 0;}
-[e :U 2074 ]
-{
-[e = . . _LATGbits 0 0 -> -> 0 `i `uc ]
-}
-[e :U 2075 ]
-"177
-[; ;LEDarray.c: 177:     if ((MaxVal > minLight +step*2) && (MaxVal <= minLight +step*3)){ LATGbits.LATG1 = 1 ; }
-[e $ ! && > _MaxVal + _minLight * _step -> -> 2 `i `ui <= _MaxVal + _minLight * _step -> -> 3 `i `ui 2076  ]
-{
-[e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
-}
-[e $U 2077  ]
-"178
-[; ;LEDarray.c: 178:     else{LATGbits.LATG1 = 0;}
-[e :U 2076 ]
-{
-[e = . . _LATGbits 0 1 -> -> 0 `i `uc ]
-}
-[e :U 2077 ]
-"180
-[; ;LEDarray.c: 180:     if ((MaxVal > minLight +step*3) && (MaxVal <= minLight +step*4)){ LATAbits.LATA2 = 1 ; }
-[e $ ! && > _MaxVal + _minLight * _step -> -> 3 `i `ui <= _MaxVal + _minLight * _step -> -> 4 `i `ui 2078  ]
-{
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
-}
-[e $U 2079  ]
-"181
-[; ;LEDarray.c: 181:     else{LATAbits.LATA2 = 0;}
-[e :U 2078 ]
-{
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-}
-[e :U 2079 ]
-"183
-[; ;LEDarray.c: 183:     if ((MaxVal > minLight +step*4) && (MaxVal <= minLight +step*5)){ LATFbits.LATF6 = 1 ; }
-[e $ ! && > _MaxVal + _minLight * _step -> -> 4 `i `ui <= _MaxVal + _minLight * _step -> -> 5 `i `ui 2080  ]
-{
-[e = . . _LATFbits 0 6 -> -> 1 `i `uc ]
-}
-[e $U 2081  ]
-"184
-[; ;LEDarray.c: 184:     else{LATFbits.LATF6 = 0;}
-[e :U 2080 ]
-{
-[e = . . _LATFbits 0 6 -> -> 0 `i `uc ]
-}
-[e :U 2081 ]
-"186
-[; ;LEDarray.c: 186:     if ((MaxVal > minLight +step*5) && (MaxVal <= minLight +step*6)){ LATAbits.LATA4 = 1 ; }
-[e $ ! && > _MaxVal + _minLight * _step -> -> 5 `i `ui <= _MaxVal + _minLight * _step -> -> 6 `i `ui 2082  ]
-{
-[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
-}
-[e $U 2083  ]
-"187
-[; ;LEDarray.c: 187:     else{LATAbits.LATA4 = 0;}
-[e :U 2082 ]
-{
-[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
-}
-[e :U 2083 ]
-"189
-[; ;LEDarray.c: 189:     if ((MaxVal > minLight +step*6) && (MaxVal <= minLight +step*7)){ LATAbits.LATA5 = 1 ; }
-[e $ ! && > _MaxVal + _minLight * _step -> -> 6 `i `ui <= _MaxVal + _minLight * _step -> -> 7 `i `ui 2084  ]
-{
-[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
-}
-[e $U 2085  ]
-"190
-[; ;LEDarray.c: 190:     else{LATAbits.LATA5 = 0;}
-[e :U 2084 ]
-{
-[e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
-}
-[e :U 2085 ]
-"192
-[; ;LEDarray.c: 192:     if ((MaxVal > minLight +step*7) && (MaxVal <= minLight +step*8)){ LATFbits.LATF0 = 1 ; }
-[e $ ! && > _MaxVal + _minLight * _step -> -> 7 `i `ui <= _MaxVal + _minLight * _step -> -> 8 `i `ui 2086  ]
-{
-[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
-}
-[e $U 2087  ]
-"193
-[; ;LEDarray.c: 193:     else{LATFbits.LATF0 = 0;}
-[e :U 2086 ]
-{
-[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
-}
-[e :U 2087 ]
-"195
-[; ;LEDarray.c: 195:     if ((MaxVal > minLight +step*8) && (MaxVal <= minLight +step*9)){ LATBbits.LATB0 = 1 ; }
-[e $ ! && > _MaxVal + _minLight * _step -> -> 8 `i `ui <= _MaxVal + _minLight * _step -> -> 9 `i `ui 2088  ]
-{
-[e = . . _LATBbits 0 0 -> -> 1 `i `uc ]
-}
-[e $U 2089  ]
-"196
-[; ;LEDarray.c: 196:     else{LATBbits.LATB0 = 0;}
-[e :U 2088 ]
-{
-[e = . . _LATBbits 0 0 -> -> 0 `i `uc ]
-}
-[e :U 2089 ]
-"198
-[; ;LEDarray.c: 198:     if (MaxVal > minLight +step*9){ LATBbits.LATB1 = 1 ; }
-[e $ ! > _MaxVal + _minLight * _step -> -> 9 `i `ui 2090  ]
-{
-[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
-}
-[e $U 2091  ]
-"199
-[; ;LEDarray.c: 199:     else{LATBbits.LATB1 = 0;}
-[e :U 2090 ]
-{
-[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
-}
-[e :U 2091 ]
-"202
-[; ;LEDarray.c: 202:     if (numberIn > minLight + step*1 ){ LATGbits.LATG0 = 1 ; }
-[e $ ! > _numberIn + _minLight * _step -> -> 1 `i `ui 2092  ]
-{
-[e = . . _LATGbits 0 0 -> -> 1 `i `uc ]
-}
-[e :U 2092 ]
-"204
-[; ;LEDarray.c: 204:     if (numberIn > minLight + step*2 ){ LATGbits.LATG1 = 1 ; }
-[e $ ! > _numberIn + _minLight * _step -> -> 2 `i `ui 2093  ]
-{
-[e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
-}
-[e :U 2093 ]
-"206
-[; ;LEDarray.c: 206:     if (numberIn > minLight + step*3 ){ LATAbits.LATA2 = 1 ; }
-[e $ ! > _numberIn + _minLight * _step -> -> 3 `i `ui 2094  ]
-{
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
-}
-[e :U 2094 ]
-"208
-[; ;LEDarray.c: 208:     if (numberIn > minLight + step*4 ){ LATFbits.LATF6 = 1 ; }
-[e $ ! > _numberIn + _minLight * _step -> -> 4 `i `ui 2095  ]
-{
-[e = . . _LATFbits 0 6 -> -> 1 `i `uc ]
-}
-[e :U 2095 ]
-"210
-[; ;LEDarray.c: 210:     if (numberIn > minLight + step*5 ){ LATAbits.LATA4 = 1 ; }
-[e $ ! > _numberIn + _minLight * _step -> -> 5 `i `ui 2096  ]
-{
-[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
-}
-[e :U 2096 ]
-"212
-[; ;LEDarray.c: 212:     if (numberIn > minLight + step*6 ){ LATAbits.LATA5 = 1 ; }
-[e $ ! > _numberIn + _minLight * _step -> -> 6 `i `ui 2097  ]
-{
-[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
-}
-[e :U 2097 ]
-"214
-[; ;LEDarray.c: 214:     if (numberIn > minLight + step*7 ){ LATFbits.LATF0 = 1 ; }
-[e $ ! > _numberIn + _minLight * _step -> -> 7 `i `ui 2098  ]
-{
-[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
-}
-[e :U 2098 ]
-"216
-[; ;LEDarray.c: 216:     if (numberIn > minLight + step*8 ){ LATBbits.LATB0 = 1 ; }
-[e $ ! > _numberIn + _minLight * _step -> -> 8 `i `ui 2099  ]
-{
-[e = . . _LATBbits 0 0 -> -> 1 `i `uc ]
-}
-[e :U 2099 ]
-"218
-[; ;LEDarray.c: 218:     if (numberIn > minLight + step*9 ){ LATBbits.LATB1 = 1 ; }
-[e $ ! > _numberIn + _minLight * _step -> -> 9 `i `ui 2100  ]
-{
-[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
-}
-[e :U 2100 ]
-"219
-[; ;LEDarray.c: 219: }
-[e :UE 2073 ]
 }

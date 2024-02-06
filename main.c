@@ -1,9 +1,3 @@
-/*
- * File:   main.c
- * Author: tjhla
- *
- * Created on 02 February 2024, 11:16
- */
 
 // ###############################################################pragma config WDTE = OFF        // WDT operating mode (WDT enabled regardless of sleep)
 
@@ -17,48 +11,34 @@
 
 // include all .h files here
 #include <xc.h>
+
 #include "LEDarray.h"
-#include "ADC.h"
+#include "timers.h"
+#include "interrupts.h"
+#include "seconds.h"
+
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
-// ASUMPTIONS
-// assuming light levels are binary - will output to an LED on the board - RH3 to show the street light is on 
-    // potential to have street lights scale with the LED on the side as sun rises 
-
-
 void main(void) 
-{//this is some text to test
+{
+    unsigned int TestMode = 3600; // scales the second value 1 for normal operation : 3600 for 1 real time second to be 1 hour of the clock
     LEDarray_init();        //setting up the LED array 
-    ADC_init();             // setting up the ADC
+    Timer0_init();          //setting up the timer
+    Interrupts_init();
     
-    unsigned int maxLight = 170;            // CalibrationNumber any number from 0 to 255  - 105 worked for my room at home - 185 worked in the LAB
-    unsigned int minLight = 70;             // CalibrationNumber any number from 0 to 255  - used to make sure finger on the LED makes it go dark
-    unsigned int range;
-    unsigned int step;
-    range = maxLight - minLight ;
-    step = range/9 ; // spreads the values acrosse the 9 avaliable LEDs 
     
-    unsigned int MaxVal = 0;
-    unsigned int counter = 0;
+    
     while (1) {
+    // creating a global clock 
     
-    
-     // I want to drop the input 
-        
-    if(ADC_getval() > MaxVal){
-        MaxVal = ADC_getval();
-    }  
-    
-    else{
-        counter++;
-        __delay_ms(10);
-        if (counter>100){
-            MaxVal = MaxVal - step;
-            counter=0;
-        }
-    }
-    
-    LEDarray_disp_PPM(ADC_getval(),MaxVal, maxLight, minLight, step) ;
-   
+    unsigned int mins = secs*(TestMode)/(60); 
+    unsigned int hours = mins/60;
+    unsigned int days = hours/24;
+//    if (hours>24){
+//        secs = 0; // resets the clock to zero when 1 day has passed
+//    }
+    get16bitTMR0val();
+    LEDarray_disp_bin(hours);   //displays the time 
+//    LEDarray_disp_bin(get16bitTMR0val());// gets the 16bit timer value in that instant 
     }
 }
