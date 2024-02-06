@@ -24150,26 +24150,48 @@ unsigned int secs = 0;
 
 
 
+
+
 void main(void)
 {
     unsigned int TestMode = 3600;
+
     LEDarray_init();
     Timer0_init();
     Interrupts_init();
 
 
+    TRISDbits.TRISD7 = 0;
+    LATDbits.LATD7 = 0;
+
+    TRISHbits.TRISH3 = 0;
+    LATHbits.LATH3 = 0;
+
+
+    unsigned int mins = 0 ;
+    unsigned int hours = 0;
+    unsigned int days = 0 ;
+
+
 
     while (1) {
-
-
-    unsigned int mins = secs*(TestMode)/(60);
-    unsigned int hours = mins/60;
-    unsigned int days = hours/24;
-
-
-
+# 55 "main.c"
+    if (secs >= 2){
+        mins = mins + 1;
+        _delay((unsigned long)((100)*(64000000/4000.0)));
+    }
+# 68 "main.c"
     get16bitTMR0val();
-    LEDarray_disp_bin(hours);
+    LEDarray_disp_bin(mins);
+
+
+
+    if (hours >= 1 && hours <=5){
+        LATHbits.LATH3 = 1;
+    }
+    else{
+        LATHbits.LATH3 = 0;
+    }
 
     }
 }

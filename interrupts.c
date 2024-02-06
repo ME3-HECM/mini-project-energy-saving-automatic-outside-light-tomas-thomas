@@ -37,7 +37,10 @@ void __interrupt(high_priority) HighISR()
 //        T0CON0bits.T0EN=0;                  // stops the clock
         TMR0H = 0b00001011;            //write High reg first, update happens when low reg is written to
         TMR0L = 0b11011100;
-        secs = secs + 1 ;
+        secs++;
+        if (secs >=60){
+            secs = 0;
+        }  
         PIR0bits.TMR0IF=0; 						//clear the interrupt flag!
 	}
     
