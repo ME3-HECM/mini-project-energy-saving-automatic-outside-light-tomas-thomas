@@ -12,9 +12,27 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+<<<<<<< Updated upstream
       <itemPath>tester.c</itemPath>
       <itemPath>tester.h</itemPath>
       <itemPath>main.c</itemPath>
+=======
+      <itemPath>ADC.c</itemPath>
+      <itemPath>ADC.h</itemPath>
+      <itemPath>LEDarray.c</itemPath>
+      <itemPath>LEDarray.h</itemPath>
+      <itemPath>Light_Calibration.c</itemPath>
+      <itemPath>Light_Calibration.h</itemPath>
+      <itemPath>comparator.c</itemPath>
+      <itemPath>comparator.h</itemPath>
+      <itemPath>interrupts.c</itemPath>
+      <itemPath>interrupts.h</itemPath>
+      <itemPath>main.c</itemPath>
+      <itemPath>seconds.c</itemPath>
+      <itemPath>seconds.h</itemPath>
+      <itemPath>timers.c</itemPath>
+      <itemPath>timers.h</itemPath>
+>>>>>>> Stashed changes
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
