@@ -35,6 +35,23 @@ No clock is perfect, they can all run slightly fast/slow and can by influenced b
 ![Day length](gifs/day-length-london.jpg)
 http://wordpress.mrreid.org/2010/10/31/why-change-the-clocks/
 
+## Additional Content added
+The plan 
+
+1. Monitors light level with the LDR and turns on an LED in low light conditions (i.e. night-time) and off in bright conditions (i.e. daytime)
+    - LDR sensitive should be straight forward
+1. Displays the current hour of day on the LED array in binary
+    - internal clock
+    - if clock overflows in each second
+    - add to the counter counter resets every 24 hours?
+1. Turns the light off between approx. 1am and 5am
+    - requires a global clock
+1. Adjusts for daylight savings time
+    - parameter for determining which part of the year we are in
+1. Maintain synchronicity with the sun indefinitely
+    - needs a recalibration feature 
+1. Be fully automatic (requires zero maintenance after installation)
+    - we will need an instaliation date in the code 
 
 
 

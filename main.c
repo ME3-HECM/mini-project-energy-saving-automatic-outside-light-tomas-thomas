@@ -24,6 +24,7 @@
 // assuming light levels are binary - will output to an LED on the board - RH3 to show the street light is on 
     // potential to have street lights scale with the LED on the side as sun rises 
 
+
 void main(void) 
 {
     LEDarray_init();        //setting up the LED array 
@@ -59,4 +60,13 @@ void main(void)
     LEDarray_disp_PPM(ADC_getval(),MaxVal, maxLight, minLight, step) ;
    
     }
+=======
+void main(void) {
+    
+    
+    //this is a test file
+    
+    //does it work?
+    return;
+
 }
