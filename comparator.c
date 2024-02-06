@@ -5,7 +5,7 @@
  * Function to set up DAC for use by the comparator module
 ************************************/
 void DAC_init(void)
-{
+{//this is a test to see how git works (DELETE)
     DAC1CON0bits.PSS=0b00;      //3.3V for positive source (Vdd)
     DAC1CON0bits.NSS=0b0;      //0v for Negative source (Vss))
 	//5-bit DAC value to set output voltage
