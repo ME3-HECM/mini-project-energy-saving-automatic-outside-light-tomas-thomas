@@ -49,7 +49,9 @@ The plan
 1. Adjusts for daylight savings time
     - parameter for determining which part of the year we are in
 1. Maintain synchronicity with the sun indefinitely
-    - needs a recalibration feature 
+    - needs a recalibration feature
+    - track maximum darkness or other light source  for 7 days
+    - set maximum time of clock according to solar profile 
 1. Be fully automatic (requires zero maintenance after installation)
     - we will need an instaliation date in the code 
 
