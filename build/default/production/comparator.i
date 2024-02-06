@@ -1,4 +1,4 @@
-# 1 "interrupts.c"
+# 1 "comparator.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "interrupts.c" 2
+# 1 "comparator.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24086,19 +24086,9 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 1 "interrupts.c" 2
+# 1 "comparator.c" 2
 
-# 1 "./interrupts.h" 1
-
-
-
-
-
-
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-# 2 "interrupts.c" 2
+# 1 "./comparator.h" 1
 
 
 
@@ -24106,38 +24096,37 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 
 
-void Interrupts_init(void)
+void DAC_init(void);
+void Comp1_init(void);
+# 2 "comparator.c" 2
+
+
+
+
+
+void DAC_init(void)
 {
+    DAC1CON0bits.PSS=0b00;
+    DAC1CON0bits.NSS=0b0;
 
 
 
-
-  INTCONbits.PEIE = 1;
-
-
-
-    PIE0bits.TMR0IE = 1;
-    PIR0bits.TMR0IF = 0;
-    IPR0bits.TMR0IP = 1;
-
-
-    INTCONbits.GIE=1;
+    DAC1CON1bits.DAC1R=0b010000;
+    DAC1CON0bits.DAC1EN=1;
 }
 
 
 
 
 
-void __attribute__((picinterrupt(("high_priority")))) HighISR()
+void Comp1_init(void)
 {
-
-
-    if(PIR0bits.TMR0IF){
-        LATHbits.LATH3 = !LATHbits.LATH3;
-
-        TMR0H = 0b00001011;
-        TMR0L = 0b11011100;
-        PIR0bits.TMR0IF=0;
- }
-
+    TRISFbits.TRISF7=1;
+    CM1NCHbits.NCH=0b011;
+    CM1PCHbits.PCH=0b101;
+    CM1CON0bits.HYS=1;
+    CM1CON0bits.POL=1;
+    CM1CON1bits.INTP=1;
+    DAC_init();
+    CM1CON0bits.EN=1;
 }

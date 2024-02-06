@@ -7,7 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 10 "main.c"
+# 11 "main.c"
 #pragma config FEXTOSC = HS
 #pragma config RSTOSC = EXTOSC_4PLL
 
@@ -24096,7 +24096,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 18 "main.c" 2
+# 19 "main.c" 2
 
 # 1 "./LEDarray.h" 1
 # 10 "./LEDarray.h"
@@ -24106,7 +24106,7 @@ void LEDarray_disp_dec(unsigned int number);
 void LEDarray_disp_light(unsigned int number, unsigned int maxLight, unsigned int minLight, unsigned int step);
 
 void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step);
-# 19 "main.c" 2
+# 20 "main.c" 2
 
 # 1 "./ADC.h" 1
 
@@ -24118,48 +24118,28 @@ void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int 
 
 void ADC_init(void);
 unsigned int ADC_getval(void);
-# 20 "main.c" 2
-
-
-
-
+# 21 "main.c" 2
 
 
 
 
 void main(void)
 {
-    LEDarray_init();
+
+    LATHbits.LATH3=0;
+    TRISHbits.TRISH3=0;
+
     ADC_init();
 
-    unsigned int maxLight = 170;
-    unsigned int minLight = 70;
-    unsigned int range;
-    unsigned int step;
-    range = maxLight - minLight ;
-    step = range/9 ;
 
-    unsigned int MaxVal = 0;
-    unsigned int counter = 0;
+
+    unsigned int minLight = 70;
+
     while (1) {
 
+        if (ADC_getval() < minLight) {LATHbits.LATH3 = !LATHbits.LATH3;}
 
-
-
-    if(ADC_getval() > MaxVal){
-        MaxVal = ADC_getval();
+        else {LATHbits.LATH3 = 0;}
     }
 
-    else{
-        counter++;
-        _delay((unsigned long)((10)*(64000000/4000.0)));
-        if (counter>100){
-            MaxVal = MaxVal - step;
-            counter=0;
-        }
-    }
-
-    LEDarray_disp_PPM(ADC_getval(),MaxVal, maxLight, minLight, step) ;
-
-    }
 }

@@ -1,6 +1,6 @@
 #include <xc.h>
 #include "interrupts.h"
-#include "seconds.h"
+//#include "seconds.h"
 
 /************************************
  * Function to turn on interrupts and set if priority is used
