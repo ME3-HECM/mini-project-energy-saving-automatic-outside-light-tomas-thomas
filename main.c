@@ -27,7 +27,7 @@
 
 
 void main(void) 
-{//this is some text to test
+{//I am testing my branch
     LEDarray_init();        //setting up the LED array 
     ADC_init();             // setting up the ADC
     
