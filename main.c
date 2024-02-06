@@ -60,13 +60,4 @@ void main(void)
     LEDarray_disp_PPM(ADC_getval(),MaxVal, maxLight, minLight, step) ;
    
     }
-=======
-void main(void) {
-    
-    
-    //this is a test file
-    
-    //does it work?
-    return;
-
 }

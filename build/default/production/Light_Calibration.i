@@ -1,4 +1,4 @@
-# 1 "interrupts.c"
+# 1 "Light_Calibration.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "interrupts.c" 2
+# 1 "Light_Calibration.c" 2
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24086,60 +24087,21 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 1 "interrupts.c" 2
+# 2 "Light_Calibration.c" 2
 
-# 1 "./interrupts.h" 1
+# 1 "./Light_Calibration.h" 1
+# 12 "./Light_Calibration.h"
+void LEDarray_init(void);
+void LEDarray_disp_bin(unsigned int number);
+void LEDarray_disp_dec(unsigned int number);
+void LEDarray_disp_light(unsigned int number, unsigned int maxLight, unsigned int minLight, unsigned int step);
 
-
-
-
-
-
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-# 2 "interrupts.c" 2
-
-# 1 "./seconds.h" 1
-# 3 "interrupts.c" 2
+void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step);
+# 3 "Light_Calibration.c" 2
 
 
-
-
-
-
-void Interrupts_init(void)
+void Light_Calibration(int *max, int *min)
 {
-
-
-
-
-  INTCONbits.PEIE = 1;
-
-
-
-    PIE0bits.TMR0IE = 1;
-    PIR0bits.TMR0IF = 0;
-    IPR0bits.TMR0IP = 1;
-
-
-    INTCONbits.GIE=1;
-}
-
-
-
-
-
-void __attribute__((picinterrupt(("high_priority")))) HighISR()
-{
-
-
-    if(PIR0bits.TMR0IF){
-        LATHbits.LATH3 = !LATHbits.LATH3;
-
-        TMR0H = 0b00001011;
-        TMR0L = 0b11011100;
-        PIR0bits.TMR0IF=0;
- }
+    int temp;
 
 }

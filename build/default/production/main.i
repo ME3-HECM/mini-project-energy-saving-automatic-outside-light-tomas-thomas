@@ -1,4 +1,4 @@
-# 1 "interrupts.c"
+# 1 "main.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,17 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "interrupts.c" 2
+# 1 "main.c" 2
+# 10 "main.c"
+#pragma config FEXTOSC = HS
+#pragma config RSTOSC = EXTOSC_4PLL
+
+#pragma config WDTE = OFF
+
+
+
+
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24086,60 +24096,70 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 1 "interrupts.c" 2
+# 18 "main.c" 2
 
-# 1 "./interrupts.h" 1
+# 1 "./LEDarray.h" 1
+# 10 "./LEDarray.h"
+void LEDarray_init(void);
+void LEDarray_disp_bin(unsigned int number);
+void LEDarray_disp_dec(unsigned int number);
+void LEDarray_disp_light(unsigned int number, unsigned int maxLight, unsigned int minLight, unsigned int step);
 
+void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step);
+# 19 "main.c" 2
 
-
-
-
-
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-# 2 "interrupts.c" 2
-
-# 1 "./seconds.h" 1
-# 3 "interrupts.c" 2
+# 1 "./ADC.h" 1
 
 
 
 
 
 
-void Interrupts_init(void)
+
+void ADC_init(void);
+unsigned int ADC_getval(void);
+# 20 "main.c" 2
+
+
+
+
+
+
+
+
+void main(void)
 {
+    LEDarray_init();
+    ADC_init();
+
+    unsigned int maxLight = 170;
+    unsigned int minLight = 70;
+    unsigned int range;
+    unsigned int step;
+    range = maxLight - minLight ;
+    step = range/9 ;
+
+    unsigned int MaxVal = 0;
+    unsigned int counter = 0;
+    while (1) {
 
 
 
 
-  INTCONbits.PEIE = 1;
+    if(ADC_getval() > MaxVal){
+        MaxVal = ADC_getval();
+    }
 
+    else{
+        counter++;
+        _delay((unsigned long)((10)*(64000000/4000.0)));
+        if (counter>100){
+            MaxVal = MaxVal - step;
+            counter=0;
+        }
+    }
 
+    LEDarray_disp_PPM(ADC_getval(),MaxVal, maxLight, minLight, step) ;
 
-    PIE0bits.TMR0IE = 1;
-    PIR0bits.TMR0IF = 0;
-    IPR0bits.TMR0IP = 1;
-
-
-    INTCONbits.GIE=1;
-}
-
-
-
-
-
-void __attribute__((picinterrupt(("high_priority")))) HighISR()
-{
-
-
-    if(PIR0bits.TMR0IF){
-        LATHbits.LATH3 = !LATHbits.LATH3;
-
-        TMR0H = 0b00001011;
-        TMR0L = 0b11011100;
-        PIR0bits.TMR0IF=0;
- }
-
+    }
 }
