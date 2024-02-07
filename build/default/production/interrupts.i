@@ -24143,14 +24143,10 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR()
 
 
     if(PIR0bits.TMR0IF){
-        LATHbits.LATH3 = !LATHbits.LATH3;
 
         TMR0H = 0b00001011;
         TMR0L = 0b11011100;
         secs++;
-        if (secs >=60){
-            secs = 0;
-        }
         PIR0bits.TMR0IF=0;
  }
 

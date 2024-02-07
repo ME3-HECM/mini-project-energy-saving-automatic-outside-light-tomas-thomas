@@ -2104,56 +2104,56 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LEDarray.c: 16:     TRISGbits.TRISG0 = 0;
 [e = . . _TRISGbits 0 0 -> -> 0 `i `uc ]
 "17
-[; ;LEDarray.c: 17:     LATGbits.LATG0 = 1;
-[e = . . _LATGbits 0 0 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 17:     LATGbits.LATG0 = 0;
+[e = . . _LATGbits 0 0 -> -> 0 `i `uc ]
 "19
 [; ;LEDarray.c: 19:     TRISGbits.TRISG1 = 0;
 [e = . . _TRISGbits 0 1 -> -> 0 `i `uc ]
 "20
-[; ;LEDarray.c: 20:     LATGbits.LATG1 = 1;
-[e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 20:     LATGbits.LATG1 = 0;
+[e = . . _LATGbits 0 1 -> -> 0 `i `uc ]
 "22
 [; ;LEDarray.c: 22:     TRISAbits.TRISA2 = 0;
 [e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
 "23
-[; ;LEDarray.c: 23:     LATAbits.LATA2 = 1;
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 23:     LATAbits.LATA2 = 0;
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
 "25
 [; ;LEDarray.c: 25:     TRISFbits.TRISF6 = 0;
 [e = . . _TRISFbits 0 6 -> -> 0 `i `uc ]
 "26
-[; ;LEDarray.c: 26:     LATFbits.LATF6 = 1;
-[e = . . _LATFbits 0 6 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 26:     LATFbits.LATF6 = 0;
+[e = . . _LATFbits 0 6 -> -> 0 `i `uc ]
 "28
 [; ;LEDarray.c: 28:     TRISAbits.TRISA4 = 0;
 [e = . . _TRISAbits 0 4 -> -> 0 `i `uc ]
 "29
-[; ;LEDarray.c: 29:     LATAbits.LATA4 = 1;
-[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 29:     LATAbits.LATA4 = 0;
+[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
 "31
 [; ;LEDarray.c: 31:     TRISAbits.TRISA5 = 0;
 [e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
 "32
-[; ;LEDarray.c: 32:     LATAbits.LATA5 = 1;
-[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 32:     LATAbits.LATA5 = 0;
+[e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
 "34
 [; ;LEDarray.c: 34:     TRISFbits.TRISF0 = 0;
 [e = . . _TRISFbits 0 0 -> -> 0 `i `uc ]
 "35
-[; ;LEDarray.c: 35:     LATFbits.LATF0 = 1;
-[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 35:     LATFbits.LATF0 = 0;
+[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
 "37
 [; ;LEDarray.c: 37:     TRISBbits.TRISB0 = 0;
 [e = . . _TRISBbits 0 0 -> -> 0 `i `uc ]
 "38
-[; ;LEDarray.c: 38:     LATBbits.LATB0 = 1;
-[e = . . _LATBbits 0 0 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 38:     LATBbits.LATB0 = 0;
+[e = . . _LATBbits 0 0 -> -> 0 `i `uc ]
 "40
 [; ;LEDarray.c: 40:     TRISBbits.TRISB1 = 0;
 [e = . . _TRISBbits 0 1 -> -> 0 `i `uc ]
 "41
-[; ;LEDarray.c: 41:     LATBbits.LATB1 = 1;
-[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 41:     LATBbits.LATB1 = 0;
+[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
 "43
 [; ;LEDarray.c: 43: }
 [e :UE 2015 ]

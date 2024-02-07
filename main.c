@@ -33,6 +33,7 @@ void main(void)
     TRISDbits.TRISD7 = 0;   // setting the input/output to output
     LATDbits.LATD7 = 0;
     
+    
     TRISHbits.TRISH3 = 0;
     LATHbits.LATH3 = 0;
     
@@ -40,43 +41,52 @@ void main(void)
     unsigned int mins = 0 ; 
     unsigned int hours = 0; 
     unsigned int days = 0 ;
-// #####################
-
     
+
+
     while (1) {
     // creating a global clock 
-    
+//        clock(days,hours,mins,secs);
+//    //########     TESTING MODE     ########//  if not commented out then the clock will run 1 sec = 1 hour
+        hours = secs;                       // rest of the code does not need to be touched if test mode enabled
+        if (secs >= 24 ){
+        secs = 0; 
+        }
+//    //######################################// 
+//        
     // couldn't get this to work without the numbers overflowing 
         // be very careful with overflow values of reaching the cap of 2^16 
         
-   
-//    
-//    // timer module to create time 
-    if (secs > 60 && ){
-        mins = mins + 1;
-    }
-//    if  (mins >= 60){
-//        hours++;
-//        mins = 0;
-//    }
-//    if (hours >= 24){
-//        days++;
-//        hours = 0;
-//    }
+    // timer module to create time 
+        if (secs >= 60 ){
+        secs = 0;
+        mins++;
+        }
+ 
+        if  (mins >= 60){   // by setting this greater than or equal to 60 it ensures that we can't accidentally keep increasing seconds without increase hours
+        mins = 0;
+        hours++;
+        }
+        
+        if (hours >= 24){
+        hours = 0;
+        days++; 
+        }
+        
+//        get16bitTMR0val();          // calling the clock value - not sure if this is needed
+        LEDarray_disp_bin(hours);   //displays the time 
+    // 
+        
+        
+        if (secs >= 1 && secs <=5){
+            LED_Right = 1;
+        }
+        else{
+            LED_Right = 0;
+        }
     
-    get16bitTMR0val();
-    LEDarray_disp_bin(mins);   //displays the time 
-//    LEDarray_disp_bin(get16bitTMR0val());// gets the 16bit timer value in that instant 
-    
-    
-    if (hours >= 1 && hours <=5){
-        LED_Right = 1;
-    }
-    else{
-        LED_Right = 0;
     }
     
-    }
 }
 
 

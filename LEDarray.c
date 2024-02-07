@@ -14,31 +14,31 @@ void LEDarray_init(void)
     
     //LED 1 - RGO
     TRISGbits.TRISG0 = 0;   // setting the input/output to output 
-    LATGbits.LATG0 = 1;     // Setting the Left LED as ON - (0=off, 1=on)
+    LATGbits.LATG0 = 0;     // Setting the Left LED as ON - (0=off, 1=on)
     //LED 2 - RG1
     TRISGbits.TRISG1 = 0;   // setting the input/output to output
-    LATGbits.LATG1 = 1;     // Setting the Left LED as ON - (0=off, 1=on)
+    LATGbits.LATG1 = 0;     // Setting the Left LED as ON - (0=off, 1=on)
     //LED 3 - RA2
     TRISAbits.TRISA2 = 0;   // setting the input/output to output
-    LATAbits.LATA2 = 1;     // Setting the Left LED as ON - (0=off, 1=on)
+    LATAbits.LATA2 = 0;     // Setting the Left LED as ON - (0=off, 1=on)
     //LED 4 - RF6
     TRISFbits.TRISF6 = 0;   // setting the input/output to output
-    LATFbits.LATF6 = 1;     // Setting the Left LED as ON - (0=off, 1=on)
+    LATFbits.LATF6 = 0;     // Setting the Left LED as ON - (0=off, 1=on)
     //LED 5 - RA4
     TRISAbits.TRISA4 = 0;   // setting the input/output to output
-    LATAbits.LATA4 = 1;     // Setting the Left LED as ON - (0=off, 1=on)
+    LATAbits.LATA4 = 0;     // Setting the Left LED as ON - (0=off, 1=on)
     //LED 6 - RA5
     TRISAbits.TRISA5 = 0;   // setting the input/output to output
-    LATAbits.LATA5 = 1;     // Setting the Left LED as ON - (0=off, 1=on)
+    LATAbits.LATA5 = 0;     // Setting the Left LED as ON - (0=off, 1=on)
     //LED 7 - RF0
     TRISFbits.TRISF0 = 0;   // setting the input/output to output
-    LATFbits.LATF0 = 1;     // Setting the Left LED as ON - (0=off, 1=on)
+    LATFbits.LATF0 = 0;     // Setting the Left LED as ON - (0=off, 1=on)
     //LED 8 - RB0
     TRISBbits.TRISB0 = 0;   // setting the input/output to output
-    LATBbits.LATB0 = 1;     // Setting the Left LED as ON - (0=off, 1=on)
+    LATBbits.LATB0 = 0;     // Setting the Left LED as ON - (0=off, 1=on)
     //LED 9 - RB1
     TRISBbits.TRISB1 = 0;   // setting the input/output to output
-    LATBbits.LATB1 = 1;     // Setting the Left LED as ON - (0=off, 1=on)
+    LATBbits.LATB1 = 0;     // Setting the Left LED as ON - (0=off, 1=on)
     
 }
 

@@ -1,4 +1,4 @@
-# 1 "LEDarray.c"
+# 1 "clock.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "LEDarray.c" 2
+# 1 "clock.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24086,224 +24086,24 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 1 "LEDarray.c" 2
+# 1 "clock.c" 2
 
-# 1 "./LEDarray.h" 1
-# 10 "./LEDarray.h"
-void LEDarray_init(void);
-void LEDarray_disp_bin(unsigned int number);
-void LEDarray_disp_dec(unsigned int number);
-void LEDarray_disp_light(unsigned int number, unsigned int maxLight, unsigned int minLight, unsigned int step);
+# 1 "./clock.h" 1
 
-void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step);
-# 2 "LEDarray.c" 2
 
 
 
 
 
 
-void LEDarray_init(void)
-{
+void clock(int d, int h, int m, int s);
+void clock_init(void);
+# 2 "clock.c" 2
 
 
+void clock_init(void){
+    int time_vals[4] = {0, 0, 0, 0} ;
 
 
 
-
-    TRISGbits.TRISG0 = 0;
-    LATGbits.LATG0 = 0;
-
-    TRISGbits.TRISG1 = 0;
-    LATGbits.LATG1 = 0;
-
-    TRISAbits.TRISA2 = 0;
-    LATAbits.LATA2 = 0;
-
-    TRISFbits.TRISF6 = 0;
-    LATFbits.LATF6 = 0;
-
-    TRISAbits.TRISA4 = 0;
-    LATAbits.LATA4 = 0;
-
-    TRISAbits.TRISA5 = 0;
-    LATAbits.LATA5 = 0;
-
-    TRISFbits.TRISF0 = 0;
-    LATFbits.LATF0 = 0;
-
-    TRISBbits.TRISB0 = 0;
-    LATBbits.LATB0 = 0;
-
-    TRISBbits.TRISB1 = 0;
-    LATBbits.LATB1 = 0;
-
-}
-
-
-
-
-
-void LEDarray_disp_bin(unsigned int number)
-{
-    LATDbits.LATD7 = !LATDbits.LATD7;
-
-    if (number & 0b000000001){ LATGbits.LATG0 = 1 ; }
-    else{LATGbits.LATG0 = 0;}
-
-    if (number & 0b000000010){ LATGbits.LATG1 = 1 ; }
-    else{LATGbits.LATG1 = 0;}
-
-    if (number & 0b000000100){ LATAbits.LATA2 = 1 ; }
-    else{LATAbits.LATA2 = 0;}
-
-    if (number & 0b000001000){ LATFbits.LATF6 = 1 ; }
-    else{LATFbits.LATF6 = 0;}
-
-    if (number & 0b000010000){ LATAbits.LATA4 = 1 ; }
-    else{LATAbits.LATA4 = 0;}
-
-    if (number & 0b000100000){ LATAbits.LATA5 = 1 ; }
-    else{LATAbits.LATA5 = 0;}
-
-    if (number & 0b001000000){ LATFbits.LATF0 = 1 ; }
-    else{LATFbits.LATF0 = 0;}
-
-    if (number & 0b010000000){ LATBbits.LATB0 = 1 ; }
-    else{LATBbits.LATB0 = 0;}
-
-    if (number & 0b100000000){ LATBbits.LATB1 = 1 ; }
-    else{LATBbits.LATB1 = 0;}
-
-
-
-}
-
-
-
-
-
-
-void LEDarray_disp_dec(unsigned int number)
-{
- unsigned int disp_val;
-
-    if (number >= 1){ LATGbits.LATG0 = 1 ; }
-    else{LATGbits.LATG0 = 0;}
-
-    if (number >= 2){ LATGbits.LATG1 = 1 ; }
-    else{LATGbits.LATG1 = 0;}
-
-    if (number >= 3){ LATAbits.LATA2 = 1 ; }
-    else{LATAbits.LATA2 = 0;}
-
-    if (number >= 4){ LATFbits.LATF6 = 1 ; }
-    else{LATFbits.LATF6 = 0;}
-
-    if (number >= 5){ LATAbits.LATA4 = 1 ; }
-    else{LATAbits.LATA4 = 0;}
-
-    if (number >= 6){ LATAbits.LATA5 = 1 ; }
-    else{LATAbits.LATA5 = 0;}
-
-    if (number >= 7){ LATFbits.LATF0 = 1 ; }
-    else{LATFbits.LATF0 = 0;}
-
-    if (number >= 8){ LATBbits.LATB0 = 1 ; }
-    else{LATBbits.LATB0 = 0;}
-
-    if (number >= 9){ LATBbits.LATB1 = 1 ; }
-    else{LATBbits.LATB1 = 0;}
-
-
-
-
-
-}
-# 134 "LEDarray.c"
-void LEDarray_disp_light(unsigned int number, unsigned int maxLight, unsigned int minLight, unsigned int step)
-{
-
-    if (number > minLight + step*1 ){ LATGbits.LATG0 = 1 ; }
-    else{LATGbits.LATG0 = 0;}
-
-    if (number > minLight + step*2 ){ LATGbits.LATG1 = 1 ; }
-    else{LATGbits.LATG1 = 0;}
-
-    if (number > minLight + step*3 ){ LATAbits.LATA2 = 1 ; }
-    else{LATAbits.LATA2 = 0;}
-
-    if (number > minLight + step*4 ){ LATFbits.LATF6 = 1 ; }
-    else{LATFbits.LATF6 = 0;}
-
-    if (number > minLight + step*5 ){ LATAbits.LATA4 = 1 ; }
-    else{LATAbits.LATA4 = 0;}
-
-    if (number > minLight + step*6 ){ LATAbits.LATA5 = 1 ; }
-    else{LATAbits.LATA5 = 0;}
-
-    if (number > minLight + step*7 ){ LATFbits.LATF0 = 1 ; }
-    else{LATFbits.LATF0 = 0;}
-
-    if (number > minLight + step*8 ){ LATBbits.LATB0 = 1 ; }
-    else{LATBbits.LATB0 = 0;}
-
-    if (number > minLight + step*9 ){ LATBbits.LATB1 = 1 ; }
-    else{LATBbits.LATB1 = 0;}
-
-}
-
-
-void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step)
-
-
-{
-
-
-
-    if ((MaxVal > minLight + step*1) && (MaxVal <= minLight + step*2)){ LATGbits.LATG0 = 1 ; }
-    else{LATGbits.LATG0 = 0;}
-
-    if ((MaxVal > minLight +step*2) && (MaxVal <= minLight +step*3)){ LATGbits.LATG1 = 1 ; }
-    else{LATGbits.LATG1 = 0;}
-
-    if ((MaxVal > minLight +step*3) && (MaxVal <= minLight +step*4)){ LATAbits.LATA2 = 1 ; }
-    else{LATAbits.LATA2 = 0;}
-
-    if ((MaxVal > minLight +step*4) && (MaxVal <= minLight +step*5)){ LATFbits.LATF6 = 1 ; }
-    else{LATFbits.LATF6 = 0;}
-
-    if ((MaxVal > minLight +step*5) && (MaxVal <= minLight +step*6)){ LATAbits.LATA4 = 1 ; }
-    else{LATAbits.LATA4 = 0;}
-
-    if ((MaxVal > minLight +step*6) && (MaxVal <= minLight +step*7)){ LATAbits.LATA5 = 1 ; }
-    else{LATAbits.LATA5 = 0;}
-
-    if ((MaxVal > minLight +step*7) && (MaxVal <= minLight +step*8)){ LATFbits.LATF0 = 1 ; }
-    else{LATFbits.LATF0 = 0;}
-
-    if ((MaxVal > minLight +step*8) && (MaxVal <= minLight +step*9)){ LATBbits.LATB0 = 1 ; }
-    else{LATBbits.LATB0 = 0;}
-
-    if (MaxVal > minLight +step*9){ LATBbits.LATB1 = 1 ; }
-    else{LATBbits.LATB1 = 0;}
-
-
-    if (numberIn > minLight + step*1 ){ LATGbits.LATG0 = 1 ; }
-
-    if (numberIn > minLight + step*2 ){ LATGbits.LATG1 = 1 ; }
-
-    if (numberIn > minLight + step*3 ){ LATAbits.LATA2 = 1 ; }
-
-    if (numberIn > minLight + step*4 ){ LATFbits.LATF6 = 1 ; }
-
-    if (numberIn > minLight + step*5 ){ LATAbits.LATA4 = 1 ; }
-
-    if (numberIn > minLight + step*6 ){ LATAbits.LATA5 = 1 ; }
-
-    if (numberIn > minLight + step*7 ){ LATFbits.LATF0 = 1 ; }
-
-    if (numberIn > minLight + step*8 ){ LATBbits.LATB0 = 1 ; }
-
-    if (numberIn > minLight + step*9 ){ LATBbits.LATB1 = 1 ; }
 }
