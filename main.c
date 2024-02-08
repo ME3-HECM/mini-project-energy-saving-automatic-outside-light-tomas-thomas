@@ -45,17 +45,25 @@ void main(void)
         int minutes;
         int hours;
         int days;
+//        int months;
 //        char month;   // potentiall use this to track the month and output onto LED display
     };
 
     struct time_structure clock;    //creates clock, which is of the structure time_structure
-    
-    // set the intial starting time when the sensor is set up
-    secs = 0;
-    clock.minutes = 0;
-    clock.hours = 18;
-    clock.days = 1;
+        // set the initial starting time when the sensor is set up
+        secs = 0;
+        clock.minutes = 0;
+        clock.hours = 18;
+        clock.days = 1;
+//        clock.months = 0;
    
+        // last Sunday in March and October.
+    struct time_structure DSTon;
+        DSTon.minutes = 0;
+        DSTon.hours = 0;
+        DSTon.days = 0;
+    
+    
     
 //~~~~~~~~~~~~~~~~~~~       TEST    MODE      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    
@@ -68,11 +76,10 @@ void main(void)
         
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-
     while (1) {
         
         clock.seconds = secs;
-        UpdateClock(&secs, &clock.minutes, &clock.hours, &clock.days );
+        UpdateClock(&secs, &clock.minutes, &clock.hours, &clock.days);
         
         LEDarray_disp_bin(clock.hours);
         
@@ -95,47 +102,6 @@ void main(void)
         }  
     }  
 }       
-//        
-//        // creating a global clock 
-////        clock(days,hours,mins,secs);
-////    //########     TESTING MODE     ########//  if not commented out then the clock will run 1 sec = 1 hour
-//        hours = secs;                       // rest of the code does not need to be touched if test mode enabled
-//        if (secs >= 24 ){
-//        secs = 0; 
-//        }
-////    //######################################// 
-////        
-//    // couldn't get this to work without the numbers overflowing 
-//        // be very careful with overflow values of reaching the cap of 2^16 
-//        
-//    // timer module to create time 
-//        if (secs >= 60 ){
-//        secs = 0;
-//        mins++;
-//        }
-// 
-//        if  (mins >= 60){   // by setting this greater than or equal to 60 it ensures that we can't accidentally keep increasing seconds without increase hours
-//        mins = 0;
-//        hours++;
-//        }
-//        
-//        if (hours >= 24){
-//        hours = 0;
-//        days++; 
-//        }
-//        
-////        get16bitTMR0val();          // calling the clock value - not sure if this is needed
-//        LEDarray_disp_bin(hours);   //displays the time 
-//    // 
-//        
-//        
-//        if (secs >= 1 && secs <=5){
-//            LED_Right = 1;
-//        }
-//        else{
-//            LED_Right = 0;
-//        }
-
 
 
 // daylight savings - if clock reaches day x then subtract hours by 1 
