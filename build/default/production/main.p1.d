@@ -4,4 +4,6 @@ LEDarray.h  \
 timers.h  \
 interrupts.h  \
 seconds.h  \
-clock.h 
+clock.h  \
+LCD.h  \
+ADC.h 

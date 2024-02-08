@@ -24098,7 +24098,7 @@ unsigned char __t3rd16on(void);
 
 void clock_init(void);
 
-void UpdateClock(int *s, int *m, int *h, int *d);
+void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *months, int *years);
 # 2 "clock.c" 2
 
 # 1 "./seconds.h" 1
@@ -24117,7 +24117,10 @@ void clock_init(void){
 # 22 "clock.c"
 }
 
-void UpdateClock(int *seconds, int *minutes, int *hours, int *days){
+void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *months, int *years){
+
+    int DaysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
 
 
             *hours = *seconds;
@@ -24127,19 +24130,39 @@ void UpdateClock(int *seconds, int *minutes, int *hours, int *days){
                 *days = *days + 1;
             }
 
-
     if (*seconds >= 60 ){
         *seconds = 0;
         *minutes = *minutes + 1;
     }
 
     if (*minutes >= 60){
-    *minutes = 0;
-    *hours = *hours + 1;
+        *minutes = 0;
+        *hours = *hours + 1;
     }
 
     if (*hours >= 24){
-    *hours = 0;
-    *days = *days + 1;
+        *hours = 0;
+        *days = *days + 1;
     }
+
+    if ((*years)%4 == 0 && *months == 2){
+       DaysInMonth[1] = 29;
+    }
+
+    if (*years%100 == 0 && *months == 2){
+        if(*years%400 != 0){
+            DaysInMonth[1] = 28;
+        }
+    }
+
+    if (*days > (DaysInMonth[*months-1] ) ) {
+        *days = 1;
+        *months = *months + 1 ;
+
+        if (*months >= 12+1) {
+            *months = 1;
+            *years = *years + 1;
+        }
+    }
+
 }

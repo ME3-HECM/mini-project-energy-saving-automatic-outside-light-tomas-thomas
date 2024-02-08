@@ -11,11 +11,15 @@
 
 // include all .h files here
 #include <xc.h>
+#include <stdio.h>
+
 #include "LEDarray.h"
 #include "timers.h"
 #include "interrupts.h"
 #include "seconds.h"
 #include "clock.h"
+#include "LCD.h"
+#include "ADC.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
@@ -29,6 +33,9 @@ void main(void)
     LEDarray_init();        //setting up the LED array 
     Timer0_init();          //setting up the timer
     Interrupts_init();      //setting up the interrupts
+    
+//    LCD_Init(); 
+    ADC_init();
 
 // setting up the LEDS on the board with more helpful names
     #define LED_Left LATDbits.LATD7
@@ -45,23 +52,32 @@ void main(void)
         int minutes;
         int hours;
         int days;
-//        int months;
+        int months;
+        int years;
 //        char month;   // potentially use this to track the month and output onto LED display
     };
-
+   
     struct time_structure clock;    //creates clock, which is of the structure time_structure
         // set the initial starting time when the sensor is set up
         GLOBALsecs = 50;
         clock.minutes = 59;
-        clock.hours = 12;
-        clock.days = 1;
+        clock.hours = 22;
+        clock.days = 28;
+        clock.months = 2;
+        clock.years = 1904;
 //        clock.months = 0;
    
+        //need to create a month command that takes input of max days 
+   
+       
+
+        // function reset month
+                
         // last Sunday in March and October.
-    struct time_structure DSTon;
-        DSTon.minutes = 0;
-        DSTon.hours = 0;
-        DSTon.days = 0;
+//    struct time_structure DSTon;
+//        DSTon.minutes = 0;
+//        DSTon.hours = 0;
+//        DSTon.days = 0;
     
     
 //~~~~~~~~~~~~~~~~~~~       TEST    MODE      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -74,23 +90,27 @@ void main(void)
     //this will equate seconds in IRL to hours in terms of the display.
         
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    
+  
+        
     while (1) {
         
+//        LCD_scroll();
+//        __delay_ms(200);
+        
         clock.seconds = GLOBALsecs;   //updates the clock.seconds to be in sync with clock time
-        UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days);  //changes the minutes, hours, days in the clock structure when a sec increases
+        UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days, &clock.months, &clock.years);  //changes the minutes, hours, days in the clock structure when a sec increases
         
         //displays the hour value in binary
         LEDarray_disp_bin(clock.hours);
         
         //alternates on to off for each time it changes day
-        if (clock.days % 2 == 0 ){  //shows when a clock day changes on the LED
+        if (clock.months == 3 ){  //shows when a clock day changes on the LED
             LED_Left = 1;
         }
         else{
             LED_Left = 0; 
         }
-        
+//        
         // light turning off or on depending on task brief conditions 
         if (1){ // if the ADC is bigger than our threshold - if dark enough turn on
             if (clock.hours >= 1 && clock.hours <=5){   //check that its not energy saving time
