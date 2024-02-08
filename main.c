@@ -207,17 +207,20 @@ void main(void)
    
     struct array_structure { //set up time structure - we haven't actually called it yet
         int size;
+        int count;
         int hours;
         int minutes;
     };
     
     struct array_structure Dawn;
         Dawn.size = 7;
+        Dawn.count = 0;                                 //ensures that Dawn is only counted once a day
         Dawn.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
         Dawn.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
         
     struct array_structure Dusk;
         Dusk.size = 7;
+        Dusk.count = 0;                                 //ensures that Dusk is only counted once a day
         Dusk.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
         Dusk.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
     
@@ -235,6 +238,12 @@ void main(void)
     //Defining light levels for turning LED on in dark and off in light
     unsigned int light_threshold = 70;     // CalibrationNumber any number from 0 to 255  - Used as transition threshold light level at dawn/dusk.
                                             //Only one light level is needed - represents both Dawn and Dusk - this is the transition from light to dark and vice versa.
+    
+    unsigned int daycount = 0; //keep track of the number of days since the last Sun synchronisation. 
+                               //this will go up to 7 where it will calculate the average solar midnight and then compare with known value
+                               //for re-calibration.
+    unsigned int previousClockDays = clock.days; //To store the current/previous day to indicate when a day has passed.
+    
     
      //This is to display bits to calibrate LDR for Dawn and Dusk
 //      unsigned int calibration_level = ADC_getval();
@@ -271,16 +280,48 @@ void main(void)
             
             else {                  //If light levels have lowered further than the threshold at dusk, turn the LED on.
                 LED_Right = 1;      //must not be energy saving time therefore turn light on
+                if ((Dusk.count = 0)&&(clock.hours >=15 && clock.hours < 8)) {
+                    ArrayAppend(Dusk.hours, Dusk.size, clock.hours);
+                    ArrayAppend(Dusk.minutes, Dusk.size,  clock.minutes);
+                    Dusk.count = 1;
+                }
             }
         }  
         
-        if (curval > light_threshold){
+        if (curval > light_threshold){ //if light enough, turn LED off
             LED_Right = 0;
+            if ((Dawn.count = 0)&&(clock.hours >=4 && clock.hours < 8)) { //Dawn only occurs between 4am and 8am
+                ArrayAppend(Dawn.hours, Dawn.size, clock.hours);
+                ArrayAppend(Dawn.minutes, Dawn.size,  clock.minutes);
+                Dawn.count = 1;
+            }
+        }
+        
+        if (clock.days > previousClockDays) {
+            Dawn.count = 0;
+            Dusk.count = 0;
+            daycount++;
             
-//            if (clock.hours >=4 && clock.hours < 8) { //Dawn only occurs between 4am and 8am
-//                ArrayAppend(Dawn.hours, Dawn.size, clock.hours);
-//                ArrayAppend(Dawn.minutes, Dawn.size,  clock.minutes);
-//            }
+            LED_Left = 1;
+            previousClockDays = clock.days;
+        
+            if (daycount == 7) {
+                
+                //function here to average all the dawn/dusk times and compare with known value
+                
+            }
+                
+                
+                
+                LED_Left = 1;
+                LED_Right = 1;
+                __delay_ms(500);
+                
+                
+                //correction added to time
+                
+                daycount = 0;
+            }
         }
     }  
 }

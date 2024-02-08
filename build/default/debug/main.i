@@ -24322,24 +24322,33 @@ void main(void)
 
     struct array_structure {
         int size;
+        int count;
         int hours;
         int minutes;
     };
 
     struct array_structure Dawn;
         Dawn.size = 7;
+        Dawn.count = 0;
         Dawn.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
         Dawn.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
 
     struct array_structure Dusk;
         Dusk.size = 7;
+        Dusk.count = 0;
         Dusk.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
         Dusk.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-# 233 "main.c"
+# 236 "main.c"
     ADC_init();
 
 
     unsigned int light_threshold = 70;
+
+
+    unsigned int daycount = 5;
+
+
+    unsigned int previousClockDays = clock.days;
 
 
 
@@ -24353,7 +24362,7 @@ void main(void)
 
 
         LEDarray_disp_bin(clock.hours);
-# 262 "main.c"
+# 271 "main.c"
         unsigned int curval = ADC_getval();
 
 
@@ -24366,15 +24375,42 @@ void main(void)
 
             else {
                 LATHbits.LATH3 = 1;
+                if ((Dusk.count = 0)&&(clock.hours >=15 && clock.hours < 8)) {
+                    ArrayAppend(Dusk.hours, Dusk.size, clock.hours);
+                    ArrayAppend(Dusk.minutes, Dusk.size, clock.minutes);
+                    Dusk.count = 1;
+                }
             }
         }
 
         if (curval > light_threshold){
             LATHbits.LATH3 = 0;
-
-            if (clock.hours >=4 && clock.hours < 8) {
+            if ((Dawn.count = 0)&&(clock.hours >=4 && clock.hours < 8)) {
                 ArrayAppend(Dawn.hours, Dawn.size, clock.hours);
                 ArrayAppend(Dawn.minutes, Dawn.size, clock.minutes);
+                Dawn.count = 1;
+            }
+        }
+
+        if (clock.days > previousClockDays) {
+            Dawn.count = 0;
+            Dusk.count = 0;
+            daycount++;
+
+            LATDbits.LATD7 = 1;
+            previousClockDays = clock.days;
+
+            if (daycount == 7) {
+
+
+                LATDbits.LATD7 = 1;
+                LATHbits.LATH3 = 1;
+                _delay((unsigned long)((500)*(64000000/4000.0)));
+
+
+
+
+                daycount = 0;
             }
         }
     }

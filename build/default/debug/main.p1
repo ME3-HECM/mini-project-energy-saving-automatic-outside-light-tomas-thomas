@@ -87,8 +87,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S2017 month_structure solarMidMinutes solarMidHours days ]
 "208
 [; ;main.c: 208:     struct array_structure {
-[s S2018 `i 1 `i 1 `i 1 ]
-[n S2018 array_structure size hours minutes ]
+[s S2018 `i 1 `i 1 `i 1 `i 1 ]
+[n S2018 array_structure size count hours minutes ]
 "8 ./ADC.h
 [; ;./ADC.h: 8: void ADC_init(void);
 [v _ADC_init `(v ~T0 @X0 0 ef ]
@@ -104,6 +104,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8 ./synchronisation.h
 [; ;./synchronisation.h: 8: int ArrayAppend(int arrayTime[], int size, int Time);
 [v _ArrayAppend `(i ~T0 @X0 0 ef3`*i`i`i ]
+[v F205 `(v ~T0 @X0 1 tf1`ul ]
+"20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
+[v __delay `JF205 ~T0 @X0 0 e ]
+[p i __delay ]
 "5 main.c
 [p x FEXTOSC  =  HS      ]
 "6
@@ -2111,8 +2115,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `i
 ..
 ]
-"216
-[; ;main.c: 216:         Dawn.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
+"218
+[; ;main.c: 218:         Dawn.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
 [v F14166 `i ~T0 @X0 -> 7 `i a ]
 [v F14167 `i ~T0 @X0 -> 7 `i s ]
 [i F14167
@@ -2126,8 +2130,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `i
 ..
 ]
-"217
-[; ;main.c: 217:         Dawn.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
+"219
+[; ;main.c: 219:         Dawn.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
 [v F14168 `i ~T0 @X0 -> 7 `i a ]
 [v F14169 `i ~T0 @X0 -> 7 `i s ]
 [i F14169
@@ -2141,8 +2145,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `i
 ..
 ]
-"221
-[; ;main.c: 221:         Dusk.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
+"224
+[; ;main.c: 224:         Dusk.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
 [v F14170 `i ~T0 @X0 -> 7 `i a ]
 [v F14171 `i ~T0 @X0 -> 7 `i s ]
 [i F14171
@@ -2156,8 +2160,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `i
 ..
 ]
-"222
-[; ;main.c: 222:         Dusk.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
+"225
+[; ;main.c: 225:         Dusk.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
 [v F14172 `i ~T0 @X0 -> 7 `i a ]
 "31
 [; ;main.c: 31:     LEDarray_init();
@@ -2354,116 +2358,193 @@ Version 4.0 HI-TECH Software Intermediate Code
 "200
 [; ;main.c: 200:         Dec.solarMidMinutes = 56;
 [e = . _Dec 0 -> 56 `i ]
-"214
-[; ;main.c: 214:     struct array_structure Dawn;
-[v _Dawn `S2018 ~T0 @X0 1 a ]
 "215
-[; ;main.c: 215:         Dawn.size = 7;
-[e = . _Dawn 0 -> 7 `i ]
+[; ;main.c: 215:     struct array_structure Dawn;
+[v _Dawn `S2018 ~T0 @X0 1 a ]
 "216
-[; ;main.c: 216:         Dawn.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
-[e = . _Dawn 1 -> &U ; = F14166 F14165 F14166 `i ]
+[; ;main.c: 216:         Dawn.size = 7;
+[e = . _Dawn 0 -> 7 `i ]
 "217
-[; ;main.c: 217:         Dawn.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-[e = . _Dawn 2 -> &U ; = F14168 F14167 F14168 `i ]
+[; ;main.c: 217:         Dawn.count = 0;
+[e = . _Dawn 1 -> 0 `i ]
+"218
+[; ;main.c: 218:         Dawn.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
+[e = . _Dawn 2 -> &U ; = F14166 F14165 F14166 `i ]
 "219
-[; ;main.c: 219:     struct array_structure Dusk;
-[v _Dusk `S2018 ~T0 @X0 1 a ]
-"220
-[; ;main.c: 220:         Dusk.size = 7;
-[e = . _Dusk 0 -> 7 `i ]
+[; ;main.c: 219:         Dawn.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
+[e = . _Dawn 3 -> &U ; = F14168 F14167 F14168 `i ]
 "221
-[; ;main.c: 221:         Dusk.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
-[e = . _Dusk 1 -> &U ; = F14170 F14169 F14170 `i ]
+[; ;main.c: 221:     struct array_structure Dusk;
+[v _Dusk `S2018 ~T0 @X0 1 a ]
 "222
-[; ;main.c: 222:         Dusk.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-[e = . _Dusk 2 -> &U ; = F14172 F14171 F14172 `i ]
-"233
-[; ;main.c: 233:     ADC_init();
-[e ( _ADC_init ..  ]
+[; ;main.c: 222:         Dusk.size = 7;
+[e = . _Dusk 0 -> 7 `i ]
+"223
+[; ;main.c: 223:         Dusk.count = 0;
+[e = . _Dusk 1 -> 0 `i ]
+"224
+[; ;main.c: 224:         Dusk.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
+[e = . _Dusk 2 -> &U ; = F14170 F14169 F14170 `i ]
+"225
+[; ;main.c: 225:         Dusk.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
+[e = . _Dusk 3 -> &U ; = F14172 F14171 F14172 `i ]
 "236
-[; ;main.c: 236:     unsigned int light_threshold = 70;
+[; ;main.c: 236:     ADC_init();
+[e ( _ADC_init ..  ]
+"239
+[; ;main.c: 239:     unsigned int light_threshold = 70;
 [v _light_threshold `ui ~T0 @X0 1 a ]
 [e = _light_threshold -> -> 70 `i `ui ]
-"243
-[; ;main.c: 243:     while (1) {
+"242
+[; ;main.c: 242:     unsigned int daycount = 5;
+[v _daycount `ui ~T0 @X0 1 a ]
+[e = _daycount -> -> 5 `i `ui ]
+"245
+[; ;main.c: 245:     unsigned int previousClockDays = clock.days;
+[v _previousClockDays `ui ~T0 @X0 1 a ]
+[e = _previousClockDays -> . _clock 3 `ui ]
+"252
+[; ;main.c: 252:     while (1) {
 [e :U 2020 ]
 {
-"245
-[; ;main.c: 245:         clock.seconds = GLOBALsecs;
+"254
+[; ;main.c: 254:         clock.seconds = GLOBALsecs;
 [e = . _clock 0 -> _GLOBALsecs `i ]
-"246
-[; ;main.c: 246:         UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days);
+"255
+[; ;main.c: 255:         UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days);
 [e ( _UpdateClock (4 , , , -> &U _GLOBALsecs `*i &U . _clock 1 &U . _clock 2 &U . _clock 3 ]
-"249
-[; ;main.c: 249:         LEDarray_disp_bin(clock.hours);
+"258
+[; ;main.c: 258:         LEDarray_disp_bin(clock.hours);
 [e ( _LEDarray_disp_bin (1 -> . _clock 2 `ui ]
-"262
-[; ;main.c: 262:         unsigned int curval = ADC_getval();
+"271
+[; ;main.c: 271:         unsigned int curval = ADC_getval();
 [v _curval `ui ~T0 @X0 1 a ]
 [e = _curval ( _ADC_getval ..  ]
-"265
-[; ;main.c: 265:         if (curval < light_threshold){
+"274
+[; ;main.c: 274:         if (curval < light_threshold){
 [e $ ! < _curval _light_threshold 2022  ]
 {
-"268
-[; ;main.c: 268:             if ((clock.hours >= 1 && clock.hours < 5) || (clock.hours >= 8 && clock.hours < 15)) {
+"277
+[; ;main.c: 277:             if ((clock.hours >= 1 && clock.hours < 5) || (clock.hours >= 8 && clock.hours < 15)) {
 [e $ ! || && >= . _clock 2 -> 1 `i < . _clock 2 -> 5 `i && >= . _clock 2 -> 8 `i < . _clock 2 -> 15 `i 2023  ]
 {
-"269
-[; ;main.c: 269:                 LATHbits.LATH3 = 0;
+"278
+[; ;main.c: 278:                 LATHbits.LATH3 = 0;
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"270
-[; ;main.c: 270:             }
+"279
+[; ;main.c: 279:             }
 }
 [e $U 2024  ]
-"272
-[; ;main.c: 272:             else {
+"281
+[; ;main.c: 281:             else {
 [e :U 2023 ]
 {
-"273
-[; ;main.c: 273:                 LATHbits.LATH3 = 1;
-[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-"274
-[; ;main.c: 274:             }
-}
-[e :U 2024 ]
-"275
-[; ;main.c: 275:         }
-}
-[e :U 2022 ]
-"277
-[; ;main.c: 277:         if (curval > light_threshold){
-[e $ ! > _curval _light_threshold 2025  ]
-{
-"278
-[; ;main.c: 278:             LATHbits.LATH3 = 0;
-[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"280
-[; ;main.c: 280:             if (clock.hours >=4 && clock.hours < 8) {
-[e $ ! && >= . _clock 2 -> 4 `i < . _clock 2 -> 8 `i 2026  ]
-{
-"281
-[; ;main.c: 281:                 ArrayAppend(Dawn.hours, Dawn.size, clock.hours);
-[e ( _ArrayAppend (3 , , -> . _Dawn 1 `*i . _Dawn 0 . _clock 2 ]
 "282
-[; ;main.c: 282:                 ArrayAppend(Dawn.minutes, Dawn.size, clock.minutes);
-[e ( _ArrayAppend (3 , , -> . _Dawn 2 `*i . _Dawn 0 . _clock 1 ]
+[; ;main.c: 282:                 LATHbits.LATH3 = 1;
+[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
 "283
-[; ;main.c: 283:             }
-}
-[e :U 2026 ]
+[; ;main.c: 283:                 if ((Dusk.count = 0)&&(clock.hours >=15 && clock.hours < 8)) {
+[e $ ! && != = . _Dusk 1 -> 0 `i -> 0 `i && >= . _clock 2 -> 15 `i < . _clock 2 -> 8 `i 2025  ]
+{
 "284
-[; ;main.c: 284:         }
+[; ;main.c: 284:                     ArrayAppend(Dusk.hours, Dusk.size, clock.hours);
+[e ( _ArrayAppend (3 , , -> . _Dusk 2 `*i . _Dusk 0 . _clock 2 ]
+"285
+[; ;main.c: 285:                     ArrayAppend(Dusk.minutes, Dusk.size, clock.minutes);
+[e ( _ArrayAppend (3 , , -> . _Dusk 3 `*i . _Dusk 0 . _clock 1 ]
+"286
+[; ;main.c: 286:                     Dusk.count = 1;
+[e = . _Dusk 1 -> 1 `i ]
+"287
+[; ;main.c: 287:                 }
 }
 [e :U 2025 ]
-"285
-[; ;main.c: 285:     }
+"288
+[; ;main.c: 288:             }
+}
+[e :U 2024 ]
+"289
+[; ;main.c: 289:         }
+}
+[e :U 2022 ]
+"291
+[; ;main.c: 291:         if (curval > light_threshold){
+[e $ ! > _curval _light_threshold 2026  ]
+{
+"292
+[; ;main.c: 292:             LATHbits.LATH3 = 0;
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+"293
+[; ;main.c: 293:             if ((Dawn.count = 0)&&(clock.hours >=4 && clock.hours < 8)) {
+[e $ ! && != = . _Dawn 1 -> 0 `i -> 0 `i && >= . _clock 2 -> 4 `i < . _clock 2 -> 8 `i 2027  ]
+{
+"294
+[; ;main.c: 294:                 ArrayAppend(Dawn.hours, Dawn.size, clock.hours);
+[e ( _ArrayAppend (3 , , -> . _Dawn 2 `*i . _Dawn 0 . _clock 2 ]
+"295
+[; ;main.c: 295:                 ArrayAppend(Dawn.minutes, Dawn.size, clock.minutes);
+[e ( _ArrayAppend (3 , , -> . _Dawn 3 `*i . _Dawn 0 . _clock 1 ]
+"296
+[; ;main.c: 296:                 Dawn.count = 1;
+[e = . _Dawn 1 -> 1 `i ]
+"297
+[; ;main.c: 297:             }
+}
+[e :U 2027 ]
+"298
+[; ;main.c: 298:         }
+}
+[e :U 2026 ]
+"300
+[; ;main.c: 300:         if (clock.days > previousClockDays) {
+[e $ ! > -> . _clock 3 `ui _previousClockDays 2028  ]
+{
+"301
+[; ;main.c: 301:             Dawn.count = 0;
+[e = . _Dawn 1 -> 0 `i ]
+"302
+[; ;main.c: 302:             Dusk.count = 0;
+[e = . _Dusk 1 -> 0 `i ]
+"303
+[; ;main.c: 303:             daycount++;
+[e ++ _daycount -> -> 1 `i `ui ]
+"305
+[; ;main.c: 305:             LATDbits.LATD7 = 1;
+[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
+"306
+[; ;main.c: 306:             previousClockDays = clock.days;
+[e = _previousClockDays -> . _clock 3 `ui ]
+"308
+[; ;main.c: 308:             if (daycount == 7) {
+[e $ ! == _daycount -> -> 7 `i `ui 2029  ]
+{
+"311
+[; ;main.c: 311:                 LATDbits.LATD7 = 1;
+[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
+"312
+[; ;main.c: 312:                 LATHbits.LATH3 = 1;
+[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
+"313
+[; ;main.c: 313:                 _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"318
+[; ;main.c: 318:                 daycount = 0;
+[e = _daycount -> -> 0 `i `ui ]
+"319
+[; ;main.c: 319:             }
+}
+[e :U 2029 ]
+"320
+[; ;main.c: 320:         }
+}
+[e :U 2028 ]
+"321
+[; ;main.c: 321:     }
 }
 [e :U 2019 ]
 [e $U 2020  ]
 [e :U 2021 ]
-"286
-[; ;main.c: 286: }
+"322
+[; ;main.c: 322: }
 [e :UE 2015 ]
 }

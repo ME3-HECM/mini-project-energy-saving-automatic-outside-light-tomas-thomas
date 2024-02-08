@@ -20,4 +20,16 @@ int ArrayAppend(int arrayTime[], int size, int Time) { //take the original list 
         return arrayTime;
     }  
 
-
+//function here to average all the dawn/dusk times and compare with known value
+int ArrayAverage(int arrayTime[], int size) { //take the original list and the hours and minutes of the newly measured dawn/dusk
+    unsigned int sum = 0;
+    unsigned int average;
+                    
+    for (int i = 0; i <= size-1; i++) { //looping through each item in the array starting at the second item, and removing the first item
+        sum = sum + arrayTime[i];
+    }
+                    
+    average = sum/size;
+                    
+    return average;
+}
