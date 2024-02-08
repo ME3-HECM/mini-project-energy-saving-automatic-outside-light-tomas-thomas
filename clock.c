@@ -5,8 +5,8 @@
 void clock_init(void){
 //    int time_vals[4] = {0, 0, 0, 0} ;
 //#define wazz time_vals[0]
-
-    //int time_vals[4] = {seconds, minutes, hours, days}
+//
+//    int time_vals[4] = {seconds, minutes, hours, days}
 //    
 //    struct time_structure { //set up time structure
 //        int seconds;

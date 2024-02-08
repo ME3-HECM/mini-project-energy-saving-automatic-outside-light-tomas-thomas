@@ -1,111 +1,4 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"10 ./LEDarray.h
-[; ;./LEDarray.h: 10: void LEDarray_init(void);
-[v _LEDarray_init `(v ~T0 @X0 0 ef ]
-"8 ./timers.h
-[; ;./timers.h: 8: void Timer0_init(void);
-[v _Timer0_init `(v ~T0 @X0 0 ef ]
-"8 ./interrupts.h
-[; ;./interrupts.h: 8: void Interrupts_init(void);
-[v _Interrupts_init `(v ~T0 @X0 0 ef ]
-"29383 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29383:     struct {
-[s S1380 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1380 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
-"29382
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29382: typedef union {
-[u S1379 `S1380 1 ]
-[n S1379 . . ]
-"29394
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29394: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF84)));
-[v _TRISDbits `VS1379 ~T0 @X0 0 e@3972 ]
-"28487
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28487:     struct {
-[s S1349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1349 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
-"28497
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28497:     struct {
-[s S1350 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1350 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
-"28486
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28486: typedef union {
-[u S1348 `S1349 1 `S1350 1 ]
-[n S1348 . . . ]
-"28508
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28508: extern volatile LATDbits_t LATDbits __attribute__((address(0xF7C)));
-[v _LATDbits `VS1348 ~T0 @X0 0 e@3964 ]
-"29741
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29741:     struct {
-[s S1392 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1392 . TRISH0 TRISH1 TRISH2 TRISH3 ]
-"29740
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29740: typedef union {
-[u S1391 `S1392 1 ]
-[n S1391 . . ]
-"29748
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29748: extern volatile TRISHbits_t TRISHbits __attribute__((address(0xF88)));
-[v _TRISHbits `VS1391 ~T0 @X0 0 e@3976 ]
-"28912
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28912:     struct {
-[s S1361 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1361 . LATH0 LATH1 LATH2 LATH3 ]
-"28918
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28918:     struct {
-[s S1362 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1362 . LH0 LH1 LH2 LH3 ]
-"28924
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28924:     struct {
-[s S1363 :4 `uc 1 :1 `uc 1 ]
-[n S1363 . . LH4 ]
-"28928
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28928:     struct {
-[s S1364 :5 `uc 1 :1 `uc 1 ]
-[n S1364 . . LH5 ]
-"28932
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28932:     struct {
-[s S1365 :6 `uc 1 :1 `uc 1 ]
-[n S1365 . . LH6 ]
-"28936
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28936:     struct {
-[s S1366 :7 `uc 1 :1 `uc 1 ]
-[n S1366 . . LH7 ]
-"28911
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28911: typedef union {
-[u S1360 `S1361 1 `S1362 1 `S1363 1 `S1364 1 `S1365 1 `S1366 1 ]
-[n S1360 . . . . . . . ]
-"28941
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28941: extern volatile LATHbits_t LATHbits __attribute__((address(0xF80)));
-[v _LATHbits `VS1360 ~T0 @X0 0 e@3968 ]
-"45 main.c
-[; ;main.c: 45:      struct time_structure {
-[s S2016 `i 1 `i 1 `i 1 `i 1 ]
-[n S2016 time_structure seconds minutes hours days ]
-"123
-[; ;main.c: 123:     struct month_structure {
-[s S2017 `i 1 `i 1 `i 1 ]
-[n S2017 month_structure solarMidMinutes solarMidHours days ]
-"8 ./ADC.h
-[; ;./ADC.h: 8: void ADC_init(void);
-[v _ADC_init `(v ~T0 @X0 0 ef ]
-"10 ./clock.h
-[; ;./clock.h: 10: void UpdateClock(int *s, int *m, int *h, int *d);
-[v _UpdateClock `(v ~T0 @X0 0 ef4`*i`*i`*i`*i ]
-"11 ./LEDarray.h
-[; ;./LEDarray.h: 11: void LEDarray_disp_bin(unsigned int number);
-[v _LEDarray_disp_bin `(v ~T0 @X0 0 ef1`ui ]
-"9 ./ADC.h
-[; ;./ADC.h: 9: unsigned int ADC_getval(void);
-[v _ADC_getval `(ui ~T0 @X0 0 ef ]
-"8 ./synchronisation.h
-[; ;./synchronisation.h: 8: int ArrayAppend(int arrayTime[], int size, int Time);
-[v _ArrayAppend `(i ~T0 @X0 0 ef3`*i`i`i ]
-"5 main.c
-[p x FEXTOSC  =  HS      ]
-"6
-[p x RSTOSC  =  EXTOSC_4PLL ]
-"8
-[p x WDTE  =  OFF         ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2080,387 +1973,61 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40592
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"8 ./seconds.h
-[; ;./seconds.h: 8: unsigned int GLOBALsecs = 0;
-[v _GLOBALsecs `ui ~T0 @X0 1 e ]
-[i _GLOBALsecs
--> -> 0 `i `ui
-]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"28 main.c
-[; ;main.c: 28: void main(void)
-[v _main `(v ~T0 @X0 1 ef ]
-"29
-[; ;main.c: 29: {
+"6 synchronisation.c
+[; ;synchronisation.c: 6: int ArrayAppend(int arrayTime[], int size, int Time) {
+[v _ArrayAppend `(i ~T0 @X0 1 ef3`*i`i`i ]
 {
-[e :U _main ]
+[e :U _ArrayAppend ]
+[v _arrayTime `*i ~T0 @X0 1 r1 ]
+[v _size `i ~T0 @X0 1 r2 ]
+[v _Time `i ~T0 @X0 1 r3 ]
 [f ]
-"31
-[; ;main.c: 31:     LEDarray_init();
-[e ( _LEDarray_init ..  ]
-"32
-[; ;main.c: 32:     Timer0_init();
-[e ( _Timer0_init ..  ]
-"33
-[; ;main.c: 33:     Interrupts_init();
-[e ( _Interrupts_init ..  ]
-"37
-[; ;main.c: 37:     TRISDbits.TRISD7 = 0;
-[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
-"38
-[; ;main.c: 38:     LATDbits.LATD7 = 0;
-[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
-"41
-[; ;main.c: 41:     TRISHbits.TRISH3 = 0;
-[e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
-"42
-[; ;main.c: 42:     LATHbits.LATH3 = 0;
-[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"54
-[; ;main.c: 54:     struct time_structure clock;
-[v _clock `S2016 ~T0 @X0 1 a ]
-"56
-[; ;main.c: 56:         GLOBALsecs = 50;
-[e = _GLOBALsecs -> -> 50 `i `ui ]
-"57
-[; ;main.c: 57:         clock.minutes = 59;
-[e = . _clock 1 -> 59 `i ]
-"58
-[; ;main.c: 58:         clock.hours = 12;
-[e = . _clock 2 -> 12 `i ]
-"59
-[; ;main.c: 59:         clock.days = 1;
-[e = . _clock 3 -> 1 `i ]
-"63
-[; ;main.c: 63:     struct time_structure DSTon;
-[v _DSTon `S2016 ~T0 @X0 1 a ]
-"64
-[; ;main.c: 64:         DSTon.minutes = 0;
-[e = . _DSTon 1 -> 0 `i ]
-"65
-[; ;main.c: 65:         DSTon.hours = 0;
-[e = . _DSTon 2 -> 0 `i ]
-"66
-[; ;main.c: 66:         DSTon.days = 0;
-[e = . _DSTon 3 -> 0 `i ]
-"72
-[; ;main.c: 72:         GLOBALsecs = clock.hours;
-[e = _GLOBALsecs -> . _clock 2 `ui ]
-"130
-[; ;main.c: 130:     struct month_structure Jan;
-[v _Jan `S2017 ~T0 @X0 1 a ]
-"132
-[; ;main.c: 132:         Jan.days = 31;
-[e = . _Jan 2 -> 31 `i ]
-"133
-[; ;main.c: 133:         Jan.solarMidHours = 0;
-[e = . _Jan 1 -> 0 `i ]
-"134
-[; ;main.c: 134:         Jan.solarMidMinutes = 9;
-[e = . _Jan 0 -> 9 `i ]
-"136
-[; ;main.c: 136:     struct month_structure Feb;
-[v _Feb `S2017 ~T0 @X0 1 a ]
-"138
-[; ;main.c: 138:         Feb.days = 28;
-[e = . _Feb 2 -> 28 `i ]
-"139
-[; ;main.c: 139:         Feb.solarMidHours = 0;
-[e = . _Feb 1 -> 0 `i ]
-"140
-[; ;main.c: 140:         Feb.solarMidMinutes = 13;
-[e = . _Feb 0 -> 13 `i ]
-"142
-[; ;main.c: 142:     struct month_structure Mar;
-[v _Mar `S2017 ~T0 @X0 1 a ]
-"144
-[; ;main.c: 144:         Mar.days = 31;
-[e = . _Mar 2 -> 31 `i ]
-"145
-[; ;main.c: 145:         Mar.solarMidHours = 0;
-[e = . _Mar 1 -> 0 `i ]
-"146
-[; ;main.c: 146:         Mar.solarMidMinutes = 8;
-[e = . _Mar 0 -> 8 `i ]
-"148
-[; ;main.c: 148:     struct month_structure Apr;
-[v _Apr `S2017 ~T0 @X0 1 a ]
-"150
-[; ;main.c: 150:         Apr.days = 30;
-[e = . _Apr 2 -> 30 `i ]
-"151
-[; ;main.c: 151:         Apr.solarMidHours = 0;
-[e = . _Apr 1 -> 0 `i ]
-"152
-[; ;main.c: 152:         Apr.solarMidMinutes = 1;
-[e = . _Apr 0 -> 1 `i ]
-"154
-[; ;main.c: 154:     struct month_structure May;
-[v _May `S2017 ~T0 @X0 1 a ]
-"156
-[; ;main.c: 156:         May.days = 31;
-[e = . _May 2 -> 31 `i ]
-"157
-[; ;main.c: 157:         May.solarMidHours = 23;
-[e = . _May 1 -> 23 `i ]
-"158
-[; ;main.c: 158:         May.solarMidMinutes = 57;
-[e = . _May 0 -> 57 `i ]
-"160
-[; ;main.c: 160:     struct month_structure Jun;
-[v _Jun `S2017 ~T0 @X0 1 a ]
-"162
-[; ;main.c: 162:         Jun.days = 30;
-[e = . _Jun 2 -> 30 `i ]
-"163
-[; ;main.c: 163:         Jun.solarMidHours = 0;
-[e = . _Jun 1 -> 0 `i ]
-"164
-[; ;main.c: 164:         Jun.solarMidMinutes = 1;
-[e = . _Jun 0 -> 1 `i ]
-"166
-[; ;main.c: 166:     struct month_structure Jul;
-[v _Jul `S2017 ~T0 @X0 1 a ]
-"168
-[; ;main.c: 168:         Jul.days = 31;
-[e = . _Jul 2 -> 31 `i ]
-"169
-[; ;main.c: 169:         Jul.solarMidHours = 0;
-[e = . _Jul 1 -> 0 `i ]
-"170
-[; ;main.c: 170:         Jul.solarMidMinutes = 5;
-[e = . _Jul 0 -> 5 `i ]
-"172
-[; ;main.c: 172:     struct month_structure Aug;
-[v _Aug `S2017 ~T0 @X0 1 a ]
-"174
-[; ;main.c: 174:         Aug.days = 31;
-[e = . _Aug 2 -> 31 `i ]
-"175
-[; ;main.c: 175:         Aug.solarMidHours = 0;
-[e = . _Aug 1 -> 0 `i ]
-"176
-[; ;main.c: 176:         Aug.solarMidMinutes = 3;
-[e = . _Aug 0 -> 3 `i ]
-"178
-[; ;main.c: 178:     struct month_structure Sep;
-[v _Sep `S2017 ~T0 @X0 1 a ]
-"180
-[; ;main.c: 180:         Sep.days = 30;
-[e = . _Sep 2 -> 30 `i ]
-"181
-[; ;main.c: 181:         Sep.solarMidHours = 23;
-[e = . _Sep 1 -> 23 `i ]
-"182
-[; ;main.c: 182:         Sep.solarMidMinutes = 55;
-[e = . _Sep 0 -> 55 `i ]
-"184
-[; ;main.c: 184:     struct month_structure Oct;
-[v _Oct `S2017 ~T0 @X0 1 a ]
-"186
-[; ;main.c: 186:         Oct.days = 31;
-[e = . _Oct 2 -> 31 `i ]
-"187
-[; ;main.c: 187:         Oct.solarMidHours = 23;
-[e = . _Oct 1 -> 23 `i ]
-"188
-[; ;main.c: 188:         Oct.solarMidMinutes = 47;
-[e = . _Oct 0 -> 47 `i ]
-"190
-[; ;main.c: 190:     struct month_structure Nov;
-[v _Nov `S2017 ~T0 @X0 1 a ]
-"192
-[; ;main.c: 192:         Nov.days = 30;
-[e = . _Nov 2 -> 30 `i ]
-"193
-[; ;main.c: 193:         Nov.solarMidHours = 23;
-[e = . _Nov 1 -> 23 `i ]
-"194
-[; ;main.c: 194:         Nov.solarMidMinutes = 46;
-[e = . _Nov 0 -> 46 `i ]
-"196
-[; ;main.c: 196:     struct month_structure Dec;
-[v _Dec `S2017 ~T0 @X0 1 a ]
-"198
-[; ;main.c: 198:         Dec.days = 31;
-[e = . _Dec 2 -> 31 `i ]
-"199
-[; ;main.c: 199:         Dec.solarMidHours = 23;
-[e = . _Dec 1 -> 23 `i ]
-"200
-[; ;main.c: 200:         Dec.solarMidMinutes = 56;
-[e = . _Dec 0 -> 56 `i ]
-"208
-[; ;main.c: 208:     int size = 7;
-[v _size `i ~T0 @X0 1 a ]
-[e = _size -> 7 `i ]
-[v F14189 `i ~T0 @X0 -> 7 `i s ]
-[i F14189
-:U ..
-"209
-[; ;main.c: 209:     int DawnHours[7] = {0,0,0,0,0,0,0};
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
-..
-]
-[v _DawnHours `i ~T0 @X0 -> 7 `i a ]
-[e = _DawnHours F14189 ]
-[v F14191 `i ~T0 @X0 -> 7 `i s ]
-[i F14191
-:U ..
-"210
-[; ;main.c: 210:     int DawnMinutes[7] = {0,0,0,0,0,0,0};
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
-..
-]
-[v _DawnMinutes `i ~T0 @X0 -> 7 `i a ]
-[e = _DawnMinutes F14191 ]
-[v F14193 `i ~T0 @X0 -> 7 `i s ]
-[i F14193
-:U ..
-"211
-[; ;main.c: 211:     int DuskHours[7] = {0,0,0,0,0,0,0};
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
-..
-]
-[v _DuskHours `i ~T0 @X0 -> 7 `i a ]
-[e = _DuskHours F14193 ]
-[v F14195 `i ~T0 @X0 -> 7 `i s ]
-[i F14195
-:U ..
-"212
-[; ;main.c: 212:     int DuskMinutes[7] = {0,0,0,0,0,0,0};
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
-..
-]
-[v _DuskMinutes `i ~T0 @X0 -> 7 `i a ]
-[e = _DuskMinutes F14195 ]
-"217
-[; ;main.c: 217:     ADC_init();
-[e ( _ADC_init ..  ]
-"220
-[; ;main.c: 220:     unsigned int light_threshold = 70;
-[v _light_threshold `ui ~T0 @X0 1 a ]
-[e = _light_threshold -> -> 70 `i `ui ]
-"227
-[; ;main.c: 227:     while (1) {
-[e :U 2019 ]
+"8
+[; ;synchronisation.c: 8:         for (int i = 1; i <= size-1; i++) {
 {
-"229
-[; ;main.c: 229:         clock.seconds = GLOBALsecs;
-[e = . _clock 0 -> _GLOBALsecs `i ]
-"230
-[; ;main.c: 230:         UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days);
-[e ( _UpdateClock (4 , , , -> &U _GLOBALsecs `*i &U . _clock 1 &U . _clock 2 &U . _clock 3 ]
-"233
-[; ;main.c: 233:         LEDarray_disp_bin(clock.hours);
-[e ( _LEDarray_disp_bin (1 -> . _clock 2 `ui ]
-"246
-[; ;main.c: 246:         unsigned int curval = ADC_getval();
-[v _curval `ui ~T0 @X0 1 a ]
-[e = _curval ( _ADC_getval ..  ]
-"249
-[; ;main.c: 249:         if (curval < light_threshold){
-[e $ ! < _curval _light_threshold 2021  ]
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 1 `i ]
+[e $U 2019  ]
+[e :U 2016 ]
 {
-"250
-[; ;main.c: 250:             LATHbits.LATH3 = 1;
-[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-"252
-[; ;main.c: 252:             if (clock.hours >=15 && clock.hours < 23) {
-[e $ ! && >= . _clock 2 -> 15 `i < . _clock 2 -> 23 `i 2022  ]
+"10
+[; ;synchronisation.c: 10:             if (i = 6) {
+[e $ ! != = _i -> 6 `i -> 0 `i 2020  ]
 {
-"253
-[; ;main.c: 253:                 ArrayAppend(DuskHours, size, clock.hours);
-[e ( _ArrayAppend (3 , , &U _DuskHours _size . _clock 2 ]
-"254
-[; ;main.c: 254:                 ArrayAppend(DuskMinutes, size, clock.minutes);
-[e ( _ArrayAppend (3 , , &U _DuskMinutes _size . _clock 1 ]
-"255
-[; ;main.c: 255:             }
+"11
+[; ;synchronisation.c: 11:                 arrayTime[i-1] = arrayTime[i];
+[e = *U + _arrayTime * -> - _i -> 1 `i `x -> -> # *U _arrayTime `i `x *U + _arrayTime * -> _i `x -> -> # *U _arrayTime `i `x ]
+"12
+[; ;synchronisation.c: 12:                 arrayTime[i] = Time;
+[e = *U + _arrayTime * -> _i `x -> -> # *U _arrayTime `i `x _Time ]
+"13
+[; ;synchronisation.c: 13:             }
 }
-[e :U 2022 ]
-"257
-[; ;main.c: 257:             if (clock.hours >= 1 && clock.hours <= 5){
-[e $ ! && >= . _clock 2 -> 1 `i <= . _clock 2 -> 5 `i 2023  ]
+[e $U 2021  ]
+"15
+[; ;synchronisation.c: 15:             else {
+[e :U 2020 ]
 {
-"258
-[; ;main.c: 258:                 LATHbits.LATH3 = 0;
-[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"259
-[; ;main.c: 259:             }
-}
-[e :U 2023 ]
-"261
-[; ;main.c: 261:             if (clock.hours >= 8 && clock.hours < 15){
-[e $ ! && >= . _clock 2 -> 8 `i < . _clock 2 -> 15 `i 2024  ]
-{
-"262
-[; ;main.c: 262:                 LATHbits.LATH3 = 0;
-[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"263
-[; ;main.c: 263:             }
-}
-[e :U 2024 ]
-"267
-[; ;main.c: 267:         }
+"16
+[; ;synchronisation.c: 16:                 arrayTime[i-1] = arrayTime[i];
+[e = *U + _arrayTime * -> - _i -> 1 `i `x -> -> # *U _arrayTime `i `x *U + _arrayTime * -> _i `x -> -> # *U _arrayTime `i `x ]
+"17
+[; ;synchronisation.c: 17:             }
 }
 [e :U 2021 ]
-"269
-[; ;main.c: 269:         if (curval > light_threshold){
-[e $ ! > _curval _light_threshold 2025  ]
-{
-"270
-[; ;main.c: 270:             LATHbits.LATH3 = 0;
-[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"272
-[; ;main.c: 272:             if (clock.hours >=4 && clock.hours < 8) {
-[e $ ! && >= . _clock 2 -> 4 `i < . _clock 2 -> 8 `i 2026  ]
-{
-"273
-[; ;main.c: 273:                 ArrayAppend(DawnHours, size, clock.hours);
-[e ( _ArrayAppend (3 , , &U _DawnHours _size . _clock 2 ]
-"274
-[; ;main.c: 274:                 ArrayAppend(DawnMinutes, size, clock.minutes);
-[e ( _ArrayAppend (3 , , &U _DawnMinutes _size . _clock 1 ]
-"275
-[; ;main.c: 275:             }
+"18
+[; ;synchronisation.c: 18:         }
 }
-[e :U 2026 ]
-"276
-[; ;main.c: 276:         }
+[e ++ _i -> 1 `i ]
+[e :U 2019 ]
+[e $ <= _i - _size -> 1 `i 2016  ]
+[e :U 2017 ]
 }
-[e :U 2025 ]
-"277
-[; ;main.c: 277:     }
-}
-[e :U 2018 ]
-[e $U 2019  ]
-[e :U 2020 ]
-"278
-[; ;main.c: 278: }
+"20
+[; ;synchronisation.c: 20:         return arrayTime;
+[e ) -> _arrayTime `i ]
+[e $UE 2015  ]
+"21
+[; ;synchronisation.c: 21:     }
 [e :UE 2015 ]
 }

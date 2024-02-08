@@ -16,6 +16,8 @@
 #include "interrupts.h"
 #include "seconds.h"
 #include "clock.h"
+#include "ADC.h"
+#include "synchronisation.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
@@ -25,11 +27,11 @@
 
 void main(void) 
 {
-// intialises all functions 
+// initialises all functions 
     LEDarray_init();        //setting up the LED array 
     Timer0_init();          //setting up the timer
     Interrupts_init();      //setting up the interrupts
-
+    
 // setting up the LEDS on the board with more helpful names
     #define LED_Left LATDbits.LATD7
     TRISDbits.TRISD7 = 0;   // setting up as an output
@@ -75,6 +77,153 @@ void main(void)
         
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
+//    while (1) {
+//        
+//        clock.seconds = GLOBALsecs;   //updates the clock.seconds to be in sync with clock time
+//        UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days);  //changes the minutes, hours, days in the clock structure when a sec increases
+//        
+//        //displays the hour value in binary
+//        LEDarray_disp_bin(clock.hours);
+//        
+//        //alternates on to off for each time it changes day
+//        if (clock.days % 2 == 0 ){  //shows when a clock day changes on the LED
+//            LED_Left = 1;
+//        }
+//        else{
+//            LED_Left = 0; 
+//        }
+//        
+//        // light turning off or on depending on task brief conditions 
+//        if (1){ // if the ADC is bigger than our threshold - if dark enough turn on
+//            if (clock.hours >= 1 && clock.hours <=5){   //check that its not energy saving time
+//                LED_Right = 0;
+//            }
+//            else{                                       //must not be energy saving time therefore turn light on
+//                LED_Right = 1;
+//            }
+//        }  
+//    }  
+//      
+
+    // daylight savings - if clock reaches day x then subtract hours by 1 
+    // dalight savings pt - if clock reachs day y then add hours by 1 
+
+
+    // change the clock at mid day to avoid issues 
+
+    // recalibrate the day before daylight savings 
+
+
+    // measure maximum darkness and brightness throughout the day and check it and then change it according to our solar values
+    // potentially we could have it so that we know what our error could be and it only changes within that error to avoid silly calibration issues 
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SUN SYNCHRONISATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        
+    // setting up a time structure to be used for the clock, and time keeping
+    struct month_structure { //set up time structure - we haven't actually called it yet
+        int solarMidMinutes;
+        int solarMidHours;
+        int days;
+    };
+
+    //All timings are in GMT (+00), therefore we need to account for Daylight saving time with some of the solar midnight values
+    struct month_structure Jan;    //creates Jan, which is of the structure month_structure
+        // set the number of days in the month and the average solar midnight time for January taken from timeanddate.com
+        Jan.days = 31;
+        Jan.solarMidHours = 0;
+        Jan.solarMidMinutes = 9;
+    
+    struct month_structure Feb;    //creates Feb, which is of the structure month_structure
+        // set the number of days in the month and the average solar midnight time for February taken from timeanddate.com
+        Feb.days = 28;
+        Feb.solarMidHours = 0;
+        Feb.solarMidMinutes = 13;
+        
+    struct month_structure Mar;    //creates Mar, which is of the structure month_structure
+        // set the number of days in the month and the average solar midnight time for March taken from timeanddate.com
+        Mar.days = 31;
+        Mar.solarMidHours = 0;
+        Mar.solarMidMinutes = 8;
+        
+    struct month_structure Apr;    //creates Apr, which is of the structure month_structure
+        // set the number of days in the month and the average solar midnight time for April taken from timeanddate.com
+        Apr.days = 30;
+        Apr.solarMidHours = 0; //this is without daylight saving!!
+        Apr.solarMidMinutes = 1;
+        
+    struct month_structure May;    //creates May, which is of the structure month_structure
+        // set the number of days in the month and the average solar midnight time for May taken from timeanddate.com
+        May.days = 31;
+        May.solarMidHours = 23; //this is without daylight saving!!
+        May.solarMidMinutes = 57;
+        
+    struct month_structure Jun;    //creates Jun, which is of the structure month_structure
+        // set the number of days in the month and the average solar midnight time for June taken from timeanddate.com
+        Jun.days = 30;
+        Jun.solarMidHours = 0; //this is without daylight saving!!
+        Jun.solarMidMinutes = 1;
+        
+    struct month_structure Jul;    //creates Jul, which is of the structure month_structure
+        // set the number of days in the month and the average solar midnight time for July taken from timeanddate.com
+        Jul.days = 31;
+        Jul.solarMidHours = 0; //this is without daylight saving!!
+        Jul.solarMidMinutes = 5;
+        
+    struct month_structure Aug;    //creates Aug, which is of the structure month_structure
+        // set the number of days in the month and the average solar midnight time for August taken from timeanddate.com
+        Aug.days = 31;
+        Aug.solarMidHours = 0; //this is without daylight saving!!
+        Aug.solarMidMinutes = 3;
+        
+    struct month_structure Sep;    //creates Sep, which is of the structure month_structure
+        // set the number of days in the month and the average solar midnight time for September taken from timeanddate.com
+        Sep.days = 30;
+        Sep.solarMidHours = 23; //this is without daylight saving!!
+        Sep.solarMidMinutes = 55;
+        
+    struct month_structure Oct;    //creates Oct, which is of the structure month_structure
+        // set the number of days in the month and the average solar midnight time for October taken from timeanddate.com
+        Oct.days = 31;
+        Oct.solarMidHours = 23; //this is without daylight saving!!
+        Oct.solarMidMinutes = 47;
+        
+    struct month_structure Nov;    //creates Nov, which is of the structure month_structure
+        // set the number of days in the month and the average solar midnight time for November taken from timeanddate.com
+        Nov.days = 30;
+        Nov.solarMidHours = 23;
+        Nov.solarMidMinutes = 46;
+        
+    struct month_structure Dec;    //creates Dec, which is of the structure month_structure
+        // set the number of days in the month and the average solar midnight time for December taken from timeanddate.com
+        Dec.days = 31;
+        Dec.solarMidHours = 23;
+        Dec.solarMidMinutes = 56;
+        
+    
+//Define 4 arrays: Dawn and Dusk hours and minutes, with a predetermined size of 7 items.
+//This allows us to store the times where dawn and dusk are measured by the LDR over a seven day period
+//We can then take averages, calculate average solar midnight and then compare this to our known solar midnight for each month
+//The difference can then be added(/subtracted) to re-calibrate/synchronise the clock
+   
+    int size = 7; //size of the array to hold 7 days worth of dawn and dusk timings
+    int DawnHours[7] = {0,0,0,0,0,0,0};
+    int DawnMinutes[7] = {0,0,0,0,0,0,0};
+    int DuskHours[7] = {0,0,0,0,0,0,0};
+    int DuskMinutes[7] = {0,0,0,0,0,0,0};
+    
+    //Function to take measured Dawn and Dusk timings and add it to the 7 day moving average list.
+    //Each timing is moved down by one and the new timing is added to the end of the array.
+    
+    ADC_init(); //setting up the ADC
+    
+    //Defining light levels for turning LED on in dark and off in light
+    unsigned int light_threshold = 70;     // CalibrationNumber any number from 0 to 255  - Used as transition threshold light level at dawn/dusk.
+                                            //Only one light level is needed - represents both Dawn and Dusk - this is the transition from light to dark and vice versa.
+    
+     //This is to display bits to calibrate LDR for Dawn and Dusk
+//      unsigned int calibration_level = ADC_getval();
+//      LEDarray_disp_bin(calibration_level);
+                
     while (1) {
         
         clock.seconds = GLOBALsecs;   //updates the clock.seconds to be in sync with clock time
@@ -84,34 +233,48 @@ void main(void)
         LEDarray_disp_bin(clock.hours);
         
         //alternates on to off for each time it changes day
-        if (clock.days % 2 == 0 ){  //shows when a clock day changes on the LED
-            LED_Left = 1;
-        }
-        else{
-            LED_Left = 0; 
-        }
+//        if (clock.days % 2 == 0 ){  //shows when a clock day changes on the LED
+//            LED_Left = 1;
+//        }
+//        else{
+//            LED_Left = 0; 
+//        }
+        
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        
+        //check current light level from LDR
+        unsigned int curval = ADC_getval();
         
         // light turning off or on depending on task brief conditions 
-        if (1){ // if the ADC is bigger than our threshold - if dark enough turn on
-            if (clock.hours >= 1 && clock.hours <=5){   //check that its not energy saving time
+        if (curval < light_threshold){  // if the ADC is bigger than our threshold - if dark enough turn on
+            LED_Right = 1;
+                
+            
+            if (clock.hours >=15 && clock.hours < 23) { //Dusk only occurs between 3pm and 11pm
+                ArrayAppend(DuskHours, size, clock.hours);
+                ArrayAppend(DuskMinutes, size, clock.minutes);
+            }
+
+            if (clock.hours >= 1 && clock.hours <= 5){   //check that its not energy saving time
                 LED_Right = 0;
             }
-            else{                                       //must not be energy saving time therefore turn light on
-                LED_Right = 1;
+            
+            if (clock.hours >= 8 && clock.hours < 15){ //This ensures that if external factors such as birds block the LDR,
+                LED_Right = 0;                         //the light will not go on during the day. 8am-3pm chosen, as dawn/dusk can be as late/early as 8-3 respectively at winter solstice.
             }
+            
+                                                   //must not be energy saving time therefore turn light on
+               
         }  
+        
+        if (curval > light_threshold){
+            LED_Right = 0;
+            
+            if (clock.hours >=4 && clock.hours < 8) { //Dawn only occurs between 4am and 8am
+                ArrayAppend(DawnHours, size, clock.hours);
+                ArrayAppend(DawnMinutes, size,  clock.minutes);
+            }
+        }
     }  
-}       
-
-
-// daylight savings - if clock reaches day x then subtract hours by 1 
-// dalight savings pt - if clock reachs day y then add hours by 1 
-
-
-// change the clock at mid day to avoid issues 
-
-// recalibrate the day before daylight savings 
-
-
-// measure maximum darkness and brightness throughout the day and check it and then change it according to our solar values
-// potentiall we could have it so that we know what our error could be and it only changes within that error to avoid silly calibration issues 
+}
+        

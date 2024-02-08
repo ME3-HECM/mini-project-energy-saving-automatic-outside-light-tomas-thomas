@@ -13,19 +13,20 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>main.c</itemPath>
-      <itemPath>timers.h</itemPath>
-      <itemPath>timers.c</itemPath>
-      <itemPath>interrupts.h</itemPath>
-      <itemPath>interrupts.c</itemPath>
-      <itemPath>comparator.c</itemPath>
-      <itemPath>comparator.h</itemPath>
+      <itemPath>ADC.c</itemPath>
+      <itemPath>ADC.h</itemPath>
       <itemPath>LEDarray.c</itemPath>
       <itemPath>LEDarray.h</itemPath>
-      <itemPath>ADC.h</itemPath>
-      <itemPath>ADC.c</itemPath>
-      <itemPath>seconds.h</itemPath>
+      <itemPath>comparator.c</itemPath>
+      <itemPath>comparator.h</itemPath>
+      <itemPath>interrupts.c</itemPath>
+      <itemPath>interrupts.h</itemPath>
+      <itemPath>timers.c</itemPath>
+      <itemPath>timers.h</itemPath>
       <itemPath>clock.c</itemPath>
       <itemPath>clock.h</itemPath>
+      <itemPath>synchronisation.c</itemPath>
+      <itemPath>synchronisation.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -181,6 +182,11 @@
         <property key="user-pack-device-support" value=""/>
         <property key="wpo-lto" value="false"/>
       </XC8-config-global>
+      <pk4hybrid>
+        <property key="memories.programmemory.ranges" value="0-1ffff"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/thoma/Desktop/ME3 ECM/mini-project-energy-saving-automatic-outside-light-tomas-thomas.X/debug/default/mini-project-energy-saving-automatic-outside-light-tomas-thomas_ptg"/>
+      </pk4hybrid>
     </conf>
   </confs>
 </configurationDescriptor>
