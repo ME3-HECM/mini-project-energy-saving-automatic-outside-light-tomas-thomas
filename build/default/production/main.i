@@ -24164,6 +24164,8 @@ void UpdateClock(int *s, int *m, int *h, int *d);
 
 
 
+
+
 void main(void)
 {
 
@@ -24186,12 +24188,22 @@ void main(void)
         int minutes;
         int hours;
         int days;
+
     };
 
     struct time_structure clock;
+
+
+    secs = 0;
     clock.minutes = 0;
     clock.hours = 0;
-    clock.days = 0;
+    clock.days = 1;
+
+
+
+
+
+        secs = clock.hours;
 
 
 
@@ -24204,21 +24216,26 @@ void main(void)
         clock.seconds = secs;
         UpdateClock(&secs, &clock.minutes, &clock.hours, &clock.days );
 
-        LEDarray_disp_bin(clock.seconds);
+        LEDarray_disp_bin(clock.hours);
 
-        if (clock.days >= 1){
+
+        if (clock.days % 2 == 0 ){
             LATDbits.LATD7 = 1;
         }
         else{
             LATDbits.LATD7 = 0;
-        }
 
-        if (clock.hours >= 1 && clock.hours <=5){
-                LATHbits.LATH3 = 1;
-            }
-            else{
+
+        }
+        if (1){
+            if (clock.hours >= 1 && clock.hours <=5){
                 LATHbits.LATH3 = 0;
             }
+            else{
+                LATHbits.LATH3 = 1;
+            }
+        }
+
 
     }
 

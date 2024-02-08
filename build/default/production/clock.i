@@ -24101,9 +24101,20 @@ void clock_init(void);
 void UpdateClock(int *s, int *m, int *h, int *d);
 # 2 "clock.c" 2
 
+# 1 "./seconds.h" 1
+
+
+
+
+
+
+
+unsigned int secs = 0;
+# 3 "clock.c" 2
+
 
 void clock_init(void){
-# 21 "clock.c"
+# 22 "clock.c"
 }
 
 void UpdateClock(int *s, int *m, int *h, int *d){
@@ -24111,7 +24122,9 @@ void UpdateClock(int *s, int *m, int *h, int *d){
 
             *h = *s;
             if (*s >= 24 ){
-            *s = 0;
+                *s = 0;
+                *h = 0;
+                *d = *d + 1;
             }
 
 

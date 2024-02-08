@@ -1,5 +1,6 @@
 #include <xc.h>
 #include "clock.h"
+#include "seconds.h"
 
 void clock_init(void){
 //    int time_vals[4] = {0, 0, 0, 0} ;
@@ -25,9 +26,11 @@ void UpdateClock(int *s, int *m, int *h, int *d){
     //#######     TESTING MODE     ########//  if not commented out then the clock will run 1 sec = 1 hour
             *h = *s;                       // rest of the code does not need to be touched if test mode enabled
             if (*s >= 24 ){
-            *s = 0; 
+                *s = 0;
+                *h = 0; 
+                *d = *d + 1;
             }
-    //--------------------------------------//
+    //-----------------------------~~~~---------//
     
     if (*s >= 60 ){
         *s = 0;

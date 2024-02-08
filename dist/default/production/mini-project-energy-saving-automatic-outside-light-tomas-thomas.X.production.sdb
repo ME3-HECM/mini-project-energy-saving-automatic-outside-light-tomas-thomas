@@ -29,7 +29,7 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"23 C:\Users\tjhla\OneDrive - Imperial College London\ME3\ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\clock.c
+"24 C:\Users\tjhla\OneDrive - Imperial College London\ME3\ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\clock.c
 [v _UpdateClock UpdateClock `(v  1 e 1 0 ]
 "7 C:\Users\tjhla\OneDrive - Imperial College London\ME3\ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\comparator.c
 [v _DAC_init DAC_init `(v  1 e 1 0 ]
@@ -41,7 +41,7 @@
 [v _LEDarray_init LEDarray_init `(v  1 e 1 0 ]
 "49
 [v _LEDarray_disp_bin LEDarray_disp_bin `(v  1 e 1 0 ]
-"24 C:\Users\tjhla\OneDrive - Imperial College London\ME3\ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\main.c
+"26 C:\Users\tjhla\OneDrive - Imperial College London\ME3\ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "8 C:\Users\tjhla\OneDrive - Imperial College London\ME3\ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
@@ -485,22 +485,22 @@
 "40176
 "40176
 [v _INTCONbits INTCONbits `VES319  1 e 1 @4082 ]
-"24 C:\Users\tjhla\OneDrive - Imperial College London\ME3\ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\main.c
+"26 C:\Users\tjhla\OneDrive - Imperial College London\ME3\ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
 [s S162 time_structure 8 `i 1 seconds 2 0 `i 1 minutes 2 2 `i 1 hours 2 4 `i 1 days 2 6 ]
-"48
+"51
 [v main@clock clock `S162  1 a 8 6 ]
-"82
+"99
 } 0
-"23 C:\Users\tjhla\OneDrive - Imperial College London\ME3\ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\clock.c
+"24 C:\Users\tjhla\OneDrive - Imperial College London\ME3\ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\clock.c
 [v _UpdateClock UpdateClock `(v  1 e 1 0 ]
 {
 [v UpdateClock@s s `*.30i  1 p 1 0 ]
 [v UpdateClock@m m `*.30i  1 p 1 1 ]
 [v UpdateClock@h h `*.30i  1 p 1 2 ]
 [v UpdateClock@d d `*.30i  1 p 1 3 ]
-"46
+"49
 } 0
 "8 C:\Users\tjhla\OneDrive - Imperial College London\ME3\ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]

@@ -1,3 +1,4 @@
 build/default/production/clock.p1:  \
 clock.c  \
-clock.h 
+clock.h  \
+seconds.h 

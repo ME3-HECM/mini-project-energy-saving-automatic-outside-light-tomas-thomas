@@ -1973,18 +1973,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40592
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"4 clock.c
-[; ;clock.c: 4: void clock_init(void){
+"8 ./seconds.h
+[; ;./seconds.h: 8: unsigned int secs = 0;
+[v _secs `ui ~T0 @X0 1 e ]
+[i _secs
+-> -> 0 `i `ui
+]
+"5 clock.c
+[; ;clock.c: 5: void clock_init(void){
 [v _clock_init `(v ~T0 @X0 1 ef ]
 {
 [e :U _clock_init ]
 [f ]
-"21
-[; ;clock.c: 21: }
+"22
+[; ;clock.c: 22: }
 [e :UE 2015 ]
 }
-"23
-[; ;clock.c: 23: void UpdateClock(int *s, int *m, int *h, int *d){
+"24
+[; ;clock.c: 24: void UpdateClock(int *s, int *m, int *h, int *d){
 [v _UpdateClock `(v ~T0 @X0 1 ef4`*i`*i`*i`*i ]
 {
 [e :U _UpdateClock ]
@@ -1993,63 +1999,69 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _h `*i ~T0 @X0 1 r3 ]
 [v _d `*i ~T0 @X0 1 r4 ]
 [f ]
-"26
-[; ;clock.c: 26:             *h = *s;
-[e = *U _h *U _s ]
 "27
-[; ;clock.c: 27:             if (*s >= 24 ){
+[; ;clock.c: 27:             *h = *s;
+[e = *U _h *U _s ]
+"28
+[; ;clock.c: 28:             if (*s >= 24 ){
 [e $ ! >= *U _s -> 24 `i 2017  ]
 {
-"28
-[; ;clock.c: 28:             *s = 0;
-[e = *U _s -> 0 `i ]
 "29
-[; ;clock.c: 29:             }
+[; ;clock.c: 29:                 *s = 0;
+[e = *U _s -> 0 `i ]
+"30
+[; ;clock.c: 30:                 *h = 0;
+[e = *U _h -> 0 `i ]
+"31
+[; ;clock.c: 31:                 *d = *d + 1;
+[e = *U _d + *U _d -> 1 `i ]
+"32
+[; ;clock.c: 32:             }
 }
 [e :U 2017 ]
-"32
-[; ;clock.c: 32:     if (*s >= 60 ){
+"35
+[; ;clock.c: 35:     if (*s >= 60 ){
 [e $ ! >= *U _s -> 60 `i 2018  ]
 {
-"33
-[; ;clock.c: 33:         *s = 0;
+"36
+[; ;clock.c: 36:         *s = 0;
 [e = *U _s -> 0 `i ]
-"34
-[; ;clock.c: 34:         *m = *m + 1;
+"37
+[; ;clock.c: 37:         *m = *m + 1;
 [e = *U _m + *U _m -> 1 `i ]
-"35
-[; ;clock.c: 35:         }
+"38
+[; ;clock.c: 38:         }
 }
 [e :U 2018 ]
-"37
-[; ;clock.c: 37:         if (*m >= 60){
+"40
+[; ;clock.c: 40:         if (*m >= 60){
 [e $ ! >= *U _m -> 60 `i 2019  ]
 {
-"38
-[; ;clock.c: 38:         *m = 0;
+"41
+[; ;clock.c: 41:         *m = 0;
 [e = *U _m -> 0 `i ]
-"39
-[; ;clock.c: 39:         *h = *h + 1;
+"42
+[; ;clock.c: 42:         *h = *h + 1;
 [e = *U _h + *U _h -> 1 `i ]
-"40
-[; ;clock.c: 40:         }
+"43
+[; ;clock.c: 43:         }
 }
 [e :U 2019 ]
-"42
-[; ;clock.c: 42:         if (*h >= 24){
+"45
+[; ;clock.c: 45:         if (*h >= 24){
 [e $ ! >= *U _h -> 24 `i 2020  ]
 {
-"43
-[; ;clock.c: 43:         *h = 0;
+"46
+[; ;clock.c: 46:         *h = 0;
 [e = *U _h -> 0 `i ]
-"44
-[; ;clock.c: 44:         *d = *d + 1;
+"47
+[; ;clock.c: 47:         *d = *d + 1;
 [e = *U _d + *U _d -> 1 `i ]
-"45
-[; ;clock.c: 45:         }
+"48
+[; ;clock.c: 48:         }
 }
 [e :U 2020 ]
-"46
-[; ;clock.c: 46: }
+"49
+[; ;clock.c: 49: }
 [e :UE 2016 ]
 }
