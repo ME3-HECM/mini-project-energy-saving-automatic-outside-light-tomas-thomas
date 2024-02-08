@@ -1,3 +1,4 @@
+UpdateClock@minutes 2 0 COMRAM 1
 __S0 1170 0 ABS 0
 __S1 1A 0 ABS 0
 __S4 0 0 ABS 0
@@ -5,7 +6,6 @@ __S5 0 0 ABS 0
 __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
 _main F72 0 CODE 0
-_secs 17 0 COMRAM 1
 ___sp 0 0 STACK 2
 btemp 19 0 COMRAM 1
 start 2C 0 CODE 0
@@ -23,7 +23,6 @@ wtemp8 1A 0 COMRAM 1
 __end_of_Timer0_init 1158 0 CODE 0
 __Hconfig 300006 0 CONFIG 4
 __Lconfig 0 0 CONFIG 4
-UpdateClock@s 1 0 COMRAM 1
 ___inthi_stack_hi 0 0 STACK 2
 __Hbigram 0 0 ABS 0
 __Lbigram 0 0 ABS 0
@@ -45,7 +44,6 @@ ___intlo_stack_hi 0 0 STACK 2
 int$flags 19 0 COMRAM 1
 __Hbigsfr 0 0 ABS 0
 __Lbigsfr 0 0 ABS 0
-UpdateClock@h 3 0 COMRAM 1
 _PIE0bits E29 0 ABS 0
 __Heeprom_data 0 0 EEDATA 0
 __Leeprom_data 0 0 EEDATA 0
@@ -91,6 +89,7 @@ __LnvCOMRAM 0 0 ABS 0
 ___heap_hi 0 0 ABS 0
 __pnvCOMRAM 17 0 COMRAM 1
 main@clock F 0 COMRAM 1
+UpdateClock@days 4 0 COMRAM 1
 __Hdata 0 0 ABS 0
 __Ldata 0 0 ABS 0
 isa$std 1 0 ABS 0
@@ -196,6 +195,7 @@ __Hspace_1 1A 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __Hsmallconst E02 0 SMALLCONST 0
 __Lsmallconst E00 0 SMALLCONST 0
+_GLOBALsecs 17 0 COMRAM 1
 __psmallconst E00 0 SMALLCONST 0
 __Hspace_2 0 0 ABS 0
 __Lspace_2 0 0 ABS 0
@@ -206,7 +206,6 @@ __Lcinit 0 0 ABS 0
 __pcinit 1166 0 CODE 0
 __ramtop E00 0 RAM 0
 __mediumconst 0 0 MEDIUMCONST 0
-UpdateClock@m 2 0 COMRAM 1
 __Hconst 0 0 CONST 0
 __Lconst 0 0 CONST 0
 __Hspace_4 600006 0 ABS 0
@@ -236,7 +235,6 @@ __end_of_Interrupts_init 1166 0 CODE 0
 __accesstop 60 0 ABS 0
 __Hintcode_body 0 0 ABS 0
 __Lintcode_body 0 0 ABS 0
-UpdateClock@d 4 0 COMRAM 1
 intlevel0 0 0 CODE 0
 intlevel1 0 0 CODE 0
 intlevel2 0 0 CODE 0
@@ -249,6 +247,8 @@ LEDarray_disp_bin@number 1 0 COMRAM 1
 _Interrupts_init 1158 0 CODE 0
 start_initialization 1166 0 CODE 0
 ___intlo_stack_lo 0 0 STACK 2
+UpdateClock@seconds 1 0 COMRAM 1
+UpdateClock@hours 3 0 COMRAM 1
 __initialization 1166 0 CODE 0
 _UpdateClock E02 0 CODE 0
 __activetblptr 0 0 ABS 0
@@ -261,7 +261,7 @@ cstackCOMRAM 1 19 COMRAM 1 1
 text1 E02 116F CODE E02 0
 %locals
 dist/default/production\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.production.o
-C:\Users\tjhla\AppData\Local\Temp\xcAs1pu0.\driver_tmp_1.s
+C:\Users\tjhla\AppData\Local\Temp\xcAs260g.\driver_tmp_1.s
 9412 1166 0 CODE 0
 9414 1166 0 CODE 0
 9417 1166 0 CODE 0
@@ -377,7 +377,7 @@ interrupts.c
 21 1160 0 CODE 0
 24 1162 0 CODE 0
 25 1164 0 CODE 0
-C:\Users\tjhla\AppData\Local\Temp\xcAs1pu0.\driver_tmp_1.s
+C:\Users\tjhla\AppData\Local\Temp\xcAs260g.\driver_tmp_1.s
 10810 8 0 CODE 0
 interrupts.c
 31 8 0 CODE 0

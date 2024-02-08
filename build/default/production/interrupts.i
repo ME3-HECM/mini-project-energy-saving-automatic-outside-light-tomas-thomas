@@ -24108,7 +24108,7 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 
 
-unsigned int secs = 0;
+unsigned int GLOBALsecs = 0;
 # 3 "interrupts.c" 2
 
 
@@ -24146,7 +24146,7 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR()
 
         TMR0H = 0b00001011;
         TMR0L = 0b11011100;
-        secs++;
+        GLOBALsecs++;
         PIR0bits.TMR0IF=0;
  }
 

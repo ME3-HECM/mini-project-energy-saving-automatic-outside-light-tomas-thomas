@@ -24143,7 +24143,7 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 
 
-unsigned int secs = 0;
+unsigned int GLOBALsecs = 0;
 # 17 "main.c" 2
 
 # 1 "./clock.h" 1
@@ -24194,7 +24194,7 @@ void main(void)
 
     struct time_structure clock;
 
-        secs = 50;
+        GLOBALsecs = 50;
         clock.minutes = 59;
         clock.hours = 12;
         clock.days = 1;
@@ -24210,7 +24210,7 @@ void main(void)
 
 
 
-        secs = clock.hours;
+        GLOBALsecs = clock.hours;
 
 
 
@@ -24220,8 +24220,8 @@ void main(void)
 
     while (1) {
 
-        clock.seconds = secs;
-        UpdateClock(&secs, &clock.minutes, &clock.hours, &clock.days);
+        clock.seconds = GLOBALsecs;
+        UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days);
 
         LEDarray_disp_bin(clock.hours);
 

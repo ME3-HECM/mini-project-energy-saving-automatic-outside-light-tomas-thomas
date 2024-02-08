@@ -24108,7 +24108,7 @@ unsigned int get16bitTMR0val(void);
 
 
 
-unsigned int secs = 0;
+unsigned int GLOBALsecs = 0;
 # 3 "timers.c" 2
 
 

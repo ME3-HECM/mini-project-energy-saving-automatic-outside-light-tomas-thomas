@@ -46,7 +46,7 @@
 "8 C:\Users\tjhla\OneDrive - Imperial College London\ME3\ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
 "8 C:\Users\tjhla\OneDrive - Imperial College London\ME3\ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X/seconds.h
-[v _secs secs `ui  1 e 2 0 ]
+[v _GLOBALsecs GLOBALsecs `ui  1 e 2 0 ]
 [s S380 . 1 `uc 1 INT0IP 1 0 :1:0 
 `uc 1 INT1IP 1 0 :1:1 
 `uc 1 INT2IP 1 0 :1:2 
@@ -498,10 +498,10 @@
 "24 C:\Users\tjhla\OneDrive - Imperial College London\ME3\ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\clock.c
 [v _UpdateClock UpdateClock `(v  1 e 1 0 ]
 {
-[v UpdateClock@s s `*.30i  1 p 1 0 ]
-[v UpdateClock@m m `*.30i  1 p 1 1 ]
-[v UpdateClock@h h `*.30i  1 p 1 2 ]
-[v UpdateClock@d d `*.30i  1 p 1 3 ]
+[v UpdateClock@seconds seconds `*.30i  1 p 1 0 ]
+[v UpdateClock@minutes minutes `*.30i  1 p 1 1 ]
+[v UpdateClock@hours hours `*.30i  1 p 1 2 ]
+[v UpdateClock@days days `*.30i  1 p 1 3 ]
 "49
 } 0
 "8 C:\Users\tjhla\OneDrive - Imperial College London\ME3\ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\timers.c

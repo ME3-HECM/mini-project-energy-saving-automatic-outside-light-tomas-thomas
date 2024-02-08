@@ -51,7 +51,7 @@ void main(void)
 
     struct time_structure clock;    //creates clock, which is of the structure time_structure
         // set the initial starting time when the sensor is set up
-        secs = 50;
+        GLOBALsecs = 50;
         clock.minutes = 59;
         clock.hours = 12;
         clock.days = 1;
@@ -67,7 +67,7 @@ void main(void)
 //~~~~~~~~~~~~~~~~~~~       TEST    MODE      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    
     //1. turn on the function below:
-        secs = clock.hours;       //turn on
+        GLOBALsecs = clock.hours;       //turn on
     
     //2. AND go into clock.c and turn on testing mode
         
@@ -77,9 +77,10 @@ void main(void)
     
     while (1) {
         
-        clock.seconds = secs;   //updates the clock.seconds to be in sync with clock time
-        UpdateClock(&secs, &clock.minutes, &clock.hours, &clock.days);  //changes the minutes, hours, days in the clock structure when a sec increases
+        clock.seconds = GLOBALsecs;   //updates the clock.seconds to be in sync with clock time
+        UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days);  //changes the minutes, hours, days in the clock structure when a sec increases
         
+        //displays the hour value in binary
         LEDarray_disp_bin(clock.hours);
         
         //alternates on to off for each time it changes day

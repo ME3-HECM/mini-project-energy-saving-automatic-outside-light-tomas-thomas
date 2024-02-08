@@ -8,10 +8,10 @@ Linker command line:
   -h+dist/default/production\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.production.sym \
   --cmf=dist/default/production\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.production.cmf \
   -z -Q18F67K40 \
-  -oC:\Users\tjhla\AppData\Local\Temp\xcAs1pu0.\driver_tmp_3.o \
+  -oC:\Users\tjhla\AppData\Local\Temp\xcAs260g.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.production.map \
-  --md=C:\Users\tjhla\AppData\Local\Temp\xcAs1pu0.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\tjhla\AppData\Local\Temp\xcAs260g.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=0E00h-0EFFhx498 -AMEDIUMCONST=0E00h-0FFFFh,010E00h-01FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0DE9h -ABIGRAM=01h-0DE9h \
@@ -31,7 +31,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\tjhla\AppData\Local\Temp\xcAs1pu0.\driver_tmp_9.o \
+  C:\Users\tjhla\AppData\Local\Temp\xcAs260g.\driver_tmp_9.o \
   dist/default/production\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.production.o 
 
 Object code version is 3.11
@@ -41,7 +41,7 @@ Machine type is 18F67K40
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\tjhla\AppData\Local\Temp\xcAs1pu0.\driver_tmp_9.o
+C:\Users\tjhla\AppData\Local\Temp\xcAs260g.\driver_tmp_9.o
                 config                           300000   300000        6        0       4
                 init                                 2C       2C        4        4       0
                 reset_vec                             0        0        4        0       0
@@ -185,10 +185,10 @@ UNUSED ADDRESS RANGES
                                   Symbol Table
 
 LEDarray_disp_bin@number   cstackCOMRAM 000001
-UpdateClock@d              cstackCOMRAM 000004
-UpdateClock@h              cstackCOMRAM 000003
-UpdateClock@m              cstackCOMRAM 000002
-UpdateClock@s              cstackCOMRAM 000001
+UpdateClock@days           cstackCOMRAM 000004
+UpdateClock@hours          cstackCOMRAM 000003
+UpdateClock@minutes        cstackCOMRAM 000002
+UpdateClock@seconds        cstackCOMRAM 000001
 _ADCON0bits                (abs)        000F60
 _ADPCH                     (abs)        000F5F
 _ADREFbits                 (abs)        000F58
@@ -200,6 +200,7 @@ _CM1NCHbits                (abs)        000ED2
 _CM1PCHbits                (abs)        000ED3
 _DAC1CON0bits              (abs)        000EC6
 _DAC1CON1bits              (abs)        000EC7
+_GLOBALsecs                nvCOMRAM     000017
 _HighISR                   intcode      000008
 _INTCONbits                (abs)        000FF2
 _IPR0bits                  (abs)        000E1F
@@ -419,7 +420,6 @@ __ptext5                   text5        001158
 __ramtop                   ramtop       000E00
 __smallconst               smallconst   000E00
 _main                      text0        000F72
-_secs                      nvCOMRAM     000017
 btemp                      temp         000019
 end_of_initialization      cinit        001166
 int$flags                  temp         000019

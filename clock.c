@@ -21,29 +21,29 @@ void clock_init(void){
 //    int *ptra;
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-void UpdateClock(int *s, int *m, int *h, int *d){
+void UpdateClock(int *seconds, int *minutes, int *hours, int *days){
 
     //#######     TESTING MODE     ########//  if not commented out then the clock will run 1 sec = 1 hour
-            *h = *s;                       // rest of the code does not need to be touched if test mode enabled
-            if (*s >= 24 ){
-                *s = 0;
-                *h = 0; 
-                *d = *d + 1;
+            *hours = *seconds;                       // rest of the code does not need to be touched if test mode enabled
+            if (*seconds >= 24 ){
+                *seconds = 0;
+                *hours = 0; 
+                *days = *days + 1;
             }
     //-----------------------------~~~~---------//
     
-    if (*s >= 60 ){
-        *s = 0;
-        *m = *m + 1;
-        }
+    if (*seconds >= 60 ){
+        *seconds = 0;
+        *minutes = *minutes + 1;
+    }
  
-        if  (*m >= 60){   // by setting this greater than or equal to 60 it ensures that we can't accidentally keep increasing seconds without increase hours
-        *m = 0;
-        *h = *h + 1;
-        }
+    if  (*minutes >= 60){   // by setting this greater than or equal to 60 it ensures that we can't accidentally keep increasing seconds without increase hours
+    *minutes = 0;
+    *hours = *hours + 1;
+    }
         
-        if (*h >= 24){
-        *h = 0;
-        *d = *d + 1;
-        }
+    if (*hours >= 24){
+    *hours = 0;
+    *days = *days + 1;
+    }
 }

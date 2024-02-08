@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Thu Feb 08 14:50:40 2024
+                                                                                               Thu Feb 08 15:05:03 2024
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	18F67K40
@@ -72,7 +72,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
     58                           	psect	nvCOMRAM
     59   000017                     __pnvCOMRAM:
     60                           	callstack 0
-    61   000017                     _secs:
+    61   000017                     _GLOBALsecs:
     62                           	callstack 0
     63   000017                     	ds	2
     64   000000                     _IPR0bits	set	3615
@@ -126,24 +126,24 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    112                           	psect	cstackCOMRAM
    113   000001                     __pcstackCOMRAM:
    114                           	callstack 0
-   115   000001                     UpdateClock@s:
+   115   000001                     UpdateClock@seconds:
    116                           	callstack 0
    117   000001                     LEDarray_disp_bin@number:
    118                           	callstack 0
    119                           
    120                           ; 2 bytes @ 0x0
    121   000001                     	ds	1
-   122   000002                     UpdateClock@m:
+   122   000002                     UpdateClock@minutes:
    123                           	callstack 0
    124                           
    125                           ; 1 bytes @ 0x1
    126   000002                     	ds	1
-   127   000003                     UpdateClock@h:
+   127   000003                     UpdateClock@hours:
    128                           	callstack 0
    129                           
    130                           ; 1 bytes @ 0x2
    131   000003                     	ds	1
-   132   000004                     UpdateClock@d:
+   132   000004                     UpdateClock@days:
    133                           	callstack 0
    134                           
    135                           ; 1 bytes @ 0x3
@@ -232,11 +232,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    213                           ;main.c: 40:     LATHbits.LATH3 = 0;
    214   000F84  9680               	bcf	128,3,c	;volatile
    215   000F86                     
-   216                           ;main.c: 52:     struct time_structure clock;;main.c: 54:         secs = 50;
+   216                           ;main.c: 52:     struct time_structure clock;;main.c: 54:         GLOBALsecs = 50;
    217   000F86  0E00               	movlw	0
-   218   000F88  6E18               	movwf	(_secs+1)^0,c
+   218   000F88  6E18               	movwf	(_GLOBALsecs+1)^0,c
    219   000F8A  0E32               	movlw	50
-   220   000F8C  6E17               	movwf	_secs^0,c
+   220   000F8C  6E17               	movwf	_GLOBALsecs^0,c
    221   000F8E                     
    222                           ;main.c: 55:         clock.minutes = 59;
    223   000F8E  0E00               	movlw	0
@@ -274,24 +274,25 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    255   000FBA  0E00               	movlw	0
    256   000FBC  6E0D               	movwf	(main@DSTon+6)^0,c
    257   000FBE                     
-   258                           ;main.c: 70:         secs = clock.hours;
-   259   000FBE  C013  F017         	movff	main@clock+4,_secs
-   260   000FC2  C014  F018         	movff	main@clock+5,_secs+1
+   258                           ;main.c: 70:         GLOBALsecs = clock.hours;
+   259   000FBE  C013  F017         	movff	main@clock+4,_GLOBALsecs
+   260   000FC2  C014  F018         	movff	main@clock+5,_GLOBALsecs+1
    261   000FC6                     l1299:
    262                           
-   263                           ;main.c: 80:         clock.seconds = secs;
-   264   000FC6  C017  F00F         	movff	_secs,main@clock
-   265   000FCA  C018  F010         	movff	_secs+1,main@clock+1
+   263                           ;main.c: 80:         clock.seconds = GLOBALsecs;
+   264   000FC6  C017  F00F         	movff	_GLOBALsecs,main@clock
+   265   000FCA  C018  F010         	movff	_GLOBALsecs+1,main@clock+1
    266   000FCE                     
-   267                           ;main.c: 81:         UpdateClock(&secs, &clock.minutes, &clock.hours, &clock.days);
-   268   000FCE  0E17               	movlw	low _secs
-   269   000FD0  6E01               	movwf	UpdateClock@s^0,c
+   267                           ;main.c: 81:         UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days)
+      +                          ;
+   268   000FCE  0E17               	movlw	low _GLOBALsecs
+   269   000FD0  6E01               	movwf	UpdateClock@seconds^0,c
    270   000FD2  0E11               	movlw	low (main@clock+2)
-   271   000FD4  6E02               	movwf	UpdateClock@m^0,c
+   271   000FD4  6E02               	movwf	UpdateClock@minutes^0,c
    272   000FD6  0E13               	movlw	low (main@clock+4)
-   273   000FD8  6E03               	movwf	UpdateClock@h^0,c
+   273   000FD8  6E03               	movwf	UpdateClock@hours^0,c
    274   000FDA  0E15               	movlw	low (main@clock+6)
-   275   000FDC  6E04               	movwf	UpdateClock@d^0,c
+   275   000FDC  6E04               	movwf	UpdateClock@days^0,c
    276   000FDE  EC01  F007         	call	_UpdateClock	;wreg free
    277   000FE2                     
    278                           ;main.c: 83:         LEDarray_disp_bin(clock.hours);
@@ -361,13 +362,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    342 ;; Defined at:
    343 ;;		line 24 in file "clock.c"
    344 ;; Parameters:    Size  Location     Type
-   345 ;;  s               1    0[COMRAM] PTR int 
-   346 ;;		 -> secs(2), 
-   347 ;;  m               1    1[COMRAM] PTR int 
+   345 ;;  seconds         1    0[COMRAM] PTR int 
+   346 ;;		 -> GLOBALsecs(2), 
+   347 ;;  minutes         1    1[COMRAM] PTR int 
    348 ;;		 -> main@clock(8), 
-   349 ;;  h               1    2[COMRAM] PTR int 
+   349 ;;  hours           1    2[COMRAM] PTR int 
    350 ;;		 -> main@clock(8), 
-   351 ;;  d               1    3[COMRAM] PTR int 
+   351 ;;  days            1    3[COMRAM] PTR int 
    352 ;;		 -> main@clock(8), 
    353 ;; Auto vars:     Size  Location     Type
    354 ;;		None
@@ -405,18 +406,18 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    381   000E02                     _UpdateClock:
    382                           	callstack 29
    383   000E02                     
-   384                           ;clock.c: 27:             *h = *s;
-   385   000E02  5001               	movf	UpdateClock@s^0,w,c
+   384                           ;clock.c: 27:             *hours = *seconds;
+   385   000E02  5001               	movf	UpdateClock@seconds^0,w,c
    386   000E04  6ED9               	movwf	fsr2l,c
    387   000E06  6ADA               	clrf	fsr2h,c
-   388   000E08  5003               	movf	UpdateClock@h^0,w,c
+   388   000E08  5003               	movf	UpdateClock@hours^0,w,c
    389   000E0A  6EE1               	movwf	fsr1l,c
    390   000E0C  6AE2               	clrf	fsr1h,c
    391   000E0E  CFDE FFE6          	movff	postinc2,postinc1
    392   000E12  CFDD FFE5          	movff	postdec2,postdec1
    393   000E16                     
-   394                           ;clock.c: 28:             if (*s >= 24 ){
-   395   000E16  5001               	movf	UpdateClock@s^0,w,c
+   394                           ;clock.c: 28:             if (*seconds >= 24 ){
+   395   000E16  5001               	movf	UpdateClock@seconds^0,w,c
    396   000E18  6ED9               	movwf	fsr2l,c
    397   000E1A  6ADA               	clrf	fsr2h,c
    398   000E1C  0E01               	movlw	1
@@ -434,22 +435,22 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    410   000E38  EF3A  F007         	goto	l1231
    411   000E3C                     u630:
    412   000E3C                     
-   413                           ;clock.c: 29:                 *s = 0;
-   414   000E3C  5001               	movf	UpdateClock@s^0,w,c
+   413                           ;clock.c: 29:                 *seconds = 0;
+   414   000E3C  5001               	movf	UpdateClock@seconds^0,w,c
    415   000E3E  6ED9               	movwf	fsr2l,c
    416   000E40  6ADA               	clrf	fsr2h,c
    417   000E42  6ADE               	clrf	postinc2,c
    418   000E44  6ADD               	clrf	postdec2,c
    419                           
-   420                           ;clock.c: 30:                 *h = 0;
-   421   000E46  5003               	movf	UpdateClock@h^0,w,c
+   420                           ;clock.c: 30:                 *hours = 0;
+   421   000E46  5003               	movf	UpdateClock@hours^0,w,c
    422   000E48  6ED9               	movwf	fsr2l,c
    423   000E4A  6ADA               	clrf	fsr2h,c
    424   000E4C  6ADE               	clrf	postinc2,c
    425   000E4E  6ADD               	clrf	postdec2,c
    426   000E50                     
-   427                           ;clock.c: 31:                 *d = *d + 1;
-   428   000E50  5004               	movf	UpdateClock@d^0,w,c
+   427                           ;clock.c: 31:                 *days = *days + 1;
+   428   000E50  5004               	movf	UpdateClock@days^0,w,c
    429   000E52  6ED9               	movwf	fsr2l,c
    430   000E54  6ADA               	clrf	fsr2h,c
    431   000E56  CFDE F005          	movff	postinc2,??_UpdateClock
@@ -458,15 +459,15 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    434   000E60  2605               	addwf	??_UpdateClock^0,f,c
    435   000E62  0E00               	movlw	0
    436   000E64  2206               	addwfc	(??_UpdateClock+1)^0,f,c
-   437   000E66  5004               	movf	UpdateClock@d^0,w,c
+   437   000E66  5004               	movf	UpdateClock@days^0,w,c
    438   000E68  6ED9               	movwf	fsr2l,c
    439   000E6A  6ADA               	clrf	fsr2h,c
    440   000E6C  C005  FFDE         	movff	??_UpdateClock,postinc2
    441   000E70  C006  FFDD         	movff	??_UpdateClock+1,postdec2
    442   000E74                     l1231:
    443                           
-   444                           ;clock.c: 35:     if (*s >= 60 ){
-   445   000E74  5001               	movf	UpdateClock@s^0,w,c
+   444                           ;clock.c: 35:     if (*seconds >= 60 ){
+   445   000E74  5001               	movf	UpdateClock@seconds^0,w,c
    446   000E76  6ED9               	movwf	fsr2l,c
    447   000E78  6ADA               	clrf	fsr2h,c
    448   000E7A  0E01               	movlw	1
@@ -484,15 +485,15 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    460   000E96  EF64  F007         	goto	l1237
    461   000E9A                     u640:
    462   000E9A                     
-   463                           ;clock.c: 36:         *s = 0;
-   464   000E9A  5001               	movf	UpdateClock@s^0,w,c
+   463                           ;clock.c: 36:         *seconds = 0;
+   464   000E9A  5001               	movf	UpdateClock@seconds^0,w,c
    465   000E9C  6ED9               	movwf	fsr2l,c
    466   000E9E  6ADA               	clrf	fsr2h,c
    467   000EA0  6ADE               	clrf	postinc2,c
    468   000EA2  6ADD               	clrf	postdec2,c
    469   000EA4                     
-   470                           ;clock.c: 37:         *m = *m + 1;
-   471   000EA4  5002               	movf	UpdateClock@m^0,w,c
+   470                           ;clock.c: 37:         *minutes = *minutes + 1;
+   471   000EA4  5002               	movf	UpdateClock@minutes^0,w,c
    472   000EA6  6ED9               	movwf	fsr2l,c
    473   000EA8  6ADA               	clrf	fsr2h,c
    474   000EAA  CFDE F005          	movff	postinc2,??_UpdateClock
@@ -501,15 +502,15 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    477   000EB4  2605               	addwf	??_UpdateClock^0,f,c
    478   000EB6  0E00               	movlw	0
    479   000EB8  2206               	addwfc	(??_UpdateClock+1)^0,f,c
-   480   000EBA  5002               	movf	UpdateClock@m^0,w,c
+   480   000EBA  5002               	movf	UpdateClock@minutes^0,w,c
    481   000EBC  6ED9               	movwf	fsr2l,c
    482   000EBE  6ADA               	clrf	fsr2h,c
    483   000EC0  C005  FFDE         	movff	??_UpdateClock,postinc2
    484   000EC4  C006  FFDD         	movff	??_UpdateClock+1,postdec2
    485   000EC8                     l1237:
    486                           
-   487                           ;clock.c: 40:         if (*m >= 60){
-   488   000EC8  5002               	movf	UpdateClock@m^0,w,c
+   487                           ;clock.c: 40:     if (*minutes >= 60){
+   488   000EC8  5002               	movf	UpdateClock@minutes^0,w,c
    489   000ECA  6ED9               	movwf	fsr2l,c
    490   000ECC  6ADA               	clrf	fsr2h,c
    491   000ECE  0E01               	movlw	1
@@ -527,15 +528,15 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    503   000EEA  EF8E  F007         	goto	l1243
    504   000EEE                     u650:
    505   000EEE                     
-   506                           ;clock.c: 41:         *m = 0;
-   507   000EEE  5002               	movf	UpdateClock@m^0,w,c
+   506                           ;clock.c: 41:     *minutes = 0;
+   507   000EEE  5002               	movf	UpdateClock@minutes^0,w,c
    508   000EF0  6ED9               	movwf	fsr2l,c
    509   000EF2  6ADA               	clrf	fsr2h,c
    510   000EF4  6ADE               	clrf	postinc2,c
    511   000EF6  6ADD               	clrf	postdec2,c
    512   000EF8                     
-   513                           ;clock.c: 42:         *h = *h + 1;
-   514   000EF8  5003               	movf	UpdateClock@h^0,w,c
+   513                           ;clock.c: 42:     *hours = *hours + 1;
+   514   000EF8  5003               	movf	UpdateClock@hours^0,w,c
    515   000EFA  6ED9               	movwf	fsr2l,c
    516   000EFC  6ADA               	clrf	fsr2h,c
    517   000EFE  CFDE F005          	movff	postinc2,??_UpdateClock
@@ -544,15 +545,15 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    520   000F08  2605               	addwf	??_UpdateClock^0,f,c
    521   000F0A  0E00               	movlw	0
    522   000F0C  2206               	addwfc	(??_UpdateClock+1)^0,f,c
-   523   000F0E  5003               	movf	UpdateClock@h^0,w,c
+   523   000F0E  5003               	movf	UpdateClock@hours^0,w,c
    524   000F10  6ED9               	movwf	fsr2l,c
    525   000F12  6ADA               	clrf	fsr2h,c
    526   000F14  C005  FFDE         	movff	??_UpdateClock,postinc2
    527   000F18  C006  FFDD         	movff	??_UpdateClock+1,postdec2
    528   000F1C                     l1243:
    529                           
-   530                           ;clock.c: 45:         if (*h >= 24){
-   531   000F1C  5003               	movf	UpdateClock@h^0,w,c
+   530                           ;clock.c: 45:     if (*hours >= 24){
+   531   000F1C  5003               	movf	UpdateClock@hours^0,w,c
    532   000F1E  6ED9               	movwf	fsr2l,c
    533   000F20  6ADA               	clrf	fsr2h,c
    534   000F22  0E01               	movlw	1
@@ -570,15 +571,15 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    546   000F3E  EFB8  F007         	goto	l237
    547   000F42                     u660:
    548   000F42                     
-   549                           ;clock.c: 46:         *h = 0;
-   550   000F42  5003               	movf	UpdateClock@h^0,w,c
+   549                           ;clock.c: 46:     *hours = 0;
+   550   000F42  5003               	movf	UpdateClock@hours^0,w,c
    551   000F44  6ED9               	movwf	fsr2l,c
    552   000F46  6ADA               	clrf	fsr2h,c
    553   000F48  6ADE               	clrf	postinc2,c
    554   000F4A  6ADD               	clrf	postdec2,c
    555   000F4C                     
-   556                           ;clock.c: 47:         *d = *d + 1;
-   557   000F4C  5004               	movf	UpdateClock@d^0,w,c
+   556                           ;clock.c: 47:     *days = *days + 1;
+   557   000F4C  5004               	movf	UpdateClock@days^0,w,c
    558   000F4E  6ED9               	movwf	fsr2l,c
    559   000F50  6ADA               	clrf	fsr2h,c
    560   000F52  CFDE F005          	movff	postinc2,??_UpdateClock
@@ -587,7 +588,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    563   000F5C  2605               	addwf	??_UpdateClock^0,f,c
    564   000F5E  0E00               	movlw	0
    565   000F60  2206               	addwfc	(??_UpdateClock+1)^0,f,c
-   566   000F62  5004               	movf	UpdateClock@d^0,w,c
+   566   000F62  5004               	movf	UpdateClock@days^0,w,c
    567   000F64  6ED9               	movwf	fsr2l,c
    568   000F66  6ADA               	clrf	fsr2h,c
    569   000F68  C005  FFDE         	movff	??_UpdateClock,postinc2
@@ -1055,9 +1056,9 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1005   000020  6ED3               	movwf	211,c	;volatile
   1006   000022                     
   1007                           ; BSR set to: 14
-  1008                           ;interrupts.c: 39:         secs++;
-  1009   000022  4A17               	infsnz	_secs^0,f,c
-  1010   000024  2A18               	incf	(_secs+1)^0,f,c
+  1008                           ;interrupts.c: 39:         GLOBALsecs++;
+  1009   000022  4A17               	infsnz	_GLOBALsecs^0,f,c
+  1010   000024  2A18               	incf	(_GLOBALsecs+1)^0,f,c
   1011   000026                     
   1012                           ; BSR set to: 14
   1013                           ;interrupts.c: 40:         PIR0bits.TMR0IF=0;
@@ -1191,17 +1192,17 @@ Auto Spaces:
 
 Pointer List with Targets:
 
-    UpdateClock@d	PTR int  size(1) Largest target is 8
+    UpdateClock@days	PTR int  size(1) Largest target is 8
 		 -> main@clock(COMRAM[8]), 
 
-    UpdateClock@h	PTR int  size(1) Largest target is 8
+    UpdateClock@hours	PTR int  size(1) Largest target is 8
 		 -> main@clock(COMRAM[8]), 
 
-    UpdateClock@m	PTR int  size(1) Largest target is 8
+    UpdateClock@minutes	PTR int  size(1) Largest target is 8
 		 -> main@clock(COMRAM[8]), 
 
-    UpdateClock@s	PTR int  size(1) Largest target is 2
-		 -> secs(COMRAM[2]), 
+    UpdateClock@seconds	PTR int  size(1) Largest target is 2
+		 -> GLOBALsecs(COMRAM[2]), 
 
 
 Critical Paths under _main in COMRAM
@@ -1437,7 +1438,7 @@ SFR                  0      0       0     200        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Thu Feb 08 14:50:40 2024
+Symbol Table                                                                                   Thu Feb 08 15:05:03 2024
 
                        l26 1002                         l29 1040                         l46 1156  
                        l66 1164          ??_Interrupts_init 0001                        l111 1136  
@@ -1476,15 +1477,15 @@ Symbol Table                                                                    
                      l1269 0F72                       l1295 0FB6                       l1287 0F96  
                      l1279 0F82                       l1297 0FBE                       l1289 0F9E  
                      l1299 0FC6                       i2l72 0028                       _main 0F72  
-                     _secs 0017                       fsr1h 0FE2                       fsr2h 0FDA  
-                     fsr1l 0FE1                       fsr2l 0FD9                       btemp 0019  
-                     start 002C            __end_of_HighISR 002C               ___param_bank 0000  
-                    ?_main 0001                      _ADPCH 0F5F                      _TMR0H 0FD4  
-                    _TMR0L 0FD3                      plusw2 0FDB                      ttemp5 001A  
-                    ttemp6 001D                      ttemp7 0021                      status 0FD8  
-                    wtemp8 001A            __initialization 1166               __end_of_main 104A  
-                   ??_main 0007              __activetblptr 0000                     _ADRESH 0F64  
-                   i2l1031 0026                     i2l1025 000A                     i2l1027 001A  
+                     fsr1h 0FE2                       fsr2h 0FDA                       fsr1l 0FE1  
+                     fsr2l 0FD9                       btemp 0019                       start 002C  
+          __end_of_HighISR 002C               ___param_bank 0000                      ?_main 0001  
+                    _ADPCH 0F5F                      _TMR0H 0FD4                      _TMR0L 0FD3  
+                    plusw2 0FDB                      ttemp5 001A                      ttemp6 001D  
+                    ttemp7 0021                      status 0FD8                      wtemp8 001A  
+          __initialization 1166               __end_of_main 104A                     ??_main 0007  
+            __activetblptr 0000                     _ADRESH 0F64                     i2l1031 0026  
+         UpdateClock@hours 0003                     i2l1025 000A                     i2l1027 001A  
                    i2l1029 0022                  ??_HighISR 0001          _LEDarray_disp_bin 104A  
        ?_LEDarray_disp_bin 0001              ??_Timer0_init 0001        ??_LEDarray_disp_bin 0003  
                    isa$std 0001               __mediumconst 0000  __end_of_LEDarray_disp_bin 1112  
@@ -1503,15 +1504,15 @@ Symbol Table                                                                    
                 _TRISBbits 0F82                  _TRISDbits 0F84                  _TRISFbits 0F86  
                 _TRISGbits 0F87                  _TRISHbits 0F88                _CM1CON0bits 0ED0  
               _CM1CON1bits 0ED1           ?_Interrupts_init 0001        start_initialization 1166  
-                 ?_HighISR 0001               ?_Timer0_init 0001                  __pintcode 0008  
-              __smallconst 0E00               ?_UpdateClock 0001                   _LATAbits 0F79  
+          UpdateClock@days 0004                   ?_HighISR 0001               ?_Timer0_init 0001  
+                __pintcode 0008                __smallconst 0E00               ?_UpdateClock 0001  
+                 _LATAbits 0F79         UpdateClock@minutes 0002         UpdateClock@seconds 0001  
                  _LATBbits 0F7A                   _LATDbits 0F7C                   _LATFbits 0F7E  
                  _LATGbits 0F7F                   _LATHbits 0F80                   _IPR0bits 0E1F  
                  _PIE0bits 0E29                   _PIR0bits 0E33                  main@DSTon 0007  
                _ADCON0bits 0F60                  main@clock 000F                 _CM1NCHbits 0ED2  
                _CM1PCHbits 0ED3      __end_of_LEDarray_init 1138                   __Hrparam 0000  
                  __Lrparam 0000                 _ANSELAbits 0E92                 _T0CON0bits 0FD5  
-               _T0CON1bits 0FD6    LEDarray_disp_bin@number 0001                   isa$xinst 0000  
-                 int$flags 0019                 _INTCONbits 0FF2                   intlevel2 0000  
-             _DAC1CON0bits 0EC6               _DAC1CON1bits 0EC7               UpdateClock@d 0004  
-             UpdateClock@h 0003               UpdateClock@m 0002               UpdateClock@s 0001  
+               _T0CON1bits 0FD6    LEDarray_disp_bin@number 0001                 _GLOBALsecs 0017  
+                 isa$xinst 0000                   int$flags 0019                 _INTCONbits 0FF2  
+                 intlevel2 0000               _DAC1CON0bits 0EC6               _DAC1CON1bits 0EC7  

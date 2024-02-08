@@ -2068,9 +2068,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "8 ./seconds.h
-[; ;./seconds.h: 8: unsigned int secs = 0;
-[v _secs `ui ~T0 @X0 1 e ]
-[i _secs
+[; ;./seconds.h: 8: unsigned int GLOBALsecs = 0;
+[v _GLOBALsecs `ui ~T0 @X0 1 e ]
+[i _GLOBALsecs
 -> -> 0 `i `ui
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
@@ -2107,8 +2107,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 52:     struct time_structure clock;
 [v _clock `S2016 ~T0 @X0 1 a ]
 "54
-[; ;main.c: 54:         secs = 50;
-[e = _secs -> -> 50 `i `ui ]
+[; ;main.c: 54:         GLOBALsecs = 50;
+[e = _GLOBALsecs -> -> 50 `i `ui ]
 "55
 [; ;main.c: 55:         clock.minutes = 59;
 [e = . _clock 1 -> 59 `i ]
@@ -2131,18 +2131,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 64:         DSTon.days = 0;
 [e = . _DSTon 3 -> 0 `i ]
 "70
-[; ;main.c: 70:         secs = clock.hours;
-[e = _secs -> . _clock 2 `ui ]
+[; ;main.c: 70:         GLOBALsecs = clock.hours;
+[e = _GLOBALsecs -> . _clock 2 `ui ]
 "78
 [; ;main.c: 78:     while (1) {
 [e :U 2018 ]
 {
 "80
-[; ;main.c: 80:         clock.seconds = secs;
-[e = . _clock 0 -> _secs `i ]
+[; ;main.c: 80:         clock.seconds = GLOBALsecs;
+[e = . _clock 0 -> _GLOBALsecs `i ]
 "81
-[; ;main.c: 81:         UpdateClock(&secs, &clock.minutes, &clock.hours, &clock.days);
-[e ( _UpdateClock (4 , , , -> &U _secs `*i &U . _clock 1 &U . _clock 2 &U . _clock 3 ]
+[; ;main.c: 81:         UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days);
+[e ( _UpdateClock (4 , , , -> &U _GLOBALsecs `*i &U . _clock 1 &U . _clock 2 &U . _clock 3 ]
 "83
 [; ;main.c: 83:         LEDarray_disp_bin(clock.hours);
 [e ( _LEDarray_disp_bin (1 -> . _clock 2 `ui ]

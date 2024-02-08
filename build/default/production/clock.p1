@@ -1974,9 +1974,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "8 ./seconds.h
-[; ;./seconds.h: 8: unsigned int secs = 0;
-[v _secs `ui ~T0 @X0 1 e ]
-[i _secs
+[; ;./seconds.h: 8: unsigned int GLOBALsecs = 0;
+[v _GLOBALsecs `ui ~T0 @X0 1 e ]
+[i _GLOBALsecs
 -> -> 0 `i `ui
 ]
 "5 clock.c
@@ -1990,75 +1990,75 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2015 ]
 }
 "24
-[; ;clock.c: 24: void UpdateClock(int *s, int *m, int *h, int *d){
+[; ;clock.c: 24: void UpdateClock(int *seconds, int *minutes, int *hours, int *days){
 [v _UpdateClock `(v ~T0 @X0 1 ef4`*i`*i`*i`*i ]
 {
 [e :U _UpdateClock ]
-[v _s `*i ~T0 @X0 1 r1 ]
-[v _m `*i ~T0 @X0 1 r2 ]
-[v _h `*i ~T0 @X0 1 r3 ]
-[v _d `*i ~T0 @X0 1 r4 ]
+[v _seconds `*i ~T0 @X0 1 r1 ]
+[v _minutes `*i ~T0 @X0 1 r2 ]
+[v _hours `*i ~T0 @X0 1 r3 ]
+[v _days `*i ~T0 @X0 1 r4 ]
 [f ]
 "27
-[; ;clock.c: 27:             *h = *s;
-[e = *U _h *U _s ]
+[; ;clock.c: 27:             *hours = *seconds;
+[e = *U _hours *U _seconds ]
 "28
-[; ;clock.c: 28:             if (*s >= 24 ){
-[e $ ! >= *U _s -> 24 `i 2017  ]
+[; ;clock.c: 28:             if (*seconds >= 24 ){
+[e $ ! >= *U _seconds -> 24 `i 2017  ]
 {
 "29
-[; ;clock.c: 29:                 *s = 0;
-[e = *U _s -> 0 `i ]
+[; ;clock.c: 29:                 *seconds = 0;
+[e = *U _seconds -> 0 `i ]
 "30
-[; ;clock.c: 30:                 *h = 0;
-[e = *U _h -> 0 `i ]
+[; ;clock.c: 30:                 *hours = 0;
+[e = *U _hours -> 0 `i ]
 "31
-[; ;clock.c: 31:                 *d = *d + 1;
-[e = *U _d + *U _d -> 1 `i ]
+[; ;clock.c: 31:                 *days = *days + 1;
+[e = *U _days + *U _days -> 1 `i ]
 "32
 [; ;clock.c: 32:             }
 }
 [e :U 2017 ]
 "35
-[; ;clock.c: 35:     if (*s >= 60 ){
-[e $ ! >= *U _s -> 60 `i 2018  ]
+[; ;clock.c: 35:     if (*seconds >= 60 ){
+[e $ ! >= *U _seconds -> 60 `i 2018  ]
 {
 "36
-[; ;clock.c: 36:         *s = 0;
-[e = *U _s -> 0 `i ]
+[; ;clock.c: 36:         *seconds = 0;
+[e = *U _seconds -> 0 `i ]
 "37
-[; ;clock.c: 37:         *m = *m + 1;
-[e = *U _m + *U _m -> 1 `i ]
+[; ;clock.c: 37:         *minutes = *minutes + 1;
+[e = *U _minutes + *U _minutes -> 1 `i ]
 "38
-[; ;clock.c: 38:         }
+[; ;clock.c: 38:     }
 }
 [e :U 2018 ]
 "40
-[; ;clock.c: 40:         if (*m >= 60){
-[e $ ! >= *U _m -> 60 `i 2019  ]
+[; ;clock.c: 40:     if (*minutes >= 60){
+[e $ ! >= *U _minutes -> 60 `i 2019  ]
 {
 "41
-[; ;clock.c: 41:         *m = 0;
-[e = *U _m -> 0 `i ]
+[; ;clock.c: 41:     *minutes = 0;
+[e = *U _minutes -> 0 `i ]
 "42
-[; ;clock.c: 42:         *h = *h + 1;
-[e = *U _h + *U _h -> 1 `i ]
+[; ;clock.c: 42:     *hours = *hours + 1;
+[e = *U _hours + *U _hours -> 1 `i ]
 "43
-[; ;clock.c: 43:         }
+[; ;clock.c: 43:     }
 }
 [e :U 2019 ]
 "45
-[; ;clock.c: 45:         if (*h >= 24){
-[e $ ! >= *U _h -> 24 `i 2020  ]
+[; ;clock.c: 45:     if (*hours >= 24){
+[e $ ! >= *U _hours -> 24 `i 2020  ]
 {
 "46
-[; ;clock.c: 46:         *h = 0;
-[e = *U _h -> 0 `i ]
+[; ;clock.c: 46:     *hours = 0;
+[e = *U _hours -> 0 `i ]
 "47
-[; ;clock.c: 47:         *d = *d + 1;
-[e = *U _d + *U _d -> 1 `i ]
+[; ;clock.c: 47:     *days = *days + 1;
+[e = *U _days + *U _days -> 1 `i ]
 "48
-[; ;clock.c: 48:         }
+[; ;clock.c: 48:     }
 }
 [e :U 2020 ]
 "49

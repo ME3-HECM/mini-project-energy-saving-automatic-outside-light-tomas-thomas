@@ -2018,9 +2018,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "8 ./seconds.h
-[; ;./seconds.h: 8: unsigned int secs = 0;
-[v _secs `ui ~T0 @X0 1 e ]
-[i _secs
+[; ;./seconds.h: 8: unsigned int GLOBALsecs = 0;
+[v _GLOBALsecs `ui ~T0 @X0 1 e ]
+[i _GLOBALsecs
 -> -> 0 `i `ui
 ]
 "8 timers.c
