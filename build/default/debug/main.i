@@ -24132,14 +24132,22 @@ void main(void)
     ADC_init();
 
 
+    LEDarray_init();
 
-    unsigned int minLight = 70;
+
+    unsigned int light_transition = 70;
 
     while (1) {
 
-        if (ADC_getval() < minLight) {LATHbits.LATH3 = !LATHbits.LATH3;}
+
+
+
+
+
+        unsigned int curval = ADC_getval();
+
+        if (curval < light_transition) {LATHbits.LATH3 = !LATHbits.LATH3;}
 
         else {LATHbits.LATH3 = 0;}
     }
-
 }

@@ -2046,35 +2046,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 "31
 [; ;main.c: 31:     ADC_init();
 [e ( _ADC_init ..  ]
-"35
-[; ;main.c: 35:     unsigned int minLight = 70;
-[v _minLight `ui ~T0 @X0 1 a ]
-[e = _minLight -> -> 70 `i `ui ]
 "37
-[; ;main.c: 37:     while (1) {
+[; ;main.c: 37:     unsigned int light_transition = 70;
+[v _light_transition `ui ~T0 @X0 1 a ]
+[e = _light_transition -> -> 70 `i `ui ]
+"39
+[; ;main.c: 39:     while (1) {
 [e :U 2017 ]
 {
-"39
-[; ;main.c: 39:         if (ADC_getval() < minLight) {LATHbits.LATH3 = !LATHbits.LATH3;}
-[e $ ! < ( _ADC_getval ..  _minLight 2019  ]
+"46
+[; ;main.c: 46:         unsigned int curval = ADC_getval();
+[v _curval `ui ~T0 @X0 1 a ]
+[e = _curval ( _ADC_getval ..  ]
+"48
+[; ;main.c: 48:         if (curval < light_transition) {LATHbits.LATH3 = !LATHbits.LATH3;}
+[e $ ! < _curval _light_transition 2019  ]
 {
 [e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
 }
 [e $U 2020  ]
-"41
-[; ;main.c: 41:         else {LATHbits.LATH3 = 0;}
+"50
+[; ;main.c: 50:         else {LATHbits.LATH3 = 0;}
 [e :U 2019 ]
 {
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 }
 [e :U 2020 ]
-"42
-[; ;main.c: 42:     }
+"51
+[; ;main.c: 51:     }
 }
 [e :U 2016 ]
 [e $U 2017  ]
 [e :U 2018 ]
-"44
-[; ;main.c: 44: }
+"52
+[; ;main.c: 52: }
 [e :UE 2015 ]
 }

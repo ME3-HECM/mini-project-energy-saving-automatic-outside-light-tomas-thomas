@@ -30,17 +30,25 @@ void main(void)
     
     ADC_init();             //setting up the ADC
     
-    //Defining light levels for turning LED on in dark and off in light
-    //unsigned int maxLight = 170;            // CalibrationNumber any number from 0 to 255  - 105 worked for my room at home - 185 worked in the LAB
-    unsigned int minLight = 70;             // CalibrationNumber any number from 0 to 255  - used to make sure finger on the LED makes it go dark
+    //For DUSK AND DAWN test calibration
+//    LEDarray_init();
     
+    //Defining light levels for turning LED on in dark and off in light
+    unsigned int light_transition = 70;     // CalibrationNumber any number from 0 to 255  - Used as transition threshold light level at dawn/dusk.
+                                            //Only one light level is needed - represents both Dawn and Dusk - this is the transition from light to dark and vice versa.
     while (1) {
-        //check light level from LDR
-        if (ADC_getval() < minLight) {LATHbits.LATH3 = !LATHbits.LATH3;}
         
+        //This is to display bits to calibrate LDR for Dawn and Dusk
+//        unsigned int calibration_level = ADC_getval();
+//        LEDarray_disp_bin(calibration_level);
+        
+        //check current light level from LDR
+        unsigned int curval = ADC_getval();
+        
+        if (curval < light_transition) {LATHbits.LATH3 = !LATHbits.LATH3;} //Turn on the LED if it is dark
+                              
         else {LATHbits.LATH3 = 0;}
     }
-
 }
 
 

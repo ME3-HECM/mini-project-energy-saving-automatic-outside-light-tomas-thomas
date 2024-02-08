@@ -1,12 +1,12 @@
-__S0 EB2 0 ABS 0
-__S1 A 0 ABS 0
+__S0 EBA 0 ABS 0
+__S1 C 0 ABS 0
 __S4 0 0 ABS 0
 __S5 0 0 ABS 0
 __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
 _main E02 0 CODE 0
 ___sp 0 0 STACK 2
-btemp 9 0 COMRAM 1
+btemp B 0 COMRAM 1
 start 4E 0 CODE 0
 _TMR0H FD4 0 ABS 0
 _TMR0L FD3 0 ABS 0
@@ -15,10 +15,10 @@ __Hirdata 0 0 CODE 0
 __Lirdata 0 0 CODE 0
 __HRAM 0 0 ABS 0
 __LRAM 1 0 ABS 0
-ttemp5 A 0 COMRAM 1
-ttemp6 D 0 COMRAM 1
-ttemp7 11 0 COMRAM 1
-wtemp8 A 0 COMRAM 1
+ttemp5 C 0 COMRAM 1
+ttemp6 F 0 COMRAM 1
+ttemp7 13 0 COMRAM 1
+wtemp8 C 0 COMRAM 1
 __Hconfig 300006 0 CONFIG 4
 __Lconfig 0 0 CONFIG 4
 ___inthi_stack_hi 0 0 STACK 2
@@ -39,13 +39,13 @@ ___param_bank 0 0 ABS 0
 __Hnvrram 0 0 COMRAM 1
 __Lnvrram 0 0 COMRAM 1
 ___intlo_stack_hi 0 0 STACK 2
-int$flags 9 0 COMRAM 1
+int$flags B 0 COMRAM 1
 __Hbigsfr 0 0 ABS 0
 __Lbigsfr 0 0 ABS 0
 _PIE0bits E29 0 ABS 0
 __Heeprom_data 0 0 EEDATA 0
 __Leeprom_data 0 0 EEDATA 0
-_ADC_init E8E 0 CODE 0
+_ADC_init E96 0 CODE 0
 _PIR0bits E33 0 ABS 0
 _IPR0bits E1F 0 ABS 0
 _LATAbits F79 0 ABS 0
@@ -88,8 +88,8 @@ isa$std 1 0 ABS 0
 stackhi 0 0 ABS 0
 __Hheap 0 0 HEAP 7
 __Lheap 0 0 HEAP 7
-__Htemp A 0 COMRAM 1
-__Ltemp 9 0 COMRAM 1
+__Htemp C 0 COMRAM 1
+__Ltemp B 0 COMRAM 1
 stacklo 0 0 ABS 0
 __Hrbit 0 0 COMRAM 1
 __Lrbit 0 0 COMRAM 1
@@ -98,12 +98,12 @@ __Linit 4E 0 CODE 0
 __Hintcodelo 4E 0 CODE 0
 __Lintcodelo 4E 0 CODE 0
 __Hrbss 0 0 COMRAM 1
-__end_of_main E5E 0 CODE 0
+__end_of_main E66 0 CODE 0
 __Lrbss 0 0 COMRAM 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 ___heap_lo 0 0 ABS 0
-end_of_initialization EA8 0 CODE 0
+end_of_initialization EB0 0 CODE 0
 _ADREFbits F58 0 ABS 0
 _TRISAbits F81 0 ABS 0
 _TRISBbits F82 0 ABS 0
@@ -120,7 +120,7 @@ __Hbank1 0 0 ABS 0
 __Lbank1 0 0 ABS 0
 __Hbank2 0 0 ABS 0
 __Lbank2 0 0 ABS 0
-__end_of_ADC_init EA8 0 CODE 0
+__end_of_ADC_init EB0 0 CODE 0
 __Hbank3 0 0 ABS 0
 __Lbank3 0 0 ABS 0
 __Hbank4 0 0 ABS 0
@@ -146,13 +146,13 @@ __Ltext1 0 0 ABS 0
 __ptext0 E02 0 CODE 0
 __Htext2 0 0 ABS 0
 __Ltext2 0 0 ABS 0
-__ptext1 E8E 0 CODE 0
-__ptext2 E5E 0 CODE 0
+__ptext1 E96 0 CODE 0
+__ptext2 E66 0 CODE 0
 ___stack_hi 0 0 STACK 2
 _HighISR 8 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
-__end_of__initialization EA8 0 CODE 0
+__end_of__initialization EB0 0 CODE 0
 ___rparam_used 1 0 ABS 0
 __H__absolute__ 0 0 ABS 0
 __L__absolute__ 0 0 ABS 0
@@ -163,28 +163,29 @@ __Lrdata 0 0 COMRAM 1
 __Hidloc 0 0 ABS 0
 __Lidloc 0 0 ABS 0
 __Hstack 0 0 STACK 2
-__end_of_ADC_getval E8E 0 CODE 0
+__end_of_ADC_getval E96 0 CODE 0
 __Lstack 0 0 STACK 2
 __Hparam 0 0 COMRAM 1
 __Lparam 0 0 COMRAM 1
-__Hspace_0 EB2 0 ABS 0
+__Hspace_0 EBA 0 ABS 0
 __HcstackCOMRAM 0 0 ABS 0
 __Lspace_0 0 0 ABS 0
 __LcstackCOMRAM 0 0 ABS 0
 __pcstackCOMRAM 1 0 COMRAM 1
-_ADC_getval E5E 0 CODE 0
-__Hspace_1 A 0 ABS 0
+_ADC_getval E66 0 CODE 0
+__Hspace_1 C 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __Hsmallconst E02 0 SMALLCONST 0
 __Lsmallconst E00 0 SMALLCONST 0
 __psmallconst E00 0 SMALLCONST 0
+main@curval 9 0 COMRAM 1
 __Hspace_2 0 0 ABS 0
 __Lspace_2 0 0 ABS 0
 __Hnvbit 0 0 COMRAM 1
 __Lnvbit 0 0 COMRAM 1
 __Hcinit 0 0 ABS 0
 __Lcinit 0 0 ABS 0
-__pcinit EA8 0 CODE 0
+__pcinit EB0 0 CODE 0
 __ramtop E00 0 RAM 0
 __mediumconst 0 0 MEDIUMCONST 0
 __Hconst 0 0 CONST 0
@@ -210,7 +211,6 @@ _CM1NCHbits ED2 0 ABS 0
 _CM1PCHbits ED3 0 ABS 0
 ___intlo_sp 0 0 STACK 2
 _INTCONbits FF2 0 ABS 0
-main@minLight 7 0 COMRAM 1
 __smallconst E00 0 SMALLCONST 0
 __Hreset_vec 4 0 CODE 0
 __Lreset_vec 0 0 CODE 0
@@ -224,57 +224,59 @@ _DAC1CON0bits EC6 0 ABS 0
 intlevel3 0 0 CODE 0
 _DAC1CON1bits EC7 0 ABS 0
 ___inthi_stack_lo 0 0 STACK 2
-start_initialization EA8 0 CODE 0
+start_initialization EB0 0 CODE 0
+main@light_transition 7 0 COMRAM 1
 ___intlo_stack_lo 0 0 STACK 2
-__initialization EA8 0 CODE 0
+__initialization EB0 0 CODE 0
 __activetblptr 0 0 ABS 0
 __end_of_HighISR 4E 0 CODE 0
 %segments
 reset_vec 0 3 CODE 0 0
 intcode 8 51 CODE 8 0
 smallconst E00 E01 SMALLCONST E00 0
-cstackCOMRAM 1 9 COMRAM 1 1
-text0 E02 EB1 CODE E02 0
+cstackCOMRAM 1 B COMRAM 1 1
+text0 E02 EB9 CODE E02 0
 %locals
 dist/default/production\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.production.o
-C:\Users\thoma\AppData\Local\Temp\xcAspg8.\driver_tmp_1.s
-8084 EA8 0 CODE 0
-8086 EA8 0 CODE 0
-8089 EA8 0 CODE 0
-8095 EA8 0 CODE 0
-8097 EA8 0 CODE 0
-8098 EAA 0 CODE 0
-8099 EAC 0 CODE 0
-8100 EAE 0 CODE 0
+C:\Users\thoma\AppData\Local\Temp\xcAspjc.\driver_tmp_1.s
+8084 EB0 0 CODE 0
+8086 EB0 0 CODE 0
+8089 EB0 0 CODE 0
+8095 EB0 0 CODE 0
+8097 EB0 0 CODE 0
+8098 EB2 0 CODE 0
+8099 EB4 0 CODE 0
+8100 EB6 0 CODE 0
 main.c
 25 E02 0 CODE 0
 28 E02 0 CODE 0
 29 E04 0 CODE 0
 31 E06 0 CODE 0
-35 E0A 0 CODE 0
-39 E12 0 CODE 0
-41 E54 0 CODE 0
+37 E0A 0 CODE 0
+46 E12 0 CODE 0
+48 E1E 0 CODE 0
+50 E5C 0 CODE 0
 ADC.c
-9 E8E 0 CODE 0
-11 E8E 0 CODE 0
-12 E90 0 CODE 0
-14 E94 0 CODE 0
-15 E98 0 CODE 0
-16 E9C 0 CODE 0
-17 EA0 0 CODE 0
-18 EA2 0 CODE 0
-19 EA4 0 CODE 0
-20 EA6 0 CODE 0
+9 E96 0 CODE 0
+11 E96 0 CODE 0
+12 E98 0 CODE 0
+14 E9C 0 CODE 0
+15 EA0 0 CODE 0
+16 EA4 0 CODE 0
+17 EA8 0 CODE 0
+18 EAA 0 CODE 0
+19 EAC 0 CODE 0
+20 EAE 0 CODE 0
 ADC.c
-22 E5E 0 CODE 0
-26 E5E 0 CODE 0
-28 E60 0 CODE 0
-30 E6E 0 CODE 0
-34 E74 0 CODE 0
-36 E84 0 CODE 0
-37 E8C 0 CODE 0
-C:\Users\thoma\AppData\Local\Temp\xcAspg8.\driver_tmp_1.s
-8714 8 0 CODE 0
+22 E66 0 CODE 0
+26 E66 0 CODE 0
+28 E68 0 CODE 0
+30 E76 0 CODE 0
+34 E7C 0 CODE 0
+36 E8C 0 CODE 0
+37 E94 0 CODE 0
+C:\Users\thoma\AppData\Local\Temp\xcAspjc.\driver_tmp_1.s
+8722 8 0 CODE 0
 interrupts.c
 31 8 0 CODE 0
 35 A 0 CODE 0
