@@ -28,8 +28,6 @@
       <itemPath>clock.h</itemPath>
       <itemPath>LCD.h</itemPath>
       <itemPath>LCD.c</itemPath>
-      <itemPath>DST.c</itemPath>
-      <itemPath>DST.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

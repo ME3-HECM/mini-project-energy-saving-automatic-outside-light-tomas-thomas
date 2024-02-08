@@ -36,7 +36,6 @@ void main(void)
     
     LCD_Init(); 
     ADC_init();
-    clock_init();
     
     char buf[20];
 
@@ -52,37 +51,66 @@ void main(void)
     
 // setting up a time structure to be used for the clock, and time keeping
      struct time_structure { //set up time structure - we haven't actually called it yet
-        int seconds;
-        int minutes;
-        int hours;
-        int days;
-        int DoW;
-        int months;
-        int years;
+        unsigned int seconds;
+        unsigned int minutes;
+        unsigned int hours;
+        unsigned int days;
+        unsigned int DoW;
+        unsigned int months;
+        unsigned int years;
+        unsigned int DSTstate;
     };
    
     struct time_structure clock;    //creates clock, which is of the structure time_structure
         // set the initial starting time when the sensor is set up
         GLOBALsecs = 55;
+//        clock.minutes = 59;
+//        clock.hours = 22;
+//        clock.days = 28;
+//        clock.DoW = 5;              //1-Monday 2-Tuesday 3-Wednesday 4-Thursday 5-Friday 6-Saturday 7-Sunday
+//        clock.months = 2;
+//        clock.years = 2024;
+//        clock.DSTstate = 0;         // is your input date in daylight savings time March-October (1) or not October-March (0)
+        
+   //DAYLIGHT SAVINGS TURN OFF - OCTOBER 
+//        clock.minutes = 59;
+//        clock.hours = 1;
+//        clock.days = 30;
+//        clock.DoW = 7;              
+//        clock.months = 10;
+//        clock.years = 2022;
+//        clock.DSTstate = 1;
+        
+   //DAYLIGHT SAVINGS TURN ON - March
         clock.minutes = 59;
-        clock.hours = 2;
-        clock.days = 28;
-        clock.DoW = 3;
-        clock.months = 2;
-        clock.years = 1901;
+        clock.hours = 0;
+        clock.days = 31;
+        clock.DoW = 7;              
+        clock.months = 3;
+        clock.years = 2024;
+        clock.DSTstate = 0;
         
 //~~~~~~~~~~~~~~~~~~~       TEST    MODE      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         int TestMode = 1;       // 0 if off     1 if on
+        
+        clock.seconds = GLOBALsecs; 
+        if (TestMode == 1){
+            clock.seconds = 0; 
+            GLOBALsecs = clock.hours;   //the global secs will increment our hours value so set the starting value of global sec to our desired hour 
+        }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
     while (1) {
         
-        if (TestMode == 0){clock.seconds = GLOBALsecs;} //updates the clock.seconds to be in sync with clock time when test mode is activated. When test mode is on we shall just freeze the seconds for visual pleasure. 
-        
+        if (TestMode == 0){clock.seconds = GLOBALsecs;} 
         //changes the minutes, hours, days, etc in the clock structure when a GlobalSecond increases
-        UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days, &clock.DoW, &clock.months, &clock.years, TestMode);  
+        UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days, &clock.DoW, &clock.months, &clock.years, &clock.DSTstate, TestMode);  
         
-        
+//        if (clock.months == 3 && clock.days >= 25 && clock.DoW == 7 && clock.hours >=1){
+//        //(*DSTstate == 0) && (*months == 3) && (*days >= 25) && (*DoW == 7) && ( *hours >= 1)
+//            TRISDbits.TRISD7 = 0;   // setting up as an output
+//            LATDbits.LATD7 = 1;     //turning it off
+//        }
         //displays the hour value in binary on the LED display
         LEDarray_disp_bin(clock.hours);
         
@@ -97,28 +125,28 @@ void main(void)
         sprintf(buf, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
         LCD_sendstring(buf); //Prints buf value in LCD display
        
-// #####################################
-        //debugging tools 
-        //alternates on to off for each time it changes day
-        if (clock.months == 3 ){  //shows when a clock day changes on the LED
-            LED_Left = 1;
-        }
-        else{
-            LED_Left = 0; 
-        }
+//// #####################################
+//        //debugging tools 
+//        //alternates on to off for each time it changes day
+//        if (clock.months == 3 ){  //shows when a clock day changes on the LED
+//            LED_Left = 1;
+//        }
+//        else{
+//            LED_Left = 0; 
+//        }
+////        
+//        // light turning off or on depending on task brief conditions 
+//        if (1){ // if the ADC is bigger than our threshold - if dark enough turn on
+//            if (clock.hours >= 1 && clock.hours <=5){   //check that its not energy saving time
+//                LED_Right = 0;
+//            }
+//            else{                                       //must not be energy saving time therefore turn light on
+//                LED_Right = 1;
+//            }
+//        } 
 //        
-        // light turning off or on depending on task brief conditions 
-        if (1){ // if the ADC is bigger than our threshold - if dark enough turn on
-            if (clock.hours >= 1 && clock.hours <=5){   //check that its not energy saving time
-                LED_Right = 0;
-            }
-            else{                                       //must not be energy saving time therefore turn light on
-                LED_Right = 1;
-            }
-        } 
-        
-       
-       
+//       
+//       
        
     }  
 }       

@@ -2,11 +2,9 @@
 #include "clock.h"
 #include "seconds.h"
 
-void clock_init(void){
-    1;
-}
+
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, int *months, int *years, int TestMode){
+void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, int *months, int *years, int *DSTstate, int TestMode){
 
     int DaysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}; //this should be in an intialisation function 
     
@@ -14,8 +12,6 @@ void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, in
        *hours = *seconds;    //every IRL second = 1 hour on the clock
         if (*seconds >= 24 ){   // whilst in this mode we need to reset the seconds counter at 24 to be like the days
             *seconds = 0;       // reset to zero
-            *hours = 0;         // reset the hours
-            *days = *days + 1;  // increment the day
         } 
     }
     
@@ -35,8 +31,20 @@ void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, in
         *DoW = *DoW + 1;
     }
     
-    if  (*DoW >= 8){   // by setting this greater than or equal to 60 it ensures that we can't accidentally keep increasing seconds without increase hours
+    if  (*DoW >= 8){  
         *DoW = 1;
+    }
+    
+    if((*DSTstate == 0) && (*months == 3) && (*days >= 25) && (*DoW == 7) && ( *hours >= 1) ){ //is daylight savings on, is it march, is it the last week of march, is it a sunday, is it 1 o'clock? if yes then turn DST on
+           //moves the clocks forwards by 1 hour 
+        *hours = *hours + 1; //not sure why this doesn't work in fast mode ??
+        *DSTstate = 1;          // turn daylight savings on 
+        
+    }
+    
+    if((*DSTstate==1) && (*months == 10) && (*days >= 25) && (*DoW == 7) && (*hours == 2) ){ //is daylight savings on, is it march, is it the last week of march, is it a sunday, is it 1 o'clock? if yes then turn DST on
+        *hours = *hours - 1;    //moves the clocks forwards by 1 hour 
+        *DSTstate = 0;          // turn daylight savings on 
     }
      
     // Dealing with leap years         
@@ -45,10 +53,8 @@ void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, in
     }
             
     // Dealing with leap years but its not a leap year because its a century that isn't / 400       
-    if (*years%100 == 0 && *months == 2){   //2000 is a leap year, however 1900 isn't a leap year accounting for
-        if(*years%400 != 0){
+    if (*years%100 == 0 && *months == 2 && *years%400 != 0){   //2000 is a leap year, however 1900 isn't a leap year accounting for
             DaysInMonth[1] = 28; 
-        }  
     }
     
     //resetting the calendar in December to go back to Jan 

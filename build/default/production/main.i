@@ -24309,9 +24309,7 @@ unsigned int GLOBALsecs = 0;
 
 
 
-void clock_init(void);
-
-void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, int *months, int *years, TestMode);
+void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, int *months, int *years, int *DSTstate, int TestMode);
 # 20 "main.c" 2
 
 # 1 "./LCD.h" 1
@@ -24355,7 +24353,6 @@ void main(void)
 
     LCD_Init();
     ADC_init();
-    clock_init();
 
     char buf[20];
 
@@ -24371,67 +24368,62 @@ void main(void)
 
 
      struct time_structure {
-        int seconds;
-        int minutes;
-        int hours;
-        int days;
-        int DoW;
-        int months;
-        int years;
+        unsigned int seconds;
+        unsigned int minutes;
+        unsigned int hours;
+        unsigned int days;
+        unsigned int DoW;
+        unsigned int months;
+        unsigned int years;
+        unsigned int DSTstate;
     };
 
     struct time_structure clock;
 
         GLOBALsecs = 55;
+# 85 "main.c"
         clock.minutes = 59;
-        clock.hours = 2;
-        clock.days = 28;
-        clock.DoW = 3;
-        clock.months = 2;
-        clock.years = 1901;
-
+        clock.hours = 0;
+        clock.days = 31;
+        clock.DoW = 7;
+        clock.months = 3;
+        clock.years = 2024;
+        clock.DSTstate = 0;
 
 
         int TestMode = 1;
 
+        clock.seconds = GLOBALsecs;
+        if (TestMode == 1){
+            clock.seconds = 0;
+            GLOBALsecs = clock.hours;
+        }
 
 
     while (1) {
 
         if (TestMode == 0){clock.seconds = GLOBALsecs;}
 
-        UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days, &clock.DoW, &clock.months, &clock.years, TestMode);
+        UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days, &clock.DoW, &clock.months, &clock.years, &clock.DSTstate, TestMode);
+
+
+
+
+
 
 
         LEDarray_disp_bin(clock.hours);
 
 
-        if (clock.months == 3 ){
-            LATDbits.LATD7 = 1;
-        }
-        else{
-            LATDbits.LATD7 = 0;
-        }
 
+        LCD_setline(1);
 
-        if (1){
-            if (clock.hours >= 1 && clock.hours <=5){
-                LATHbits.LATH3 = 0;
-            }
-            else{
-                LATHbits.LATH3 = 1;
-            }
-        }
+        sprintf(buf, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW);
+        LCD_sendstring(buf);
+        LCD_setline(2);
 
-       LCD_setline(1);
-       sprintf(buf, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW);
-       LCD_sendstring(buf);
-
-       LCD_setline(2);
-       sprintf(buf, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
-       LCD_sendstring(buf);
-
-
-
+        sprintf(buf, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
+        LCD_sendstring(buf);
+# 151 "main.c"
     }
 }
