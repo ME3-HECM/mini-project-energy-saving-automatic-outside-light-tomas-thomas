@@ -7,7 +7,7 @@
 
 void clock_init(void);
 //void updateTimer(SecondInput);
-void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *months, int *years);
+void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, int *months, int *years, TestMode);
 
 
 #endif

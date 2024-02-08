@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "LCD.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,20 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
-
-
-
-#pragma config FEXTOSC = HS
-#pragma config RSTOSC = EXTOSC_4PLL
-
-#pragma config WDTE = OFF
-
-
-
-
-
+# 1 "LCD.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24099,7 +24086,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 13 "main.c" 2
+# 1 "LCD.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 3
@@ -24253,66 +24240,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 14 "main.c" 2
-
-
-# 1 "./LEDarray.h" 1
-# 10 "./LEDarray.h"
-void LEDarray_init(void);
-void LEDarray_disp_bin(unsigned int number);
-void LEDarray_disp_dec(unsigned int number);
-void LEDarray_disp_light(unsigned int number, unsigned int maxLight, unsigned int minLight, unsigned int step);
-
-void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step);
-# 16 "main.c" 2
-
-# 1 "./timers.h" 1
-
-
-
-
-
-
-
-void Timer0_init(void);
-unsigned int get16bitTMR0val(void);
-# 17 "main.c" 2
-
-# 1 "./interrupts.h" 1
-
-
-
-
-
-
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-# 18 "main.c" 2
-
-# 1 "./seconds.h" 1
-
-
-
-
-
-
-
-unsigned int GLOBALsecs = 0;
-# 19 "main.c" 2
-
-# 1 "./clock.h" 1
-
-
-
-
-
-
-
-void clock_init(void);
-
-void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, int *months, int *years, TestMode);
-# 20 "main.c" 2
+# 2 "LCD.c" 2
 
 # 1 "./LCD.h" 1
 # 17 "./LCD.h"
@@ -24325,9 +24253,7 @@ void LCD_sendstring(char *string);
 void LCD_scroll(void);
 void LCD_clear(void);
 void ADC2String(char *buf, unsigned int number);
-# 21 "main.c" 2
-
-# 1 "./ADC.h" 1
+# 3 "LCD.c" 2
 
 
 
@@ -24335,103 +24261,156 @@ void ADC2String(char *buf, unsigned int number);
 
 
 
-void ADC_init(void);
-unsigned int ADC_getval(void);
-# 22 "main.c" 2
-
-
-
-
-
-
-
-
-void main(void)
+void LCD_E_TOG(void)
 {
 
-    LEDarray_init();
-    Timer0_init();
-    Interrupts_init();
+     LATCbits.LATC2 = 1;
+ _delay((unsigned long)((2)*(64000000/4000000.0)));
+     LATCbits.LATC2 = 0;
 
-    LCD_Init();
-    ADC_init();
-    clock_init();
-
-    char buf[20];
+}
 
 
 
-    TRISDbits.TRISD7 = 0;
-    LATDbits.LATD7 = 0;
 
-
-    TRISHbits.TRISH3 = 0;
-    LATHbits.LATH3 = 0;
-
-
-
-     struct time_structure {
-        int seconds;
-        int minutes;
-        int hours;
-        int days;
-        int DoW;
-        int months;
-        int years;
-    };
-
-    struct time_structure clock;
-
-        GLOBALsecs = 55;
-        clock.minutes = 59;
-        clock.hours = 2;
-        clock.days = 28;
-        clock.DoW = 3;
-        clock.months = 2;
-        clock.years = 1901;
+void LCD_sendnibble(unsigned char number)
+{
+    if (number & 0b0001) {LATBbits.LATB3=1;} else {LATBbits.LATB3=0;}
+    if (number & 0b0010) {LATBbits.LATB2=1;} else {LATBbits.LATB2=0;}
+    if (number & 0b0100) {LATEbits.LATE3=1;} else {LATEbits.LATE3=0;}
+    if (number & 0b1000) {LATEbits.LATE1=1;} else {LATEbits.LATE1=0;}
 
 
 
-        int TestMode = 1;
+    LCD_E_TOG();
+    _delay((unsigned long)((5)*(64000000/4000000.0)));
+}
 
 
 
-    while (1) {
-
-        if (TestMode == 0){clock.seconds = GLOBALsecs;}
-
-        UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days, &clock.DoW, &clock.months, &clock.years, TestMode);
-
-
-        LEDarray_disp_bin(clock.hours);
-
-
-        if (clock.months == 3 ){
-            LATDbits.LATD7 = 1;
-        }
-        else{
-            LATDbits.LATD7 = 0;
-        }
-
-
-        if (1){
-            if (clock.hours >= 1 && clock.hours <=5){
-                LATHbits.LATH3 = 0;
-            }
-            else{
-                LATHbits.LATH3 = 1;
-            }
-        }
-
-       LCD_setline(1);
-       sprintf(buf, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW);
-       LCD_sendstring(buf);
-
-       LCD_setline(2);
-       sprintf(buf, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
-       LCD_sendstring(buf);
 
 
 
+void LCD_sendbyte(unsigned char Byte, char type)
+{
+    LATCbits.LATC6 = type;
+
+    LCD_sendnibble(Byte>>4);
+    LCD_sendnibble(Byte);
+
+
+
+
+
+    _delay((unsigned long)((50)*(64000000/4000000.0)));
+}
+
+
+
+
+void LCD_Init(void)
+{
+# 69 "LCD.c"
+    TRISBbits.TRISB3 = 0;
+
+    LATBbits.LATB3 = 0;
+
+    TRISBbits.TRISB2 = 0;
+
+    LATBbits.LATB2 = 0;
+
+    TRISEbits.TRISE3 = 0;
+
+    LATEbits.LATE3 = 0;
+
+    TRISEbits.TRISE1 = 0;
+
+    LATEbits.LATE1 = 0;
+
+    TRISCbits.TRISC2 = 0;
+    LATCbits.LATC2 = 0;
+
+    TRISCbits.TRISC6 = 0;
+    LATCbits.LATC6 = 0;
+
+    _delay((unsigned long)((150)*(64000000/4000.0)));
+    LCD_sendnibble(0b0011);
+    _delay((unsigned long)((5)*(64000000/4000.0)));
+    LCD_sendnibble(0b0011);
+    _delay((unsigned long)((150)*(64000000/4000000.0)));
+    LCD_sendnibble(0b0011);
+    _delay((unsigned long)((150)*(64000000/4000000.0)));
+    LCD_sendnibble(0b0010);
+    _delay((unsigned long)((150)*(64000000/4000000.0)));
+    LCD_sendbyte(0b00101100,0);
+    _delay((unsigned long)((100)*(64000000/4000000.0)));
+    LCD_sendbyte(0b00001000,0);
+    _delay((unsigned long)((100)*(64000000/4000.0)));
+    LCD_sendbyte(0b00000001,0);
+    _delay((unsigned long)((5)*(64000000/4000.0)));
+    LCD_sendbyte(0b00000110,0);
+    _delay((unsigned long)((100)*(64000000/4000.0)));
+    LCD_sendbyte(0b00001100,0);
+    _delay((unsigned long)((100)*(64000000/4000.0)));
+
+
+
+
+
+}
+
+
+
+
+void LCD_setline (char line)
+{
+
+
+    if (line == 2){
+        LCD_sendbyte(0xC0,0);
     }
+
+    if (line==1){
+        LCD_sendbyte(0x80,0);
+    }
+}
+
+
+
+
+void LCD_sendstring(char *string)
+{
+
+    while(*string != 0){
+  LCD_sendbyte(*string++,1);
+ }
+}
+
+
+
+
+void LCD_scroll(void)
+{
+ LCD_sendbyte(0b00011000,0);
+
+}
+
+
+
+
+
+
+void ADC2String(char *buf, unsigned int ADC_val){
+
+
+
+
+    unsigned int int_part = 0;
+    char frac_part = 0;
+
+    int_part = ADC_val/77;
+    frac_part = (ADC_val*100)/77 - int_part*100;
+    sprintf(buf,"Time: %02d:%02d:%04d",12,16,35);
+    LCD_sendstring(buf);
+
 }

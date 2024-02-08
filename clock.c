@@ -3,37 +3,21 @@
 #include "seconds.h"
 
 void clock_init(void){
-//    int time_vals[4] = {0, 0, 0, 0} ;
-//#define wazz time_vals[0]
-
-    //int time_vals[4] = {seconds, minutes, hours, days}
-//    
-//    struct time_structure { //set up time structure
-//        int seconds;
-//        int minutes;
-//        int hours;
-//        int days;
-//    };
-//
-//    struct time_structure clock = { 0, 0, 0, 0};    //creates clock, which is of the structure time_structure
-//    // set the intial time 
-//    
-//    int *ptra;
+    1;
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *months, int *years){
+void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, int *months, int *years, int TestMode){
 
     int DaysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}; //this should be in an intialisation function 
     
-    
-    //#######     TESTING MODE     ########//  if not commented out then the clock will run 1 sec = 1 hour
-            *hours = *seconds;                       // rest of the code does not need to be touched if test mode enabled
-            if (*seconds >= 24 ){
-                *seconds = 0;
-                *hours = 0; 
-                *days = *days + 1;
-            }
-    //-----------------------------~~~~---------//     
+    if (TestMode == 1){
+       *hours = *seconds;    //every IRL second = 1 hour on the clock
+        if (*seconds >= 24 ){   // whilst in this mode we need to reset the seconds counter at 24 to be like the days
+            *seconds = 0;       // reset to zero
+            *hours = 0;         // reset the hours
+            *days = *days + 1;  // increment the day
+        } 
+    }
     
     if (*seconds >= 60 ){
         *seconds = 0;
@@ -48,6 +32,11 @@ void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *months,
     if  (*hours >= 24){   // by setting this greater than or equal to 60 it ensures that we can't accidentally keep increasing seconds without increase hours
         *hours = 0;
         *days = *days + 1;
+        *DoW = *DoW + 1;
+    }
+    
+    if  (*DoW >= 8){   // by setting this greater than or equal to 60 it ensures that we can't accidentally keep increasing seconds without increase hours
+        *DoW = 1;
     }
      
     // Dealing with leap years         

@@ -12,7 +12,7 @@ void LCD_E_TOG(void)
 	//turn the LCD enable bit on
      LATCbits.LATC2 = 1;
 	__delay_us(2); //wait a short delay
-     LATCbits.LATC2 = 1;
+     LATCbits.LATC2 = 0;
 	//turn the LCD enable bit off again
 }
 
