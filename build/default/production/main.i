@@ -24155,10 +24155,10 @@ unsigned int secs = 0;
 
 
 
-void updateTimer(SecondInput);
 void clock_init(void);
-# 19 "main.c" 2
 
+void UpdateClock(int *s, int *m, int *h, int *d);
+# 19 "main.c" 2
 
 
 
@@ -24166,11 +24166,11 @@ void clock_init(void);
 
 void main(void)
 {
-    unsigned int TestMode = 3600;
 
     LEDarray_init();
     Timer0_init();
     Interrupts_init();
+
 
 
     TRISDbits.TRISD7 = 0;
@@ -24181,18 +24181,45 @@ void main(void)
     LATHbits.LATH3 = 0;
 
 
-    unsigned int mins = 0 ;
-    unsigned int hours = 0;
-    unsigned int days = 0 ;
+     struct time_structure {
+        int seconds;
+        int minutes;
+        int hours;
+        int days;
+    };
 
-    clock_init();
+    struct time_structure clock;
+    clock.minutes = 0;
+    clock.hours = 0;
+    clock.days = 0;
+
+
+
+
+
+
 
     while (1) {
 
-        updateTimer(secs);
+        clock.seconds = secs;
+        UpdateClock(&secs, &clock.minutes, &clock.hours, &clock.days );
 
         LEDarray_disp_bin(clock.seconds);
-# 95 "main.c"
+
+        if (clock.days >= 1){
+            LATDbits.LATD7 = 1;
+        }
+        else{
+            LATDbits.LATD7 = 0;
+        }
+
+        if (clock.hours >= 1 && clock.hours <=5){
+                LATHbits.LATH3 = 1;
+            }
+            else{
+                LATHbits.LATH3 = 0;
+            }
+
     }
 
 }

@@ -48,7 +48,7 @@ void LEDarray_init(void)
 ************************************/
 void LEDarray_disp_bin(unsigned int number) // goal is take a number and display it on the board, bit shifting is a way to make it better 
 {
-    LATDbits.LATD7 = !LATDbits.LATD7;
+//    LATDbits.LATD7 = !LATDbits.LATD7;
 	//some code to turn on/off the pins connected to the LED array
     if (number & 0b000000001){ LATGbits.LATG0 = 1 ; } 
     else{LATGbits.LATG0 = 0;}

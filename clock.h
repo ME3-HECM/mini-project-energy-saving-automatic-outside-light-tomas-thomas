@@ -5,7 +5,9 @@
 
 #define _XTAL_FREQ 64000000
 
-void updateTimer(SecondInput);
 void clock_init(void);
+//void updateTimer(SecondInput);
+void UpdateClock(int *s, int *m, int *h, int *d);
+
 
 #endif

@@ -20,37 +20,63 @@
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
-#define LED_Right LATHbits.LATH3
 
 void main(void) 
 {
-    unsigned int TestMode = 3600; // scales the second value 1 for normal operation : 3600 for 1 real time second to be 1 hour of the clock
-    
+//intialise all functions 
     LEDarray_init();        //setting up the LED array 
     Timer0_init();          //setting up the timer
     Interrupts_init();
-    
-    // left LED board RD7
+
+// setting up the LEDS on the board with more helfpul names
+    #define LED_Left LATDbits.LATD7
     TRISDbits.TRISD7 = 0;   // setting the input/output to output
     LATDbits.LATD7 = 0;
     
-    
+    #define LED_Right LATHbits.LATH3
     TRISHbits.TRISH3 = 0;
     LATHbits.LATH3 = 0;
+
+// setting up a time structure to be used for the clock, and time keeping
+     struct time_structure { //set up time structure
+        int seconds;
+        int minutes;
+        int hours;
+        int days;
+    };
+
+    struct time_structure clock;    //creates clock, which is of the structure time_structure
+    clock.minutes = 0;
+    clock.hours = 0;
+    clock.days = 0;
     
-    
-    unsigned int mins = 0 ; 
-    unsigned int hours = 0; 
-    unsigned int days = 0 ;
-    
-    clock_init();
+//    struct time_structure DaylightSavingsON;    //creates clock, which is of the structure time_structure
+//    clock.minutes = 0;
+//    clock.hours = 0;
+//    clock.days = 0;
+//    
 
     while (1) {
         
-        updateTimer(secs);
+        clock.seconds = secs;
+        UpdateClock(&secs, &clock.minutes, &clock.hours, &clock.days );
         
         LEDarray_disp_bin(clock.seconds);
+        
+        if (clock.days >= 1){
+            LED_Left = 1;
+        }
+        else{
+            LED_Left = 0;
+        }
     
+        if (clock.hours >= 1 && clock.hours <=5){
+                LED_Right = 1;
+            }
+            else{
+                LED_Right = 0;
+            }
+
     }
     
 }       

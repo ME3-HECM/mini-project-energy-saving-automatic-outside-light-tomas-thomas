@@ -24146,7 +24146,7 @@ void LEDarray_init(void)
 
 void LEDarray_disp_bin(unsigned int number)
 {
-    LATDbits.LATD7 = !LATDbits.LATD7;
+
 
     if (number & 0b000000001){ LATGbits.LATG0 = 1 ; }
     else{LATGbits.LATG0 = 0;}

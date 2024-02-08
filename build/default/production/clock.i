@@ -24096,49 +24096,37 @@ unsigned char __t3rd16on(void);
 
 
 
-void updateTimer(SecondInput);
 void clock_init(void);
+
+void UpdateClock(int *s, int *m, int *h, int *d);
 # 2 "clock.c" 2
 
 
 void clock_init(void){
-
-
-
-
-
-    struct time_structure {
-        int seconds;
-        int minutes;
-        int hours;
-        int days;
-    };
-
-    struct time_structure clock = { 0, 0, 0, 0};
-
-
-    int *ptra;
+# 21 "clock.c"
 }
 
+void UpdateClock(int *s, int *m, int *h, int *d){
 
 
-void updateTimer(SecondInput) {
-    clock.seconds = SecondInput;
-    ptra = &SecondInput;
+            *h = *s;
+            if (*s >= 24 ){
+            *s = 0;
+            }
 
-    if (clock.seconds >= 60 ){
-        *ptra = 0;
-        clock.seconds = 0;
-        clock.hours++;
-    }
 
-    if (clock.minutes >= 60){
-        clock.minutes = 0;
-        clock.hours++;
-    }
+    if (*s >= 60 ){
+        *s = 0;
+        *m = *m + 1;
+        }
 
-    if (clock.hours >= 24){
-        clock.hours = 0;
-        clock.days++;
-    }
+        if (*m >= 60){
+        *m = 0;
+        *h = *h + 1;
+        }
+
+        if (*h >= 24){
+        *h = 0;
+        *d = *d + 1;
+        }
 }
