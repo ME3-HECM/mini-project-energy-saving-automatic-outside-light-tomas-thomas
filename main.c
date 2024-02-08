@@ -11,7 +11,6 @@
 
 // include all .h files here
 #include <xc.h>
-
 #include "LEDarray.h"
 #include "timers.h"
 #include "interrupts.h"
@@ -23,12 +22,13 @@
 
 // NEED TO RECALIBRATE THE CLOCK TO OBTAIN A HIGHER ACCRUACY 
 // current testing is 24 seconds according to the board is 23.98 secs IRL
+
 void main(void) 
 {
 // intialises all functions 
     LEDarray_init();        //setting up the LED array 
     Timer0_init();          //setting up the timer
-    Interrupts_init();      //setting up the interupts
+    Interrupts_init();      //setting up the interrupts
 
 // setting up the LEDS on the board with more helpful names
     #define LED_Left LATDbits.LATD7
@@ -46,14 +46,14 @@ void main(void)
         int hours;
         int days;
 //        int months;
-//        char month;   // potentiall use this to track the month and output onto LED display
+//        char month;   // potentially use this to track the month and output onto LED display
     };
 
     struct time_structure clock;    //creates clock, which is of the structure time_structure
         // set the initial starting time when the sensor is set up
-        secs = 0;
-        clock.minutes = 0;
-        clock.hours = 18;
+        secs = 50;
+        clock.minutes = 59;
+        clock.hours = 12;
         clock.days = 1;
 //        clock.months = 0;
    
@@ -62,7 +62,6 @@ void main(void)
         DSTon.minutes = 0;
         DSTon.hours = 0;
         DSTon.days = 0;
-    
     
     
 //~~~~~~~~~~~~~~~~~~~       TEST    MODE      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -78,8 +77,8 @@ void main(void)
     
     while (1) {
         
-        clock.seconds = secs;
-        UpdateClock(&secs, &clock.minutes, &clock.hours, &clock.days);
+        clock.seconds = secs;   //updates the clock.seconds to be in sync with clock time
+        UpdateClock(&secs, &clock.minutes, &clock.hours, &clock.days);  //changes the minutes, hours, days in the clock structure when a sec increases
         
         LEDarray_disp_bin(clock.hours);
         
@@ -91,12 +90,12 @@ void main(void)
             LED_Left = 0; 
         }
         
-        // light turning it out
-        if (1){ // if the ADC is bigger than our threshold - if dark enough
+        // light turning off or on depending on task brief conditions 
+        if (1){ // if the ADC is bigger than our threshold - if dark enough turn on
             if (clock.hours >= 1 && clock.hours <=5){   //check that its not energy saving time
                 LED_Right = 0;
             }
-            else{                                       //must not be energy saving time therefore light on
+            else{                                       //must not be energy saving time therefore turn light on
                 LED_Right = 1;
             }
         }  

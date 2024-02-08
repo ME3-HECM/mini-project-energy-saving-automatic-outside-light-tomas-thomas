@@ -24101,7 +24101,6 @@ unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
 # 13 "main.c" 2
 
-
 # 1 "./LEDarray.h" 1
 # 10 "./LEDarray.h"
 void LEDarray_init(void);
@@ -24110,7 +24109,7 @@ void LEDarray_disp_dec(unsigned int number);
 void LEDarray_disp_light(unsigned int number, unsigned int maxLight, unsigned int minLight, unsigned int step);
 
 void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step);
-# 15 "main.c" 2
+# 14 "main.c" 2
 
 # 1 "./timers.h" 1
 
@@ -24122,7 +24121,7 @@ void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int 
 
 void Timer0_init(void);
 unsigned int get16bitTMR0val(void);
-# 16 "main.c" 2
+# 15 "main.c" 2
 
 # 1 "./interrupts.h" 1
 
@@ -24134,7 +24133,7 @@ unsigned int get16bitTMR0val(void);
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
-# 17 "main.c" 2
+# 16 "main.c" 2
 
 # 1 "./seconds.h" 1
 
@@ -24145,7 +24144,7 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 
 unsigned int secs = 0;
-# 18 "main.c" 2
+# 17 "main.c" 2
 
 # 1 "./clock.h" 1
 
@@ -24158,7 +24157,8 @@ unsigned int secs = 0;
 void clock_init(void);
 
 void UpdateClock(int *s, int *m, int *h, int *d);
-# 19 "main.c" 2
+# 18 "main.c" 2
+
 
 
 
@@ -24189,15 +24189,22 @@ void main(void)
         int hours;
         int days;
 
+
     };
 
     struct time_structure clock;
 
+        secs = 50;
+        clock.minutes = 59;
+        clock.hours = 12;
+        clock.days = 1;
 
-    secs = 0;
-    clock.minutes = 0;
-    clock.hours = 0;
-    clock.days = 1;
+
+
+    struct time_structure DSTon;
+        DSTon.minutes = 0;
+        DSTon.hours = 0;
+        DSTon.days = 0;
 
 
 
@@ -24214,7 +24221,7 @@ void main(void)
     while (1) {
 
         clock.seconds = secs;
-        UpdateClock(&secs, &clock.minutes, &clock.hours, &clock.days );
+        UpdateClock(&secs, &clock.minutes, &clock.hours, &clock.days);
 
         LEDarray_disp_bin(clock.hours);
 
@@ -24224,9 +24231,9 @@ void main(void)
         }
         else{
             LATDbits.LATD7 = 0;
-
-
         }
+
+
         if (1){
             if (clock.hours >= 1 && clock.hours <=5){
                 LATHbits.LATH3 = 0;
@@ -24235,8 +24242,5 @@ void main(void)
                 LATHbits.LATH3 = 1;
             }
         }
-
-
     }
-
 }
