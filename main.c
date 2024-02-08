@@ -16,6 +16,7 @@
 #include "timers.h"
 #include "interrupts.h"
 #include "seconds.h"
+#include "clock.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
@@ -42,52 +43,58 @@ void main(void)
     unsigned int hours = 0; 
     unsigned int days = 0 ;
     
-
+    clock_init();
 
     while (1) {
-    // creating a global clock 
-//        clock(days,hours,mins,secs);
-//    //########     TESTING MODE     ########//  if not commented out then the clock will run 1 sec = 1 hour
-        hours = secs;                       // rest of the code does not need to be touched if test mode enabled
-        if (secs >= 24 ){
-        secs = 0; 
-        }
-//    //######################################// 
-//        
-    // couldn't get this to work without the numbers overflowing 
-        // be very careful with overflow values of reaching the cap of 2^16 
         
-    // timer module to create time 
-        if (secs >= 60 ){
-        secs = 0;
-        mins++;
-        }
- 
-        if  (mins >= 60){   // by setting this greater than or equal to 60 it ensures that we can't accidentally keep increasing seconds without increase hours
-        mins = 0;
-        hours++;
-        }
+        updateTimer(secs);
         
-        if (hours >= 24){
-        hours = 0;
-        days++; 
-        }
-        
-//        get16bitTMR0val();          // calling the clock value - not sure if this is needed
-        LEDarray_disp_bin(hours);   //displays the time 
-    // 
-        
-        
-        if (secs >= 1 && secs <=5){
-            LED_Right = 1;
-        }
-        else{
-            LED_Right = 0;
-        }
+        LEDarray_disp_bin(clock.seconds);
     
     }
     
-}
+}       
+//        
+//        // creating a global clock 
+////        clock(days,hours,mins,secs);
+////    //########     TESTING MODE     ########//  if not commented out then the clock will run 1 sec = 1 hour
+//        hours = secs;                       // rest of the code does not need to be touched if test mode enabled
+//        if (secs >= 24 ){
+//        secs = 0; 
+//        }
+////    //######################################// 
+////        
+//    // couldn't get this to work without the numbers overflowing 
+//        // be very careful with overflow values of reaching the cap of 2^16 
+//        
+//    // timer module to create time 
+//        if (secs >= 60 ){
+//        secs = 0;
+//        mins++;
+//        }
+// 
+//        if  (mins >= 60){   // by setting this greater than or equal to 60 it ensures that we can't accidentally keep increasing seconds without increase hours
+//        mins = 0;
+//        hours++;
+//        }
+//        
+//        if (hours >= 24){
+//        hours = 0;
+//        days++; 
+//        }
+//        
+////        get16bitTMR0val();          // calling the clock value - not sure if this is needed
+//        LEDarray_disp_bin(hours);   //displays the time 
+//    // 
+//        
+//        
+//        if (secs >= 1 && secs <=5){
+//            LED_Right = 1;
+//        }
+//        else{
+//            LED_Right = 0;
+//        }
+
 
 
 // daylight savings - if clock reaches day x then subtract hours by 1 
@@ -97,3 +104,7 @@ void main(void)
 // change the clock at mid day to avoid issues 
 
 // recalibrate the day before daylight savings 
+
+
+// measure maximum darkness and brightness throughout the day and check it and then change it according to our solar values
+// potentiall we could have it so that we know what our error could be and it only changes within that error to avoid silly calibration issues 

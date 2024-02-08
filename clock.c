@@ -2,15 +2,46 @@
 #include "clock.h"
 
 void clock_init(void){
-    int time_vals[4] = {0, 0, 0, 0} ;
+//    int time_vals[4] = {0, 0, 0, 0} ;
 //#define wazz time_vals[0]
 
     //int time_vals[4] = {seconds, minutes, hours, days}
+    
+    struct time_structure { //set up time structure
+        int seconds;
+        int minutes;
+        int hours;
+        int days;
+    };
+
+    struct time_structure clock = { 0, 0, 0, 0};    //creates clock, which is of the structure time_structure
+    // set the intial time 
+    
+    int *ptra;
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-
+void updateTimer(SecondInput) {
+    clock.seconds = SecondInput;
+    ptra = &SecondInput;
+    
+    if (clock.seconds >= 60 ){
+        *ptra = 0;
+        clock.seconds = 0; // this line might be redudant
+        clock.hours++;
+    }
+// 
+    if  (clock.minutes >= 60){   // by setting this greater than or equal to 60 it ensures that we can't accidentally keep increasing seconds without increase hours
+        clock.minutes = 0;
+        clock.hours++;
+    }
+        
+    if (clock.hours >= 24){
+        clock.hours = 0;
+        clock.days++; 
+    }
+}
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //void clock(int *d, int *h, int *m, int *s){
 

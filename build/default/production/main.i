@@ -24147,6 +24147,18 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR();
 unsigned int secs = 0;
 # 18 "main.c" 2
 
+# 1 "./clock.h" 1
+
+
+
+
+
+
+
+void updateTimer(SecondInput);
+void clock_init(void);
+# 19 "main.c" 2
+
 
 
 
@@ -24173,49 +24185,14 @@ void main(void)
     unsigned int hours = 0;
     unsigned int days = 0 ;
 
-
+    clock_init();
 
     while (1) {
 
+        updateTimer(secs);
 
-
-        hours = secs;
-        if (secs >= 24 ){
-        secs = 0;
-        }
-
-
-
-
-
-
-        if (secs >= 60 ){
-        secs = 0;
-        mins++;
-        }
-
-        if (mins >= 60){
-        mins = 0;
-        hours++;
-        }
-
-        if (hours >= 24){
-        hours = 0;
-        days++;
-        }
-
-
-        LEDarray_disp_bin(hours);
-
-
-
-        if (secs >= 1 && secs <=5){
-            LATHbits.LATH3 = 1;
-        }
-        else{
-            LATHbits.LATH3 = 0;
-        }
-
+        LEDarray_disp_bin(clock.seconds);
+# 95 "main.c"
     }
 
 }
