@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "clock.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,20 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
-
-
-
-#pragma config FEXTOSC = HS
-#pragma config RSTOSC = EXTOSC_4PLL
-
-#pragma config WDTE = OFF
-
-
-
-
-
+# 1 "clock.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24099,52 +24086,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 13 "main.c" 2
-
-# 1 "./LEDarray.h" 1
-# 10 "./LEDarray.h"
-void LEDarray_init(void);
-void LEDarray_disp_bin(unsigned int number);
-void LEDarray_disp_dec(unsigned int number);
-void LEDarray_disp_light(unsigned int number, unsigned int maxLight, unsigned int minLight, unsigned int step);
-
-void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step);
-# 14 "main.c" 2
-
-# 1 "./timers.h" 1
-
-
-
-
-
-
-
-void Timer0_init(void);
-unsigned int get16bitTMR0val(void);
-# 15 "main.c" 2
-
-# 1 "./interrupts.h" 1
-
-
-
-
-
-
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-# 16 "main.c" 2
-
-# 1 "./seconds.h" 1
-
-
-
-
-
-
-
-unsigned int GLOBALsecs = 0;
-# 17 "main.c" 2
+# 1 "clock.c" 2
 
 # 1 "./clock.h" 1
 
@@ -24157,7 +24099,9 @@ unsigned int GLOBALsecs = 0;
 void clock_init(void);
 
 void UpdateClock(int *s, int *m, int *h, int *d);
-# 18 "main.c" 2
+# 2 "clock.c" 2
+
+# 1 "./seconds.h" 1
 
 
 
@@ -24165,82 +24109,37 @@ void UpdateClock(int *s, int *m, int *h, int *d);
 
 
 
-
-void main(void)
-{
-
-    LEDarray_init();
-    Timer0_init();
-    Interrupts_init();
+unsigned int GLOBALsecs = 0;
+# 3 "clock.c" 2
 
 
+void clock_init(void){
+# 22 "clock.c"
+}
 
-    TRISDbits.TRISD7 = 0;
-    LATDbits.LATD7 = 0;
-
-
-    TRISHbits.TRISH3 = 0;
-    LATHbits.LATH3 = 0;
+void UpdateClock(int *seconds, int *minutes, int *hours, int *days){
 
 
-     struct time_structure {
-        int seconds;
-        int minutes;
-        int hours;
-        int days;
-
-
-    };
-
-    struct time_structure clock;
-
-        GLOBALsecs = 50;
-        clock.minutes = 59;
-        clock.hours = 12;
-        clock.days = 1;
-
-
-
-    struct time_structure DSTon;
-        DSTon.minutes = 0;
-        DSTon.hours = 0;
-        DSTon.days = 0;
-
-
-
-
-
-        GLOBALsecs = clock.hours;
-
-
-
-
-
-
-
-    while (1) {
-
-        clock.seconds = GLOBALsecs;
-        UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days);
-
-        LEDarray_disp_bin(clock.hours);
-
-
-        if (clock.days % 2 == 0 ){
-            LATDbits.LATD7 = 1;
-        }
-        else{
-            LATDbits.LATD7 = 0;
-        }
-
-
-        if (1){
-            if (clock.hours >= 1 && clock.hours <=5){
-                LATHbits.LATH3 = 0;
+            *hours = *seconds;
+            if (*seconds >= 24 ){
+                *seconds = 0;
+                *hours = 0;
+                *days = *days + 1;
             }
-            else{
-                LATHbits.LATH3 = 1;
-            }
-        }
+
+
+    if (*seconds >= 60 ){
+        *seconds = 0;
+        *minutes = *minutes + 1;
+    }
+
+    if (*minutes >= 60){
+    *minutes = 0;
+    *hours = *hours + 1;
+    }
+
+    if (*hours >= 24){
+    *hours = 0;
+    *days = *days + 1;
     }
 }

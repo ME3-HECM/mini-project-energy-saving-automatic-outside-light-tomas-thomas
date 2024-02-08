@@ -33,10 +33,10 @@ void __interrupt(high_priority) HighISR()
 
 // Clock overflow
     if(PIR0bits.TMR0IF){ 		//check the interrupt source - if the TMR0IF (flag) goes to 1 then execute the code (overflows)
-        LATHbits.LATH3 = !LATHbits.LATH3;    // if interrupt is trigger flip the LED light on/off
 //        T0CON0bits.T0EN=0;                  // stops the clock
         TMR0H = 0b00001011;            //write High reg first, update happens when low reg is written to
         TMR0L = 0b11011100;
+        GLOBALsecs++;  
         PIR0bits.TMR0IF=0; 						//clear the interrupt flag!
 	}
     

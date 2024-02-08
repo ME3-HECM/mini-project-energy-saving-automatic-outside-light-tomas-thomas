@@ -103,21 +103,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28284
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28284: extern volatile LATBbits_t LATBbits __attribute__((address(0xF7A)));
 [v _LATBbits `VS1342 ~T0 @X0 0 e@3962 ]
-"28487
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28487:     struct {
-[s S1349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1349 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
-"28497
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28497:     struct {
-[s S1350 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1350 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
-"28486
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28486: typedef union {
-[u S1348 `S1349 1 `S1350 1 ]
-[n S1348 . . . ]
-"28508
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28508: extern volatile LATDbits_t LATDbits __attribute__((address(0xF7C)));
-[v _LATDbits `VS1348 ~T0 @X0 0 e@3964 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2104,56 +2089,56 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LEDarray.c: 16:     TRISGbits.TRISG0 = 0;
 [e = . . _TRISGbits 0 0 -> -> 0 `i `uc ]
 "17
-[; ;LEDarray.c: 17:     LATGbits.LATG0 = 1;
-[e = . . _LATGbits 0 0 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 17:     LATGbits.LATG0 = 0;
+[e = . . _LATGbits 0 0 -> -> 0 `i `uc ]
 "19
 [; ;LEDarray.c: 19:     TRISGbits.TRISG1 = 0;
 [e = . . _TRISGbits 0 1 -> -> 0 `i `uc ]
 "20
-[; ;LEDarray.c: 20:     LATGbits.LATG1 = 1;
-[e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 20:     LATGbits.LATG1 = 0;
+[e = . . _LATGbits 0 1 -> -> 0 `i `uc ]
 "22
 [; ;LEDarray.c: 22:     TRISAbits.TRISA2 = 0;
 [e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
 "23
-[; ;LEDarray.c: 23:     LATAbits.LATA2 = 1;
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 23:     LATAbits.LATA2 = 0;
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
 "25
 [; ;LEDarray.c: 25:     TRISFbits.TRISF6 = 0;
 [e = . . _TRISFbits 0 6 -> -> 0 `i `uc ]
 "26
-[; ;LEDarray.c: 26:     LATFbits.LATF6 = 1;
-[e = . . _LATFbits 0 6 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 26:     LATFbits.LATF6 = 0;
+[e = . . _LATFbits 0 6 -> -> 0 `i `uc ]
 "28
 [; ;LEDarray.c: 28:     TRISAbits.TRISA4 = 0;
 [e = . . _TRISAbits 0 4 -> -> 0 `i `uc ]
 "29
-[; ;LEDarray.c: 29:     LATAbits.LATA4 = 1;
-[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 29:     LATAbits.LATA4 = 0;
+[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
 "31
 [; ;LEDarray.c: 31:     TRISAbits.TRISA5 = 0;
 [e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
 "32
-[; ;LEDarray.c: 32:     LATAbits.LATA5 = 1;
-[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 32:     LATAbits.LATA5 = 0;
+[e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
 "34
 [; ;LEDarray.c: 34:     TRISFbits.TRISF0 = 0;
 [e = . . _TRISFbits 0 0 -> -> 0 `i `uc ]
 "35
-[; ;LEDarray.c: 35:     LATFbits.LATF0 = 1;
-[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 35:     LATFbits.LATF0 = 0;
+[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
 "37
 [; ;LEDarray.c: 37:     TRISBbits.TRISB0 = 0;
 [e = . . _TRISBbits 0 0 -> -> 0 `i `uc ]
 "38
-[; ;LEDarray.c: 38:     LATBbits.LATB0 = 1;
-[e = . . _LATBbits 0 0 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 38:     LATBbits.LATB0 = 0;
+[e = . . _LATBbits 0 0 -> -> 0 `i `uc ]
 "40
 [; ;LEDarray.c: 40:     TRISBbits.TRISB1 = 0;
 [e = . . _TRISBbits 0 1 -> -> 0 `i `uc ]
 "41
-[; ;LEDarray.c: 41:     LATBbits.LATB1 = 1;
-[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
+[; ;LEDarray.c: 41:     LATBbits.LATB1 = 0;
+[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
 "43
 [; ;LEDarray.c: 43: }
 [e :UE 2015 ]
@@ -2171,9 +2156,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "50
 [; ;LEDarray.c: 50: {
 [f ]
-"51
-[; ;LEDarray.c: 51:     LATDbits.LATD7 = !LATDbits.LATD7;
-[e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
 "53
 [; ;LEDarray.c: 53:     if (number & 0b000000001){ LATGbits.LATG0 = 1 ; }
 [e $ ! != & _number -> -> 1 `i `ui -> -> 0 `i `ui 2017  ]
@@ -2321,8 +2303,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LEDarray.c: 91:  unsigned int disp_val;
 [v _disp_val `ui ~T0 @X0 1 a ]
 "93
-[; ;LEDarray.c: 93:     if (number >= 10){ LATGbits.LATG0 = 1 ; }
-[e $ ! >= _number -> -> 10 `i `ui 2036  ]
+[; ;LEDarray.c: 93:     if (number >= 1){ LATGbits.LATG0 = 1 ; }
+[e $ ! >= _number -> -> 1 `i `ui 2036  ]
 {
 [e = . . _LATGbits 0 0 -> -> 1 `i `uc ]
 }
@@ -2335,8 +2317,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2037 ]
 "96
-[; ;LEDarray.c: 96:     if (number >= 20){ LATGbits.LATG1 = 1 ; }
-[e $ ! >= _number -> -> 20 `i `ui 2038  ]
+[; ;LEDarray.c: 96:     if (number >= 2){ LATGbits.LATG1 = 1 ; }
+[e $ ! >= _number -> -> 2 `i `ui 2038  ]
 {
 [e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
 }
@@ -2349,8 +2331,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2039 ]
 "99
-[; ;LEDarray.c: 99:     if (number >= 30){ LATAbits.LATA2 = 1 ; }
-[e $ ! >= _number -> -> 30 `i `ui 2040  ]
+[; ;LEDarray.c: 99:     if (number >= 3){ LATAbits.LATA2 = 1 ; }
+[e $ ! >= _number -> -> 3 `i `ui 2040  ]
 {
 [e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
 }
@@ -2363,8 +2345,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2041 ]
 "102
-[; ;LEDarray.c: 102:     if (number >= 40){ LATFbits.LATF6 = 1 ; }
-[e $ ! >= _number -> -> 40 `i `ui 2042  ]
+[; ;LEDarray.c: 102:     if (number >= 4){ LATFbits.LATF6 = 1 ; }
+[e $ ! >= _number -> -> 4 `i `ui 2042  ]
 {
 [e = . . _LATFbits 0 6 -> -> 1 `i `uc ]
 }
@@ -2377,8 +2359,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2043 ]
 "105
-[; ;LEDarray.c: 105:     if (number >= 50){ LATAbits.LATA4 = 1 ; }
-[e $ ! >= _number -> -> 50 `i `ui 2044  ]
+[; ;LEDarray.c: 105:     if (number >= 5){ LATAbits.LATA4 = 1 ; }
+[e $ ! >= _number -> -> 5 `i `ui 2044  ]
 {
 [e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
 }
@@ -2391,8 +2373,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2045 ]
 "108
-[; ;LEDarray.c: 108:     if (number >= 60){ LATAbits.LATA5 = 1 ; }
-[e $ ! >= _number -> -> 60 `i `ui 2046  ]
+[; ;LEDarray.c: 108:     if (number >= 6){ LATAbits.LATA5 = 1 ; }
+[e $ ! >= _number -> -> 6 `i `ui 2046  ]
 {
 [e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
 }
@@ -2405,8 +2387,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2047 ]
 "111
-[; ;LEDarray.c: 111:     if (number >= 70){ LATFbits.LATF0 = 1 ; }
-[e $ ! >= _number -> -> 70 `i `ui 2048  ]
+[; ;LEDarray.c: 111:     if (number >= 7){ LATFbits.LATF0 = 1 ; }
+[e $ ! >= _number -> -> 7 `i `ui 2048  ]
 {
 [e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
 }
@@ -2419,8 +2401,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2049 ]
 "114
-[; ;LEDarray.c: 114:     if (number >= 80){ LATBbits.LATB0 = 1 ; }
-[e $ ! >= _number -> -> 80 `i `ui 2050  ]
+[; ;LEDarray.c: 114:     if (number >= 8){ LATBbits.LATB0 = 1 ; }
+[e $ ! >= _number -> -> 8 `i `ui 2050  ]
 {
 [e = . . _LATBbits 0 0 -> -> 1 `i `uc ]
 }
@@ -2433,8 +2415,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2051 ]
 "117
-[; ;LEDarray.c: 117:     if (number >= 90){ LATBbits.LATB1 = 1 ; }
-[e $ ! >= _number -> -> 90 `i `ui 2052  ]
+[; ;LEDarray.c: 117:     if (number >= 9){ LATBbits.LATB1 = 1 ; }
+[e $ ! >= _number -> -> 9 `i `ui 2052  ]
 {
 [e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
 }

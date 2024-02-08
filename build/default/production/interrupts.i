@@ -24101,6 +24101,14 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR();
 # 2 "interrupts.c" 2
 
 # 1 "./seconds.h" 1
+
+
+
+
+
+
+
+unsigned int GLOBALsecs = 0;
 # 3 "interrupts.c" 2
 
 
@@ -24135,10 +24143,10 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR()
 
 
     if(PIR0bits.TMR0IF){
-        LATHbits.LATH3 = !LATHbits.LATH3;
 
         TMR0H = 0b00001011;
         TMR0L = 0b11011100;
+        GLOBALsecs++;
         PIR0bits.TMR0IF=0;
  }
 
