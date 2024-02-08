@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "LEDarray.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,20 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
-
-
-
-#pragma config FEXTOSC = HS
-#pragma config RSTOSC = EXTOSC_4PLL
-
-#pragma config WDTE = OFF
-
-
-
-
-
+# 1 "LEDarray.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24099,7 +24086,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 13 "main.c" 2
+# 1 "LEDarray.c" 2
 
 # 1 "./LEDarray.h" 1
 # 10 "./LEDarray.h"
@@ -24109,273 +24096,214 @@ void LEDarray_disp_dec(unsigned int number);
 void LEDarray_disp_light(unsigned int number, unsigned int maxLight, unsigned int minLight, unsigned int step);
 
 void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step);
-# 14 "main.c" 2
-
-# 1 "./timers.h" 1
+# 2 "LEDarray.c" 2
 
 
 
 
 
 
-
-void Timer0_init(void);
-unsigned int get16bitTMR0val(void);
-# 15 "main.c" 2
-
-# 1 "./interrupts.h" 1
-
-
-
-
-
-
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-# 16 "main.c" 2
-
-# 1 "./seconds.h" 1
-
-
-
-
-
-
-
-unsigned int GLOBALsecs = 0;
-# 17 "main.c" 2
-
-# 1 "./clock.h" 1
-
-
-
-
-
-
-
-void clock_init(void);
-
-void UpdateClock(int *s, int *m, int *h, int *d);
-# 18 "main.c" 2
-
-# 1 "./ADC.h" 1
-
-
-
-
-
-
-
-void ADC_init(void);
-unsigned int ADC_getval(void);
-# 19 "main.c" 2
-
-# 1 "./synchronisation.h" 1
-
-
-
-
-
-
-
-int ArrayAppend(int arrayTime[], int size, int Time);
-# 20 "main.c" 2
-
-
-
-
-
-
-
-
-void main(void)
+void LEDarray_init(void)
 {
 
-    LEDarray_init();
-    Timer0_init();
-    Interrupts_init();
 
 
 
-    TRISDbits.TRISD7 = 0;
-    LATDbits.LATD7 = 0;
 
 
-    TRISHbits.TRISH3 = 0;
-    LATHbits.LATH3 = 0;
+    TRISGbits.TRISG0 = 0;
+    LATGbits.LATG0 = 0;
 
+    TRISGbits.TRISG1 = 0;
+    LATGbits.LATG1 = 0;
 
-     struct time_structure {
-        int seconds;
-        int minutes;
-        int hours;
-        int days;
+    TRISAbits.TRISA2 = 0;
+    LATAbits.LATA2 = 0;
 
+    TRISFbits.TRISF6 = 0;
+    LATFbits.LATF6 = 0;
 
-    };
+    TRISAbits.TRISA4 = 0;
+    LATAbits.LATA4 = 0;
 
-    struct time_structure clock;
+    TRISAbits.TRISA5 = 0;
+    LATAbits.LATA5 = 0;
 
-        GLOBALsecs = 50;
-        clock.minutes = 59;
-        clock.hours = 12;
-        clock.days = 1;
+    TRISFbits.TRISF0 = 0;
+    LATFbits.LATF0 = 0;
 
+    TRISBbits.TRISB0 = 0;
+    LATBbits.LATB0 = 0;
 
+    TRISBbits.TRISB1 = 0;
+    LATBbits.LATB1 = 0;
 
-    struct time_structure DSTon;
-        DSTon.minutes = 0;
-        DSTon.hours = 0;
-        DSTon.days = 0;
+}
 
 
 
 
 
-        GLOBALsecs = clock.hours;
-# 123 "main.c"
-    struct month_structure {
-        int solarMidMinutes;
-        int solarMidHours;
-        int days;
-    };
+void LEDarray_disp_bin(unsigned int number)
+{
 
 
-    struct month_structure Jan;
+    if (number & 0b000000001){ LATGbits.LATG0 = 1 ; }
+    else{LATGbits.LATG0 = 0;}
 
-        Jan.days = 31;
-        Jan.solarMidHours = 0;
-        Jan.solarMidMinutes = 9;
+    if (number & 0b000000010){ LATGbits.LATG1 = 1 ; }
+    else{LATGbits.LATG1 = 0;}
 
-    struct month_structure Feb;
+    if (number & 0b000000100){ LATAbits.LATA2 = 1 ; }
+    else{LATAbits.LATA2 = 0;}
 
-        Feb.days = 28;
-        Feb.solarMidHours = 0;
-        Feb.solarMidMinutes = 13;
+    if (number & 0b000001000){ LATFbits.LATF6 = 1 ; }
+    else{LATFbits.LATF6 = 0;}
 
-    struct month_structure Mar;
+    if (number & 0b000010000){ LATAbits.LATA4 = 1 ; }
+    else{LATAbits.LATA4 = 0;}
 
-        Mar.days = 31;
-        Mar.solarMidHours = 0;
-        Mar.solarMidMinutes = 8;
+    if (number & 0b000100000){ LATAbits.LATA5 = 1 ; }
+    else{LATAbits.LATA5 = 0;}
 
-    struct month_structure Apr;
+    if (number & 0b001000000){ LATFbits.LATF0 = 1 ; }
+    else{LATFbits.LATF0 = 0;}
 
-        Apr.days = 30;
-        Apr.solarMidHours = 0;
-        Apr.solarMidMinutes = 1;
+    if (number & 0b010000000){ LATBbits.LATB0 = 1 ; }
+    else{LATBbits.LATB0 = 0;}
 
-    struct month_structure May;
+    if (number & 0b100000000){ LATBbits.LATB1 = 1 ; }
+    else{LATBbits.LATB1 = 0;}
 
-        May.days = 31;
-        May.solarMidHours = 23;
-        May.solarMidMinutes = 57;
 
-    struct month_structure Jun;
 
-        Jun.days = 30;
-        Jun.solarMidHours = 0;
-        Jun.solarMidMinutes = 1;
+}
 
-    struct month_structure Jul;
 
-        Jul.days = 31;
-        Jul.solarMidHours = 0;
-        Jul.solarMidMinutes = 5;
 
-    struct month_structure Aug;
 
-        Aug.days = 31;
-        Aug.solarMidHours = 0;
-        Aug.solarMidMinutes = 3;
 
-    struct month_structure Sep;
 
-        Sep.days = 30;
-        Sep.solarMidHours = 23;
-        Sep.solarMidMinutes = 55;
+void LEDarray_disp_dec(unsigned int number)
+{
+ unsigned int disp_val;
 
-    struct month_structure Oct;
+    if (number >= 1){ LATGbits.LATG0 = 1 ; }
+    else{LATGbits.LATG0 = 0;}
 
-        Oct.days = 31;
-        Oct.solarMidHours = 23;
-        Oct.solarMidMinutes = 47;
+    if (number >= 2){ LATGbits.LATG1 = 1 ; }
+    else{LATGbits.LATG1 = 0;}
 
-    struct month_structure Nov;
+    if (number >= 3){ LATAbits.LATA2 = 1 ; }
+    else{LATAbits.LATA2 = 0;}
 
-        Nov.days = 30;
-        Nov.solarMidHours = 23;
-        Nov.solarMidMinutes = 46;
+    if (number >= 4){ LATFbits.LATF6 = 1 ; }
+    else{LATFbits.LATF6 = 0;}
 
-    struct month_structure Dec;
+    if (number >= 5){ LATAbits.LATA4 = 1 ; }
+    else{LATAbits.LATA4 = 0;}
 
-        Dec.days = 31;
-        Dec.solarMidHours = 23;
-        Dec.solarMidMinutes = 56;
+    if (number >= 6){ LATAbits.LATA5 = 1 ; }
+    else{LATAbits.LATA5 = 0;}
 
+    if (number >= 7){ LATFbits.LATF0 = 1 ; }
+    else{LATFbits.LATF0 = 0;}
 
+    if (number >= 8){ LATBbits.LATB0 = 1 ; }
+    else{LATBbits.LATB0 = 0;}
 
+    if (number >= 9){ LATBbits.LATB1 = 1 ; }
+    else{LATBbits.LATB1 = 0;}
 
 
 
 
-    struct array_structure {
-        int size;
-        int hours;
-        int minutes;
-    };
 
-    struct array_structure Dawn;
-        Dawn.size = 7;
-        Dawn.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
-        Dawn.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
+}
+# 134 "LEDarray.c"
+void LEDarray_disp_light(unsigned int number, unsigned int maxLight, unsigned int minLight, unsigned int step)
+{
 
-    struct array_structure Dusk;
-        Dusk.size = 7;
-        Dusk.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
-        Dusk.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-# 233 "main.c"
-    ADC_init();
+    if (number > minLight + step*1 ){ LATGbits.LATG0 = 1 ; }
+    else{LATGbits.LATG0 = 0;}
 
+    if (number > minLight + step*2 ){ LATGbits.LATG1 = 1 ; }
+    else{LATGbits.LATG1 = 0;}
 
-    unsigned int light_threshold = 70;
+    if (number > minLight + step*3 ){ LATAbits.LATA2 = 1 ; }
+    else{LATAbits.LATA2 = 0;}
 
+    if (number > minLight + step*4 ){ LATFbits.LATF6 = 1 ; }
+    else{LATFbits.LATF6 = 0;}
 
+    if (number > minLight + step*5 ){ LATAbits.LATA4 = 1 ; }
+    else{LATAbits.LATA4 = 0;}
 
+    if (number > minLight + step*6 ){ LATAbits.LATA5 = 1 ; }
+    else{LATAbits.LATA5 = 0;}
 
+    if (number > minLight + step*7 ){ LATFbits.LATF0 = 1 ; }
+    else{LATFbits.LATF0 = 0;}
 
+    if (number > minLight + step*8 ){ LATBbits.LATB0 = 1 ; }
+    else{LATBbits.LATB0 = 0;}
 
-    while (1) {
+    if (number > minLight + step*9 ){ LATBbits.LATB1 = 1 ; }
+    else{LATBbits.LATB1 = 0;}
 
-        clock.seconds = GLOBALsecs;
-        UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days);
+}
 
 
-        LEDarray_disp_bin(clock.hours);
-# 262 "main.c"
-        unsigned int curval = ADC_getval();
+void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step)
 
 
-        if (curval < light_threshold){
+{
 
 
-            if ((clock.hours >= 1 && clock.hours < 5) || (clock.hours >= 8 && clock.hours < 15)) {
-                LATHbits.LATH3 = 0;
-            }
 
-            else {
-                LATHbits.LATH3 = 1;
-            }
-        }
+    if ((MaxVal > minLight + step*1) && (MaxVal <= minLight + step*2)){ LATGbits.LATG0 = 1 ; }
+    else{LATGbits.LATG0 = 0;}
 
-        if (curval > light_threshold){
-            LATHbits.LATH3 = 0;
+    if ((MaxVal > minLight +step*2) && (MaxVal <= minLight +step*3)){ LATGbits.LATG1 = 1 ; }
+    else{LATGbits.LATG1 = 0;}
 
+    if ((MaxVal > minLight +step*3) && (MaxVal <= minLight +step*4)){ LATAbits.LATA2 = 1 ; }
+    else{LATAbits.LATA2 = 0;}
 
+    if ((MaxVal > minLight +step*4) && (MaxVal <= minLight +step*5)){ LATFbits.LATF6 = 1 ; }
+    else{LATFbits.LATF6 = 0;}
 
+    if ((MaxVal > minLight +step*5) && (MaxVal <= minLight +step*6)){ LATAbits.LATA4 = 1 ; }
+    else{LATAbits.LATA4 = 0;}
 
+    if ((MaxVal > minLight +step*6) && (MaxVal <= minLight +step*7)){ LATAbits.LATA5 = 1 ; }
+    else{LATAbits.LATA5 = 0;}
 
-        }
-    }
+    if ((MaxVal > minLight +step*7) && (MaxVal <= minLight +step*8)){ LATFbits.LATF0 = 1 ; }
+    else{LATFbits.LATF0 = 0;}
+
+    if ((MaxVal > minLight +step*8) && (MaxVal <= minLight +step*9)){ LATBbits.LATB0 = 1 ; }
+    else{LATBbits.LATB0 = 0;}
+
+    if (MaxVal > minLight +step*9){ LATBbits.LATB1 = 1 ; }
+    else{LATBbits.LATB1 = 0;}
+
+
+    if (numberIn > minLight + step*1 ){ LATGbits.LATG0 = 1 ; }
+
+    if (numberIn > minLight + step*2 ){ LATGbits.LATG1 = 1 ; }
+
+    if (numberIn > minLight + step*3 ){ LATAbits.LATA2 = 1 ; }
+
+    if (numberIn > minLight + step*4 ){ LATFbits.LATF6 = 1 ; }
+
+    if (numberIn > minLight + step*5 ){ LATAbits.LATA4 = 1 ; }
+
+    if (numberIn > minLight + step*6 ){ LATAbits.LATA5 = 1 ; }
+
+    if (numberIn > minLight + step*7 ){ LATFbits.LATF0 = 1 ; }
+
+    if (numberIn > minLight + step*8 ){ LATBbits.LATB0 = 1 ; }
+
+    if (numberIn > minLight + step*9 ){ LATBbits.LATB1 = 1 ; }
 }

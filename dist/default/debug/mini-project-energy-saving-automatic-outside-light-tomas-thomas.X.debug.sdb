@@ -47,11 +47,13 @@
 [v _LEDarray_disp_bin LEDarray_disp_bin `(v  1 e 1 0 ]
 "28 C:\Users\thoma\Desktop\ME3 ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\main.c
 [v _main main `(v  1 e 1 0 ]
+"6 C:\Users\thoma\Desktop\ME3 ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\synchronisation.c
+[v _ArrayAppend ArrayAppend `(i  1 e 2 0 ]
 "8 C:\Users\thoma\Desktop\ME3 ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
 "8 C:\Users\thoma\Desktop\ME3 ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X/seconds.h
 [v _GLOBALsecs GLOBALsecs `ui  1 e 2 0 ]
-[s S1035 . 1 `uc 1 INT0IP 1 0 :1:0 
+[s S1043 . 1 `uc 1 INT0IP 1 0 :1:0 
 `uc 1 INT1IP 1 0 :1:1 
 `uc 1 INT2IP 1 0 :1:2 
 `uc 1 INT3IP 1 0 :1:3 
@@ -59,9 +61,9 @@
 `uc 1 TMR0IP 1 0 :1:5 
 ]
 "4009 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
-[u S1042 . 1 `S1035 1 . 1 0 ]
-[v _IPR0bits IPR0bits `VES1042  1 e 1 @3615 ]
-[s S1001 . 1 `uc 1 INT0IE 1 0 :1:0 
+[u S1050 . 1 `S1043 1 . 1 0 ]
+[v _IPR0bits IPR0bits `VES1050  1 e 1 @3615 ]
+[s S1009 . 1 `uc 1 INT0IE 1 0 :1:0 
 `uc 1 INT1IE 1 0 :1:1 
 `uc 1 INT2IE 1 0 :1:2 
 `uc 1 INT3IE 1 0 :1:3 
@@ -69,9 +71,9 @@
 `uc 1 TMR0IE 1 0 :1:5 
 ]
 "4557
-[u S1008 . 1 `S1001 1 . 1 0 ]
-[v _PIE0bits PIE0bits `VES1008  1 e 1 @3625 ]
-[s S1018 . 1 `uc 1 INT0IF 1 0 :1:0 
+[u S1016 . 1 `S1009 1 . 1 0 ]
+[v _PIE0bits PIE0bits `VES1016  1 e 1 @3625 ]
+[s S1026 . 1 `uc 1 INT0IF 1 0 :1:0 
 `uc 1 INT1IF 1 0 :1:1 
 `uc 1 INT2IF 1 0 :1:2 
 `uc 1 INT3IF 1 0 :1:3 
@@ -79,9 +81,9 @@
 `uc 1 TMR0IF 1 0 :1:5 
 ]
 "5102
-[u S1025 . 1 `S1018 1 . 1 0 ]
-[v _PIR0bits PIR0bits `VES1025  1 e 1 @3635 ]
-[s S323 . 1 `uc 1 ANSELA0 1 0 :1:0 
+[u S1033 . 1 `S1026 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES1033  1 e 1 @3635 ]
+[s S331 . 1 `uc 1 ANSELA0 1 0 :1:0 
 `uc 1 ANSELA1 1 0 :1:1 
 `uc 1 ANSELA2 1 0 :1:2 
 `uc 1 ANSELA3 1 0 :1:3 
@@ -91,9 +93,9 @@
 `uc 1 ANSELA7 1 0 :1:7 
 ]
 "10273
-[u S332 . 1 `S323 1 . 1 0 ]
-[v _ANSELAbits ANSELAbits `VES332  1 e 1 @3730 ]
-[s S751 . 1 `uc 1 NSS 1 0 :1:0 
+[u S340 . 1 `S331 1 . 1 0 ]
+[v _ANSELAbits ANSELAbits `VES340  1 e 1 @3730 ]
+[s S759 . 1 `uc 1 NSS 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 PSS 1 0 :2:2 
 `uc 1 OE2 1 0 :1:4 
@@ -102,7 +104,7 @@
 `uc 1 EN 1 0 :1:7 
 ]
 "13226
-[s S759 . 1 `uc 1 DAC1NSS 1 0 :1:0 
+[s S767 . 1 `uc 1 DAC1NSS 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 DAC1PSS0 1 0 :1:2 
 `uc 1 DAC1PSS1 1 0 :1:3 
@@ -111,24 +113,24 @@
 `uc 1 . 1 0 :1:6 
 `uc 1 DAC1EN 1 0 :1:7 
 ]
-[s S768 . 1 `uc 1 . 1 0 :2:0 
+[s S776 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PSS0 1 0 :1:2 
 `uc 1 PSS1 1 0 :1:3 
 ]
-[u S772 . 1 `S751 1 . 1 0 `S759 1 . 1 0 `S768 1 . 1 0 ]
-[v _DAC1CON0bits DAC1CON0bits `VES772  1 e 1 @3782 ]
-[s S798 . 1 `uc 1 DAC1R 1 0 :5:0 
+[u S780 . 1 `S759 1 . 1 0 `S767 1 . 1 0 `S776 1 . 1 0 ]
+[v _DAC1CON0bits DAC1CON0bits `VES780  1 e 1 @3782 ]
+[s S806 . 1 `uc 1 DAC1R 1 0 :5:0 
 ]
 "13313
-[s S800 . 1 `uc 1 DAC1R0 1 0 :1:0 
+[s S808 . 1 `uc 1 DAC1R0 1 0 :1:0 
 `uc 1 DAC1R1 1 0 :1:1 
 `uc 1 DAC1R2 1 0 :1:2 
 `uc 1 DAC1R3 1 0 :1:3 
 `uc 1 DAC1R4 1 0 :1:4 
 ]
-[u S806 . 1 `S798 1 . 1 0 `S800 1 . 1 0 ]
-[v _DAC1CON1bits DAC1CON1bits `VES806  1 e 1 @3783 ]
-[s S880 . 1 `uc 1 SYNC 1 0 :1:0 
+[u S814 . 1 `S806 1 . 1 0 `S808 1 . 1 0 ]
+[v _DAC1CON1bits DAC1CON1bits `VES814  1 e 1 @3783 ]
+[s S888 . 1 `uc 1 SYNC 1 0 :1:0 
 `uc 1 HYS 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 POL 1 0 :1:4 
@@ -137,7 +139,7 @@
 `uc 1 EN 1 0 :1:7 
 ]
 "13853
-[s S888 . 1 `uc 1 C1SYNC 1 0 :1:0 
+[s S896 . 1 `uc 1 C1SYNC 1 0 :1:0 
 `uc 1 C1HYS 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 C1POL 1 0 :1:4 
@@ -145,56 +147,56 @@
 `uc 1 C1OUT 1 0 :1:6 
 `uc 1 C1EN 1 0 :1:7 
 ]
-[u S896 . 1 `S880 1 . 1 0 `S888 1 . 1 0 ]
-[v _CM1CON0bits CM1CON0bits `VES896  1 e 1 @3792 ]
-[s S916 . 1 `uc 1 INTN 1 0 :1:0 
+[u S904 . 1 `S888 1 . 1 0 `S896 1 . 1 0 ]
+[v _CM1CON0bits CM1CON0bits `VES904  1 e 1 @3792 ]
+[s S924 . 1 `uc 1 INTN 1 0 :1:0 
 `uc 1 INTP 1 0 :1:1 
 ]
 "13923
-[s S919 . 1 `uc 1 C1INTN 1 0 :1:0 
+[s S927 . 1 `uc 1 C1INTN 1 0 :1:0 
 `uc 1 C1INTP 1 0 :1:1 
 ]
-[u S922 . 1 `S916 1 . 1 0 `S919 1 . 1 0 ]
-[v _CM1CON1bits CM1CON1bits `VES922  1 e 1 @3793 ]
-[s S830 . 1 `uc 1 NCH 1 0 :3:0 
+[u S930 . 1 `S924 1 . 1 0 `S927 1 . 1 0 ]
+[v _CM1CON1bits CM1CON1bits `VES930  1 e 1 @3793 ]
+[s S838 . 1 `uc 1 NCH 1 0 :3:0 
 ]
 "13968
-[s S832 . 1 `uc 1 NCH0 1 0 :1:0 
+[s S840 . 1 `uc 1 NCH0 1 0 :1:0 
 `uc 1 NCH1 1 0 :1:1 
 `uc 1 NCH2 1 0 :1:2 
 ]
-[s S836 . 1 `uc 1 C1NCH0 1 0 :1:0 
+[s S844 . 1 `uc 1 C1NCH0 1 0 :1:0 
 `uc 1 C1NCH1 1 0 :1:1 
 `uc 1 C1NCH2 1 0 :1:2 
 ]
-[u S840 . 1 `S830 1 . 1 0 `S832 1 . 1 0 `S836 1 . 1 0 ]
-[v _CM1NCHbits CM1NCHbits `VES840  1 e 1 @3794 ]
-[s S855 . 1 `uc 1 PCH 1 0 :3:0 
+[u S848 . 1 `S838 1 . 1 0 `S840 1 . 1 0 `S844 1 . 1 0 ]
+[v _CM1NCHbits CM1NCHbits `VES848  1 e 1 @3794 ]
+[s S863 . 1 `uc 1 PCH 1 0 :3:0 
 ]
 "14028
-[s S857 . 1 `uc 1 PCH0 1 0 :1:0 
+[s S865 . 1 `uc 1 PCH0 1 0 :1:0 
 `uc 1 PCH1 1 0 :1:1 
 `uc 1 PCH2 1 0 :1:2 
 ]
-[s S861 . 1 `uc 1 C1PCH0 1 0 :1:0 
+[s S869 . 1 `uc 1 C1PCH0 1 0 :1:0 
 `uc 1 C1PCH1 1 0 :1:1 
 `uc 1 C1PCH2 1 0 :1:2 
 ]
-[u S865 . 1 `S855 1 . 1 0 `S857 1 . 1 0 `S861 1 . 1 0 ]
-[v _CM1PCHbits CM1PCHbits `VES865  1 e 1 @3795 ]
-[s S344 . 1 `uc 1 ADPREF 1 0 :2:0 
+[u S873 . 1 `S863 1 . 1 0 `S865 1 . 1 0 `S869 1 . 1 0 ]
+[v _CM1PCHbits CM1PCHbits `VES873  1 e 1 @3795 ]
+[s S352 . 1 `uc 1 ADPREF 1 0 :2:0 
 `uc 1 . 1 0 :2:2 
 `uc 1 ADNREF 1 0 :1:4 
 ]
 "25868
-[s S348 . 1 `uc 1 ADPREF0 1 0 :1:0 
+[s S356 . 1 `uc 1 ADPREF0 1 0 :1:0 
 `uc 1 ADPREF1 1 0 :1:1 
 ]
-[u S351 . 1 `S344 1 . 1 0 `S348 1 . 1 0 ]
-[v _ADREFbits ADREFbits `VES351  1 e 1 @3928 ]
+[u S359 . 1 `S352 1 . 1 0 `S356 1 . 1 0 ]
+[v _ADREFbits ADREFbits `VES359  1 e 1 @3928 ]
 "26272
 [v _ADPCH ADPCH `VEuc  1 e 1 @3935 ]
-[s S363 . 1 `uc 1 ADGO 1 0 :1:0 
+[s S371 . 1 `uc 1 ADGO 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 ADFM 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -204,24 +206,24 @@
 `uc 1 ADON 1 0 :1:7 
 ]
 "26365
-[s S372 . 1 `uc 1 GO 1 0 :1:0 
+[s S380 . 1 `uc 1 GO 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 ADFM0 1 0 :1:2 
 ]
-[s S376 . 1 `uc 1 DONE 1 0 :1:0 
+[s S384 . 1 `uc 1 DONE 1 0 :1:0 
 ]
-[s S378 . 1 `uc 1 GO_NOT_DONE 1 0 :1:0 
+[s S386 . 1 `uc 1 GO_NOT_DONE 1 0 :1:0 
 ]
-[s S380 . 1 `uc 1 GO_nDONE 1 0 :1:0 
+[s S388 . 1 `uc 1 GO_nDONE 1 0 :1:0 
 ]
-[s S382 . 1 `uc 1 . 1 0 :7:0 
+[s S390 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 ADCAL 1 0 :1:7 
 ]
-[u S385 . 1 `S363 1 . 1 0 `S372 1 . 1 0 `S376 1 . 1 0 `S378 1 . 1 0 `S380 1 . 1 0 `S382 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES385  1 e 1 @3936 ]
+[u S393 . 1 `S371 1 . 1 0 `S380 1 . 1 0 `S384 1 . 1 0 `S386 1 . 1 0 `S388 1 . 1 0 `S390 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES393  1 e 1 @3936 ]
 "26649
 [v _ADRESH ADRESH `VEuc  1 e 1 @3940 ]
-[s S516 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S524 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 LATA3 1 0 :1:3 
@@ -231,7 +233,7 @@
 `uc 1 LATA7 1 0 :1:7 
 ]
 "28172
-[s S525 . 1 `uc 1 LA0 1 0 :1:0 
+[s S533 . 1 `uc 1 LA0 1 0 :1:0 
 `uc 1 LA1 1 0 :1:1 
 `uc 1 LA2 1 0 :1:2 
 `uc 1 LA3 1 0 :1:3 
@@ -240,9 +242,9 @@
 `uc 1 LA6 1 0 :1:6 
 `uc 1 LA7 1 0 :1:7 
 ]
-[u S534 . 1 `S516 1 . 1 0 `S525 1 . 1 0 ]
-[v _LATAbits LATAbits `VES534  1 e 1 @3961 ]
-[s S638 . 1 `uc 1 LATB0 1 0 :1:0 
+[u S542 . 1 `S524 1 . 1 0 `S533 1 . 1 0 ]
+[v _LATAbits LATAbits `VES542  1 e 1 @3961 ]
+[s S646 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -252,7 +254,7 @@
 `uc 1 LATB7 1 0 :1:7 
 ]
 "28284
-[s S647 . 1 `uc 1 LB0 1 0 :1:0 
+[s S655 . 1 `uc 1 LB0 1 0 :1:0 
 `uc 1 LB1 1 0 :1:1 
 `uc 1 LB2 1 0 :1:2 
 `uc 1 LB3 1 0 :1:3 
@@ -261,8 +263,8 @@
 `uc 1 LB6 1 0 :1:6 
 `uc 1 LB7 1 0 :1:7 
 ]
-[u S656 . 1 `S638 1 . 1 0 `S647 1 . 1 0 ]
-[v _LATBbits LATBbits `VES656  1 e 1 @3962 ]
+[u S664 . 1 `S646 1 . 1 0 `S655 1 . 1 0 ]
+[v _LATBbits LATBbits `VES664  1 e 1 @3962 ]
 [s S57 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
@@ -284,7 +286,7 @@
 ]
 [u S75 . 1 `S57 1 . 1 0 `S66 1 . 1 0 ]
 [v _LATDbits LATDbits `VES75  1 e 1 @3964 ]
-[s S577 . 1 `uc 1 LATF0 1 0 :1:0 
+[s S585 . 1 `uc 1 LATF0 1 0 :1:0 
 `uc 1 LATF1 1 0 :1:1 
 `uc 1 LATF2 1 0 :1:2 
 `uc 1 LATF3 1 0 :1:3 
@@ -294,7 +296,7 @@
 `uc 1 LATF7 1 0 :1:7 
 ]
 "28732
-[s S586 . 1 `uc 1 LF0 1 0 :1:0 
+[s S594 . 1 `uc 1 LF0 1 0 :1:0 
 `uc 1 LF1 1 0 :1:1 
 `uc 1 LF2 1 0 :1:2 
 `uc 1 LF3 1 0 :1:3 
@@ -303,9 +305,9 @@
 `uc 1 LF6 1 0 :1:6 
 `uc 1 LF7 1 0 :1:7 
 ]
-[u S595 . 1 `S577 1 . 1 0 `S586 1 . 1 0 ]
-[v _LATFbits LATFbits `VES595  1 e 1 @3966 ]
-[s S470 . 1 `uc 1 LATG0 1 0 :1:0 
+[u S603 . 1 `S585 1 . 1 0 `S594 1 . 1 0 ]
+[v _LATFbits LATFbits `VES603  1 e 1 @3966 ]
+[s S478 . 1 `uc 1 LATG0 1 0 :1:0 
 `uc 1 LATG1 1 0 :1:1 
 `uc 1 LATG2 1 0 :1:2 
 `uc 1 LATG3 1 0 :1:3 
@@ -315,14 +317,14 @@
 `uc 1 LATG7 1 0 :1:7 
 ]
 "28841
-[s S479 . 1 `uc 1 LG0 1 0 :1:0 
+[s S487 . 1 `uc 1 LG0 1 0 :1:0 
 `uc 1 LG1 1 0 :1:1 
 `uc 1 LG2 1 0 :1:2 
 `uc 1 LG3 1 0 :1:3 
 `uc 1 LG4 1 0 :1:4 
 ]
-[u S485 . 1 `S470 1 . 1 0 `S479 1 . 1 0 ]
-[v _LATGbits LATGbits `VES485  1 e 1 @3967 ]
+[u S493 . 1 `S478 1 . 1 0 `S487 1 . 1 0 ]
+[v _LATGbits LATGbits `VES493  1 e 1 @3967 ]
 [s S110 . 1 `uc 1 LATH0 1 0 :1:0 
 `uc 1 LATH1 1 0 :1:1 
 `uc 1 LATH2 1 0 :1:2 
@@ -348,7 +350,7 @@
 ]
 [u S132 . 1 `S110 1 . 1 0 `S115 1 . 1 0 `S120 1 . 1 0 `S123 1 . 1 0 `S126 1 . 1 0 `S129 1 . 1 0 ]
 [v _LATHbits LATHbits `VES132  1 e 1 @3968 ]
-[s S302 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S310 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -358,9 +360,9 @@
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "29028
-[u S311 . 1 `S302 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES311  1 e 1 @3969 ]
-[s S617 . 1 `uc 1 TRISB0 1 0 :1:0 
+[u S319 . 1 `S310 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES319  1 e 1 @3969 ]
+[s S625 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -370,8 +372,8 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "29150
-[u S626 . 1 `S617 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES626  1 e 1 @3970 ]
+[u S634 . 1 `S625 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES634  1 e 1 @3970 ]
 [s S36 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
@@ -384,7 +386,7 @@
 "29394
 [u S45 . 1 `S36 1 . 1 0 ]
 [v _TRISDbits TRISDbits `VES45  1 e 1 @3972 ]
-[s S556 . 1 `uc 1 TRISF0 1 0 :1:0 
+[s S564 . 1 `uc 1 TRISF0 1 0 :1:0 
 `uc 1 TRISF1 1 0 :1:1 
 `uc 1 TRISF2 1 0 :1:2 
 `uc 1 TRISF3 1 0 :1:3 
@@ -394,9 +396,9 @@
 `uc 1 TRISF7 1 0 :1:7 
 ]
 "29633
-[u S565 . 1 `S556 1 . 1 0 ]
-[v _TRISFbits TRISFbits `VES565  1 e 1 @3974 ]
-[s S449 . 1 `uc 1 TRISG0 1 0 :1:0 
+[u S573 . 1 `S564 1 . 1 0 ]
+[v _TRISFbits TRISFbits `VES573  1 e 1 @3974 ]
+[s S457 . 1 `uc 1 TRISG0 1 0 :1:0 
 `uc 1 TRISG1 1 0 :1:1 
 `uc 1 TRISG2 1 0 :1:2 
 `uc 1 TRISG3 1 0 :1:3 
@@ -406,8 +408,8 @@
 `uc 1 TRISG7 1 0 :1:7 
 ]
 "29695
-[u S458 . 1 `S449 1 . 1 0 ]
-[v _TRISGbits TRISGbits `VES458  1 e 1 @3975 ]
+[u S466 . 1 `S457 1 . 1 0 ]
+[v _TRISGbits TRISGbits `VES466  1 e 1 @3975 ]
 [s S97 . 1 `uc 1 TRISH0 1 0 :1:0 
 `uc 1 TRISH1 1 0 :1:1 
 `uc 1 TRISH2 1 0 :1:2 
@@ -420,29 +422,29 @@
 [v _TMR0L TMR0L `VEuc  1 e 1 @4051 ]
 "39003
 [v _TMR0H TMR0H `VEuc  1 e 1 @4052 ]
-[s S1128 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+[s S1136 . 1 `uc 1 T0OUTPS 1 0 :4:0 
 `uc 1 T016BIT 1 0 :1:4 
 `uc 1 T0OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 T0EN 1 0 :1:7 
 ]
 "39277
-[s S1134 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
+[s S1142 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
 `uc 1 T0OUTPS1 1 0 :1:1 
 `uc 1 T0OUTPS2 1 0 :1:2 
 `uc 1 T0OUTPS3 1 0 :1:3 
 ]
 "39277
-[u S1139 . 1 `S1128 1 . 1 0 `S1134 1 . 1 0 ]
+[u S1147 . 1 `S1136 1 . 1 0 `S1142 1 . 1 0 ]
 "39277
 "39277
-[v _T0CON0bits T0CON0bits `VES1139  1 e 1 @4053 ]
-[s S1082 . 1 `uc 1 T0CKPS 1 0 :4:0 
+[v _T0CON0bits T0CON0bits `VES1147  1 e 1 @4053 ]
+[s S1090 . 1 `uc 1 T0CKPS 1 0 :4:0 
 `uc 1 T0ASYNC 1 0 :1:4 
 `uc 1 T0CS 1 0 :3:5 
 ]
 "39353
-[s S1086 . 1 `uc 1 T0CKPS0 1 0 :1:0 
+[s S1094 . 1 `uc 1 T0CKPS0 1 0 :1:0 
 `uc 1 T0CKPS1 1 0 :1:1 
 `uc 1 T0CKPS2 1 0 :1:2 
 `uc 1 T0CKPS3 1 0 :1:3 
@@ -452,20 +454,20 @@
 `uc 1 T0CS2 1 0 :1:7 
 ]
 "39353
-[s S1095 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S1103 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 ]
 "39353
-[s S1100 . 1 `uc 1 T0PS 1 0 :4:0 
+[s S1108 . 1 `uc 1 T0PS 1 0 :4:0 
 ]
 "39353
-[u S1102 . 1 `S1082 1 . 1 0 `S1086 1 . 1 0 `S1095 1 . 1 0 `S1100 1 . 1 0 ]
+[u S1110 . 1 `S1090 1 . 1 0 `S1094 1 . 1 0 `S1103 1 . 1 0 `S1108 1 . 1 0 ]
 "39353
 "39353
-[v _T0CON1bits T0CON1bits `VES1102  1 e 1 @4054 ]
-[s S962 . 1 `uc 1 INT0EDG 1 0 :1:0 
+[v _T0CON1bits T0CON1bits `VES1110  1 e 1 @4054 ]
+[s S970 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
 `uc 1 INT3EDG 1 0 :1:3 
@@ -475,43 +477,43 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "40176
-[s S971 . 1 `uc 1 . 1 0 :6:0 
+[s S979 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
 "40176
-[s S975 . 1 `uc 1 . 1 0 :6:0 
+[s S983 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
 "40176
-[u S979 . 1 `S962 1 . 1 0 `S971 1 . 1 0 `S975 1 . 1 0 ]
+[u S987 . 1 `S970 1 . 1 0 `S979 1 . 1 0 `S983 1 . 1 0 ]
 "40176
 "40176
-[v _INTCONbits INTCONbits `VES979  1 e 1 @4082 ]
+[v _INTCONbits INTCONbits `VES987  1 e 1 @4082 ]
 "28 C:\Users\thoma\Desktop\ME3 ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "262
 [v main@curval curval `ui  1 a 2 58 ]
-"222
-[v main@14172 F14172 `[7]i  1 a 14 42 ]
-"221
-[v main@14170 F14170 `[7]i  1 a 14 28 ]
 "217
-[v main@14168 F14168 `[7]i  1 a 14 14 ]
+[v main@14168 F14168 `[7]i  1 a 14 42 ]
 "216
-[v main@14166 F14166 `[7]i  1 a 14 0 ]
+[v main@14166 F14166 `[7]i  1 a 14 28 ]
+"222
+[v main@14172 F14172 `[7]i  1 a 14 14 ]
+"221
+[v main@14170 F14170 `[7]i  1 a 14 0 ]
 [s S162 time_structure 8 `i 1 seconds 2 0 `i 1 minutes 2 2 `i 1 hours 2 4 `i 1 days 2 6 ]
 "54
 [v main@clock clock `S162  1 a 8 152 ]
 "63
-[v main@DSTon DSTon `S162  1 a 8 144 ]
+[v main@DSTon DSTon `S162  1 a 8 138 ]
 [s S171 array_structure 6 `i 1 size 2 0 `i 1 hours 2 2 `i 1 minutes 2 4 ]
-"219
-[v main@Dusk Dusk `S171  1 a 6 138 ]
 "214
-[v main@Dawn Dawn `S171  1 a 6 132 ]
+[v main@Dawn Dawn `S171  1 a 6 146 ]
+"219
+[v main@Dusk Dusk `S171  1 a 6 132 ]
 [s S167 month_structure 6 `i 1 solarMidMinutes 2 0 `i 1 solarMidHours 2 2 `i 1 days 2 4 ]
 "196
 [v main@Dec Dec `S167  1 a 6 126 ]
@@ -570,6 +572,17 @@
 [v _Interrupts_init Interrupts_init `(v  1 e 1 0 ]
 {
 "25
+} 0
+"6 C:\Users\thoma\Desktop\ME3 ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\synchronisation.c
+[v _ArrayAppend ArrayAppend `(i  1 e 2 0 ]
+{
+"8
+[v ArrayAppend@i i `i  1 a 2 9 ]
+"6
+[v ArrayAppend@arrayTime arrayTime `*.39i  1 p 2 0 ]
+[v ArrayAppend@size size `i  1 p 2 2 ]
+[v ArrayAppend@Time Time `i  1 p 2 4 ]
+"21
 } 0
 "9 C:\Users\thoma\Desktop\ME3 ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\ADC.c
 [v _ADC_init ADC_init `(v  1 e 1 0 ]

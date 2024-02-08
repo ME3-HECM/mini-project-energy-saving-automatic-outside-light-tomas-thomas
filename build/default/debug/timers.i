@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "timers.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,20 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
-
-
-
-#pragma config FEXTOSC = HS
-#pragma config RSTOSC = EXTOSC_4PLL
-
-#pragma config WDTE = OFF
-
-
-
-
-
+# 1 "timers.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24099,17 +24086,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 13 "main.c" 2
-
-# 1 "./LEDarray.h" 1
-# 10 "./LEDarray.h"
-void LEDarray_init(void);
-void LEDarray_disp_bin(unsigned int number);
-void LEDarray_disp_dec(unsigned int number);
-void LEDarray_disp_light(unsigned int number, unsigned int maxLight, unsigned int minLight, unsigned int step);
-
-void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step);
-# 14 "main.c" 2
+# 1 "timers.c" 2
 
 # 1 "./timers.h" 1
 
@@ -24121,19 +24098,7 @@ void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int 
 
 void Timer0_init(void);
 unsigned int get16bitTMR0val(void);
-# 15 "main.c" 2
-
-# 1 "./interrupts.h" 1
-
-
-
-
-
-
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-# 16 "main.c" 2
+# 2 "timers.c" 2
 
 # 1 "./seconds.h" 1
 
@@ -24144,238 +24109,37 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 
 unsigned int GLOBALsecs = 0;
-# 17 "main.c" 2
-
-# 1 "./clock.h" 1
+# 3 "timers.c" 2
 
 
 
 
 
+void Timer0_init(void)
+{
+    T0CON1bits.T0CS=0b010;
+    T0CON1bits.T0ASYNC=1;
+
+    T0CON1bits.T0CKPS=0b1000;
+
+    T0CON0bits.T016BIT=1;
 
 
-void clock_init(void);
-
-void UpdateClock(int *s, int *m, int *h, int *d);
-# 18 "main.c" 2
-
-# 1 "./ADC.h" 1
-
-
-
-
-
-
-
-void ADC_init(void);
-unsigned int ADC_getval(void);
-# 19 "main.c" 2
-
-# 1 "./synchronisation.h" 1
+    TMR0H = 0b00001011;
+    TMR0L = 0b11011100;
+# 35 "timers.c"
+    T0CON0bits.T0EN=1;
+}
 
 
 
 
 
-
-
-int ArrayAppend(int arrayTime[], int size, int Time);
-# 20 "main.c" 2
-
-
-
-
-
-
-
-
-void main(void)
+unsigned int get16bitTMR0val(void)
 {
 
-    LEDarray_init();
-    Timer0_init();
-    Interrupts_init();
+    unsigned int low = TMR0L ;
+    unsigned int high = TMR0H ;
+    return(high) ;
 
-
-
-    TRISDbits.TRISD7 = 0;
-    LATDbits.LATD7 = 0;
-
-
-    TRISHbits.TRISH3 = 0;
-    LATHbits.LATH3 = 0;
-
-
-     struct time_structure {
-        int seconds;
-        int minutes;
-        int hours;
-        int days;
-
-
-    };
-
-    struct time_structure clock;
-
-        GLOBALsecs = 50;
-        clock.minutes = 59;
-        clock.hours = 12;
-        clock.days = 1;
-
-
-
-    struct time_structure DSTon;
-        DSTon.minutes = 0;
-        DSTon.hours = 0;
-        DSTon.days = 0;
-
-
-
-
-
-        GLOBALsecs = clock.hours;
-# 123 "main.c"
-    struct month_structure {
-        int solarMidMinutes;
-        int solarMidHours;
-        int days;
-    };
-
-
-    struct month_structure Jan;
-
-        Jan.days = 31;
-        Jan.solarMidHours = 0;
-        Jan.solarMidMinutes = 9;
-
-    struct month_structure Feb;
-
-        Feb.days = 28;
-        Feb.solarMidHours = 0;
-        Feb.solarMidMinutes = 13;
-
-    struct month_structure Mar;
-
-        Mar.days = 31;
-        Mar.solarMidHours = 0;
-        Mar.solarMidMinutes = 8;
-
-    struct month_structure Apr;
-
-        Apr.days = 30;
-        Apr.solarMidHours = 0;
-        Apr.solarMidMinutes = 1;
-
-    struct month_structure May;
-
-        May.days = 31;
-        May.solarMidHours = 23;
-        May.solarMidMinutes = 57;
-
-    struct month_structure Jun;
-
-        Jun.days = 30;
-        Jun.solarMidHours = 0;
-        Jun.solarMidMinutes = 1;
-
-    struct month_structure Jul;
-
-        Jul.days = 31;
-        Jul.solarMidHours = 0;
-        Jul.solarMidMinutes = 5;
-
-    struct month_structure Aug;
-
-        Aug.days = 31;
-        Aug.solarMidHours = 0;
-        Aug.solarMidMinutes = 3;
-
-    struct month_structure Sep;
-
-        Sep.days = 30;
-        Sep.solarMidHours = 23;
-        Sep.solarMidMinutes = 55;
-
-    struct month_structure Oct;
-
-        Oct.days = 31;
-        Oct.solarMidHours = 23;
-        Oct.solarMidMinutes = 47;
-
-    struct month_structure Nov;
-
-        Nov.days = 30;
-        Nov.solarMidHours = 23;
-        Nov.solarMidMinutes = 46;
-
-    struct month_structure Dec;
-
-        Dec.days = 31;
-        Dec.solarMidHours = 23;
-        Dec.solarMidMinutes = 56;
-
-
-
-
-
-
-
-    struct array_structure {
-        int size;
-        int hours;
-        int minutes;
-    };
-
-    struct array_structure Dawn;
-        Dawn.size = 7;
-        Dawn.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
-        Dawn.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-
-    struct array_structure Dusk;
-        Dusk.size = 7;
-        Dusk.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
-        Dusk.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-# 233 "main.c"
-    ADC_init();
-
-
-    unsigned int light_threshold = 70;
-
-
-
-
-
-
-    while (1) {
-
-        clock.seconds = GLOBALsecs;
-        UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days);
-
-
-        LEDarray_disp_bin(clock.hours);
-# 262 "main.c"
-        unsigned int curval = ADC_getval();
-
-
-        if (curval < light_threshold){
-
-
-            if ((clock.hours >= 1 && clock.hours < 5) || (clock.hours >= 8 && clock.hours < 15)) {
-                LATHbits.LATH3 = 0;
-            }
-
-            else {
-                LATHbits.LATH3 = 1;
-            }
-        }
-
-        if (curval > light_threshold){
-            LATHbits.LATH3 = 0;
-
-
-
-
-
-        }
-    }
 }

@@ -101,6 +101,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9 ./ADC.h
 [; ;./ADC.h: 9: unsigned int ADC_getval(void);
 [v _ADC_getval `(ui ~T0 @X0 0 ef ]
+"8 ./synchronisation.h
+[; ;./synchronisation.h: 8: int ArrayAppend(int arrayTime[], int size, int Time);
+[v _ArrayAppend `(i ~T0 @X0 0 ef3`*i`i`i ]
 "5 main.c
 [p x FEXTOSC  =  HS      ]
 "6
@@ -2436,6 +2439,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "278
 [; ;main.c: 278:             LATHbits.LATH3 = 0;
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+"280
+[; ;main.c: 280:             if (clock.hours >=4 && clock.hours < 8) {
+[e $ ! && >= . _clock 2 -> 4 `i < . _clock 2 -> 8 `i 2026  ]
+{
+"281
+[; ;main.c: 281:                 ArrayAppend(Dawn.hours, Dawn.size, clock.hours);
+[e ( _ArrayAppend (3 , , -> . _Dawn 1 `*i . _Dawn 0 . _clock 2 ]
+"282
+[; ;main.c: 282:                 ArrayAppend(Dawn.minutes, Dawn.size, clock.minutes);
+[e ( _ArrayAppend (3 , , -> . _Dawn 2 `*i . _Dawn 0 . _clock 1 ]
+"283
+[; ;main.c: 283:             }
+}
+[e :U 2026 ]
 "284
 [; ;main.c: 284:         }
 }

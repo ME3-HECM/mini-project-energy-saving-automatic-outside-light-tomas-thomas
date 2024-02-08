@@ -24372,10 +24372,10 @@ void main(void)
         if (curval > light_threshold){
             LATHbits.LATH3 = 0;
 
-
-
-
-
+            if (clock.hours >=4 && clock.hours < 8) {
+                ArrayAppend(Dawn.hours, Dawn.size, clock.hours);
+                ArrayAppend(Dawn.minutes, Dawn.size, clock.minutes);
+            }
         }
     }
 }

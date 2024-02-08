@@ -205,11 +205,27 @@ void main(void)
 //We can then take averages, calculate average solar midnight and then compare this to our known solar midnight for each month
 //The difference can then be added(/subtracted) to re-calibrate/synchronise the clock
    
-    int size = 7; //size of the array to hold 7 days worth of dawn and dusk timings
-    int DawnHours[7] = {0,0,0,0,0,0,0};
-    int DawnMinutes[7] = {0,0,0,0,0,0,0};
-    int DuskHours[7] = {0,0,0,0,0,0,0};
-    int DuskMinutes[7] = {0,0,0,0,0,0,0};
+    struct array_structure { //set up time structure - we haven't actually called it yet
+        int size;
+        int hours;
+        int minutes;
+    };
+    
+    struct array_structure Dawn;
+        Dawn.size = 7;
+        Dawn.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
+        Dawn.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
+        
+    struct array_structure Dusk;
+        Dusk.size = 7;
+        Dusk.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
+        Dusk.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
+    
+//    int size = 7; //size of the array to hold 7 days worth of dawn and dusk timings
+//    int DawnHours[7] = {0,0,0,0,0,0,0};
+//    int DawnMinutes[7] = {0,0,0,0,0,0,0};
+//    int DuskHours[7] = {0,0,0,0,0,0,0};
+//    int DuskMinutes[7] = {0,0,0,0,0,0,0};
     
     //Function to take measured Dawn and Dusk timings and add it to the 7 day moving average list.
     //Each timing is moved down by one and the new timing is added to the end of the array.
@@ -247,33 +263,24 @@ void main(void)
         
         // light turning off or on depending on task brief conditions 
         if (curval < light_threshold){  // if the ADC is bigger than our threshold - if dark enough turn on
-            LED_Right = 1;
-                
             
-            if (clock.hours >=15 && clock.hours < 23) { //Dusk only occurs between 3pm and 11pm
-                ArrayAppend(DuskHours, size, clock.hours);
-                ArrayAppend(DuskMinutes, size, clock.minutes);
-            }
-
-            if (clock.hours >= 1 && clock.hours <= 5){   //check that its not energy saving time
-                LED_Right = 0;
-            }
             
-            if (clock.hours >= 8 && clock.hours < 15){ //This ensures that if external factors such as birds block the LDR,
-                LED_Right = 0;                         //the light will not go on during the day. 8am-3pm chosen, as dawn/dusk can be as late/early as 8-3 respectively at winter solstice.
-            }
+            if ((clock.hours >= 1 && clock.hours < 5) || (clock.hours >= 8 && clock.hours < 15)) {   //check that its not energy saving time or that nothing external is blocking the LDR during daylight hours. 
+                LED_Right = 0;                                  //this ensures that if external factors such as birds block the LDR,
+            }                                                    //the light will not go on during the day. 8am-3pm chosen, as dawn/dusk can be as late/early as 8-3 respectively at winter solstice.
             
-                                                   //must not be energy saving time therefore turn light on
-               
+            else {                  //If light levels have lowered further than the threshold at dusk, turn the LED on.
+                LED_Right = 1;      //must not be energy saving time therefore turn light on
+            }
         }  
         
         if (curval > light_threshold){
             LED_Right = 0;
             
-            if (clock.hours >=4 && clock.hours < 8) { //Dawn only occurs between 4am and 8am
-                ArrayAppend(DawnHours, size, clock.hours);
-                ArrayAppend(DawnMinutes, size,  clock.minutes);
-            }
+//            if (clock.hours >=4 && clock.hours < 8) { //Dawn only occurs between 4am and 8am
+//                ArrayAppend(Dawn.hours, Dawn.size, clock.hours);
+//                ArrayAppend(Dawn.minutes, Dawn.size,  clock.minutes);
+//            }
         }
     }  
 }
