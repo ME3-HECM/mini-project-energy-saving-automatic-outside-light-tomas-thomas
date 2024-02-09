@@ -91,7 +91,7 @@ Sun synchronisation was done to correct the clock if it lost accuracy due to its
 1. At dawn or dusk when the LED lamp is turned off/on respectively, a time in hours and minutes is recorded, representing dawn or dusk for that specific day.
 2. This is then converted into total minutes during the day for each of the timings (for example, 18:00 is equal to 18*60 = 1080 minutes), and then averaged between dawn and dusk. This average is then converted into a solar midnight value (by adding 12 hours worth of minutes).
 3. This value for solar midnight is compared to the equivalently calculated known solar midnight value obtained from a database for each month (https://www.timeanddate.com/sun/uk/london).
-4. The difference is taken and then added to the minutes clock at 11:30pm for re-calibration/synchronisation.
+4. The difference is taken and then converted to minutes and hours (signed) and added to the minutes and hours clock at 11:00pm for re-calibration/synchronisation.
 
 The benefits of this method are that the clock never has more than 1 day's worth of error. However, it is limited by volatility of external factors such as cloudiness and rain, which could affect the daily reading of the solar midnight.
    
