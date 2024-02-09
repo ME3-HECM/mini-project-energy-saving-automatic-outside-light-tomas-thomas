@@ -24532,8 +24532,10 @@ void main(void)
                 int hours_temp = SolarPerMonth.solarMidHours[(clock.months - 1)];
                 int minutes_temp = SolarPerMonth.solarMidMinutes[(clock.months - 1)];
 
+                if (clock.DSTstate = 1) {hours_temp = hours_temp + 1;}
+                if (hours_temp = 0 || hours_temp == 1) {hours_temp = hours_temp + 24;}
 
-                if (hours_temp = 0) {hours_temp = 24;}
+
                 int knownSolarMidnight = hours_temp*60 + minutes_temp;
 
                 struct array_structure SolarMidnight;

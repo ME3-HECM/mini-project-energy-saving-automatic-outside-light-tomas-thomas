@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "timers.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,13 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-#pragma config FEXTOSC = HS
-#pragma config RSTOSC = EXTOSC_4PLL
-#pragma config WDTE = OFF
-
-
-
+# 1 "timers.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24092,172 +24086,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 6 "main.c" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 143 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __int24 ssize_t;
-# 255 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long off_t;
-# 409 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-
-
-
-
-
-int ungetc(int, FILE *);
-int getch(void);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-
-
-
-
-void putch(char);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 7 "main.c" 2
-
-
-# 1 "./LEDarray.h" 1
-# 10 "./LEDarray.h"
-void LEDarray_init(void);
-void LEDarray_disp_bin(unsigned int number);
-void LEDarray_disp_dec(unsigned int number);
-void LEDarray_disp_light(unsigned int number, unsigned int maxLight, unsigned int minLight, unsigned int step);
-
-void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step);
-# 9 "main.c" 2
+# 1 "timers.c" 2
 
 # 1 "./timers.h" 1
 
@@ -24269,19 +24098,7 @@ void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int 
 
 void Timer0_init(void);
 unsigned int get16bitTMR0val(void);
-# 10 "main.c" 2
-
-# 1 "./interrupts.h" 1
-
-
-
-
-
-
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-# 11 "main.c" 2
+# 2 "timers.c" 2
 
 # 1 "./seconds.h" 1
 
@@ -24292,268 +24109,37 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 
 unsigned int GLOBALsecs = 0;
-# 12 "main.c" 2
-
-# 1 "./clock.h" 1
+# 3 "timers.c" 2
 
 
 
 
 
+void Timer0_init(void)
+{
+    T0CON1bits.T0CS=0b010;
+    T0CON1bits.T0ASYNC=1;
+
+    T0CON1bits.T0CKPS=0b1000;
+
+    T0CON0bits.T016BIT=1;
 
 
-void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, int *months, int *years, int *DSTstate, int TestMode);
-# 13 "main.c" 2
-
-# 1 "./LCD.h" 1
-# 17 "./LCD.h"
-void LCD_E_TOG(void);
-void LCD_sendnibble(unsigned char number);
-void LCD_sendbyte(unsigned char Byte, char type);
-void LCD_Init(void);
-void LCD_setline (char line);
-void LCD_sendstring(char *string);
-void LCD_scroll(void);
-void LCD_clear(void);
-void ADC2String(char *buf, unsigned int number);
-# 14 "main.c" 2
-
-# 1 "./ADC.h" 1
+    TMR0H = 0b00001011;
+    TMR0L = 0b11011100;
+# 35 "timers.c"
+    T0CON0bits.T0EN=1;
+}
 
 
 
 
 
-
-
-void ADC_init(void);
-unsigned int ADC_getval(void);
-# 15 "main.c" 2
-
-
-
-
-void main(void)
+unsigned int get16bitTMR0val(void)
 {
 
-    LEDarray_init();
-    Timer0_init();
-    Interrupts_init();
-    LCD_Init();
-    ADC_init();
+    unsigned int low = TMR0L ;
+    unsigned int high = TMR0H ;
+    return(high) ;
 
-    char buffer[18];
-
-
-
-    TRISDbits.TRISD7 = 0;
-    LATDbits.LATD7 = 0;
-
-
-    TRISHbits.TRISH3 = 0;
-    LATHbits.LATH3 = 0;
-
-
-
-     struct time_structure {
-        unsigned int seconds; unsigned int minutes; unsigned int hours; unsigned int days; unsigned int DoW; unsigned int months; unsigned int years; unsigned int DSTstate;
-    };
-
-
-    int TestMode = 1;
-
-
-
-
-    struct time_structure clock;
-
-        GLOBALsecs = 55;
-        clock.minutes = 59;
-        clock.hours = 22;
-        clock.days = 28;
-        clock.DoW = 5;
-        clock.months = 2;
-        clock.years = 2024;
-        clock.DSTstate = 0;
-# 86 "main.c"
-    struct month_structure {
-        int solarMidMinutes[12];
-        int solarMidHours[12];
-        int days[12];
-    };
-
-    struct month_structure SolarPerMonth;
-    SolarPerMonth.days[0] = 31;
-    SolarPerMonth.days[1] = 28;
-    SolarPerMonth.days[2] = 31;
-    SolarPerMonth.days[3] = 30;
-    SolarPerMonth.days[4] = 31;
-    SolarPerMonth.days[5] = 30;
-    SolarPerMonth.days[6] = 31;
-    SolarPerMonth.days[7] = 31;
-    SolarPerMonth.days[8] = 30;
-    SolarPerMonth.days[9] = 31;
-    SolarPerMonth.days[10] = 30;
-    SolarPerMonth.days[11] = 31;
-
-    SolarPerMonth.solarMidHours[0] = 0;
-    SolarPerMonth.solarMidHours[1] = 0;
-    SolarPerMonth.solarMidHours[2] = 0;
-    SolarPerMonth.solarMidHours[3] = 0;
-    SolarPerMonth.solarMidHours[4] = 23;
-    SolarPerMonth.solarMidHours[5] = 0;
-    SolarPerMonth.solarMidHours[6] = 0;
-    SolarPerMonth.solarMidHours[7] = 0;
-    SolarPerMonth.solarMidHours[8] = 23;
-    SolarPerMonth.solarMidHours[9] = 23;
-    SolarPerMonth.solarMidHours[10] = 23;
-    SolarPerMonth.solarMidHours[11] = 23;
-
-    SolarPerMonth.solarMidMinutes[0] = 9;
-    SolarPerMonth.solarMidMinutes[1] = 13;
-    SolarPerMonth.solarMidMinutes[2] = 8;
-    SolarPerMonth.solarMidMinutes[3] = 1;
-    SolarPerMonth.solarMidMinutes[4] = 57;
-    SolarPerMonth.solarMidMinutes[5] = 1;
-    SolarPerMonth.solarMidMinutes[6] = 5;
-    SolarPerMonth.solarMidMinutes[7] = 3;
-    SolarPerMonth.solarMidMinutes[8] = 55;
-    SolarPerMonth.solarMidMinutes[9] = 47;
-    SolarPerMonth.solarMidMinutes[10] = 46;
-    SolarPerMonth.solarMidMinutes[11] = 56;
-# 139 "main.c"
-    struct array_structure {
-        int size;
-        int count;
-        int hours;
-        int minutes;
-    };
-
-    struct array_structure Dawn;
-        Dawn.size = 7;
-        Dawn.count = 0;
-
-
-
-    struct array_structure Dusk;
-        Dusk.size = 7;
-        Dusk.count = 0;
-
-
-
-
-    int DawnHours[7] = {0,0,0,0,0,0,0};
-    int DawnMinutes[7] = {0,0,0,0,0,0,0};
-    int DuskHours[7] = {0,0,0,0,0,0,0};
-    int DuskMinutes[7] = {0,0,0,0,0,0,0};
-
-
-
-
-
-
-    unsigned int light_threshold = 70;
-
-
-    unsigned int daycount = 0;
-
-
-    unsigned int previousClockDays = clock.days;
-
-
-
-
-
-
-    clock.seconds = GLOBALsecs;
-        if (TestMode == 1){
-            clock.seconds = 0;
-            GLOBALsecs = clock.hours;
-        }
-
-    while (1) {
-
-
-        if (TestMode == 0){clock.seconds = GLOBALsecs;}
-        UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days, &clock.DoW, &clock.months, &clock.years, &clock.DSTstate, TestMode);
-
-
-        LEDarray_disp_bin(clock.hours);
-
-
-        LCD_setline(1);
-        sprintf(buffer, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW);
-        LCD_sendstring(buffer);
-        LCD_setline(2);
-        sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
-        LCD_sendstring(buffer);
-
-
-        if (ADC_getval() < light_threshold){
-            if ((clock.hours >= 1 && clock.hours < 5) || (clock.hours >= 8 && clock.hours < 15)) {
-                LATHbits.LATH3 = 0;
-            }
-
-            else {
-                LATHbits.LATH3 = 1;
-                if ((Dusk.count = 0)&&(clock.hours >=15 && clock.hours < 8)) {
-                    ArrayAppend(DuskHours, Dusk.size, clock.hours);
-                    ArrayAppend(DuskMinutes, Dusk.size, clock.minutes);
-                    Dusk.count = 1;
-                }
-            }
-        }
-
-
-        if (ADC_getval() > light_threshold){
-            LATHbits.LATH3 = 0;
-            if ((Dawn.count = 0)&&(clock.hours >=4 && clock.hours < 8)) {
-                ArrayAppend(DawnHours, Dawn.size, clock.hours);
-                ArrayAppend(DawnMinutes, Dawn.size, clock.minutes);
-                Dawn.count = 1;
-            }
-        }
-
-        if (clock.days > previousClockDays) {
-            Dawn.count = 0;
-            Dusk.count = 0;
-            daycount++;
-
-            previousClockDays = clock.days;
-
-            if (daycount == 7) {
-
-
-
-
-
-                int operation = 0;
-
-                int hours_temp = SolarPerMonth.solarMidHours[(clock.months - 1)];
-                int minutes_temp = SolarPerMonth.solarMidMinutes[(clock.months - 1)];
-
-
-                if (hours_temp = 0) {hours_temp = 24;}
-                int knownSolarMidnight = hours_temp*60 + minutes_temp;
-
-                struct array_structure SolarMidnight;
-                    SolarMidnight.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-
-                for (int i = 0; i <= Dawn.size-1; i++) {
-                    operation = (DawnHours[i] * 60 + DawnMinutes[i]) + (DuskHours[i]*60 + DuskMinutes[i]);
-                    operation = operation * 0.5 + 12*60;
-                    ArrayAppend(SolarMidnight.minutes, 7, operation);
-                }
-                int avgSolarMidnight = ArrayAverage(SolarMidnight.minutes, 7);
-                int minute_diff = knownSolarMidnight - avgSolarMidnight;
-
-
-                clock.minutes = clock.minutes + minute_diff;
-
-
-
-                daycount = 0;
-            }
-        }
-    }
 }

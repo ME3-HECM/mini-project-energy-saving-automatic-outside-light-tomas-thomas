@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.production.hex">
+  <executable name="dist/default/debug\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.debug.hex">
     <memory name="program">
       <units>bytes</units>
       <length>131072</length>
-      <used>9448</used>
-      <free>121624</free>
+      <used>9522</used>
+      <free>121550</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>3562</length>
-      <used>436</used>
-      <free>3126</free>
+      <used>437</used>
+      <free>3125</free>
     </memory>
   </executable>
 </project>
