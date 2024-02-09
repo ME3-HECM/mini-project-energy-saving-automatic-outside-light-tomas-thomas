@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Fri Feb 09 08:24:22 2024
+                                                                                               Fri Feb 09 08:36:01 2024
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	18F67K40
@@ -1223,11 +1223,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1202   0020B6  CFDD F05D          	movff	postdec2,DuskAndDawnCollect@KnownSolarHours+1
   1203   0020BA  EC38  F00E         	call	_DuskAndDawnCollect	;wreg free
   1204   0020BE                     
-  1205                           ;main.c: 130:         LCD_setline(1);
+  1205                           ;main.c: 131:         LCD_setline(1);
   1206   0020BE  0E01               	movlw	1
   1207   0020C0  EC31  F017         	call	_LCD_setline
   1208   0020C4                     
-  1209                           ;main.c: 132:         sprintf(buffer, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.min
+  1209                           ;main.c: 133:         sprintf(buffer, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.min
       +                          utes, clock.seconds, clock.DoW);
   1210   0020C4  0E74               	movlw	low main@buffer
   1211   0020C6  6E31               	movwf	sprintf@s^0,c
@@ -1243,16 +1243,16 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1221   0020E8  C0E5  F03A         	movff	main@clock+9,?_sprintf+9
   1222   0020EC  EC4E  F017         	call	_sprintf	;wreg free
   1223   0020F0                     
-  1224                           ;main.c: 133:         LCD_sendstring(buffer);
+  1224                           ;main.c: 134:         LCD_sendstring(buffer);
   1225   0020F0  0E74               	movlw	low main@buffer
   1226   0020F2  6E04               	movwf	LCD_sendstring@string^0,c
   1227   0020F4  EC9A  F017         	call	_LCD_sendstring	;wreg free
   1228   0020F8                     
-  1229                           ;main.c: 134:         LCD_setline(2);
+  1229                           ;main.c: 135:         LCD_setline(2);
   1230   0020F8  0E02               	movlw	2
   1231   0020FA  EC31  F017         	call	_LCD_setline
   1232   0020FE                     
-  1233                           ;main.c: 136:         sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, cl
+  1233                           ;main.c: 137:         sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, cl
       +                          ock.years);
   1234   0020FE  0E74               	movlw	low main@buffer
   1235   002100  6E31               	movwf	sprintf@s^0,c
@@ -1266,7 +1266,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1243   00211A  C0E9  F038         	movff	main@clock+13,?_sprintf+7
   1244   00211E  EC4E  F017         	call	_sprintf	;wreg free
   1245   002122                     
-  1246                           ;main.c: 137:         LCD_sendstring(buffer);
+  1246                           ;main.c: 138:         LCD_sendstring(buffer);
   1247   002122  0E74               	movlw	low main@buffer
   1248   002124  6E04               	movwf	LCD_sendstring@string^0,c
   1249   002126  EC9A  F017         	call	_LCD_sendstring	;wreg free
@@ -7786,7 +7786,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Fri Feb 09 08:24:22 2024
+Symbol Table                                                                                   Fri Feb 09 08:36:01 2024
 
                                        l55 2FF0                                         l75 3026  
                              ___awdiv@sign 0006                        ___wmul@multiplicand 0003  
