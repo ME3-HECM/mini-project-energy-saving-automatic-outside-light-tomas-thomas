@@ -2019,9 +2019,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;clock.c: 11:     if (TestMode == 1){
 [e $ ! == _TestMode -> 1 `i 2016  ]
 {
+<<<<<<< Updated upstream
 "12
 [; ;clock.c: 12:        *hours = *seconds;
 [e = *U _hours *U _seconds ]
+=======
+"11
+[; ;clock.c: 11:         *minutes = *ticker;
+[e = *U _minutes *U _ticker ]
+"12
+[; ;clock.c: 12:         if(*ticker >= 60){
+[e $ ! >= *U _ticker -> 60 `i 2017  ]
+{
+>>>>>>> Stashed changes
 "13
 [; ;clock.c: 13:         if (*seconds >= 24 ){
 [e $ ! >= *U _seconds -> 24 `i 2017  ]

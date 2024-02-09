@@ -24382,10 +24382,17 @@ void main(void)
 
         GLOBALsecs = 55;
         clock.minutes = 59;
+<<<<<<< Updated upstream
         clock.hours = 23;
         clock.days = 31;
         clock.DoW = 5;
         clock.months = 12;
+=======
+        clock.hours = 20;
+        clock.days = 28;
+        clock.DoW = 1;
+        clock.months = 2;
+>>>>>>> Stashed changes
         clock.years = 2024;
         clock.DSTstate = 0;
 # 94 "main.c"
@@ -24414,14 +24421,39 @@ void main(void)
 
 
 
+<<<<<<< Updated upstream
+=======
+
+        if (ADC_getval() < light_threshold){
+            if ((clock.hours >= 1 && clock.hours < 5) || (clock.hours >= 8 && clock.hours < 15)) {
+                LATHbits.LATH3 = 0;
+            }
+
+            else {
+                LATHbits.LATH3 = 1;
+                if ((Dusk.count == 0)&&(clock.hours >=15 && clock.hours < 8)) {
+                    ArrayAppend(Dusk.hours, Dusk.size, clock.hours);
+                    ArrayAppend(Dusk.minutes, Dusk.size, clock.minutes);
+                    Dusk.count = 1;
+                }
+            }
+        }
+
+
+>>>>>>> Stashed changes
         LCD_setline(1);
 
         sprintf(buffer, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW);
         LCD_sendstring(buffer);
         LCD_setline(2);
+<<<<<<< Updated upstream
 
         sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
         LCD_sendstring(buffer);
 
+=======
+        sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, avgSolarMidnight);
+        LCD_sendstring(buffer);
+>>>>>>> Stashed changes
     }
 }

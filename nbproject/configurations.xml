@@ -28,6 +28,13 @@
       <itemPath>clock.h</itemPath>
       <itemPath>LCD.h</itemPath>
       <itemPath>LCD.c</itemPath>
+<<<<<<< Updated upstream
+=======
+      <itemPath>arrayfunction.c</itemPath>
+      <itemPath>arrayfunction.h</itemPath>
+      <itemPath>SunSync.c</itemPath>
+      <itemPath>SunSync.h</itemPath>
+>>>>>>> Stashed changes
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
