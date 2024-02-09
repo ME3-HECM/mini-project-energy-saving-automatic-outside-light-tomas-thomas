@@ -64,22 +64,22 @@ void main(void)
     struct time_structure clock;    //creates clock, which is of the structure time_structure
         // set the initial starting time when the sensor is set up
         GLOBALsecs = 55;
-//        clock.minutes = 59;
-//        clock.hours = 22;
-//        clock.days = 28;
-//        clock.DoW = 5;              //1-Monday 2-Tuesday 3-Wednesday 4-Thursday 5-Friday 6-Saturday 7-Sunday
-//        clock.months = 2;
-//        clock.years = 2024;
-//        clock.DSTstate = 0;         // is your input date in daylight savings time March-October (1) or not October-March (0)
+        clock.minutes = 59;
+        clock.hours = 22;
+        clock.days = 28;
+        clock.DoW = 5;              //1-Monday 2-Tuesday 3-Wednesday 4-Thursday 5-Friday 6-Saturday 7-Sunday
+        clock.months = 2;
+        clock.years = 2024;
+        clock.DSTstate = 0;         // is your input date in daylight savings time March-October (1) or not October-March (0)
         
    //DAYLIGHT SAVINGS TURN OFF - OCTOBER 
-        clock.minutes = 59;
-        clock.hours = 0;
-        clock.days = 30;
-        clock.DoW = 7;              
-        clock.months = 10;
-        clock.years = 2022;
-        clock.DSTstate = 1;
+//        clock.minutes = 59;
+//        clock.hours = 0;
+//        clock.days = 30;
+//        clock.DoW = 7;              
+//        clock.months = 10;
+//        clock.years = 2022;
+//        clock.DSTstate = 1;
         
    //DAYLIGHT SAVINGS TURN ON - March
 //        clock.minutes = 59;

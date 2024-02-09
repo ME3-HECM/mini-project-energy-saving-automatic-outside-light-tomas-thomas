@@ -24381,14 +24381,13 @@ void main(void)
     struct time_structure clock;
 
         GLOBALsecs = 55;
-# 76 "main.c"
         clock.minutes = 59;
-        clock.hours = 0;
-        clock.days = 30;
-        clock.DoW = 7;
-        clock.months = 10;
-        clock.years = 2022;
-        clock.DSTstate = 1;
+        clock.hours = 22;
+        clock.days = 28;
+        clock.DoW = 5;
+        clock.months = 2;
+        clock.years = 2024;
+        clock.DSTstate = 0;
 # 94 "main.c"
         int TestMode = 1;
 

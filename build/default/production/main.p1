@@ -2133,27 +2133,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "66
 [; ;main.c: 66:         GLOBALsecs = 55;
 [e = _GLOBALsecs -> -> 55 `i `ui ]
-"76
-[; ;main.c: 76:         clock.minutes = 59;
+"67
+[; ;main.c: 67:         clock.minutes = 59;
 [e = . _clock 1 -> -> 59 `i `ui ]
-"77
-[; ;main.c: 77:         clock.hours = 0;
-[e = . _clock 2 -> -> 0 `i `ui ]
-"78
-[; ;main.c: 78:         clock.days = 30;
-[e = . _clock 3 -> -> 30 `i `ui ]
-"79
-[; ;main.c: 79:         clock.DoW = 7;
-[e = . _clock 4 -> -> 7 `i `ui ]
-"80
-[; ;main.c: 80:         clock.months = 10;
-[e = . _clock 5 -> -> 10 `i `ui ]
-"81
-[; ;main.c: 81:         clock.years = 2022;
-[e = . _clock 6 -> -> 2022 `i `ui ]
-"82
-[; ;main.c: 82:         clock.DSTstate = 1;
-[e = . _clock 7 -> -> 1 `i `ui ]
+"68
+[; ;main.c: 68:         clock.hours = 22;
+[e = . _clock 2 -> -> 22 `i `ui ]
+"69
+[; ;main.c: 69:         clock.days = 28;
+[e = . _clock 3 -> -> 28 `i `ui ]
+"70
+[; ;main.c: 70:         clock.DoW = 5;
+[e = . _clock 4 -> -> 5 `i `ui ]
+"71
+[; ;main.c: 71:         clock.months = 2;
+[e = . _clock 5 -> -> 2 `i `ui ]
+"72
+[; ;main.c: 72:         clock.years = 2024;
+[e = . _clock 6 -> -> 2024 `i `ui ]
+"73
+[; ;main.c: 73:         clock.DSTstate = 0;
+[e = . _clock 7 -> -> 0 `i `ui ]
 "94
 [; ;main.c: 94:         int TestMode = 1;
 [v _TestMode `i ~T0 @X0 1 a ]

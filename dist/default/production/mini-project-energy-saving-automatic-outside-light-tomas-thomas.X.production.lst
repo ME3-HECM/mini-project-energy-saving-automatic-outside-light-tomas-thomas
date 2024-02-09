@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Fri Feb 09 00:39:06 2024
+                                                                                               Fri Feb 09 00:41:53 2024
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	18F67K40
@@ -692,52 +692,52 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    673   001694  6FA4               	movwf	_GLOBALsecs& (0+255),b
    674   001696                     
    675                           ; BSR set to: 0
-   676                           ;main.c: 76:         clock.minutes = 59;
+   676                           ;main.c: 67:         clock.minutes = 59;
    677   001696  0E00               	movlw	0
    678   001698  6F77               	movwf	(main@clock+3)& (0+255),b
    679   00169A  0E3B               	movlw	59
    680   00169C  6F76               	movwf	(main@clock+2)& (0+255),b
    681   00169E                     
    682                           ; BSR set to: 0
-   683                           ;main.c: 77:         clock.hours = 0;
+   683                           ;main.c: 68:         clock.hours = 22;
    684   00169E  0E00               	movlw	0
    685   0016A0  6F79               	movwf	(main@clock+5)& (0+255),b
-   686   0016A2  0E00               	movlw	0
+   686   0016A2  0E16               	movlw	22
    687   0016A4  6F78               	movwf	(main@clock+4)& (0+255),b
    688   0016A6                     
    689                           ; BSR set to: 0
-   690                           ;main.c: 78:         clock.days = 30;
+   690                           ;main.c: 69:         clock.days = 28;
    691   0016A6  0E00               	movlw	0
    692   0016A8  6F7B               	movwf	(main@clock+7)& (0+255),b
-   693   0016AA  0E1E               	movlw	30
+   693   0016AA  0E1C               	movlw	28
    694   0016AC  6F7A               	movwf	(main@clock+6)& (0+255),b
    695   0016AE                     
    696                           ; BSR set to: 0
-   697                           ;main.c: 79:         clock.DoW = 7;
+   697                           ;main.c: 70:         clock.DoW = 5;
    698   0016AE  0E00               	movlw	0
    699   0016B0  6F7D               	movwf	(main@clock+9)& (0+255),b
-   700   0016B2  0E07               	movlw	7
+   700   0016B2  0E05               	movlw	5
    701   0016B4  6F7C               	movwf	(main@clock+8)& (0+255),b
    702   0016B6                     
    703                           ; BSR set to: 0
-   704                           ;main.c: 80:         clock.months = 10;
+   704                           ;main.c: 71:         clock.months = 2;
    705   0016B6  0E00               	movlw	0
    706   0016B8  6F7F               	movwf	(main@clock+11)& (0+255),b
-   707   0016BA  0E0A               	movlw	10
+   707   0016BA  0E02               	movlw	2
    708   0016BC  6F7E               	movwf	(main@clock+10)& (0+255),b
    709   0016BE                     
    710                           ; BSR set to: 0
-   711                           ;main.c: 81:         clock.years = 2022;
+   711                           ;main.c: 72:         clock.years = 2024;
    712   0016BE  0E07               	movlw	7
    713   0016C0  6F81               	movwf	(main@clock+13)& (0+255),b
-   714   0016C2  0EE6               	movlw	230
+   714   0016C2  0EE8               	movlw	232
    715   0016C4  6F80               	movwf	(main@clock+12)& (0+255),b
    716   0016C6                     
    717                           ; BSR set to: 0
-   718                           ;main.c: 82:         clock.DSTstate = 1;
+   718                           ;main.c: 73:         clock.DSTstate = 0;
    719   0016C6  0E00               	movlw	0
    720   0016C8  6F83               	movwf	(main@clock+15)& (0+255),b
-   721   0016CA  0E01               	movlw	1
+   721   0016CA  0E00               	movlw	0
    722   0016CC  6F82               	movwf	(main@clock+14)& (0+255),b
    723   0016CE                     
    724                           ; BSR set to: 0
@@ -5096,7 +5096,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Fri Feb 09 00:39:06 2024
+Symbol Table                                                                                   Fri Feb 09 00:41:53 2024
 
                         l53 1F78                          l73 1FC6                ___awdiv@sign 0006  
        ___wmul@multiplicand 0003           ??_Interrupts_init 0001                         l121 18EA  
