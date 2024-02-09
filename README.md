@@ -1,9 +1,9 @@
 # Mini project - Tomas & Thomas - Energy saving automatic outside light
-read me content added by Tomas Lashmar and Thomas Young
+Read me content added by Tomas Lashmar and Thomas Young
 
 To solve this project 2 major elements were created in addition to the lab material covered.
 1. A global clock
-2. Sychonisation of the global clock according to dusk and dawn readings from the LDR
+2. Synchonisation of the global clock according to dusk and dawn readings from the LDR
 
 ## How to use the light and the code?
 First input the exact time when the light will be powered on and thus intialise the clock.
@@ -66,9 +66,35 @@ The same appraoch was used to get of day light savings time when reach the last 
     }
 ```
 
-## Sun Syncing
-this was fun - over to Tommy
+## LED Control
+The purpose of this project is to control an LED to come on during the evening, save power during the night (1am to 5am), and to then turn on again before dawn. This was achieved by using a combination of if loops, with key parameters defined using the clock and the output of the LDR. 
 
+The following code demonstrates this clearly. If the ADC value obtained was less than our predetermined light threshold, this represented dusk and indicated that the LED Lamp must turn on (here written as LED_Right, as on our controller board). However, as shown below, this was subject to the conditions of the clock hour time being between 1am and 5am (as laid out in the brief) or between 8am and 3pm. We set the latter requirement in order to account for unexpected obstructions to the LDR during the day such as birds flying or landing on the LDR; this ensures that during the daylight hours of 8am-3pm the lamp will not turn on and energy will be saved.
+
+```   
+// light turning off or on depending on task brief conditions 
+        if (ADC_getval() < light_threshold){  // if the ADC is smaller than our threshold - if dark enough turn on
+            if ((clock.hours >= 1 && clock.hours < 5) || (clock.hours >= 8 && clock.hours < 15)) {   //check that its not energy saving time or that nothing external is blocking the LDR during daylight hours. 
+                LED_Right = 0;                                  //this ensures that if external factors such as birds block the LDR,
+            }                                                    //the light will not go on during the day. 8am-3pm chosen, as dawn/dusk can be as late/early as 8-3 respectively at winter solstice.
+            
+            else {                  //If light levels have lowered further than the threshold at dusk, turn the LED on.
+                LED_Right = 1;      //must not be energy saving time therefore turn light on
+```
+Outside of these timings, the LED lamp will come on as intended under low light level conditions at dusk, in the evening and at night.
+
+## Sun Syncing
+Sun synchronisation was done to correct the clock if it lost accuracy due to its intrinsic uncertainty. This was done by measuring the times at which Dawn and Dusk occured each day, using the LDR and a predetermined threshold. The method for sun synchronisation was as follows:
+
+1. At dawn or dusk when the LED lamp is turned off/on respectively, a time in hours and minutes is recorded within an array, representing dawn or dusk for that specific day.
+2. This process is repeated for seven sequential days, collecting a total of 7 dawn and dusk timings each over the seven days.
+3. These are then converted into a solar midnight time for each day, by taking taking the total minutes that each time represents throughout the day (for example, 18:00 is equal to 18*60 = 1080 minutes), and averaging them.
+4. This is then compared to the total minutes of true solar midnight, which was calculated in the same way on a monthly average basis from a database (https://www.timeanddate.com/sun/uk/london). Therefore, this produced 12 distinct solar midnight values for each month.
+5. The difference between true solar midnight and the average measured solar midnight calculated was taken and used to calibrate the minutes counter and the clock. A later average measured solar midnight leads to a negative shift in the minutes (solar midnight is earlier than expected) and an ealier average leads to a positive synchronisation shift.
+6. This accounts for any errors and resynchronises the clock.
+
+# Sync Design
+One key component of the design is using a combination of dawn and dusk values, on a moving average of every seven days. This is weekly calibration, where the clock will re-sync every seven days based off its previous measurements. This was designed to provide a more robust method for recalibration. By using a dataset of a week, an average can be taken, minimising the error due to cloudy weather and other external factors, leading to more accurate results. The design accounts for daylight saving time, by adding 1 hour onto all the monthly solar midnight values automatically, during the period. A counter features for both dawn and dusk measurements, to ensure that only one measurement is taken each day, and is reset at the start of each day.
 
 
 # Orignal Assignment Brief
