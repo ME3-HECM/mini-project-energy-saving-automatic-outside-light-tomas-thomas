@@ -125,14 +125,14 @@ void main(void)
         LightDetection(ADC_getval(), clock.hours);
         
         delta = DuskAndDawnCollect(ADC_getval(), clock.months, clock.days, clock.hours, clock.minutes, clock.DSTstate, &DawnDetected, &DuskDetected, &DawnStartMins,&DawnStartHours, &DuskStartMins, &DuskStartHours, Solar.MidMinutes[clock.months - 1], Solar.MidHours[clock.months - 1]);
-        if(clock.hours == 23 && DawnDetected==1 && DuskDetected==1){
-            clock.minutes = clock.minutes + delta%60;  
-            clock.hours = clock.hours + delta/60;
-            DawnDetected=0;
+        if(clock.hours == 23 && DawnDetected==1 && DuskDetected==1){    //change the time at 23h at night when both dawn and dusk detectors are triggered
+            clock.minutes = clock.minutes + delta%60;                   // add the minutes to the minutes time
+            clock.hours = clock.hours + delta/60;                       // if the over 60 it will add an our 
+            DawnDetected=0;                         // reset markers 
             DuskDetected=0;    
         }
  
-        
+        //LCD DISPLAY SETTINGS
         //setting up the LCD screen to display our values
         LCD_setline(1);
         //displays the hours, minutes, seconds, and day of the week in the clock

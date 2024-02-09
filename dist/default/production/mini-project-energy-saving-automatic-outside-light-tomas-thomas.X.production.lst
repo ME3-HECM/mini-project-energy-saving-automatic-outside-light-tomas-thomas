@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Fri Feb 09 11:31:29 2024
+                                                                                               Fri Feb 09 11:39:09 2024
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	18F67K40
@@ -5372,7 +5372,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5130   0021BC  6F71               	movwf	(DuskAndDawnCollect@delta+1)& (0+255),b
   5131   0021BE                     
   5132                           ; BSR set to: 0
-  5133                           ;SunSync.c: 56:     return(delta);
+  5133                           ;SunSync.c: 57:     return(delta);
   5134   0021BE  C070  F048         	movff	DuskAndDawnCollect@delta,?_DuskAndDawnCollect
   5135   0021C2  C071  F049         	movff	DuskAndDawnCollect@delta+1,?_DuskAndDawnCollect+1
   5136   0021C6                     
@@ -7887,7 +7887,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Fri Feb 09 11:31:29 2024
+Symbol Table                                                                                   Fri Feb 09 11:39:09 2024
 
                                        l40 1EA8                                         l56 3086  
                                        l76 30BC                               ___awdiv@sign 0006  

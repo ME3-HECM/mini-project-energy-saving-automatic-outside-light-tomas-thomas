@@ -24164,5 +24164,6 @@ int DuskAndDawnCollect(int ADC_val, int months, int days, int hours, int mins, i
 
     SolarMidnightConstant = (KnownSolarHours * 60 + KnownSolarMins) ;
     delta = SolarMidnightConstant - SolarMidnightCalculated;
+
     return(delta);
 }

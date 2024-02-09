@@ -2218,11 +2218,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "55
 [; ;SunSync.c: 55:     delta = SolarMidnightConstant - SolarMidnightCalculated;
 [e = _delta - _SolarMidnightConstant _SolarMidnightCalculated ]
-"56
-[; ;SunSync.c: 56:     return(delta);
+"57
+[; ;SunSync.c: 57:     return(delta);
 [e ) _delta ]
 [e $UE 2020  ]
-"57
-[; ;SunSync.c: 57: }
+"58
+[; ;SunSync.c: 58: }
 [e :UE 2020 ]
 }
