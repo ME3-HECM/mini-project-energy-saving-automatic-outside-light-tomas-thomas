@@ -93,7 +93,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S2019 month_structure solarMidMinutes solarMidHours days ]
 "139
 [; ;main.c: 139:     struct array_structure {
-[s S2020 `i 1 `i 1 `i 1 `i 1 ]
+[s S2020 `i 1 `i 1 `i -> 7 `i `i -> 7 `i ]
 [n S2020 array_structure size count hours minutes ]
 "8 ./clock.h
 [; ;./clock.h: 8: void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, int *months, int *years, int *DSTstate, int TestMode);
@@ -113,11 +113,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9 ./ADC.h
 [; ;./ADC.h: 9: unsigned int ADC_getval(void);
 [v _ADC_getval `(ui ~T0 @X0 0 ef ]
-"214 main.c
-[; ;main.c: 214:                     ArrayAppend(DuskHours, Dusk.size, clock.hours);
+"244 main.c
+[; ;main.c: 244:                     ArrayAppend(Dusk.hours, Dusk.size, clock.hours);
 [v _ArrayAppend `(i ~T0 @X0 0 e? ]
-"263
-[; ;main.c: 263:                 int avgSolarMidnight = ArrayAverage(SolarMidnight.minutes, 7);
+"300
+[; ;main.c: 300:                 int avgSolarMidnight = ArrayAverage(SolarMidnight.minutes, 7);
 [v _ArrayAverage `(i ~T0 @X0 0 e? ]
 "1 main.c
 [; ;main.c: 1: 
@@ -2115,21 +2115,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _main ]
 [f ]
-[v F14502 `i ~T0 @X0 -> 7 `i s ]
-[i F14502
-:U ..
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
-..
-]
-"256
-[; ;main.c: 256:                     SolarMidnight.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-[v F14503 `i ~T0 @X0 -> 7 `i a ]
 "22
 [; ;main.c: 22:     LEDarray_init();
 [e ( _LEDarray_init ..  ]
@@ -2311,329 +2296,367 @@ Version 4.0 HI-TECH Software Intermediate Code
 "148
 [; ;main.c: 148:         Dawn.count = 0;
 [e = . _Dawn 1 -> 0 `i ]
+"150
+[; ;main.c: 150:         Dawn.hours[0] = 0;
+[e = *U + &U . _Dawn 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _Dawn 2 `ui `ux -> 0 `i ]
+"151
+[; ;main.c: 151:         Dawn.hours[1] = 0;
+[e = *U + &U . _Dawn 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _Dawn 2 `ui `ux -> 0 `i ]
 "152
-[; ;main.c: 152:     struct array_structure Dusk;
-[v _Dusk `S2020 ~T0 @X0 1 a ]
+[; ;main.c: 152:         Dawn.hours[2] = 0;
+[e = *U + &U . _Dawn 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _Dawn 2 `ui `ux -> 0 `i ]
 "153
-[; ;main.c: 153:         Dusk.size = 7;
-[e = . _Dusk 0 -> 7 `i ]
+[; ;main.c: 153:         Dawn.hours[3] = 0;
+[e = *U + &U . _Dawn 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _Dawn 2 `ui `ux -> 0 `i ]
 "154
-[; ;main.c: 154:         Dusk.count = 0;
-[e = . _Dusk 1 -> 0 `i ]
-[v F14528 `i ~T0 @X0 -> 7 `i s ]
-[i F14528
-:U ..
+[; ;main.c: 154:         Dawn.hours[4] = 0;
+[e = *U + &U . _Dawn 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _Dawn 2 `ui `ux -> 0 `i ]
+"155
+[; ;main.c: 155:         Dawn.hours[5] = 0;
+[e = *U + &U . _Dawn 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . _Dawn 2 `ui `ux -> 0 `i ]
+"156
+[; ;main.c: 156:         Dawn.hours[6] = 0;
+[e = *U + &U . _Dawn 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . _Dawn 2 `ui `ux -> 0 `i ]
+"158
+[; ;main.c: 158:         Dawn.minutes[0] = 0;
+[e = *U + &U . _Dawn 3 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _Dawn 3 `ui `ux -> 0 `i ]
 "159
-[; ;main.c: 159:     int DawnHours[7] = {0,0,0,0,0,0,0};
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
-..
-]
-[v _DawnHours `i ~T0 @X0 -> 7 `i a ]
-[e = _DawnHours F14528 ]
-[v F14530 `i ~T0 @X0 -> 7 `i s ]
-[i F14530
-:U ..
+[; ;main.c: 159:         Dawn.minutes[1] = 0;
+[e = *U + &U . _Dawn 3 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _Dawn 3 `ui `ux -> 0 `i ]
 "160
-[; ;main.c: 160:     int DawnMinutes[7] = {0,0,0,0,0,0,0};
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
-..
-]
-[v _DawnMinutes `i ~T0 @X0 -> 7 `i a ]
-[e = _DawnMinutes F14530 ]
-[v F14532 `i ~T0 @X0 -> 7 `i s ]
-[i F14532
-:U ..
+[; ;main.c: 160:         Dawn.minutes[2] = 0;
+[e = *U + &U . _Dawn 3 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _Dawn 3 `ui `ux -> 0 `i ]
 "161
-[; ;main.c: 161:     int DuskHours[7] = {0,0,0,0,0,0,0};
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
-..
-]
-[v _DuskHours `i ~T0 @X0 -> 7 `i a ]
-[e = _DuskHours F14532 ]
-[v F14534 `i ~T0 @X0 -> 7 `i s ]
-[i F14534
-:U ..
+[; ;main.c: 161:         Dawn.minutes[3] = 0;
+[e = *U + &U . _Dawn 3 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _Dawn 3 `ui `ux -> 0 `i ]
 "162
-[; ;main.c: 162:     int DuskMinutes[7] = {0,0,0,0,0,0,0};
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
--> 0 `i
-..
-]
-[v _DuskMinutes `i ~T0 @X0 -> 7 `i a ]
-[e = _DuskMinutes F14534 ]
-"169
-[; ;main.c: 169:     unsigned int light_threshold = 70;
+[; ;main.c: 162:         Dawn.minutes[4] = 0;
+[e = *U + &U . _Dawn 3 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _Dawn 3 `ui `ux -> 0 `i ]
+"163
+[; ;main.c: 163:         Dawn.minutes[5] = 0;
+[e = *U + &U . _Dawn 3 * -> -> -> 5 `i `ui `ux -> -> # *U &U . _Dawn 3 `ui `ux -> 0 `i ]
+"164
+[; ;main.c: 164:         Dawn.minutes[6] = 0;
+[e = *U + &U . _Dawn 3 * -> -> -> 6 `i `ui `ux -> -> # *U &U . _Dawn 3 `ui `ux -> 0 `i ]
+"166
+[; ;main.c: 166:     struct array_structure Dusk;
+[v _Dusk `S2020 ~T0 @X0 1 a ]
+"167
+[; ;main.c: 167:         Dusk.size = 7;
+[e = . _Dusk 0 -> 7 `i ]
+"168
+[; ;main.c: 168:         Dusk.count = 0;
+[e = . _Dusk 1 -> 0 `i ]
+"170
+[; ;main.c: 170:         Dusk.hours[0] = 0;
+[e = *U + &U . _Dusk 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _Dusk 2 `ui `ux -> 0 `i ]
+"171
+[; ;main.c: 171:         Dusk.hours[1] = 0;
+[e = *U + &U . _Dusk 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _Dusk 2 `ui `ux -> 0 `i ]
+"172
+[; ;main.c: 172:         Dusk.hours[2] = 0;
+[e = *U + &U . _Dusk 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _Dusk 2 `ui `ux -> 0 `i ]
+"173
+[; ;main.c: 173:         Dusk.hours[3] = 0;
+[e = *U + &U . _Dusk 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _Dusk 2 `ui `ux -> 0 `i ]
+"174
+[; ;main.c: 174:         Dusk.hours[4] = 0;
+[e = *U + &U . _Dusk 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _Dusk 2 `ui `ux -> 0 `i ]
+"175
+[; ;main.c: 175:         Dusk.hours[5] = 0;
+[e = *U + &U . _Dusk 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . _Dusk 2 `ui `ux -> 0 `i ]
+"176
+[; ;main.c: 176:         Dusk.hours[6] = 0;
+[e = *U + &U . _Dusk 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . _Dusk 2 `ui `ux -> 0 `i ]
+"178
+[; ;main.c: 178:         Dusk.minutes[0] = 0;
+[e = *U + &U . _Dusk 3 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _Dusk 3 `ui `ux -> 0 `i ]
+"179
+[; ;main.c: 179:         Dusk.minutes[1] = 0;
+[e = *U + &U . _Dusk 3 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _Dusk 3 `ui `ux -> 0 `i ]
+"180
+[; ;main.c: 180:         Dusk.minutes[2] = 0;
+[e = *U + &U . _Dusk 3 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _Dusk 3 `ui `ux -> 0 `i ]
+"181
+[; ;main.c: 181:         Dusk.minutes[3] = 0;
+[e = *U + &U . _Dusk 3 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _Dusk 3 `ui `ux -> 0 `i ]
+"182
+[; ;main.c: 182:         Dusk.minutes[4] = 0;
+[e = *U + &U . _Dusk 3 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _Dusk 3 `ui `ux -> 0 `i ]
+"183
+[; ;main.c: 183:         Dusk.minutes[5] = 0;
+[e = *U + &U . _Dusk 3 * -> -> -> 5 `i `ui `ux -> -> # *U &U . _Dusk 3 `ui `ux -> 0 `i ]
+"184
+[; ;main.c: 184:         Dusk.minutes[6] = 0;
+[e = *U + &U . _Dusk 3 * -> -> -> 6 `i `ui `ux -> -> # *U &U . _Dusk 3 `ui `ux -> 0 `i ]
+"199
+[; ;main.c: 199:     unsigned int light_threshold = 70;
 [v _light_threshold `ui ~T0 @X0 1 a ]
 [e = _light_threshold -> -> 70 `i `ui ]
-"172
-[; ;main.c: 172:     unsigned int daycount = 0;
+"202
+[; ;main.c: 202:     unsigned int daycount = 0;
 [v _daycount `ui ~T0 @X0 1 a ]
 [e = _daycount -> -> 0 `i `ui ]
-"175
-[; ;main.c: 175:     unsigned int previousClockDays = clock.days;
+"205
+[; ;main.c: 205:     unsigned int previousClockDays = clock.days;
 [v _previousClockDays `ui ~T0 @X0 1 a ]
 [e = _previousClockDays . _clock 3 ]
-"182
-[; ;main.c: 182:     clock.seconds = GLOBALsecs;
+"212
+[; ;main.c: 212:     clock.seconds = GLOBALsecs;
 [e = . _clock 0 _GLOBALsecs ]
-"183
-[; ;main.c: 183:         if (TestMode == 1){
+"213
+[; ;main.c: 213:         if (TestMode == 1){
 [e $ ! == _TestMode -> 1 `i 2021  ]
 {
-"184
-[; ;main.c: 184:             clock.seconds = 0;
+"214
+[; ;main.c: 214:             clock.seconds = 0;
 [e = . _clock 0 -> -> 0 `i `ui ]
-"185
-[; ;main.c: 185:             GLOBALsecs = clock.hours;
+"215
+[; ;main.c: 215:             GLOBALsecs = clock.hours;
 [e = _GLOBALsecs . _clock 2 ]
-"186
-[; ;main.c: 186:         }
+"216
+[; ;main.c: 216:         }
 }
 [e :U 2021 ]
-"188
-[; ;main.c: 188:     while (1) {
+"218
+[; ;main.c: 218:     while (1) {
 [e :U 2023 ]
 {
-"191
-[; ;main.c: 191:         if (TestMode == 0){clock.seconds = GLOBALsecs;}
+"221
+[; ;main.c: 221:         if (TestMode == 0){clock.seconds = GLOBALsecs;}
 [e $ ! == _TestMode -> 0 `i 2025  ]
 {
 [e = . _clock 0 _GLOBALsecs ]
 }
 [e :U 2025 ]
-"192
-[; ;main.c: 192:         UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days, &clock.DoW, &clock.months, &clock.years, &clock.DSTstate, TestMode);
+"222
+[; ;main.c: 222:         UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days, &clock.DoW, &clock.months, &clock.years, &clock.DSTstate, TestMode);
 [e ( _UpdateClock (4 , , , , , , , , -> &U _GLOBALsecs `*i -> &U . _clock 1 `*i -> &U . _clock 2 `*i -> &U . _clock 3 `*i -> &U . _clock 4 `*i -> &U . _clock 5 `*i -> &U . _clock 6 `*i -> &U . _clock 7 `*i _TestMode ]
-"195
-[; ;main.c: 195:         LEDarray_disp_bin(clock.hours);
+"225
+[; ;main.c: 225:         LEDarray_disp_bin(clock.hours);
 [e ( _LEDarray_disp_bin (1 . _clock 2 ]
-"198
-[; ;main.c: 198:         LCD_setline(1);
+"228
+[; ;main.c: 228:         LCD_setline(1);
 [e ( _LCD_setline (1 -> -> 1 `i `uc ]
-"199
-[; ;main.c: 199:         sprintf(buffer, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW);
+"229
+[; ;main.c: 229:         sprintf(buffer, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW);
 [e ( _sprintf (1 , , , , (. , &U _buffer :s 1C . _clock 2 . _clock 1 . _clock 0 . _clock 4 ]
-"200
-[; ;main.c: 200:         LCD_sendstring(buffer);
+"230
+[; ;main.c: 230:         LCD_sendstring(buffer);
 [e ( _LCD_sendstring (1 &U _buffer ]
-"201
-[; ;main.c: 201:         LCD_setline(2);
+"231
+[; ;main.c: 231:         LCD_setline(2);
 [e ( _LCD_setline (1 -> -> 2 `i `uc ]
-"202
-[; ;main.c: 202:         sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
+"232
+[; ;main.c: 232:         sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
 [e ( _sprintf (1 , , , (. , &U _buffer :s 2C . _clock 3 . _clock 5 . _clock 6 ]
-"203
-[; ;main.c: 203:         LCD_sendstring(buffer);
+"233
+[; ;main.c: 233:         LCD_sendstring(buffer);
 [e ( _LCD_sendstring (1 &U _buffer ]
-"206
-[; ;main.c: 206:         if (ADC_getval() < light_threshold){
+"236
+[; ;main.c: 236:         if (ADC_getval() < light_threshold){
 [e $ ! < ( _ADC_getval ..  _light_threshold 2026  ]
 {
-"207
-[; ;main.c: 207:             if ((clock.hours >= 1 && clock.hours < 5) || (clock.hours >= 8 && clock.hours < 15)) {
+"237
+[; ;main.c: 237:             if ((clock.hours >= 1 && clock.hours < 5) || (clock.hours >= 8 && clock.hours < 15)) {
 [e $ ! || && >= . _clock 2 -> -> 1 `i `ui < . _clock 2 -> -> 5 `i `ui && >= . _clock 2 -> -> 8 `i `ui < . _clock 2 -> -> 15 `i `ui 2027  ]
 {
-"208
-[; ;main.c: 208:                 LATHbits.LATH3 = 0;
+"238
+[; ;main.c: 238:                 LATHbits.LATH3 = 0;
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"209
-[; ;main.c: 209:             }
+"239
+[; ;main.c: 239:             }
 }
 [e $U 2028  ]
-"211
-[; ;main.c: 211:             else {
+"241
+[; ;main.c: 241:             else {
 [e :U 2027 ]
 {
-"212
-[; ;main.c: 212:                 LATHbits.LATH3 = 1;
+"242
+[; ;main.c: 242:                 LATHbits.LATH3 = 1;
 [e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-"213
-[; ;main.c: 213:                 if ((Dusk.count = 0)&&(clock.hours >=15 && clock.hours < 8)) {
+"243
+[; ;main.c: 243:                 if ((Dusk.count = 0)&&(clock.hours >=15 && clock.hours < 8)) {
 [e $ ! && != = . _Dusk 1 -> 0 `i -> 0 `i && >= . _clock 2 -> -> 15 `i `ui < . _clock 2 -> -> 8 `i `ui 2029  ]
 {
-"214
-[; ;main.c: 214:                     ArrayAppend(DuskHours, Dusk.size, clock.hours);
-[e ( _ArrayAppend , , &U _DuskHours . _Dusk 0 . _clock 2 ]
-"215
-[; ;main.c: 215:                     ArrayAppend(DuskMinutes, Dusk.size, clock.minutes);
-[e ( _ArrayAppend , , &U _DuskMinutes . _Dusk 0 . _clock 1 ]
-"216
-[; ;main.c: 216:                     Dusk.count = 1;
+"244
+[; ;main.c: 244:                     ArrayAppend(Dusk.hours, Dusk.size, clock.hours);
+[e ( _ArrayAppend , , &U . _Dusk 2 . _Dusk 0 . _clock 2 ]
+"245
+[; ;main.c: 245:                     ArrayAppend(Dusk.minutes, Dusk.size, clock.minutes);
+[e ( _ArrayAppend , , &U . _Dusk 3 . _Dusk 0 . _clock 1 ]
+"246
+[; ;main.c: 246:                     Dusk.count = 1;
 [e = . _Dusk 1 -> 1 `i ]
-"217
-[; ;main.c: 217:                 }
+"247
+[; ;main.c: 247:                 }
 }
 [e :U 2029 ]
-"218
-[; ;main.c: 218:             }
+"248
+[; ;main.c: 248:             }
 }
 [e :U 2028 ]
-"219
-[; ;main.c: 219:         }
+"249
+[; ;main.c: 249:         }
 }
 [e :U 2026 ]
-"222
-[; ;main.c: 222:         if (ADC_getval() > light_threshold){
+"252
+[; ;main.c: 252:         if (ADC_getval() > light_threshold){
 [e $ ! > ( _ADC_getval ..  _light_threshold 2030  ]
 {
-"223
-[; ;main.c: 223:             LATHbits.LATH3 = 0;
+"253
+[; ;main.c: 253:             LATHbits.LATH3 = 0;
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"224
-[; ;main.c: 224:             if ((Dawn.count = 0)&&(clock.hours >=4 && clock.hours < 8)) {
+"254
+[; ;main.c: 254:             if ((Dawn.count = 0)&&(clock.hours >=4 && clock.hours < 8)) {
 [e $ ! && != = . _Dawn 1 -> 0 `i -> 0 `i && >= . _clock 2 -> -> 4 `i `ui < . _clock 2 -> -> 8 `i `ui 2031  ]
 {
-"225
-[; ;main.c: 225:                 ArrayAppend(DawnHours, Dawn.size, clock.hours);
-[e ( _ArrayAppend , , &U _DawnHours . _Dawn 0 . _clock 2 ]
-"226
-[; ;main.c: 226:                 ArrayAppend(DawnMinutes, Dawn.size, clock.minutes);
-[e ( _ArrayAppend , , &U _DawnMinutes . _Dawn 0 . _clock 1 ]
-"227
-[; ;main.c: 227:                 Dawn.count = 1;
+"255
+[; ;main.c: 255:                 ArrayAppend(Dawn.hours, Dawn.size, clock.hours);
+[e ( _ArrayAppend , , &U . _Dawn 2 . _Dawn 0 . _clock 2 ]
+"256
+[; ;main.c: 256:                 ArrayAppend(Dawn.minutes, Dawn.size, clock.minutes);
+[e ( _ArrayAppend , , &U . _Dawn 3 . _Dawn 0 . _clock 1 ]
+"257
+[; ;main.c: 257:                 Dawn.count = 1;
 [e = . _Dawn 1 -> 1 `i ]
-"228
-[; ;main.c: 228:             }
+"258
+[; ;main.c: 258:             }
 }
 [e :U 2031 ]
-"229
-[; ;main.c: 229:         }
+"259
+[; ;main.c: 259:         }
 }
 [e :U 2030 ]
-"231
-[; ;main.c: 231:         if (clock.days > previousClockDays) {
+"261
+[; ;main.c: 261:         if (clock.days > previousClockDays) {
 [e $ ! > . _clock 3 _previousClockDays 2032  ]
 {
-"232
-[; ;main.c: 232:             Dawn.count = 0;
+"262
+[; ;main.c: 262:             Dawn.count = 0;
 [e = . _Dawn 1 -> 0 `i ]
-"233
-[; ;main.c: 233:             Dusk.count = 0;
+"263
+[; ;main.c: 263:             Dusk.count = 0;
 [e = . _Dusk 1 -> 0 `i ]
-"234
-[; ;main.c: 234:             daycount++;
+"264
+[; ;main.c: 264:             daycount++;
 [e ++ _daycount -> -> 1 `i `ui ]
-"236
-[; ;main.c: 236:             previousClockDays = clock.days;
+"266
+[; ;main.c: 266:             previousClockDays = clock.days;
 [e = _previousClockDays . _clock 3 ]
-"238
-[; ;main.c: 238:             if (daycount == 7) {
+"268
+[; ;main.c: 268:             if (daycount == 7) {
 [e $ ! == _daycount -> -> 7 `i `ui 2033  ]
 {
-"244
-[; ;main.c: 244:                 int operation = 0;
+"274
+[; ;main.c: 274:                 int operation = 0;
 [v _operation `i ~T0 @X0 1 a ]
 [e = _operation -> 0 `i ]
-"246
-[; ;main.c: 246:                 int hours_temp = SolarPerMonth.solarMidHours[(clock.months - 1)];
+"276
+[; ;main.c: 276:                 int hours_temp = SolarPerMonth.solarMidHours[(clock.months - 1)];
 [v _hours_temp `i ~T0 @X0 1 a ]
 [e = _hours_temp *U + &U . _SolarPerMonth 1 * -> - . _clock 5 -> -> 1 `i `ui `ux -> -> # *U &U . _SolarPerMonth 1 `ui `ux ]
-"247
-[; ;main.c: 247:                 int minutes_temp = SolarPerMonth.solarMidMinutes[(clock.months - 1)];
+"277
+[; ;main.c: 277:                 int minutes_temp = SolarPerMonth.solarMidMinutes[(clock.months - 1)];
 [v _minutes_temp `i ~T0 @X0 1 a ]
 [e = _minutes_temp *U + &U . _SolarPerMonth 0 * -> - . _clock 5 -> -> 1 `i `ui `ux -> -> # *U &U . _SolarPerMonth 0 `ui `ux ]
-"249
-[; ;main.c: 249:                 if (clock.DSTstate = 1) {hours_temp = hours_temp + 1;}
+"279
+[; ;main.c: 279:                 if (clock.DSTstate = 1) {hours_temp = hours_temp + 1;}
 [e $ ! != = . _clock 7 -> -> 1 `i `ui -> -> 0 `i `ui 2034  ]
 {
 [e = _hours_temp + _hours_temp -> 1 `i ]
 }
 [e :U 2034 ]
-"250
-[; ;main.c: 250:                 if (hours_temp = 0 || hours_temp == 1) {hours_temp = hours_temp + 24;}
+"280
+[; ;main.c: 280:                 if (hours_temp = 0 || hours_temp == 1) {hours_temp = hours_temp + 24;}
 [e $ ! != = _hours_temp -> || != -> 0 `i -> 0 `i == _hours_temp -> 1 `i `i -> 0 `i 2035  ]
 {
 [e = _hours_temp + _hours_temp -> 24 `i ]
 }
 [e :U 2035 ]
-"253
-[; ;main.c: 253:                 int knownSolarMidnight = hours_temp*60 + minutes_temp;
+"283
+[; ;main.c: 283:                 int knownSolarMidnight = hours_temp*60 + minutes_temp;
 [v _knownSolarMidnight `i ~T0 @X0 1 a ]
 [e = _knownSolarMidnight + * _hours_temp -> 60 `i _minutes_temp ]
-"255
-[; ;main.c: 255:                 struct array_structure SolarMidnight;
+"285
+[; ;main.c: 285:                 struct array_structure SolarMidnight;
 [v _SolarMidnight `S2020 ~T0 @X0 1 a ]
-"256
-[; ;main.c: 256:                     SolarMidnight.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-[e = . _SolarMidnight 3 -> &U ; = F14503 F14502 F14503 `i ]
-"258
-[; ;main.c: 258:                 for (int i = 0; i <= Dawn.size-1; i++) {
+"286
+[; ;main.c: 286:                     SolarMidnight.minutes[0] = 0;
+[e = *U + &U . _SolarMidnight 3 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _SolarMidnight 3 `ui `ux -> 0 `i ]
+"287
+[; ;main.c: 287:                     SolarMidnight.minutes[1] = 0;
+[e = *U + &U . _SolarMidnight 3 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SolarMidnight 3 `ui `ux -> 0 `i ]
+"288
+[; ;main.c: 288:                     SolarMidnight.minutes[2] = 0;
+[e = *U + &U . _SolarMidnight 3 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SolarMidnight 3 `ui `ux -> 0 `i ]
+"289
+[; ;main.c: 289:                     SolarMidnight.minutes[3] = 0;
+[e = *U + &U . _SolarMidnight 3 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SolarMidnight 3 `ui `ux -> 0 `i ]
+"290
+[; ;main.c: 290:                     SolarMidnight.minutes[4] = 0;
+[e = *U + &U . _SolarMidnight 3 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _SolarMidnight 3 `ui `ux -> 0 `i ]
+"291
+[; ;main.c: 291:                     SolarMidnight.minutes[5] = 0;
+[e = *U + &U . _SolarMidnight 3 * -> -> -> 5 `i `ui `ux -> -> # *U &U . _SolarMidnight 3 `ui `ux -> 0 `i ]
+"292
+[; ;main.c: 292:                     SolarMidnight.minutes[6] = 0;
+[e = *U + &U . _SolarMidnight 3 * -> -> -> 6 `i `ui `ux -> -> # *U &U . _SolarMidnight 3 `ui `ux -> 0 `i ]
+"295
+[; ;main.c: 295:                 for (int i = 0; i <= Dawn.size-1; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $U 2039  ]
 [e :U 2036 ]
 {
-"259
-[; ;main.c: 259:                     operation = (DawnHours[i] * 60 + DawnMinutes[i]) + (DuskHours[i]*60 + DuskMinutes[i]);
-[e = _operation + + * *U + &U _DawnHours * -> -> _i `ui `ux -> -> # *U &U _DawnHours `ui `ux -> 60 `i *U + &U _DawnMinutes * -> -> _i `ui `ux -> -> # *U &U _DawnMinutes `ui `ux + * *U + &U _DuskHours * -> -> _i `ui `ux -> -> # *U &U _DuskHours `ui `ux -> 60 `i *U + &U _DuskMinutes * -> -> _i `ui `ux -> -> # *U &U _DuskMinutes `ui `ux ]
-"260
-[; ;main.c: 260:                     operation = operation * 0.5 + 12*60;
+"296
+[; ;main.c: 296:                     operation = (Dawn.hours[i] * 60 + Dawn.minutes[i]) + (Dusk.hours[i]*60 + Dusk.minutes[i]);
+[e = _operation + + * *U + &U . _Dawn 2 * -> -> _i `ui `ux -> -> # *U &U . _Dawn 2 `ui `ux -> 60 `i *U + &U . _Dawn 3 * -> -> _i `ui `ux -> -> # *U &U . _Dawn 3 `ui `ux + * *U + &U . _Dusk 2 * -> -> _i `ui `ux -> -> # *U &U . _Dusk 2 `ui `ux -> 60 `i *U + &U . _Dusk 3 * -> -> _i `ui `ux -> -> # *U &U . _Dusk 3 `ui `ux ]
+"297
+[; ;main.c: 297:                     operation = operation * 0.5 + 12*60;
 [e = _operation -> + * -> _operation `d .0.5 -> * -> 12 `i -> 60 `i `d `i ]
-"261
-[; ;main.c: 261:                     ArrayAppend(SolarMidnight.minutes, 7, operation);
-[e ( _ArrayAppend , , . _SolarMidnight 3 -> 7 `i _operation ]
-"262
-[; ;main.c: 262:                 }
+"298
+[; ;main.c: 298:                     ArrayAppend(SolarMidnight.minutes, 7, operation);
+[e ( _ArrayAppend , , &U . _SolarMidnight 3 -> 7 `i _operation ]
+"299
+[; ;main.c: 299:                 }
 }
 [e ++ _i -> 1 `i ]
 [e :U 2039 ]
 [e $ <= _i - . _Dawn 0 -> 1 `i 2036  ]
 [e :U 2037 ]
 }
-"263
-[; ;main.c: 263:                 int avgSolarMidnight = ArrayAverage(SolarMidnight.minutes, 7);
+"300
+[; ;main.c: 300:                 int avgSolarMidnight = ArrayAverage(SolarMidnight.minutes, 7);
 [v _avgSolarMidnight `i ~T0 @X0 1 a ]
-[e = _avgSolarMidnight ( _ArrayAverage , . _SolarMidnight 3 -> 7 `i ]
-"264
-[; ;main.c: 264:                 int minute_diff = knownSolarMidnight - avgSolarMidnight;
+[e = _avgSolarMidnight ( _ArrayAverage , &U . _SolarMidnight 3 -> 7 `i ]
+"301
+[; ;main.c: 301:                 int minute_diff = knownSolarMidnight - avgSolarMidnight;
 [v _minute_diff `i ~T0 @X0 1 a ]
 [e = _minute_diff - _knownSolarMidnight _avgSolarMidnight ]
-"267
-[; ;main.c: 267:                 clock.minutes = clock.minutes + minute_diff;
+"304
+[; ;main.c: 304:                 clock.minutes = clock.minutes + minute_diff;
 [e = . _clock 1 + . _clock 1 -> _minute_diff `ui ]
-"271
-[; ;main.c: 271:                 daycount = 0;
+"308
+[; ;main.c: 308:                 daycount = 0;
 [e = _daycount -> -> 0 `i `ui ]
-"272
-[; ;main.c: 272:             }
+"309
+[; ;main.c: 309:             }
 }
 [e :U 2033 ]
-"273
-[; ;main.c: 273:         }
+"310
+[; ;main.c: 310:         }
 }
 [e :U 2032 ]
-"274
-[; ;main.c: 274:     }
+"311
+[; ;main.c: 311:     }
 }
 [e :U 2022 ]
 [e $U 2023  ]
 [e :U 2024 ]
-"275
-[; ;main.c: 275: }
+"312
+[; ;main.c: 312: }
 [e :UE 2017 ]
 }
 [p f _sprintf 8421508 ]

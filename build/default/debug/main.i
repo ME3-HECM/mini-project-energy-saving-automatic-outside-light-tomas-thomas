@@ -24425,33 +24425,50 @@ void main(void)
     struct array_structure {
         int size;
         int count;
-        int hours;
-        int minutes;
+        int hours[7];
+        int minutes[7];
     };
 
     struct array_structure Dawn;
         Dawn.size = 7;
         Dawn.count = 0;
 
+        Dawn.hours[0] = 0;
+        Dawn.hours[1] = 0;
+        Dawn.hours[2] = 0;
+        Dawn.hours[3] = 0;
+        Dawn.hours[4] = 0;
+        Dawn.hours[5] = 0;
+        Dawn.hours[6] = 0;
 
+        Dawn.minutes[0] = 0;
+        Dawn.minutes[1] = 0;
+        Dawn.minutes[2] = 0;
+        Dawn.minutes[3] = 0;
+        Dawn.minutes[4] = 0;
+        Dawn.minutes[5] = 0;
+        Dawn.minutes[6] = 0;
 
     struct array_structure Dusk;
         Dusk.size = 7;
         Dusk.count = 0;
 
+        Dusk.hours[0] = 0;
+        Dusk.hours[1] = 0;
+        Dusk.hours[2] = 0;
+        Dusk.hours[3] = 0;
+        Dusk.hours[4] = 0;
+        Dusk.hours[5] = 0;
+        Dusk.hours[6] = 0;
 
-
-
-    int DawnHours[7] = {0,0,0,0,0,0,0};
-    int DawnMinutes[7] = {0,0,0,0,0,0,0};
-    int DuskHours[7] = {0,0,0,0,0,0,0};
-    int DuskMinutes[7] = {0,0,0,0,0,0,0};
-
-
-
-
-
-
+        Dusk.minutes[0] = 0;
+        Dusk.minutes[1] = 0;
+        Dusk.minutes[2] = 0;
+        Dusk.minutes[3] = 0;
+        Dusk.minutes[4] = 0;
+        Dusk.minutes[5] = 0;
+        Dusk.minutes[6] = 0;
+# 199 "main.c"
     unsigned int light_threshold = 70;
 
 
@@ -24497,8 +24514,8 @@ void main(void)
             else {
                 LATHbits.LATH3 = 1;
                 if ((Dusk.count = 0)&&(clock.hours >=15 && clock.hours < 8)) {
-                    ArrayAppend(DuskHours, Dusk.size, clock.hours);
-                    ArrayAppend(DuskMinutes, Dusk.size, clock.minutes);
+                    ArrayAppend(Dusk.hours, Dusk.size, clock.hours);
+                    ArrayAppend(Dusk.minutes, Dusk.size, clock.minutes);
                     Dusk.count = 1;
                 }
             }
@@ -24508,8 +24525,8 @@ void main(void)
         if (ADC_getval() > light_threshold){
             LATHbits.LATH3 = 0;
             if ((Dawn.count = 0)&&(clock.hours >=4 && clock.hours < 8)) {
-                ArrayAppend(DawnHours, Dawn.size, clock.hours);
-                ArrayAppend(DawnMinutes, Dawn.size, clock.minutes);
+                ArrayAppend(Dawn.hours, Dawn.size, clock.hours);
+                ArrayAppend(Dawn.minutes, Dawn.size, clock.minutes);
                 Dawn.count = 1;
             }
         }
@@ -24539,10 +24556,17 @@ void main(void)
                 int knownSolarMidnight = hours_temp*60 + minutes_temp;
 
                 struct array_structure SolarMidnight;
-                    SolarMidnight.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
+                    SolarMidnight.minutes[0] = 0;
+                    SolarMidnight.minutes[1] = 0;
+                    SolarMidnight.minutes[2] = 0;
+                    SolarMidnight.minutes[3] = 0;
+                    SolarMidnight.minutes[4] = 0;
+                    SolarMidnight.minutes[5] = 0;
+                    SolarMidnight.minutes[6] = 0;
+
 
                 for (int i = 0; i <= Dawn.size-1; i++) {
-                    operation = (DawnHours[i] * 60 + DawnMinutes[i]) + (DuskHours[i]*60 + DuskMinutes[i]);
+                    operation = (Dawn.hours[i] * 60 + Dawn.minutes[i]) + (Dusk.hours[i]*60 + Dusk.minutes[i]);
                     operation = operation * 0.5 + 12*60;
                     ArrayAppend(SolarMidnight.minutes, 7, operation);
                 }

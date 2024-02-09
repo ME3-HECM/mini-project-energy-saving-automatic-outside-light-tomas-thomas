@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\thoma\AppData\Local\Temp\xcAs1384.\driver_tmp_3.o
+ C:\Users\thoma\AppData\Local\Temp\xcAsojg.\driver_tmp_3.o
  -Odist/default/debug\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.debug.hex
  -logfile=dist/default/debug\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.debug.hxl
  -addressing=1
@@ -9,23 +9,23 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\thoma\AppData\Local\Temp\xcAs1384.\driver_tmp_3.o)
-  8h - 33h		(C:\Users\thoma\AppData\Local\Temp\xcAs1384.\driver_tmp_3.o)
-  E00h - E44h		(C:\Users\thoma\AppData\Local\Temp\xcAs1384.\driver_tmp_3.o)
-  E46h - 3301h		(C:\Users\thoma\AppData\Local\Temp\xcAs1384.\driver_tmp_3.o)
-  300000h - 300001h		(C:\Users\thoma\AppData\Local\Temp\xcAs1384.\driver_tmp_3.o)
-  300004h - 300005h		(C:\Users\thoma\AppData\Local\Temp\xcAs1384.\driver_tmp_3.o)
+  0h - 3h		(C:\Users\thoma\AppData\Local\Temp\xcAsojg.\driver_tmp_3.o)
+  8h - 33h		(C:\Users\thoma\AppData\Local\Temp\xcAsojg.\driver_tmp_3.o)
+  E00h - E44h		(C:\Users\thoma\AppData\Local\Temp\xcAsojg.\driver_tmp_3.o)
+  E46h - 340Dh		(C:\Users\thoma\AppData\Local\Temp\xcAsojg.\driver_tmp_3.o)
+  300000h - 300001h		(C:\Users\thoma\AppData\Local\Temp\xcAsojg.\driver_tmp_3.o)
+  300004h - 300005h		(C:\Users\thoma\AppData\Local\Temp\xcAsojg.\driver_tmp_3.o)
  Unused ranges:
   4h - 7h
   34h - DFFh
   E45h - E45h
-  3302h - 2FFFFFh
+  340Eh - 2FFFFFh
   300002h - 300003h
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\thoma\AppData\Local\Temp\xcAs1384.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\thoma\AppData\Local\Temp\xcAsojg.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -626,7 +626,23 @@
 000032D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000032E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000032F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00003300 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
+00003300 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00003310 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00003320 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00003330 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00003340 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00003350 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00003360 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00003370 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00003380 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00003390 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000033A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000033B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000033C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000033D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000033E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000033F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00003400 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- --
 ----------------------------------------------------------
 00300000 | H1 H1 -- -- H1 H1 -- -- -- -- -- -- -- -- -- --
 00300010 | --
