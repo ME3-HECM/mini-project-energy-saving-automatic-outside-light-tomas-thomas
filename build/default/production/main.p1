@@ -2072,7 +2072,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 :U ..
 "49
-[; ;main.c: 49: struct month_structure Solar = {
+[; ;main.c: 49:     struct month_structure Solar = {
 -> 9 `i
 -> 13 `i
 -> 8 `i
@@ -2142,8 +2142,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _DuskDetected `i ~T0 @X0 1 a ]
 [e = _DuskDetected -> 0 `i ]
 "61
-[; ;main.c: 61:         unsigned int delta;
-[v _delta `ui ~T0 @X0 1 a ]
+[; ;main.c: 61:         int delta;
+[v _delta `i ~T0 @X0 1 a ]
 "76
 [; ;main.c: 76:     struct time_structure clock;
 [v _clock `S2019 ~T0 @X0 1 a ]
@@ -2154,8 +2154,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 79:         clock.minutes = 59;
 [e = . _clock 1 -> -> 59 `i `ui ]
 "80
-[; ;main.c: 80:         clock.hours = 20;
-[e = . _clock 2 -> -> 20 `i `ui ]
+[; ;main.c: 80:         clock.hours = 4;
+[e = . _clock 2 -> -> 4 `i `ui ]
 "81
 [; ;main.c: 81:         clock.days = 31;
 [e = . _clock 3 -> -> 31 `i `ui ]
@@ -2214,33 +2214,53 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _LightDetection (2 , -> ( _ADC_getval ..  `i -> . _clock 2 `i ]
 "127
 [; ;main.c: 127:         delta = DuskAndDawnCollect(ADC_getval(), clock.months, clock.days, clock.hours, clock.minutes, clock.DSTstate, &DawnDetected, &DuskDetected, &DawnStartMins,&DawnStartHours, &DuskStartMins, &DuskStartHours, Solar.MidMinutes[clock.months - 1], Solar.MidHours[clock.months - 1]);
-[e = _delta -> ( _DuskAndDawnCollect (4 , , , , , , , , , , , , , -> ( _ADC_getval ..  `i -> . _clock 5 `i -> . _clock 3 `i -> . _clock 2 `i -> . _clock 1 `i -> . _clock 7 `i &U _DawnDetected &U _DuskDetected &U _DawnStartMins &U _DawnStartHours &U _DuskStartMins &U _DuskStartHours *U + &U . _Solar 0 * -> - . _clock 5 -> -> 1 `i `ui `ux -> -> # *U &U . _Solar 0 `ui `ux *U + &U . _Solar 1 * -> - . _clock 5 -> -> 1 `i `ui `ux -> -> # *U &U . _Solar 1 `ui `ux `ui ]
+[e = _delta ( _DuskAndDawnCollect (4 , , , , , , , , , , , , , -> ( _ADC_getval ..  `i -> . _clock 5 `i -> . _clock 3 `i -> . _clock 2 `i -> . _clock 1 `i -> . _clock 7 `i &U _DawnDetected &U _DuskDetected &U _DawnStartMins &U _DawnStartHours &U _DuskStartMins &U _DuskStartHours *U + &U . _Solar 0 * -> - . _clock 5 -> -> 1 `i `ui `ux -> -> # *U &U . _Solar 0 `ui `ux *U + &U . _Solar 1 * -> - . _clock 5 -> -> 1 `i `ui `ux -> -> # *U &U . _Solar 1 `ui `ux ]
+"128
+[; ;main.c: 128:         if(clock.hours == 23 && DawnDetected==1 && DuskDetected==1){
+[e $ ! && && == . _clock 2 -> -> 23 `i `ui == _DawnDetected -> 1 `i == _DuskDetected -> 1 `i 2025  ]
+{
+"129
+[; ;main.c: 129:             clock.minutes = clock.minutes + delta%60;
+[e = . _clock 1 + . _clock 1 -> % _delta -> 60 `i `ui ]
+"130
+[; ;main.c: 130:             clock.hours = clock.hours + delta/60;
+[e = . _clock 2 + . _clock 2 -> / _delta -> 60 `i `ui ]
 "131
-[; ;main.c: 131:         LCD_setline(1);
-[e ( _LCD_setline (1 -> -> 1 `i `uc ]
+[; ;main.c: 131:             DawnDetected=0;
+[e = _DawnDetected -> 0 `i ]
+"132
+[; ;main.c: 132:             DuskDetected=0;
+[e = _DuskDetected -> 0 `i ]
 "133
-[; ;main.c: 133:         sprintf(buffer, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW);
-[e ( _sprintf (1 , , , , (. , &U _buffer :s 1C . _clock 2 . _clock 1 . _clock 0 . _clock 4 ]
-"134
-[; ;main.c: 134:         LCD_sendstring(buffer);
-[e ( _LCD_sendstring (1 &U _buffer ]
-"135
-[; ;main.c: 135:         LCD_setline(2);
-[e ( _LCD_setline (1 -> -> 2 `i `uc ]
+[; ;main.c: 133:         }
+}
+[e :U 2025 ]
 "137
-[; ;main.c: 137:         sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
-[e ( _sprintf (1 , , , (. , &U _buffer :s 2C . _clock 3 . _clock 5 . _clock 6 ]
-"138
-[; ;main.c: 138:         LCD_sendstring(buffer);
-[e ( _LCD_sendstring (1 &U _buffer ]
+[; ;main.c: 137:         LCD_setline(1);
+[e ( _LCD_setline (1 -> -> 1 `i `uc ]
+"139
+[; ;main.c: 139:         sprintf(buffer, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW);
+[e ( _sprintf (1 , , , , (. , &U _buffer :s 1C . _clock 2 . _clock 1 . _clock 0 . _clock 4 ]
 "140
-[; ;main.c: 140:     }
+[; ;main.c: 140:         LCD_sendstring(buffer);
+[e ( _LCD_sendstring (1 &U _buffer ]
+"141
+[; ;main.c: 141:         LCD_setline(2);
+[e ( _LCD_setline (1 -> -> 2 `i `uc ]
+"143
+[; ;main.c: 143:         sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
+[e ( _sprintf (1 , , , (. , &U _buffer :s 2C . _clock 3 . _clock 5 . _clock 6 ]
+"144
+[; ;main.c: 144:         LCD_sendstring(buffer);
+[e ( _LCD_sendstring (1 &U _buffer ]
+"146
+[; ;main.c: 146:     }
 }
 [e :U 2021 ]
 [e $U 2022  ]
 [e :U 2023 ]
-"141
-[; ;main.c: 141: }
+"147
+[; ;main.c: 147: }
 [e :UE 2017 ]
 }
 [p f _sprintf 8421508 ]

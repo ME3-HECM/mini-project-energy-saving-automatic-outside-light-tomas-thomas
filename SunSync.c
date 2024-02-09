@@ -32,13 +32,13 @@ int DuskAndDawnCollect(int ADC_val, int months, int days, int hours, int mins, i
     int SolarMidnightConstant;
     int delta;
     
-    if (*DawnDetected == 0 && (ADC_val >= 70) && (hours >= 4 && hours < 8)){ //if we've seen light, and we're in the hours we expect to see dawn
+    if (*DawnDetected == 0 && (ADC_val >= 70) && (hours >= 4 && hours < 10)){ //if we've seen light, and we're in the hours we expect to see dawn
         *DawnStartHours = hours;
         *DawnStartMins = mins;
         *DawnDetected = 1;
         //add the ADC_value to the list 
     }
-     if (*DuskDetected == 0 && (ADC_val <= 70) && (hours >= 15 && hours < 20)){ //if we've seen light, and we're in the hours we expect to see dawn
+     if (*DuskDetected == 0 && (ADC_val <= 70) && (hours >= 15 && hours < 21)){ //if we've seen light, and we're in the hours we expect to see dawn
         *DuskStartHours = hours;
         *DuskStartMins = mins;
         *DuskDetected = 1;

@@ -2158,8 +2158,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;SunSync.c: 33:     int delta;
 [v _delta `i ~T0 @X0 1 a ]
 "35
-[; ;SunSync.c: 35:     if (*DawnDetected == 0 && (ADC_val >= 70) && (hours >= 4 && hours < 8)){
-[e $ ! && && == *U _DawnDetected -> 0 `i >= _ADC_val -> 70 `i && >= _hours -> 4 `i < _hours -> 8 `i 2021  ]
+[; ;SunSync.c: 35:     if (*DawnDetected == 0 && (ADC_val >= 70) && (hours >= 4 && hours < 10)){
+[e $ ! && && == *U _DawnDetected -> 0 `i >= _ADC_val -> 70 `i && >= _hours -> 4 `i < _hours -> 10 `i 2021  ]
 {
 "36
 [; ;SunSync.c: 36:         *DawnStartHours = hours;
@@ -2175,8 +2175,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2021 ]
 "41
-[; ;SunSync.c: 41:      if (*DuskDetected == 0 && (ADC_val <= 70) && (hours >= 15 && hours < 20)){
-[e $ ! && && == *U _DuskDetected -> 0 `i <= _ADC_val -> 70 `i && >= _hours -> 15 `i < _hours -> 20 `i 2022  ]
+[; ;SunSync.c: 41:      if (*DuskDetected == 0 && (ADC_val <= 70) && (hours >= 15 && hours < 21)){
+[e $ ! && && == *U _DuskDetected -> 0 `i <= _ADC_val -> 70 `i && >= _hours -> 15 `i < _hours -> 21 `i 2022  ]
 {
 "42
 [; ;SunSync.c: 42:         *DuskStartHours = hours;

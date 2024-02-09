@@ -24143,13 +24143,13 @@ int DuskAndDawnCollect(int ADC_val, int months, int days, int hours, int mins, i
     int SolarMidnightConstant;
     int delta;
 
-    if (*DawnDetected == 0 && (ADC_val >= 70) && (hours >= 4 && hours < 8)){
+    if (*DawnDetected == 0 && (ADC_val >= 70) && (hours >= 4 && hours < 10)){
         *DawnStartHours = hours;
         *DawnStartMins = mins;
         *DawnDetected = 1;
 
     }
-     if (*DuskDetected == 0 && (ADC_val <= 70) && (hours >= 15 && hours < 20)){
+     if (*DuskDetected == 0 && (ADC_val <= 70) && (hours >= 15 && hours < 21)){
         *DuskStartHours = hours;
         *DuskStartMins = mins;
         *DuskDetected = 1;
