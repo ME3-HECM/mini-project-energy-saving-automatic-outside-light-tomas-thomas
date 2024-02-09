@@ -73,22 +73,22 @@ void main(void)
 //        clock.DSTstate = 0;         // is your input date in daylight savings time March-October (1) or not October-March (0)
         
    //DAYLIGHT SAVINGS TURN OFF - OCTOBER 
-//        clock.minutes = 59;
-//        clock.hours = 1;
-//        clock.days = 30;
-//        clock.DoW = 7;              
-//        clock.months = 10;
-//        clock.years = 2022;
-//        clock.DSTstate = 1;
-        
-   //DAYLIGHT SAVINGS TURN ON - March
         clock.minutes = 59;
         clock.hours = 0;
-        clock.days = 31;
+        clock.days = 30;
         clock.DoW = 7;              
-        clock.months = 3;
-        clock.years = 2024;
-        clock.DSTstate = 0;
+        clock.months = 10;
+        clock.years = 2022;
+        clock.DSTstate = 1;
+        
+   //DAYLIGHT SAVINGS TURN ON - March
+//        clock.minutes = 59;
+//        clock.hours = 0;
+//        clock.days = 31;
+//        clock.DoW = 7;              
+//        clock.months = 3;
+//        clock.years = 2024;
+//        clock.DSTstate = 0;
         
 //~~~~~~~~~~~~~~~~~~~       TEST    MODE      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         int TestMode = 1;       // 0 if off     1 if on

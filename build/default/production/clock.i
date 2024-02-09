@@ -24146,13 +24146,19 @@ void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, in
 
     if((*DSTstate == 0) && (*months == 3) && (*days >= 25) && (*DoW == 7) && ( *hours >= 1) ){
 
-        *hours = *hours + 10;
+        *hours = *hours + 1;
+        if (TestMode == 1){
+            *seconds = *seconds + 1;
+        }
         *DSTstate = 1;
 
     }
 
     if((*DSTstate==1) && (*months == 10) && (*days >= 25) && (*DoW == 7) && (*hours == 2) ){
         *hours = *hours - 1;
+        if (TestMode == 1){
+            *seconds = *seconds - 1;
+        }
         *DSTstate = 0;
     }
 

@@ -2098,80 +2098,102 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! && && && && == *U _DSTstate -> 0 `i == *U _months -> 3 `i >= *U _days -> 25 `i == *U _DoW -> 7 `i >= *U _hours -> 1 `i 2022  ]
 {
 "40
-[; ;clock.c: 40:         *hours = *hours + 10;
-[e = *U _hours + *U _hours -> 10 `i ]
+[; ;clock.c: 40:         *hours = *hours + 1;
+[e = *U _hours + *U _hours -> 1 `i ]
 "41
-[; ;clock.c: 41:         *DSTstate = 1;
-[e = *U _DSTstate -> 1 `i ]
-"43
-[; ;clock.c: 43:     }
-}
-[e :U 2022 ]
-"45
-[; ;clock.c: 45:     if((*DSTstate==1) && (*months == 10) && (*days >= 25) && (*DoW == 7) && (*hours == 2) ){
-[e $ ! && && && && == *U _DSTstate -> 1 `i == *U _months -> 10 `i >= *U _days -> 25 `i == *U _DoW -> 7 `i == *U _hours -> 2 `i 2023  ]
+[; ;clock.c: 41:         if (TestMode == 1){
+[e $ ! == _TestMode -> 1 `i 2023  ]
 {
-"46
-[; ;clock.c: 46:         *hours = *hours - 1;
-[e = *U _hours - *U _hours -> 1 `i ]
-"47
-[; ;clock.c: 47:         *DSTstate = 0;
-[e = *U _DSTstate -> 0 `i ]
-"48
-[; ;clock.c: 48:     }
+"42
+[; ;clock.c: 42:             *seconds = *seconds + 1;
+[e = *U _seconds + *U _seconds -> 1 `i ]
+"43
+[; ;clock.c: 43:         }
 }
 [e :U 2023 ]
-"51
-[; ;clock.c: 51:     if ((*years)%4 == 0 && *months == 2){
-[e $ ! && == % *U _years -> 4 `i -> 0 `i == *U _months -> 2 `i 2024  ]
-{
-"52
-[; ;clock.c: 52:        DaysInMonth[1] = 29;
-[e = *U + &U _DaysInMonth * -> -> -> 1 `i `ui `ux -> -> # *U &U _DaysInMonth `ui `ux -> 29 `i ]
-"53
-[; ;clock.c: 53:     }
+"44
+[; ;clock.c: 44:         *DSTstate = 1;
+[e = *U _DSTstate -> 1 `i ]
+"46
+[; ;clock.c: 46:     }
 }
-[e :U 2024 ]
-"56
-[; ;clock.c: 56:     if (*years%100 == 0 && *months == 2 && *years%400 != 0){
-[e $ ! && && == % *U _years -> 100 `i -> 0 `i == *U _months -> 2 `i != % *U _years -> 400 `i -> 0 `i 2025  ]
+[e :U 2022 ]
+"48
+[; ;clock.c: 48:     if((*DSTstate==1) && (*months == 10) && (*days >= 25) && (*DoW == 7) && (*hours == 2) ){
+[e $ ! && && && && == *U _DSTstate -> 1 `i == *U _months -> 10 `i >= *U _days -> 25 `i == *U _DoW -> 7 `i == *U _hours -> 2 `i 2024  ]
 {
-"57
-[; ;clock.c: 57:             DaysInMonth[1] = 28;
-[e = *U + &U _DaysInMonth * -> -> -> 1 `i `ui `ux -> -> # *U &U _DaysInMonth `ui `ux -> 28 `i ]
-"58
-[; ;clock.c: 58:     }
+"49
+[; ;clock.c: 49:         *hours = *hours - 1;
+[e = *U _hours - *U _hours -> 1 `i ]
+"50
+[; ;clock.c: 50:         if (TestMode == 1){
+[e $ ! == _TestMode -> 1 `i 2025  ]
+{
+"51
+[; ;clock.c: 51:             *seconds = *seconds - 1;
+[e = *U _seconds - *U _seconds -> 1 `i ]
+"52
+[; ;clock.c: 52:         }
 }
 [e :U 2025 ]
-"61
-[; ;clock.c: 61:     if (*days > (DaysInMonth[*months-1] ) ) {
-[e $ ! > *U _days *U + &U _DaysInMonth * -> -> - *U _months -> 1 `i `ui `ux -> -> # *U &U _DaysInMonth `ui `ux 2026  ]
-{
-"62
-[; ;clock.c: 62:         *days = 1;
-[e = *U _days -> 1 `i ]
-"63
-[; ;clock.c: 63:         *months = *months + 1 ;
-[e = *U _months + *U _months -> 1 `i ]
-"65
-[; ;clock.c: 65:         if (*months >= 12+1) {
-[e $ ! >= *U _months + -> 12 `i -> 1 `i 2027  ]
-{
-"66
-[; ;clock.c: 66:             *months = 1;
-[e = *U _months -> 1 `i ]
-"67
-[; ;clock.c: 67:             *years = *years + 1;
-[e = *U _years + *U _years -> 1 `i ]
-"68
-[; ;clock.c: 68:         }
+"53
+[; ;clock.c: 53:         *DSTstate = 0;
+[e = *U _DSTstate -> 0 `i ]
+"54
+[; ;clock.c: 54:     }
 }
-[e :U 2027 ]
-"69
-[; ;clock.c: 69:     }
+[e :U 2024 ]
+"57
+[; ;clock.c: 57:     if ((*years)%4 == 0 && *months == 2){
+[e $ ! && == % *U _years -> 4 `i -> 0 `i == *U _months -> 2 `i 2026  ]
+{
+"58
+[; ;clock.c: 58:        DaysInMonth[1] = 29;
+[e = *U + &U _DaysInMonth * -> -> -> 1 `i `ui `ux -> -> # *U &U _DaysInMonth `ui `ux -> 29 `i ]
+"59
+[; ;clock.c: 59:     }
 }
 [e :U 2026 ]
-"70
-[; ;clock.c: 70: }
+"62
+[; ;clock.c: 62:     if (*years%100 == 0 && *months == 2 && *years%400 != 0){
+[e $ ! && && == % *U _years -> 100 `i -> 0 `i == *U _months -> 2 `i != % *U _years -> 400 `i -> 0 `i 2027  ]
+{
+"63
+[; ;clock.c: 63:             DaysInMonth[1] = 28;
+[e = *U + &U _DaysInMonth * -> -> -> 1 `i `ui `ux -> -> # *U &U _DaysInMonth `ui `ux -> 28 `i ]
+"64
+[; ;clock.c: 64:     }
+}
+[e :U 2027 ]
+"67
+[; ;clock.c: 67:     if (*days > (DaysInMonth[*months-1] ) ) {
+[e $ ! > *U _days *U + &U _DaysInMonth * -> -> - *U _months -> 1 `i `ui `ux -> -> # *U &U _DaysInMonth `ui `ux 2028  ]
+{
+"68
+[; ;clock.c: 68:         *days = 1;
+[e = *U _days -> 1 `i ]
+"69
+[; ;clock.c: 69:         *months = *months + 1 ;
+[e = *U _months + *U _months -> 1 `i ]
+"71
+[; ;clock.c: 71:         if (*months >= 12+1) {
+[e $ ! >= *U _months + -> 12 `i -> 1 `i 2029  ]
+{
+"72
+[; ;clock.c: 72:             *months = 1;
+[e = *U _months -> 1 `i ]
+"73
+[; ;clock.c: 73:             *years = *years + 1;
+[e = *U _years + *U _years -> 1 `i ]
+"74
+[; ;clock.c: 74:         }
+}
+[e :U 2029 ]
+"75
+[; ;clock.c: 75:     }
+}
+[e :U 2028 ]
+"76
+[; ;clock.c: 76: }
 [e :UE 2015 ]
 }
