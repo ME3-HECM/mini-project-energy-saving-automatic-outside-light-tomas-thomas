@@ -24112,7 +24112,6 @@ unsigned int GLOBALsecs = 0;
 
 
 
-
 void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, int *months, int *years, int *DSTstate, int TestMode){
 
     int DaysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};

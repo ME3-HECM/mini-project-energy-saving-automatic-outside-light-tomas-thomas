@@ -28,6 +28,8 @@
       <itemPath>clock.h</itemPath>
       <itemPath>LCD.h</itemPath>
       <itemPath>LCD.c</itemPath>
+      <itemPath>arrayfunction.c</itemPath>
+      <itemPath>arrayfunction.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

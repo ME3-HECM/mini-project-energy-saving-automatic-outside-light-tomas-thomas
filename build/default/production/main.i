@@ -7,16 +7,9 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-
-
-
-
 #pragma config FEXTOSC = HS
 #pragma config RSTOSC = EXTOSC_4PLL
-
 #pragma config WDTE = OFF
-
-
 
 
 
@@ -24099,7 +24092,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 13 "main.c" 2
+# 6 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 3
@@ -24253,7 +24246,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 14 "main.c" 2
+# 7 "main.c" 2
 
 
 # 1 "./LEDarray.h" 1
@@ -24264,7 +24257,7 @@ void LEDarray_disp_dec(unsigned int number);
 void LEDarray_disp_light(unsigned int number, unsigned int maxLight, unsigned int minLight, unsigned int step);
 
 void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step);
-# 16 "main.c" 2
+# 9 "main.c" 2
 
 # 1 "./timers.h" 1
 
@@ -24276,7 +24269,7 @@ void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int 
 
 void Timer0_init(void);
 unsigned int get16bitTMR0val(void);
-# 17 "main.c" 2
+# 10 "main.c" 2
 
 # 1 "./interrupts.h" 1
 
@@ -24288,7 +24281,7 @@ unsigned int get16bitTMR0val(void);
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
-# 18 "main.c" 2
+# 11 "main.c" 2
 
 # 1 "./seconds.h" 1
 
@@ -24299,7 +24292,7 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 
 unsigned int GLOBALsecs = 0;
-# 19 "main.c" 2
+# 12 "main.c" 2
 
 # 1 "./clock.h" 1
 
@@ -24310,7 +24303,7 @@ unsigned int GLOBALsecs = 0;
 
 
 void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, int *months, int *years, int *DSTstate, int TestMode);
-# 20 "main.c" 2
+# 13 "main.c" 2
 
 # 1 "./LCD.h" 1
 # 17 "./LCD.h"
@@ -24323,7 +24316,7 @@ void LCD_sendstring(char *string);
 void LCD_scroll(void);
 void LCD_clear(void);
 void ADC2String(char *buf, unsigned int number);
-# 21 "main.c" 2
+# 14 "main.c" 2
 
 # 1 "./ADC.h" 1
 
@@ -24335,11 +24328,7 @@ void ADC2String(char *buf, unsigned int number);
 
 void ADC_init(void);
 unsigned int ADC_getval(void);
-# 22 "main.c" 2
-
-
-
-
+# 15 "main.c" 2
 
 
 
@@ -24350,7 +24339,6 @@ void main(void)
     LEDarray_init();
     Timer0_init();
     Interrupts_init();
-
     LCD_Init();
     ADC_init();
 
@@ -24368,14 +24356,7 @@ void main(void)
 
 
      struct time_structure {
-        unsigned int seconds;
-        unsigned int minutes;
-        unsigned int hours;
-        unsigned int days;
-        unsigned int DoW;
-        unsigned int months;
-        unsigned int years;
-        unsigned int DSTstate;
+        unsigned int seconds; unsigned int minutes; unsigned int hours; unsigned int days; unsigned int DoW; unsigned int months; unsigned int years; unsigned int DSTstate;
     };
 
     struct time_structure clock;
@@ -24388,7 +24369,7 @@ void main(void)
         clock.months = 2;
         clock.years = 2024;
         clock.DSTstate = 0;
-# 94 "main.c"
+# 75 "main.c"
         int TestMode = 1;
 
         clock.seconds = GLOBALsecs;
@@ -24398,30 +24379,121 @@ void main(void)
         }
 
 
+
+
+
+
+    struct month_structure {
+        int solarMidMinutes[12];
+        int solarMidHours[12];
+        int days[12];
+    };
+
+    struct month_structure SolarPerMonth;
+    SolarPerMonth.days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    SolarPerMonth.solarMidHours = {0, 0, 0, 0, 23, 0, 0, 0, 23, 23, 23, 23};
+    SolarPerMonth.solarMidMinutes = {9, 13, 8, 1, 57, 1, 5, 3, 55, 47, 46, 56};
+
+
+
+
+
+
+
+    struct array_structure {
+        int size;
+        int count;
+        int hours;
+        int minutes;
+    };
+
+    struct array_structure Dawn;
+        Dawn.size = 7;
+        Dawn.count = 0;
+        Dawn.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
+        Dawn.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
+
+    struct array_structure Dusk;
+        Dusk.size = 7;
+        Dusk.count = 0;
+        Dusk.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
+        Dusk.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
+# 135 "main.c"
+    unsigned int light_threshold = 70;
+
+
+    unsigned int daycount = 0;
+
+
+    unsigned int previousClockDays = clock.days;
+
+
+
+
+
+
     while (1) {
 
+
         if (TestMode == 0){clock.seconds = GLOBALsecs;}
-
         UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days, &clock.DoW, &clock.months, &clock.years, &clock.DSTstate, TestMode);
-
-
-
-
-
 
 
         LEDarray_disp_bin(clock.hours);
 
 
-
         LCD_setline(1);
-
         sprintf(buffer, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW);
         LCD_sendstring(buffer);
         LCD_setline(2);
-
         sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
         LCD_sendstring(buffer);
-# 151 "main.c"
+
+
+        if (ADC_getval() < light_threshold){
+            if ((clock.hours >= 1 && clock.hours < 5) || (clock.hours >= 8 && clock.hours < 15)) {
+                LATHbits.LATH3 = 0;
+            }
+
+            else {
+                LATHbits.LATH3 = 1;
+                if ((Dusk.count = 0)&&(clock.hours >=15 && clock.hours < 8)) {
+                    ArrayAppend(Dusk.hours, Dusk.size, clock.hours);
+                    ArrayAppend(Dusk.minutes, Dusk.size, clock.minutes);
+                    Dusk.count = 1;
+                }
+            }
+        }
+
+
+        if (ADC_getval() > light_threshold){
+            LATHbits.LATH3 = 0;
+            if ((Dawn.count = 0)&&(clock.hours >=4 && clock.hours < 8)) {
+                ArrayAppend(Dawn.hours, Dawn.size, clock.hours);
+                ArrayAppend(Dawn.minutes, Dawn.size, clock.minutes);
+                Dawn.count = 1;
+            }
+        }
+
+        if (clock.days > previousClockDays) {
+            Dawn.count = 0;
+            Dusk.count = 0;
+            daycount++;
+
+            LATDbits.LATD7 = 1;
+            previousClockDays = clock.days;
+
+            if (daycount == 7) {
+# 209 "main.c"
+                LATDbits.LATD7 = 1;
+                LATHbits.LATH3 = 1;
+                _delay((unsigned long)((500)*(64000000/4000.0)));
+
+
+
+
+                daycount = 0;
+            }
+        }
     }
 }
