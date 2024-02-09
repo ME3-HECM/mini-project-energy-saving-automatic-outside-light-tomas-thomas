@@ -1,4 +1,4 @@
-# 1 "clock.c"
+# 1 "LCD.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "clock.c" 2
+# 1 "LCD.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24086,100 +24086,331 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 1 "clock.c" 2
+# 1 "LCD.c" 2
 
-# 1 "./clock.h" 1
-
-
-
-
-
-
-
-void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, int *months, int *years, int *DSTstate, int TestMode);
-# 2 "clock.c" 2
-
-# 1 "./seconds.h" 1
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 12 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef void * va_list[1];
 
 
 
 
+typedef void * __isoc_va_list[1];
+# 143 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __int24 ssize_t;
+# 255 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long off_t;
+# 409 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
 
 
 
-unsigned int GLOBALsecs = 0;
-# 3 "clock.c" 2
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
 
 
 
 
-void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, int *months, int *years, int *DSTstate, int TestMode){
 
-    int DaysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+int ungetc(int, FILE *);
+int getch(void);
 
-    if (TestMode == 1){
-       *hours = *seconds;
-        if (*seconds >= 24 ){
-            *seconds = 0;
-        }
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+
+
+
+
+void putch(char);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+__attribute__((__format__(__printf__, 1, 2)))
+int printf(const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int fprintf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int sprintf(char *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 3, 4)))
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+__attribute__((__format__(__printf__, 1, 0)))
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 2, 0)))
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 3, 0)))
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+__attribute__((__format__(__scanf__, 1, 2)))
+int scanf(const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int fscanf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int sscanf(const char *restrict, const char *restrict, ...);
+
+__attribute__((__format__(__scanf__, 1, 0)))
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__scanf__, 2, 0)))
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 2 "LCD.c" 2
+
+# 1 "./LCD.h" 1
+# 17 "./LCD.h"
+void LCD_E_TOG(void);
+void LCD_sendnibble(unsigned char number);
+void LCD_sendbyte(unsigned char Byte, char type);
+void LCD_Init(void);
+void LCD_setline (char line);
+void LCD_sendstring(char *string);
+void LCD_scroll(void);
+void LCD_clear(void);
+void ADC2String(char *buf, unsigned int number);
+# 3 "LCD.c" 2
+
+
+
+
+
+
+
+void LCD_E_TOG(void)
+{
+
+     LATCbits.LATC2 = 1;
+ _delay((unsigned long)((2)*(64000000/4000000.0)));
+     LATCbits.LATC2 = 0;
+
+}
+
+
+
+
+void LCD_sendnibble(unsigned char number)
+{
+    if (number & 0b0001) {LATBbits.LATB3=1;} else {LATBbits.LATB3=0;}
+    if (number & 0b0010) {LATBbits.LATB2=1;} else {LATBbits.LATB2=0;}
+    if (number & 0b0100) {LATEbits.LATE3=1;} else {LATEbits.LATE3=0;}
+    if (number & 0b1000) {LATEbits.LATE1=1;} else {LATEbits.LATE1=0;}
+
+
+
+    LCD_E_TOG();
+    _delay((unsigned long)((5)*(64000000/4000000.0)));
+}
+
+
+
+
+
+
+void LCD_sendbyte(unsigned char Byte, char type)
+{
+    LATCbits.LATC6 = type;
+
+    LCD_sendnibble(Byte>>4);
+    LCD_sendnibble(Byte);
+
+
+
+
+
+    _delay((unsigned long)((50)*(64000000/4000000.0)));
+}
+
+
+
+
+void LCD_Init(void)
+{
+# 69 "LCD.c"
+    TRISBbits.TRISB3 = 0;
+
+    LATBbits.LATB3 = 0;
+
+    TRISBbits.TRISB2 = 0;
+
+    LATBbits.LATB2 = 0;
+
+    TRISEbits.TRISE3 = 0;
+
+    LATEbits.LATE3 = 0;
+
+    TRISEbits.TRISE1 = 0;
+
+    LATEbits.LATE1 = 0;
+
+    TRISCbits.TRISC2 = 0;
+    LATCbits.LATC2 = 0;
+
+    TRISCbits.TRISC6 = 0;
+    LATCbits.LATC6 = 0;
+
+    _delay((unsigned long)((150)*(64000000/4000.0)));
+    LCD_sendnibble(0b0011);
+    _delay((unsigned long)((5)*(64000000/4000.0)));
+    LCD_sendnibble(0b0011);
+    _delay((unsigned long)((150)*(64000000/4000000.0)));
+    LCD_sendnibble(0b0011);
+    _delay((unsigned long)((150)*(64000000/4000000.0)));
+    LCD_sendnibble(0b0010);
+    _delay((unsigned long)((150)*(64000000/4000000.0)));
+    LCD_sendbyte(0b00101100,0);
+    _delay((unsigned long)((100)*(64000000/4000000.0)));
+    LCD_sendbyte(0b00001000,0);
+    _delay((unsigned long)((100)*(64000000/4000.0)));
+    LCD_sendbyte(0b00000001,0);
+    _delay((unsigned long)((5)*(64000000/4000.0)));
+    LCD_sendbyte(0b00000110,0);
+    _delay((unsigned long)((100)*(64000000/4000.0)));
+    LCD_sendbyte(0b00001100,0);
+    _delay((unsigned long)((100)*(64000000/4000.0)));
+
+
+
+
+
+}
+
+
+
+
+void LCD_setline (char line)
+{
+
+
+    if (line == 2){
+        LCD_sendbyte(0xC0,0);
     }
 
-    if (*seconds >= 60 ){
-        *seconds = 0;
-        *minutes = *minutes + 1;
+    if (line==1){
+        LCD_sendbyte(0x80,0);
     }
-
-    if (*minutes >= 60){
-        *minutes = 0;
-        *hours = *hours + 1;
-    }
-
-    if (*hours >= 24){
-        *hours = 0;
-        *days = *days + 1;
-        *DoW = *DoW + 1;
-    }
-
-    if (*DoW >= 8){
-        *DoW = 1;
-    }
-
-    if((*DSTstate == 0) && (*months == 3) && (*days >= 25) && (*DoW == 7) && ( *hours >= 1) ){
-
-        *hours = *hours + 1;
-        if (TestMode == 1){
-            *seconds = *seconds + 1;
-        }
-        *DSTstate = 1;
-
-    }
-
-    if((*DSTstate==1) && (*months == 10) && (*days >= 25) && (*DoW == 7) && (*hours == 2) ){
-        *hours = *hours - 1;
-        if (TestMode == 1){
-            *seconds = *seconds - 1;
-        }
-        *DSTstate = 0;
-    }
+}
 
 
-    if ((*years)%4 == 0 && *months == 2){
-       DaysInMonth[1] = 29;
-    }
 
 
-    if (*years%100 == 0 && *months == 2 && *years%400 != 0){
-            DaysInMonth[1] = 28;
-    }
+void LCD_sendstring(char *string)
+{
+
+    while(*string != 0){
+  LCD_sendbyte(*string++,1);
+ }
+}
 
 
-    if (*days > (DaysInMonth[*months-1] ) ) {
-        *days = 1;
-        *months = *months + 1 ;
 
-        if (*months >= 12+1) {
-            *months = 1;
-            *years = *years + 1;
-        }
-    }
+
+void LCD_scroll(void)
+{
+ LCD_sendbyte(0b00011000,0);
+
+}
+
+
+
+
+
+
+void ADC2String(char *buf, unsigned int ADC_val){
+
+
+
+
+    unsigned int int_part = 0;
+    char frac_part = 0;
+
+    int_part = ADC_val/77;
+    frac_part = (ADC_val*100)/77 - int_part*100;
+    sprintf(buf,"Time: %02d:%02d:%04d",12,16,35);
+    LCD_sendstring(buf);
+
 }
