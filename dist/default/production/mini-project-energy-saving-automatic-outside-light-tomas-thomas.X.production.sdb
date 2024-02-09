@@ -608,7 +608,7 @@
 [v main@clock clock `S170  1 a 16 20 ]
 "94
 [v main@TestMode TestMode `i  1 a 2 18 ]
-"152
+"129
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]

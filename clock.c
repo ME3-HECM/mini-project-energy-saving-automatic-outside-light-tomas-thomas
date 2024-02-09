@@ -37,7 +37,7 @@ void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, in
     
     if((*DSTstate == 0) && (*months == 3) && (*days >= 25) && (*DoW == 7) && ( *hours >= 1) ){ //is daylight savings on, is it march, is it the last week of march, is it a sunday, is it 1 o'clock? if yes then turn DST on
            //moves the clocks forwards by 1 hour 
-        *hours = *hours + 1; //not sure why this doesn't work in fast mode ??
+        *hours = *hours + 1;
         if (TestMode == 1){ //due to the way seconds and hours are linked in the test mode this is necessary to do the daylight savings time
             *seconds = *seconds + 1;
         }
@@ -47,7 +47,7 @@ void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, in
     
     if((*DSTstate==1) && (*months == 10) && (*days >= 25) && (*DoW == 7) && (*hours == 2) ){ //is daylight savings on, is it march, is it the last week of march, is it a sunday, is it 1 o'clock? if yes then turn DST on
         *hours = *hours - 1;    //moves the clocks forwards by 1 hour
-        if (TestMode == 1){//due to the way seconds and hours are linked in the test mode this is necessary to do the daylight savings time
+        if (TestMode == 1){     //due to the way seconds and hours are linked in the test mode this is necessary to do the daylight savings time
             *seconds = *seconds - 1;
         }
         *DSTstate = 0;          // turn daylight savings on 

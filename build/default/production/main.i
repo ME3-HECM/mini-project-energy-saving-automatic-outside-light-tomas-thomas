@@ -24381,14 +24381,13 @@ void main(void)
     struct time_structure clock;
 
         GLOBALsecs = 55;
-# 76 "main.c"
         clock.minutes = 59;
-        clock.hours = 0;
-        clock.days = 30;
-        clock.DoW = 7;
-        clock.months = 10;
-        clock.years = 2022;
-        clock.DSTstate = 1;
+        clock.hours = 23;
+        clock.days = 31;
+        clock.DoW = 5;
+        clock.months = 12;
+        clock.years = 2024;
+        clock.DSTstate = 0;
 # 94 "main.c"
         int TestMode = 1;
 
@@ -24423,6 +24422,6 @@ void main(void)
 
         sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
         LCD_sendstring(buffer);
-# 151 "main.c"
+
     }
 }
