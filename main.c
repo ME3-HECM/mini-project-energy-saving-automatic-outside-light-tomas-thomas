@@ -124,6 +124,11 @@ struct month_structure Solar = {
         
         LightDetection(ADC_getval(), clock.hours);
         
+        if(clock.hours >= 16 && (ADC_getval()<=70) && DuskDetected == 0){
+            clock.hours;
+            clock.minutes;
+            
+        }
         delta = DuskAndDawnCollect(ADC_getval(), clock.months, clock.days, clock.hours, clock.minutes, clock.DSTstate, &DawnDetected, &DuskDetected, &DawnStartMins,&DawnStartHours, &DuskStartMins, &DuskStartHours, Solar.MidMinutes[clock.months - 1], Solar.MidHours[clock.months - 1]);
 //        clock.minutes = clock.minutes - delta;
         
