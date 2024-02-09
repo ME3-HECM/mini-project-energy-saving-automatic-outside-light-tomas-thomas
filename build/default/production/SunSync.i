@@ -1,4 +1,4 @@
-# 1 "comparator.c"
+# 1 "SunSync.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "comparator.c" 2
+# 1 "SunSync.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24086,47 +24086,83 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 1 "comparator.c" 2
+# 1 "SunSync.c" 2
 
-# 1 "./comparator.h" 1
-
-
+# 1 "./SunSync.h" 1
 
 
 
 
 
-void DAC_init(void);
-void Comp1_init(void);
-# 2 "comparator.c" 2
+
+
+void SunSynnInit();
+void LightDetection(int ADC_val, int hours);
+int DuskAndDawnCollect(int ADC_val, int months, int days, int hours, int mins, int DSTstate, *DawnDetected, *DuskDetected, *DawnStartMins,*DawnStartHours, *DuskStartMins, *DuskStartHours, KnownSolarMins, KnownSolarHours);
+# 2 "SunSync.c" 2
+
+# 1 "./seconds.h" 1
 
 
 
 
 
-void DAC_init(void)
-{
-    DAC1CON0bits.PSS=0b00;
-    DAC1CON0bits.NSS=0b0;
 
 
+unsigned int GLOBALsecs = 0;
+# 3 "SunSync.c" 2
 
-    DAC1CON1bits.DAC1R=0b010000;
-    DAC1CON0bits.DAC1EN=1;
+
+void SunSynnInit(){
+    struct month_structure {
+        int days[12];
+        int MidHours[12];
+        int MidMinutes[12];
+    };
+    struct month_structure solar = {
+    {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31},
+    {0, 0, 0, 0, 23, 0, 0, 0, 23, 23, 23, 23},
+    {9, 13, 8, 1, 57, 1, 5, 3, 55, 47, 46, 56}
+    };
+
+    TRISHbits.TRISH3 = 0;
+    LATHbits.LATH3 = 0;
 }
 
+void LightDetection(int light, int hours){
+    if (light <= 70 && ((hours < 1) || (hours>=5)) ){
+        LATHbits.LATH3 = 1;
+    }
+    else{
+       LATHbits.LATH3 = 0;
+    }
+}
 
+int DuskAndDawnCollect(int ADC_val, int months, int days, int hours, int mins, int DSTstate, *DawnDetected, *DuskDetected, *DawnStartMins,*DawnStartHours, *DuskStartMins, *DuskStartHours, KnownSolarMins, KnownSolarHours){
+    int SolarMidnightCalculated;
+    int SolarMidnightConstant;
+    int delta;
 
+    if (*DawnDetected == 0 && (ADC_val >= 70) && (hours >= 4 && hours < 8)){
+        *DawnStartHours = hours;
+        *DawnStartMins = mins;
+        *DawnDetected = 1;
 
+    }
+     if (*DuskDetected == 0 && (ADC_val <= 70) && (hours >= 15 && hours < 20)){
+        *DuskStartHours = hours;
+        *DuskStartMins = mins;
+        *DuskDetected = 1;
 
-void Comp1_init(void)
-{
-    TRISFbits.TRISF7=1;
-    CM1NCHbits.NCH=0b011;
-    CM1PCHbits.PCH=0b101;
-    CM1CON0bits.HYS=1;
-    CM1CON0bits.POL=1;
-    CM1CON1bits.INTP=1;
-    DAC_init();
-    CM1CON0bits.EN=1;
+    }
+    SolarMidnightCalculated = 12*60 + 0.5*((*DawnStartHours * 60 + *DawnStartMins) + (*DuskStartHours * 60 + *DuskStartMins));
+
+    if (DSTstate == 1) {
+        KnownSolarHours = KnownSolarHours + 1;
+    }
+    if (KnownSolarHours == 0 || KnownSolarHours == 1) {KnownSolarHours = KnownSolarHours + 24;}
+
+    SolarMidnightConstant = (KnownSolarHours * 60 + KnownSolarMins) ;
+    delta = SolarMidnightConstant - SolarMidnightCalculated;
+    return(delta);
 }

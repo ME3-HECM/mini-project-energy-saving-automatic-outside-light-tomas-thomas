@@ -1,117 +1,50 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"13201 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13201:     struct {
-[s S607 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S607 . NSS . PSS OE2 OE1 . EN ]
-"13210
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13210:     struct {
-[s S608 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S608 . DAC1NSS . DAC1PSS0 DAC1PSS1 DAC1OE2 DAC1OE1 . DAC1EN ]
-"13220
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13220:     struct {
-[s S609 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S609 . . PSS0 PSS1 ]
-"13200
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13200: typedef union {
-[u S606 `S607 1 `S608 1 `S609 1 ]
-[n S606 . . . . ]
-"13226
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13226: extern volatile DAC1CON0bits_t DAC1CON0bits __attribute__((address(0xEC6)));
-[v _DAC1CON0bits `VS606 ~T0 @X0 0 e@3782 ]
-"13302
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13302:     struct {
-[s S611 :5 `uc 1 ]
-[n S611 . DAC1R ]
-"13305
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13305:     struct {
-[s S612 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S612 . DAC1R0 DAC1R1 DAC1R2 DAC1R3 DAC1R4 ]
-"13301
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13301: typedef union {
-[u S610 `S611 1 `S612 1 ]
-[n S610 . . . ]
-"13313
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13313: extern volatile DAC1CON1bits_t DAC1CON1bits __attribute__((address(0xEC7)));
-[v _DAC1CON1bits `VS610 ~T0 @X0 0 e@3783 ]
-"29622
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29622:     struct {
-[s S1388 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1388 . TRISF0 TRISF1 TRISF2 TRISF3 TRISF4 TRISF5 TRISF6 TRISF7 ]
-"29621
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29621: typedef union {
-[u S1387 `S1388 1 ]
-[n S1387 . . ]
-"29633
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29633: extern volatile TRISFbits_t TRISFbits __attribute__((address(0xF86)));
-[v _TRISFbits `VS1387 ~T0 @X0 0 e@3974 ]
-"13954
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13954:     struct {
-[s S648 :3 `uc 1 ]
-[n S648 . NCH ]
-"13957
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13957:     struct {
-[s S649 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S649 . NCH0 NCH1 NCH2 ]
-"13962
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13962:     struct {
-[s S650 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S650 . C1NCH0 C1NCH1 C1NCH2 ]
-"13953
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13953: typedef union {
-[u S647 `S648 1 `S649 1 `S650 1 ]
-[n S647 . . . . ]
-"13968
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13968: extern volatile CM1NCHbits_t CM1NCHbits __attribute__((address(0xED2)));
-[v _CM1NCHbits `VS647 ~T0 @X0 0 e@3794 ]
-"14014
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 14014:     struct {
-[s S652 :3 `uc 1 ]
-[n S652 . PCH ]
-"14017
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 14017:     struct {
-[s S653 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S653 . PCH0 PCH1 PCH2 ]
-"14022
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 14022:     struct {
-[s S654 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S654 . C1PCH0 C1PCH1 C1PCH2 ]
-"14013
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 14013: typedef union {
-[u S651 `S652 1 `S653 1 `S654 1 ]
-[n S651 . . . . ]
-"14028
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 14028: extern volatile CM1PCHbits_t CM1PCHbits __attribute__((address(0xED3)));
-[v _CM1PCHbits `VS651 ~T0 @X0 0 e@3795 ]
-"13834
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13834:     struct {
-[s S642 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S642 . SYNC HYS . POL . OUT EN ]
-"13843
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13843:     struct {
-[s S643 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S643 . C1SYNC C1HYS . C1POL . C1OUT C1EN ]
-"13833
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13833: typedef union {
-[u S641 `S642 1 `S643 1 ]
-[n S641 . . . ]
-"13853
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13853: extern volatile CM1CON0bits_t CM1CON0bits __attribute__((address(0xED0)));
-[v _CM1CON0bits `VS641 ~T0 @X0 0 e@3792 ]
-"13914
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13914:     struct {
-[s S645 :1 `uc 1 :1 `uc 1 ]
-[n S645 . INTN INTP ]
-"13918
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13918:     struct {
-[s S646 :1 `uc 1 :1 `uc 1 ]
-[n S646 . C1INTN C1INTP ]
-"13913
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13913: typedef union {
-[u S644 `S645 1 `S646 1 ]
-[n S644 . . . ]
-"13923
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 13923: extern volatile CM1CON1bits_t CM1CON1bits __attribute__((address(0xED1)));
-[v _CM1CON1bits `VS644 ~T0 @X0 0 e@3793 ]
+"6 SunSync.c
+[; ;SunSync.c: 6:     struct month_structure {
+[s S2016 `i -> 12 `i `i -> 12 `i `i -> 12 `i ]
+[n S2016 month_structure days MidHours MidMinutes ]
+"29741 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29741:     struct {
+[s S1392 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1392 . TRISH0 TRISH1 TRISH2 TRISH3 ]
+"29740
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29740: typedef union {
+[u S1391 `S1392 1 ]
+[n S1391 . . ]
+"29748
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29748: extern volatile TRISHbits_t TRISHbits __attribute__((address(0xF88)));
+[v _TRISHbits `VS1391 ~T0 @X0 0 e@3976 ]
+"28912
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28912:     struct {
+[s S1361 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1361 . LATH0 LATH1 LATH2 LATH3 ]
+"28918
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28918:     struct {
+[s S1362 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1362 . LH0 LH1 LH2 LH3 ]
+"28924
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28924:     struct {
+[s S1363 :4 `uc 1 :1 `uc 1 ]
+[n S1363 . . LH4 ]
+"28928
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28928:     struct {
+[s S1364 :5 `uc 1 :1 `uc 1 ]
+[n S1364 . . LH5 ]
+"28932
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28932:     struct {
+[s S1365 :6 `uc 1 :1 `uc 1 ]
+[n S1365 . . LH6 ]
+"28936
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28936:     struct {
+[s S1366 :7 `uc 1 :1 `uc 1 ]
+[n S1366 . . LH7 ]
+"28911
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28911: typedef union {
+[u S1360 `S1361 1 `S1362 1 `S1363 1 `S1364 1 `S1365 1 `S1366 1 ]
+[n S1360 . . . . . . . ]
+"28941
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28941: extern volatile LATHbits_t LATHbits __attribute__((address(0xF80)));
+[v _LATHbits `VS1360 ~T0 @X0 0 e@3968 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2086,63 +2019,210 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40592
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"7 comparator.c
-[; ;comparator.c: 7: void DAC_init(void)
-[v _DAC_init `(v ~T0 @X0 1 ef ]
-"8
-[; ;comparator.c: 8: {
+"8 ./seconds.h
+[; ;./seconds.h: 8: unsigned int GLOBALsecs = 0;
+[v _GLOBALsecs `ui ~T0 @X0 1 e ]
+[i _GLOBALsecs
+-> -> 0 `i `ui
+]
+"5 SunSync.c
+[; ;SunSync.c: 5: void SunSynnInit(){
+[v _SunSynnInit `(v ~T0 @X0 1 ef ]
 {
-[e :U _DAC_init ]
+[e :U _SunSynnInit ]
 [f ]
-"9
-[; ;comparator.c: 9:     DAC1CON0bits.PSS=0b00;
-[e = . . _DAC1CON0bits 0 2 -> -> 0 `i `uc ]
-"10
-[; ;comparator.c: 10:     DAC1CON0bits.NSS=0b0;
-[e = . . _DAC1CON0bits 0 0 -> -> 0 `i `uc ]
-"14
-[; ;comparator.c: 14:     DAC1CON1bits.DAC1R=0b010000;
-[e = . . _DAC1CON1bits 0 0 -> -> 16 `i `uc ]
-"15
-[; ;comparator.c: 15:     DAC1CON0bits.DAC1EN=1;
-[e = . . _DAC1CON0bits 1 7 -> -> 1 `i `uc ]
-"16
-[; ;comparator.c: 16: }
+[v F14156 `S2016 ~T0 @X0 1 s ]
+[i F14156
+:U ..
+:U ..
+:U ..
+"11
+[; ;SunSync.c: 11:     struct month_structure solar = {
+-> 31 `i
+-> 28 `i
+-> 31 `i
+-> 30 `i
+-> 31 `i
+-> 30 `i
+-> 31 `i
+-> 31 `i
+-> 30 `i
+-> 31 `i
+-> 30 `i
+-> 31 `i
+..
+:U ..
+-> 0 `i
+-> 0 `i
+-> 0 `i
+-> 0 `i
+-> 23 `i
+-> 0 `i
+-> 0 `i
+-> 0 `i
+-> 23 `i
+-> 23 `i
+-> 23 `i
+-> 23 `i
+..
+:U ..
+-> 9 `i
+-> 13 `i
+-> 8 `i
+-> 1 `i
+-> 57 `i
+-> 1 `i
+-> 5 `i
+-> 3 `i
+-> 55 `i
+-> 47 `i
+-> 46 `i
+-> 56 `i
+..
+..
+..
+]
+[v _solar `S2016 ~T0 @X0 1 a ]
+[e = _solar F14156 ]
+"17
+[; ;SunSync.c: 17:     TRISHbits.TRISH3 = 0;
+[e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
+"18
+[; ;SunSync.c: 18:     LATHbits.LATH3 = 0;
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+"19
+[; ;SunSync.c: 19: }
 [e :UE 2015 ]
 }
-"22
-[; ;comparator.c: 22: void Comp1_init(void)
-[v _Comp1_init `(v ~T0 @X0 1 ef ]
-"23
-[; ;comparator.c: 23: {
+"21
+[; ;SunSync.c: 21: void LightDetection(int light, int hours){
+[v _LightDetection `(v ~T0 @X0 1 ef2`i`i ]
 {
-[e :U _Comp1_init ]
+[e :U _LightDetection ]
+[v _light `i ~T0 @X0 1 r1 ]
+[v _hours `i ~T0 @X0 1 r2 ]
 [f ]
+"22
+[; ;SunSync.c: 22:     if (light <= 70 && ((hours < 1) || (hours>=5)) ){
+[e $ ! && <= _light -> 70 `i || < _hours -> 1 `i >= _hours -> 5 `i 2018  ]
+{
+"23
+[; ;SunSync.c: 23:         LATHbits.LATH3 = 1;
+[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
 "24
-[; ;comparator.c: 24:     TRISFbits.TRISF7=1;
-[e = . . _TRISFbits 0 7 -> -> 1 `i `uc ]
+[; ;SunSync.c: 24:     }
+}
+[e $U 2019  ]
 "25
-[; ;comparator.c: 25:     CM1NCHbits.NCH=0b011;
-[e = . . _CM1NCHbits 0 0 -> -> 3 `i `uc ]
+[; ;SunSync.c: 25:     else{
+[e :U 2018 ]
+{
 "26
-[; ;comparator.c: 26:     CM1PCHbits.PCH=0b101;
-[e = . . _CM1PCHbits 0 0 -> -> 5 `i `uc ]
+[; ;SunSync.c: 26:        LATHbits.LATH3 = 0;
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 "27
-[; ;comparator.c: 27:     CM1CON0bits.HYS=1;
-[e = . . _CM1CON0bits 0 1 -> -> 1 `i `uc ]
+[; ;SunSync.c: 27:     }
+}
+[e :U 2019 ]
 "28
-[; ;comparator.c: 28:     CM1CON0bits.POL=1;
-[e = . . _CM1CON0bits 0 3 -> -> 1 `i `uc ]
-"29
-[; ;comparator.c: 29:     CM1CON1bits.INTP=1;
-[e = . . _CM1CON1bits 0 1 -> -> 1 `i `uc ]
+[; ;SunSync.c: 28: }
+[e :UE 2017 ]
+}
 "30
-[; ;comparator.c: 30:     DAC_init();
-[e ( _DAC_init ..  ]
+[; ;SunSync.c: 30: int DuskAndDawnCollect(int ADC_val, int months, int days, int hours, int mins, int DSTstate, *DawnDetected, *DuskDetected, *DawnStartMins,*DawnStartHours, *DuskStartMins, *DuskStartHours, KnownSolarMins, KnownSolarHours){
+[v _DuskAndDawnCollect `(i ~T0 @X0 1 ef14`i`i`i`i`i`i`*i`*i`*i`*i`*i`*i`i`i ]
+{
+[e :U _DuskAndDawnCollect ]
+[v _ADC_val `i ~T0 @X0 1 r1 ]
+[v _months `i ~T0 @X0 1 r2 ]
+[v _days `i ~T0 @X0 1 r3 ]
+[v _hours `i ~T0 @X0 1 r4 ]
+[v _mins `i ~T0 @X0 1 r5 ]
+[v _DSTstate `i ~T0 @X0 1 r6 ]
+[v _DawnDetected `*i ~T0 @X0 1 r7 ]
+[v _DuskDetected `*i ~T0 @X0 1 r8 ]
+[v _DawnStartMins `*i ~T0 @X0 1 r9 ]
+[v _DawnStartHours `*i ~T0 @X0 1 r10 ]
+[v _DuskStartMins `*i ~T0 @X0 1 r11 ]
+[v _DuskStartHours `*i ~T0 @X0 1 r12 ]
+[v _KnownSolarMins `i ~T0 @X0 1 r13 ]
+[v _KnownSolarHours `i ~T0 @X0 1 r14 ]
+[f ]
 "31
-[; ;comparator.c: 31:     CM1CON0bits.EN=1;
-[e = . . _CM1CON0bits 0 6 -> -> 1 `i `uc ]
+[; ;SunSync.c: 31:     int SolarMidnightCalculated;
+[v _SolarMidnightCalculated `i ~T0 @X0 1 a ]
 "32
-[; ;comparator.c: 32: }
-[e :UE 2016 ]
+[; ;SunSync.c: 32:     int SolarMidnightConstant;
+[v _SolarMidnightConstant `i ~T0 @X0 1 a ]
+"33
+[; ;SunSync.c: 33:     int delta;
+[v _delta `i ~T0 @X0 1 a ]
+"35
+[; ;SunSync.c: 35:     if (*DawnDetected == 0 && (ADC_val >= 70) && (hours >= 4 && hours < 8)){
+[e $ ! && && == *U _DawnDetected -> 0 `i >= _ADC_val -> 70 `i && >= _hours -> 4 `i < _hours -> 8 `i 2021  ]
+{
+"36
+[; ;SunSync.c: 36:         *DawnStartHours = hours;
+[e = *U _DawnStartHours _hours ]
+"37
+[; ;SunSync.c: 37:         *DawnStartMins = mins;
+[e = *U _DawnStartMins _mins ]
+"38
+[; ;SunSync.c: 38:         *DawnDetected = 1;
+[e = *U _DawnDetected -> 1 `i ]
+"40
+[; ;SunSync.c: 40:     }
+}
+[e :U 2021 ]
+"41
+[; ;SunSync.c: 41:      if (*DuskDetected == 0 && (ADC_val <= 70) && (hours >= 15 && hours < 20)){
+[e $ ! && && == *U _DuskDetected -> 0 `i <= _ADC_val -> 70 `i && >= _hours -> 15 `i < _hours -> 20 `i 2022  ]
+{
+"42
+[; ;SunSync.c: 42:         *DuskStartHours = hours;
+[e = *U _DuskStartHours _hours ]
+"43
+[; ;SunSync.c: 43:         *DuskStartMins = mins;
+[e = *U _DuskStartMins _mins ]
+"44
+[; ;SunSync.c: 44:         *DuskDetected = 1;
+[e = *U _DuskDetected -> 1 `i ]
+"46
+[; ;SunSync.c: 46:     }
+}
+[e :U 2022 ]
+"47
+[; ;SunSync.c: 47:     SolarMidnightCalculated = 12*60 + 0.5*((*DawnStartHours * 60 + *DawnStartMins) + (*DuskStartHours * 60 + *DuskStartMins));
+[e = _SolarMidnightCalculated -> + -> * -> 12 `i -> 60 `i `d * .0.5 -> + + * *U _DawnStartHours -> 60 `i *U _DawnStartMins + * *U _DuskStartHours -> 60 `i *U _DuskStartMins `d `i ]
+"49
+[; ;SunSync.c: 49:     if (DSTstate == 1) {
+[e $ ! == _DSTstate -> 1 `i 2023  ]
+{
+"50
+[; ;SunSync.c: 50:         KnownSolarHours = KnownSolarHours + 1;
+[e = _KnownSolarHours + _KnownSolarHours -> 1 `i ]
+"51
+[; ;SunSync.c: 51:     }
+}
+[e :U 2023 ]
+"52
+[; ;SunSync.c: 52:     if (KnownSolarHours == 0 || KnownSolarHours == 1) {KnownSolarHours = KnownSolarHours + 24;}
+[e $ ! || == _KnownSolarHours -> 0 `i == _KnownSolarHours -> 1 `i 2024  ]
+{
+[e = _KnownSolarHours + _KnownSolarHours -> 24 `i ]
+}
+[e :U 2024 ]
+"54
+[; ;SunSync.c: 54:     SolarMidnightConstant = (KnownSolarHours * 60 + KnownSolarMins) ;
+[e = _SolarMidnightConstant + * _KnownSolarHours -> 60 `i _KnownSolarMins ]
+"55
+[; ;SunSync.c: 55:     delta = SolarMidnightConstant - SolarMidnightCalculated;
+[e = _delta - _SolarMidnightConstant _SolarMidnightCalculated ]
+"56
+[; ;SunSync.c: 56:     return(delta);
+[e ) _delta ]
+[e $UE 2020  ]
+"57
+[; ;SunSync.c: 57: }
+[e :UE 2020 ]
 }

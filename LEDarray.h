@@ -11,7 +11,5 @@ void LEDarray_init(void);
 void LEDarray_disp_bin(unsigned int number);
 void LEDarray_disp_dec(unsigned int number);
 void LEDarray_disp_light(unsigned int number, unsigned int maxLight, unsigned int minLight, unsigned int step);
-//void LEDarray_disp_PPM(unsigned int number, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step);
-void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step);
 
 #endif

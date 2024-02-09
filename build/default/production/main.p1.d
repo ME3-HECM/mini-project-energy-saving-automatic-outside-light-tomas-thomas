@@ -6,4 +6,5 @@ interrupts.h  \
 seconds.h  \
 clock.h  \
 LCD.h  \
-ADC.h 
+ADC.h  \
+SunSync.h 

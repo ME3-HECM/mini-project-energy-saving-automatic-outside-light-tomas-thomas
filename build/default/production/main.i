@@ -24262,8 +24262,6 @@ void LEDarray_init(void);
 void LEDarray_disp_bin(unsigned int number);
 void LEDarray_disp_dec(unsigned int number);
 void LEDarray_disp_light(unsigned int number, unsigned int maxLight, unsigned int minLight, unsigned int step);
-
-void LEDarray_disp_PPM(unsigned int numberIn, unsigned int MaxVal, unsigned int maxLight, unsigned int minLight, unsigned int step);
 # 16 "main.c" 2
 
 # 1 "./timers.h" 1
@@ -24337,6 +24335,19 @@ void ADC_init(void);
 unsigned int ADC_getval(void);
 # 22 "main.c" 2
 
+# 1 "./SunSync.h" 1
+
+
+
+
+
+
+
+void SunSynnInit();
+void LightDetection(int ADC_val, int hours);
+int DuskAndDawnCollect(int ADC_val, int months, int days, int hours, int mins, int DSTstate, *DawnDetected, *DuskDetected, *DawnStartMins,*DawnStartHours, *DuskStartMins, *DuskStartHours, KnownSolarMins, KnownSolarHours);
+# 23 "main.c" 2
+
 
 
 
@@ -24350,20 +24361,31 @@ void main(void)
     LEDarray_init();
     Timer0_init();
     Interrupts_init();
-
+    SunSynnInit();
     LCD_Init();
     ADC_init();
 
     char buffer[18];
 
+    struct month_structure {
+        int MidMinutes[12];
+        int MidHours[12];
+        int days[12];
+};
 
+struct month_structure Solar = {
+    {9, 13, 8, 1, 57, 1, 5, 3, 55, 47, 46, 56},
+    {0, 0, 0, 0, 23, 0, 0, 0, 23, 23, 23, 23},
+    {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
+};
+        int DawnStartMins;
+        int DawnStartHours = 0;
+        int DuskStartMins;
+        int DuskStartHours = 0;
+        int DawnDetected=0;
+        int DuskDetected=0;
 
-    TRISDbits.TRISD7 = 0;
-    LATDbits.LATD7 = 0;
-
-
-    TRISHbits.TRISH3 = 0;
-    LATHbits.LATH3 = 0;
+        unsigned int delta;
 
 
 
@@ -24381,22 +24403,22 @@ void main(void)
     struct time_structure clock;
 
         GLOBALsecs = 55;
-# 76 "main.c"
         clock.minutes = 59;
-        clock.hours = 0;
-        clock.days = 30;
-        clock.DoW = 7;
-        clock.months = 10;
-        clock.years = 2022;
-        clock.DSTstate = 1;
-# 94 "main.c"
+        clock.hours = 20;
+        clock.days = 31;
+        clock.DoW = 1;
+        clock.months = 12;
+        clock.years = 2024;
+        clock.DSTstate = 0;
+# 106 "main.c"
         int TestMode = 1;
 
-        clock.seconds = GLOBALsecs;
+      clock.seconds = GLOBALsecs;
         if (TestMode == 1){
             clock.seconds = 0;
             GLOBALsecs = clock.hours;
         }
+
 
 
     while (1) {
@@ -24406,13 +24428,11 @@ void main(void)
         UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days, &clock.DoW, &clock.months, &clock.years, &clock.DSTstate, TestMode);
 
 
-
-
-
-
-
         LEDarray_disp_bin(clock.hours);
 
+        LightDetection(ADC_getval(), clock.hours);
+
+        delta = DuskAndDawnCollect(ADC_getval(), clock.months, clock.days, clock.hours, clock.minutes, clock.DSTstate, &DawnDetected, &DuskDetected, &DawnStartMins,&DawnStartHours, &DuskStartMins, &DuskStartHours, Solar.MidMinutes[clock.months - 1], Solar.MidHours[clock.months - 1]);
 
 
         LCD_setline(1);
@@ -24423,6 +24443,6 @@ void main(void)
 
         sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
         LCD_sendstring(buffer);
-# 151 "main.c"
+
     }
 }
