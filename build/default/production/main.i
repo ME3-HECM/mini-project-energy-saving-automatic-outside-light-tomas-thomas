@@ -24171,7 +24171,7 @@ void ADC_init(void);
 unsigned int ADC_getval(void);
 # 19 "main.c" 2
 
-# 1 "./synchronisation.h" 1
+# 1 "./arrayfunction.h" 1
 
 
 
@@ -24180,6 +24180,8 @@ unsigned int ADC_getval(void);
 
 
 int ArrayAppend(int arrayTime[], int size, int Time);
+
+int ArrayAverage(int arrayTime[], int size);
 # 20 "main.c" 2
 
 
@@ -24345,7 +24347,7 @@ void main(void)
     unsigned int light_threshold = 70;
 
 
-    unsigned int daycount = 6;
+    unsigned int daycount = 0;
 
 
     unsigned int previousClockDays = clock.days;
@@ -24401,8 +24403,7 @@ void main(void)
             previousClockDays = clock.days;
 
             if (daycount == 7) {
-
-
+# 318 "main.c"
                 LATDbits.LATD7 = 1;
                 LATHbits.LATH3 = 1;
                 _delay((unsigned long)((500)*(64000000/4000.0)));

@@ -6,4 +6,4 @@ interrupts.h  \
 seconds.h  \
 clock.h  \
 ADC.h  \
-synchronisation.h 
+arrayfunction.h 

@@ -16,18 +16,18 @@ __Hirdata 0 0 CODE 0
 __Lirdata 0 0 CODE 0
 __HRAM 0 0 ABS 0
 __LRAM 1 0 ABS 0
-main@14170 11C 0 BANK1 1
 ttemp5 F 0 COMRAM 1
 ttemp6 12 0 COMRAM 1
 ttemp7 16 0 COMRAM 1
 wtemp8 F 0 COMRAM 1
 __end_of_Timer0_init 14C2 0 CODE 0
+main@14171 10E 0 BANK1 1
 __Hconfig 300006 0 CONFIG 4
 __Lconfig 0 0 CONFIG 4
-main@14172 12A 0 BANK1 1
 ___inthi_stack_hi 0 0 STACK 2
 __Hbigram 0 0 ABS 0
 __Lbigram 0 0 ABS 0
+main@14173 11C 0 BANK1 1
 __Hrparam 0 0 COMRAM 1
 __Lrparam 0 0 COMRAM 1
 __Hram 0 0 ABS 0
@@ -47,7 +47,7 @@ __Hnvrram 0 0 COMRAM 1
 __Lnvrram 0 0 COMRAM 1
 ___intlo_stack_hi 0 0 STACK 2
 int$flags E 0 COMRAM 1
-main@14166 100 0 BANK1 1
+main@14175 12A 0 BANK1 1
 ArrayAppend@arrayTime 1 0 COMRAM 1
 __Hbigsfr 0 0 ABS 0
 __Lbigsfr 0 0 ABS 0
@@ -57,7 +57,6 @@ __Leeprom_data 0 0 EEDATA 0
 _ADC_init 14C2 0 CODE 0
 _PIR0bits E33 0 ABS 0
 _IPR0bits E1F 0 ABS 0
-main@14168 10E 0 BANK1 1
 _LATAbits F79 0 ABS 0
 _LATBbits F7A 0 ABS 0
 _LATDbits F7C 0 ABS 0
@@ -69,6 +68,7 @@ _LEDarray_init 147C 0 CODE 0
 _LATHbits F80 0 ABS 0
 __Hbigbss 0 0 BIGRAM 1
 __Lbigbss 0 0 BIGRAM 1
+main@14169 100 0 BANK1 1
 __Hintret 0 0 ABS 0
 __Lintret 0 0 ABS 0
 __Hramtop E00 0 RAM 0
@@ -311,7 +311,7 @@ cstackBANK1 100 1E1 BANK1 100 1
 text0 E02 14FF CODE E02 0
 %locals
 dist/default/production\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.production.o
-C:\Users\thoma\AppData\Local\Temp\xcAsqqs.\driver_tmp_1.s
+C:\Users\thoma\AppData\Local\Temp\xcAs11m8.\driver_tmp_1.s
 10731 14DC 0 CODE 0
 10733 14DC 0 CODE 0
 10736 14DC 0 CODE 0
@@ -412,10 +412,10 @@ main.c
 305 112A 0 CODE 0
 306 112C 0 CODE 0
 308 1134 0 CODE 0
-311 1148 0 CODE 0
-312 114A 0 CODE 0
-313 114C 0 CODE 0
-318 1164 0 CODE 0
+318 1148 0 CODE 0
+319 114A 0 CODE 0
+320 114C 0 CODE 0
+325 1164 0 CODE 0
 clock.c
 24 1176 0 CODE 0
 27 1176 0 CODE 0
@@ -493,7 +493,7 @@ interrupts.c
 21 14FA 0 CODE 0
 24 14FC 0 CODE 0
 25 14FE 0 CODE 0
-synchronisation.c
+arrayfunction.c
 6 13D4 0 CODE 0
 8 13D4 0 CODE 0
 10 13E0 0 CODE 0
@@ -520,7 +520,7 @@ ADC.c
 34 1462 0 CODE 0
 36 1472 0 CODE 0
 37 147A 0 CODE 0
-C:\Users\thoma\AppData\Local\Temp\xcAsqqs.\driver_tmp_1.s
+C:\Users\thoma\AppData\Local\Temp\xcAs11m8.\driver_tmp_1.s
 13235 8 0 CODE 0
 interrupts.c
 31 8 0 CODE 0

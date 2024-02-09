@@ -1,4 +1,4 @@
-# 1 "timers.c"
+# 1 "arrayfunction.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "timers.c" 2
+# 1 "arrayfunction.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24086,21 +24086,9 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 1 "timers.c" 2
+# 1 "arrayfunction.c" 2
 
-# 1 "./timers.h" 1
-
-
-
-
-
-
-
-void Timer0_init(void);
-unsigned int get16bitTMR0val(void);
-# 2 "timers.c" 2
-
-# 1 "./seconds.h" 1
+# 1 "./arrayfunction.h" 1
 
 
 
@@ -24108,38 +24096,41 @@ unsigned int get16bitTMR0val(void);
 
 
 
-unsigned int GLOBALsecs = 0;
-# 3 "timers.c" 2
+int ArrayAppend(int arrayTime[], int size, int Time);
+
+int ArrayAverage(int arrayTime[], int size);
+# 2 "arrayfunction.c" 2
 
 
 
 
+int ArrayAppend(int arrayTime[], int size, int Time) {
 
-void Timer0_init(void)
-{
-    T0CON1bits.T0CS=0b010;
-    T0CON1bits.T0ASYNC=1;
+        for (int i = 1; i <= size-1; i++) {
 
-    T0CON1bits.T0CKPS=0b1000;
+            if (i = 6) {
+                arrayTime[i-1] = arrayTime[i];
+                arrayTime[i] = Time;
+            }
 
-    T0CON0bits.T016BIT=1;
+            else {
+                arrayTime[i-1] = arrayTime[i];
+            }
+        }
 
-
-    TMR0H = 0b00001011;
-    TMR0L = 0b11011100;
-# 35 "timers.c"
-    T0CON0bits.T0EN=1;
-}
-
-
+        return arrayTime;
+    }
 
 
+int ArrayAverage(int arrayTime[], int size) {
+    unsigned int sum = 0;
+    unsigned int average;
 
-unsigned int get16bitTMR0val(void)
-{
+    for (int i = 0; i <= size-1; i++) {
+        sum = sum + arrayTime[i];
+    }
 
-    unsigned int low = TMR0L ;
-    unsigned int high = TMR0H ;
-    return(high) ;
+    average = sum/size;
 
+    return average;
 }

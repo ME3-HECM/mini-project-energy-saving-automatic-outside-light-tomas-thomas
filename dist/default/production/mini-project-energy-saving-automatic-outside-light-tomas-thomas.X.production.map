@@ -7,10 +7,11 @@ Linker command line:
   -cn \
   -h+dist/default/production\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.production.sym \
   --cmf=dist/default/production\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.production.cmf \
-  -z -Q18F67K40 -oC:\Users\thoma\AppData\Local\Temp\xcAsqqs.\driver_tmp_3.o \
+  -z -Q18F67K40 \
+  -oC:\Users\thoma\AppData\Local\Temp\xcAs11m8.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.production.map \
-  --md=C:\Users\thoma\AppData\Local\Temp\xcAsqqs.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\thoma\AppData\Local\Temp\xcAs11m8.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=0E00h-0EFFhx498 -AMEDIUMCONST=0E00h-0FFFFh,010E00h-01FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0DE9h -ABIGRAM=01h-0DE9h \
@@ -30,7 +31,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\thoma\AppData\Local\Temp\xcAsqqs.\driver_tmp_9.o \
+  C:\Users\thoma\AppData\Local\Temp\xcAs11m8.\driver_tmp_9.o \
   dist/default/production\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.production.o 
 
 Object code version is 3.11
@@ -40,7 +41,7 @@ Machine type is 18F67K40
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\thoma\AppData\Local\Temp\xcAsqqs.\driver_tmp_9.o
+C:\Users\thoma\AppData\Local\Temp\xcAs11m8.\driver_tmp_9.o
                 config                           300000   300000        6        0       4
                 init                                 30       30        4        4       0
                 reset_vec                             0        0        4        0       0
@@ -468,10 +469,10 @@ intlevel2                  text         000000
 intlevel3                  text         000000
 isa$std                    (abs)        000001
 isa$xinst                  (abs)        000000
-main@14166                 cstackBANK1  000100
-main@14168                 cstackBANK1  00010E
-main@14170                 cstackBANK1  00011C
-main@14172                 cstackBANK1  00012A
+main@14169                 cstackBANK1  000100
+main@14171                 cstackBANK1  00010E
+main@14173                 cstackBANK1  00011C
+main@14175                 cstackBANK1  00012A
 main@Apr                   cstackBANK1  000152
 main@Aug                   cstackBANK1  00016A
 main@DSTon                 cstackBANK1  000188
@@ -510,6 +511,11 @@ timers.c
 
 timers.c estimated size: 32
 
+arrayfunction.c
+		_ArrayAppend   		CODE           	13D4	0000	120
+
+arrayfunction.c estimated size: 120
+
 clock.c
 		_UpdateClock   		CODE           	1176	0000	406
 
@@ -537,11 +543,6 @@ ADC.c
 		_ADC_getval    		CODE           	144C	0000	48
 
 ADC.c estimated size: 74
-
-synchronisation.c
-		_ArrayAppend   		CODE           	13D4	0000	120
-
-synchronisation.c estimated size: 120
 
 main.c
 		_main          		CODE           	0E02	0000	884

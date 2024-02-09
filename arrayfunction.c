@@ -1,5 +1,5 @@
 #include <xc.h>
-#include "synchronisation.h"
+#include "arrayfunction.h"
 
 //Function to take measured Dawn and Dusk timings and add it to the 7 day moving average list.
 //Each timing is moved down by one and the new timing is added to the end of the array.

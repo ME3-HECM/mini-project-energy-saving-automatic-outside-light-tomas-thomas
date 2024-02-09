@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Thu Feb 08 23:16:35 2024
+                                                                                               Fri Feb 09 00:30:11 2024
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	18F67K40
@@ -147,22 +147,22 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    133                           	psect	cstackBANK1
    134   000100                     __pcstackBANK1:
    135                           	callstack 0
-   136   000100                     main@14166:
+   136   000100                     main@14169:
    137                           	callstack 0
    138                           
    139                           ; 14 bytes @ 0x0
    140   000100                     	ds	14
-   141   00010E                     main@14168:
+   141   00010E                     main@14171:
    142                           	callstack 0
    143                           
    144                           ; 14 bytes @ 0xE
    145   00010E                     	ds	14
-   146   00011C                     main@14170:
+   146   00011C                     main@14173:
    147                           	callstack 0
    148                           
    149                           ; 14 bytes @ 0x1C
    150   00011C                     	ds	14
-   151   00012A                     main@14172:
+   151   00012A                     main@14175:
    152                           	callstack 0
    153                           
    154                           ; 14 bytes @ 0x2A
@@ -328,10 +328,10 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    314 ;;		None
    315 ;; Auto vars:     Size  Location     Type
    316 ;;  curval          2   62[BANK1 ] unsigned int 
-   317 ;;  14172          14   42[BANK1 ] int [7]
-   318 ;;  14170          14   28[BANK1 ] int [7]
-   319 ;;  14168          14   14[BANK1 ] int [7]
-   320 ;;  14166          14    0[BANK1 ] int [7]
+   317 ;;  14175          14   42[BANK1 ] int [7]
+   318 ;;  14173          14   28[BANK1 ] int [7]
+   319 ;;  14171          14   14[BANK1 ] int [7]
+   320 ;;  14169          14    0[BANK1 ] int [7]
    321 ;;  clock           8  160[BANK1 ] struct time_structure
    322 ;;  Dusk            8  152[BANK1 ] struct array_structure
    323 ;;  Dawn            8  144[BANK1 ] struct array_structure
@@ -737,32 +737,32 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    715   000F88                     
    716                           ; BSR set to: 1
    717                           ;main.c: 218:         Dawn.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
-   718   000F88  EE21  F000         	lfsr	2,main@14166
+   718   000F88  EE21  F000         	lfsr	2,main@14169
    719   000F8C  0E0D               	movlw	13
-   720   000F8E                     u1051:
+   720   000F8E                     u1061:
    721   000F8E  6ADE               	clrf	postinc2,c
    722   000F90  06E8               	decf	wreg,f,c
-   723   000F92  E2FD               	bc	u1051
+   723   000F92  E2FD               	bc	u1061
    724   000F94                     
    725                           ; BSR set to: 1
-   726   000F94  0E01               	movlw	high main@14166
+   726   000F94  0E01               	movlw	high main@14169
    727   000F96  6F95               	movwf	(main@Dawn+5)& (0+255),b
-   728   000F98  0E00               	movlw	low main@14166
+   728   000F98  0E00               	movlw	low main@14169
    729   000F9A  6F94               	movwf	(main@Dawn+4)& (0+255),b
    730   000F9C                     
    731                           ; BSR set to: 1
    732                           ;main.c: 219:         Dawn.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-   733   000F9C  EE21  F00E         	lfsr	2,main@14168
+   733   000F9C  EE21  F00E         	lfsr	2,main@14171
    734   000FA0  0E0D               	movlw	13
-   735   000FA2                     u1061:
+   735   000FA2                     u1071:
    736   000FA2  6ADE               	clrf	postinc2,c
    737   000FA4  06E8               	decf	wreg,f,c
-   738   000FA6  E2FD               	bc	u1061
+   738   000FA6  E2FD               	bc	u1071
    739   000FA8                     
    740                           ; BSR set to: 1
-   741   000FA8  0E01               	movlw	high main@14168
+   741   000FA8  0E01               	movlw	high main@14171
    742   000FAA  6F97               	movwf	(main@Dawn+7)& (0+255),b
-   743   000FAC  0E0E               	movlw	low main@14168
+   743   000FAC  0E0E               	movlw	low main@14171
    744   000FAE  6F96               	movwf	(main@Dawn+6)& (0+255),b
    745   000FB0                     
    746                           ; BSR set to: 1
@@ -781,32 +781,32 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    759   000FC0                     
    760                           ; BSR set to: 1
    761                           ;main.c: 224:         Dusk.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
-   762   000FC0  EE21  F01C         	lfsr	2,main@14170
+   762   000FC0  EE21  F01C         	lfsr	2,main@14173
    763   000FC4  0E0D               	movlw	13
-   764   000FC6                     u1071:
+   764   000FC6                     u1081:
    765   000FC6  6ADE               	clrf	postinc2,c
    766   000FC8  06E8               	decf	wreg,f,c
-   767   000FCA  E2FD               	bc	u1071
+   767   000FCA  E2FD               	bc	u1081
    768   000FCC                     
    769                           ; BSR set to: 1
-   770   000FCC  0E01               	movlw	high main@14170
+   770   000FCC  0E01               	movlw	high main@14173
    771   000FCE  6F9D               	movwf	(main@Dusk+5)& (0+255),b
-   772   000FD0  0E1C               	movlw	low main@14170
+   772   000FD0  0E1C               	movlw	low main@14173
    773   000FD2  6F9C               	movwf	(main@Dusk+4)& (0+255),b
    774   000FD4                     
    775                           ; BSR set to: 1
    776                           ;main.c: 225:         Dusk.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-   777   000FD4  EE21  F02A         	lfsr	2,main@14172
+   777   000FD4  EE21  F02A         	lfsr	2,main@14175
    778   000FD8  0E0D               	movlw	13
-   779   000FDA                     u1081:
+   779   000FDA                     u1091:
    780   000FDA  6ADE               	clrf	postinc2,c
    781   000FDC  06E8               	decf	wreg,f,c
-   782   000FDE  E2FD               	bc	u1081
+   782   000FDE  E2FD               	bc	u1091
    783   000FE0                     
    784                           ; BSR set to: 1
-   785   000FE0  0E01               	movlw	high main@14172
+   785   000FE0  0E01               	movlw	high main@14175
    786   000FE2  6F9F               	movwf	(main@Dusk+7)& (0+255),b
-   787   000FE4  0E2A               	movlw	low main@14172
+   787   000FE4  0E2A               	movlw	low main@14175
    788   000FE6  6F9E               	movwf	(main@Dusk+6)& (0+255),b
    789   000FE8                     
    790                           ; BSR set to: 1
@@ -820,17 +820,17 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    798   000FF2  0E46               	movlw	70
    799   000FF4  6F3C               	movwf	main@light_threshold& (0+255),b
    800                           
-   801                           ;main.c: 242:     unsigned int daycount = 6;
+   801                           ;main.c: 242:     unsigned int daycount = 0;
    802   000FF6  0E00               	movlw	0
    803   000FF8  6F3B               	movwf	(main@daycount+1)& (0+255),b
-   804   000FFA  0E06               	movlw	6
+   804   000FFA  0E00               	movlw	0
    805   000FFC  6F3A               	movwf	main@daycount& (0+255),b
    806   000FFE                     
    807                           ; BSR set to: 1
    808                           ;main.c: 245:     unsigned int previousClockDays = clock.days;
    809   000FFE  C1A6  F138         	movff	main@clock+6,main@previousClockDays
    810   001002  C1A7  F139         	movff	main@clock+7,main@previousClockDays+1
-   811   001006                     l1860:
+   811   001006                     l1878:
    812                           
    813                           ; BSR set to: 1
    814                           ;main.c: 254:         clock.seconds = GLOBALsecs;
@@ -875,69 +875,69 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    852   001050  513D               	movf	(main@light_threshold+1)& (0+255),w,b
    853   001052  593F               	subwfb	(main@curval+1)& (0+255),w,b
    854   001054  B0D8               	btfsc	status,0,c
-   855   001056  EF2F  F008         	goto	u1091
-   856   00105A  EF31  F008         	goto	u1090
-   857   00105E                     u1091:
-   858   00105E  EF70  F008         	goto	l1888
-   859   001062                     u1090:
+   855   001056  EF2F  F008         	goto	u1101
+   856   00105A  EF31  F008         	goto	u1100
+   857   00105E                     u1101:
+   858   00105E  EF70  F008         	goto	l1906
+   859   001062                     u1100:
    860   001062                     
    861                           ; BSR set to: 1
    862                           ;main.c: 277:             if ((clock.hours >= 1 && clock.hours < 5) || (clock.hours >= 8
       +                           && clock.hours < 15)) {
    863   001062  BFA5               	btfsc	(main@clock+5)& (0+255),7,b
-   864   001064  EF3C  F008         	goto	u1101
+   864   001064  EF3C  F008         	goto	u1111
    865   001068  51A5               	movf	(main@clock+5)& (0+255),w,b
-   866   00106A  E108               	bnz	u1100
+   866   00106A  E108               	bnz	u1110
    867   00106C  05A4               	decf	(main@clock+4)& (0+255),w,b
    868   00106E  A0D8               	btfss	status,0,c
-   869   001070  EF3C  F008         	goto	u1101
-   870   001074  EF3E  F008         	goto	u1100
-   871   001078                     u1101:
-   872   001078  EF4C  F008         	goto	l1874
-   873   00107C                     u1100:
+   869   001070  EF3C  F008         	goto	u1111
+   870   001074  EF3E  F008         	goto	u1110
+   871   001078                     u1111:
+   872   001078  EF4C  F008         	goto	l1892
+   873   00107C                     u1110:
    874   00107C                     
    875                           ; BSR set to: 1
    876   00107C  BFA5               	btfsc	(main@clock+5)& (0+255),7,b
-   877   00107E  EF4A  F008         	goto	u1111
+   877   00107E  EF4A  F008         	goto	u1121
    878   001082  51A5               	movf	(main@clock+5)& (0+255),w,b
-   879   001084  E109               	bnz	u1110
+   879   001084  E109               	bnz	u1120
    880   001086  0E05               	movlw	5
    881   001088  5DA4               	subwf	(main@clock+4)& (0+255),w,b
    882   00108A  A0D8               	btfss	status,0,c
-   883   00108C  EF4A  F008         	goto	u1111
-   884   001090  EF4C  F008         	goto	u1110
-   885   001094                     u1111:
+   883   00108C  EF4A  F008         	goto	u1121
+   884   001090  EF4C  F008         	goto	u1120
+   885   001094                     u1121:
    886   001094  EF68  F008         	goto	l45
-   887   001098                     u1110:
-   888   001098                     l1874:
+   887   001098                     u1120:
+   888   001098                     l1892:
    889                           
    890                           ; BSR set to: 1
    891   001098  BFA5               	btfsc	(main@clock+5)& (0+255),7,b
-   892   00109A  EF58  F008         	goto	u1121
+   892   00109A  EF58  F008         	goto	u1131
    893   00109E  51A5               	movf	(main@clock+5)& (0+255),w,b
-   894   0010A0  E109               	bnz	u1120
+   894   0010A0  E109               	bnz	u1130
    895   0010A2  0E08               	movlw	8
    896   0010A4  5DA4               	subwf	(main@clock+4)& (0+255),w,b
    897   0010A6  A0D8               	btfss	status,0,c
-   898   0010A8  EF58  F008         	goto	u1121
-   899   0010AC  EF5A  F008         	goto	u1120
-   900   0010B0                     u1121:
+   898   0010A8  EF58  F008         	goto	u1131
+   899   0010AC  EF5A  F008         	goto	u1130
+   900   0010B0                     u1131:
    901   0010B0  EF6B  F008         	goto	l43
-   902   0010B4                     u1120:
+   902   0010B4                     u1130:
    903   0010B4                     
    904                           ; BSR set to: 1
    905   0010B4  BFA5               	btfsc	(main@clock+5)& (0+255),7,b
-   906   0010B6  EF68  F008         	goto	u1130
+   906   0010B6  EF68  F008         	goto	u1140
    907   0010BA  51A5               	movf	(main@clock+5)& (0+255),w,b
-   908   0010BC  E107               	bnz	u1131
+   908   0010BC  E107               	bnz	u1141
    909   0010BE  0E0F               	movlw	15
    910   0010C0  5DA4               	subwf	(main@clock+4)& (0+255),w,b
    911   0010C2  B0D8               	btfsc	status,0,c
-   912   0010C4  EF66  F008         	goto	u1131
-   913   0010C8  EF68  F008         	goto	u1130
-   914   0010CC                     u1131:
+   912   0010C4  EF66  F008         	goto	u1141
+   913   0010C8  EF68  F008         	goto	u1140
+   914   0010CC                     u1141:
    915   0010CC  EF6B  F008         	goto	l43
-   916   0010D0                     u1130:
+   916   0010D0                     u1140:
    917   0010D0                     l45:
    918                           
    919                           ; BSR set to: 1
@@ -945,7 +945,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    921   0010D0  9680               	bcf	128,3,c	;volatile
    922                           
    923                           ;main.c: 279:             }
-   924   0010D2  EF70  F008         	goto	l1888
+   924   0010D2  EF70  F008         	goto	l1906
    925   0010D6                     l43:
    926                           
    927                           ; BSR set to: 1
@@ -959,7 +959,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    934   0010DA  6F9B               	movwf	(main@Dusk+3)& (0+255),b
    935   0010DC  0E00               	movlw	0
    936   0010DE  6F9A               	movwf	(main@Dusk+2)& (0+255),b
-   937   0010E0                     l1888:
+   937   0010E0                     l1906:
    938                           
    939                           ; BSR set to: 1
    940                           ;main.c: 291:         if (curval > light_threshold){
@@ -968,11 +968,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    943   0010E4  513F               	movf	(main@curval+1)& (0+255),w,b
    944   0010E6  593D               	subwfb	(main@light_threshold+1)& (0+255),w,b
    945   0010E8  B0D8               	btfsc	status,0,c
-   946   0010EA  EF79  F008         	goto	u1141
-   947   0010EE  EF7B  F008         	goto	u1140
-   948   0010F2                     u1141:
-   949   0010F2  EF80  F008         	goto	l1902
-   950   0010F6                     u1140:
+   946   0010EA  EF79  F008         	goto	u1151
+   947   0010EE  EF7B  F008         	goto	u1150
+   948   0010F2                     u1151:
+   949   0010F2  EF80  F008         	goto	l1920
+   950   0010F6                     u1150:
    951   0010F6                     
    952                           ; BSR set to: 1
    953                           ;main.c: 292:             LATHbits.LATH3 = 0;
@@ -984,7 +984,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    959   0010FA  6F93               	movwf	(main@Dawn+3)& (0+255),b
    960   0010FC  0E00               	movlw	0
    961   0010FE  6F92               	movwf	(main@Dawn+2)& (0+255),b
-   962   001100                     l1902:
+   962   001100                     l1920:
    963                           
    964                           ; BSR set to: 1
    965                           ;main.c: 300:         if (clock.days > previousClockDays) {
@@ -993,11 +993,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    968   001104  51A7               	movf	(main@clock+7)& (0+255),w,b
    969   001106  5939               	subwfb	(main@previousClockDays+1)& (0+255),w,b
    970   001108  B0D8               	btfsc	status,0,c
-   971   00110A  EF89  F008         	goto	u1151
-   972   00110E  EF8B  F008         	goto	u1150
-   973   001112                     u1151:
-   974   001112  EF03  F008         	goto	l1860
-   975   001116                     u1150:
+   971   00110A  EF89  F008         	goto	u1161
+   972   00110E  EF8B  F008         	goto	u1160
+   973   001112                     u1161:
+   974   001112  EF03  F008         	goto	l1878
+   975   001116                     u1160:
    976   001116                     
    977                           ; BSR set to: 1
    978                           ;main.c: 301:             Dawn.count = 0;
@@ -1032,42 +1032,42 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1007   001136  193A               	xorwf	main@daycount& (0+255),w,b
   1008   001138  113B               	iorwf	(main@daycount+1)& (0+255),w,b
   1009   00113A  A4D8               	btfss	status,2,c
-  1010   00113C  EFA2  F008         	goto	u1161
-  1011   001140  EFA4  F008         	goto	u1160
-  1012   001144                     u1161:
-  1013   001144  EF03  F008         	goto	l1860
-  1014   001148                     u1160:
+  1010   00113C  EFA2  F008         	goto	u1171
+  1011   001140  EFA4  F008         	goto	u1170
+  1012   001144                     u1171:
+  1013   001144  EF03  F008         	goto	l1878
+  1014   001148                     u1170:
   1015   001148                     
   1016                           ; BSR set to: 1
-  1017                           ;main.c: 311:                 LATDbits.LATD7 = 1;
+  1017                           ;main.c: 318:                 LATDbits.LATD7 = 1;
   1018   001148  8E7C               	bsf	124,7,c	;volatile
   1019                           
-  1020                           ;main.c: 312:                 LATHbits.LATH3 = 1;
+  1020                           ;main.c: 319:                 LATHbits.LATH3 = 1;
   1021   00114A  8680               	bsf	128,3,c	;volatile
   1022   00114C                     
   1023                           ; BSR set to: 1
-  1024                           ;main.c: 313:                 _delay((unsigned long)((500)*(64000000/4000.0)));
+  1024                           ;main.c: 320:                 _delay((unsigned long)((500)*(64000000/4000.0)));
   1025   00114C  0E29               	movlw	41
   1026   00114E  6E0D               	movwf	(??_main+1)^0,c
   1027   001150  0E96               	movlw	150
   1028   001152  6E0C               	movwf	??_main^0,c
   1029   001154  0E7F               	movlw	127
-  1030   001156                     u1177:
+  1030   001156                     u1187:
   1031   001156  2EE8               	decfsz	wreg,f,c
-  1032   001158  D7FE               	bra	u1177
+  1032   001158  D7FE               	bra	u1187
   1033   00115A  2E0C               	decfsz	??_main^0,f,c
-  1034   00115C  D7FC               	bra	u1177
+  1034   00115C  D7FC               	bra	u1187
   1035   00115E  2E0D               	decfsz	(??_main+1)^0,f,c
-  1036   001160  D7FA               	bra	u1177
+  1036   001160  D7FA               	bra	u1187
   1037   001162  0000               	nop	
   1038   001164                     
-  1039                           ;main.c: 318:                 daycount = 0;
+  1039                           ;main.c: 325:                 daycount = 0;
   1040   001164  0E00               	movlw	0
   1041   001166  0101               	movlb	1	; () banked
   1042   001168  6F3B               	movwf	(main@daycount+1)& (0+255),b
   1043   00116A  0E00               	movlw	0
   1044   00116C  6F3A               	movwf	main@daycount& (0+255),b
-  1045   00116E  EF03  F008         	goto	l1860
+  1045   00116E  EF03  F008         	goto	l1878
   1046   001172  EF18  F000         	goto	start
   1047   001176                     __end_of_main:
   1048                           	callstack 0
@@ -1133,18 +1133,18 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1103   001192  C002  FFDA         	movff	UpdateClock@seconds+1,fsr2h
   1104   001196  0E01               	movlw	1
   1105   001198  BEDB               	btfsc	plusw2,7,c
-  1106   00119A  EFD9  F008         	goto	u1011
+  1106   00119A  EFD9  F008         	goto	u1021
   1107   00119E  0E01               	movlw	1
   1108   0011A0  50DB               	movf	plusw2,w,c
-  1109   0011A2  E109               	bnz	u1010
+  1109   0011A2  E109               	bnz	u1020
   1110   0011A4  0E18               	movlw	24
   1111   0011A6  5CDE               	subwf	postinc2,w,c
   1112   0011A8  A0D8               	btfss	status,0,c
-  1113   0011AA  EFD9  F008         	goto	u1011
-  1114   0011AE  EFDB  F008         	goto	u1010
-  1115   0011B2                     u1011:
-  1116   0011B2  EFFB  F008         	goto	l1712
-  1117   0011B6                     u1010:
+  1113   0011AA  EFD9  F008         	goto	u1021
+  1114   0011AE  EFDB  F008         	goto	u1020
+  1115   0011B2                     u1021:
+  1116   0011B2  EFFB  F008         	goto	l1730
+  1117   0011B6                     u1020:
   1118   0011B6                     
   1119                           ;clock.c: 29:                 *seconds = 0;
   1120   0011B6  C001  FFD9         	movff	UpdateClock@seconds,fsr2l
@@ -1171,25 +1171,25 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1141   0011EA  C008  FFDA         	movff	UpdateClock@days+1,fsr2h
   1142   0011EE  C009  FFDE         	movff	??_UpdateClock,postinc2
   1143   0011F2  C00A  FFDD         	movff	??_UpdateClock+1,postdec2
-  1144   0011F6                     l1712:
+  1144   0011F6                     l1730:
   1145                           
   1146                           ;clock.c: 35:     if (*seconds >= 60 ){
   1147   0011F6  C001  FFD9         	movff	UpdateClock@seconds,fsr2l
   1148   0011FA  C002  FFDA         	movff	UpdateClock@seconds+1,fsr2h
   1149   0011FE  0E01               	movlw	1
   1150   001200  BEDB               	btfsc	plusw2,7,c
-  1151   001202  EF0D  F009         	goto	u1021
+  1151   001202  EF0D  F009         	goto	u1031
   1152   001206  0E01               	movlw	1
   1153   001208  50DB               	movf	plusw2,w,c
-  1154   00120A  E109               	bnz	u1020
+  1154   00120A  E109               	bnz	u1030
   1155   00120C  0E3C               	movlw	60
   1156   00120E  5CDE               	subwf	postinc2,w,c
   1157   001210  A0D8               	btfss	status,0,c
-  1158   001212  EF0D  F009         	goto	u1021
-  1159   001216  EF0F  F009         	goto	u1020
-  1160   00121A                     u1021:
-  1161   00121A  EF29  F009         	goto	l1718
-  1162   00121E                     u1020:
+  1158   001212  EF0D  F009         	goto	u1031
+  1159   001216  EF0F  F009         	goto	u1030
+  1160   00121A                     u1031:
+  1161   00121A  EF29  F009         	goto	l1736
+  1162   00121E                     u1030:
   1163   00121E                     
   1164                           ;clock.c: 36:         *seconds = 0;
   1165   00121E  C001  FFD9         	movff	UpdateClock@seconds,fsr2l
@@ -1210,25 +1210,25 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1180   001246  C004  FFDA         	movff	UpdateClock@minutes+1,fsr2h
   1181   00124A  C009  FFDE         	movff	??_UpdateClock,postinc2
   1182   00124E  C00A  FFDD         	movff	??_UpdateClock+1,postdec2
-  1183   001252                     l1718:
+  1183   001252                     l1736:
   1184                           
   1185                           ;clock.c: 40:     if (*minutes >= 60){
   1186   001252  C003  FFD9         	movff	UpdateClock@minutes,fsr2l
   1187   001256  C004  FFDA         	movff	UpdateClock@minutes+1,fsr2h
   1188   00125A  0E01               	movlw	1
   1189   00125C  BEDB               	btfsc	plusw2,7,c
-  1190   00125E  EF3B  F009         	goto	u1031
+  1190   00125E  EF3B  F009         	goto	u1041
   1191   001262  0E01               	movlw	1
   1192   001264  50DB               	movf	plusw2,w,c
-  1193   001266  E109               	bnz	u1030
+  1193   001266  E109               	bnz	u1040
   1194   001268  0E3C               	movlw	60
   1195   00126A  5CDE               	subwf	postinc2,w,c
   1196   00126C  A0D8               	btfss	status,0,c
-  1197   00126E  EF3B  F009         	goto	u1031
-  1198   001272  EF3D  F009         	goto	u1030
-  1199   001276                     u1031:
-  1200   001276  EF57  F009         	goto	l1724
-  1201   00127A                     u1030:
+  1197   00126E  EF3B  F009         	goto	u1041
+  1198   001272  EF3D  F009         	goto	u1040
+  1199   001276                     u1041:
+  1200   001276  EF57  F009         	goto	l1742
+  1201   00127A                     u1040:
   1202   00127A                     
   1203                           ;clock.c: 41:     *minutes = 0;
   1204   00127A  C003  FFD9         	movff	UpdateClock@minutes,fsr2l
@@ -1249,25 +1249,25 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1219   0012A2  C006  FFDA         	movff	UpdateClock@hours+1,fsr2h
   1220   0012A6  C009  FFDE         	movff	??_UpdateClock,postinc2
   1221   0012AA  C00A  FFDD         	movff	??_UpdateClock+1,postdec2
-  1222   0012AE                     l1724:
+  1222   0012AE                     l1742:
   1223                           
   1224                           ;clock.c: 45:     if (*hours >= 24){
   1225   0012AE  C005  FFD9         	movff	UpdateClock@hours,fsr2l
   1226   0012B2  C006  FFDA         	movff	UpdateClock@hours+1,fsr2h
   1227   0012B6  0E01               	movlw	1
   1228   0012B8  BEDB               	btfsc	plusw2,7,c
-  1229   0012BA  EF69  F009         	goto	u1041
+  1229   0012BA  EF69  F009         	goto	u1051
   1230   0012BE  0E01               	movlw	1
   1231   0012C0  50DB               	movf	plusw2,w,c
-  1232   0012C2  E109               	bnz	u1040
+  1232   0012C2  E109               	bnz	u1050
   1233   0012C4  0E18               	movlw	24
   1234   0012C6  5CDE               	subwf	postinc2,w,c
   1235   0012C8  A0D8               	btfss	status,0,c
-  1236   0012CA  EF69  F009         	goto	u1041
-  1237   0012CE  EF6B  F009         	goto	u1040
-  1238   0012D2                     u1041:
+  1236   0012CA  EF69  F009         	goto	u1051
+  1237   0012CE  EF6B  F009         	goto	u1050
+  1238   0012D2                     u1051:
   1239   0012D2  EF85  F009         	goto	l260
-  1240   0012D6                     u1040:
+  1240   0012D6                     u1050:
   1241   0012D6                     
   1242                           ;clock.c: 46:     *hours = 0;
   1243   0012D6  C005  FFD9         	movff	UpdateClock@hours,fsr2l
@@ -1508,11 +1508,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1463                           ;LEDarray.c: 49: void LEDarray_disp_bin(unsigned int number);LEDarray.c: 50: {;LEDarray.
       +                          c: 53:     if (number & 0b000000001){ LATGbits.LATG0 = 1 ; }
   1464   00130C  A001               	btfss	LEDarray_disp_bin@number^0,0,c
-  1465   00130E  EF8B  F009         	goto	u771
-  1466   001312  EF8D  F009         	goto	u770
-  1467   001316                     u771:
+  1465   00130E  EF8B  F009         	goto	u781
+  1466   001312  EF8D  F009         	goto	u780
+  1467   001316                     u781:
   1468   001316  EF90  F009         	goto	l99
-  1469   00131A                     u770:
+  1469   00131A                     u780:
   1470   00131A  807F               	bsf	127,0,c	;volatile
   1471   00131C  EF91  F009         	goto	l100
   1472   001320                     l99:
@@ -1521,11 +1521,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1475                           
   1476                           ;LEDarray.c: 56:     if (number & 0b000000010){ LATGbits.LATG1 = 1 ; }
   1477   001322  A201               	btfss	LEDarray_disp_bin@number^0,1,c
-  1478   001324  EF96  F009         	goto	u781
-  1479   001328  EF98  F009         	goto	u780
-  1480   00132C                     u781:
+  1478   001324  EF96  F009         	goto	u791
+  1479   001328  EF98  F009         	goto	u790
+  1480   00132C                     u791:
   1481   00132C  EF9B  F009         	goto	l101
-  1482   001330                     u780:
+  1482   001330                     u790:
   1483   001330  827F               	bsf	127,1,c	;volatile
   1484   001332  EF9C  F009         	goto	l102
   1485   001336                     l101:
@@ -1534,11 +1534,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1488                           
   1489                           ;LEDarray.c: 59:     if (number & 0b000000100){ LATAbits.LATA2 = 1 ; }
   1490   001338  A401               	btfss	LEDarray_disp_bin@number^0,2,c
-  1491   00133A  EFA1  F009         	goto	u791
-  1492   00133E  EFA3  F009         	goto	u790
-  1493   001342                     u791:
+  1491   00133A  EFA1  F009         	goto	u801
+  1492   00133E  EFA3  F009         	goto	u800
+  1493   001342                     u801:
   1494   001342  EFA6  F009         	goto	l103
-  1495   001346                     u790:
+  1495   001346                     u800:
   1496   001346  8479               	bsf	121,2,c	;volatile
   1497   001348  EFA7  F009         	goto	l104
   1498   00134C                     l103:
@@ -1547,11 +1547,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1501                           
   1502                           ;LEDarray.c: 62:     if (number & 0b000001000){ LATFbits.LATF6 = 1 ; }
   1503   00134E  A601               	btfss	LEDarray_disp_bin@number^0,3,c
-  1504   001350  EFAC  F009         	goto	u801
-  1505   001354  EFAE  F009         	goto	u800
-  1506   001358                     u801:
+  1504   001350  EFAC  F009         	goto	u811
+  1505   001354  EFAE  F009         	goto	u810
+  1506   001358                     u811:
   1507   001358  EFB1  F009         	goto	l105
-  1508   00135C                     u800:
+  1508   00135C                     u810:
   1509   00135C  8C7E               	bsf	126,6,c	;volatile
   1510   00135E  EFB2  F009         	goto	l106
   1511   001362                     l105:
@@ -1560,11 +1560,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1514                           
   1515                           ;LEDarray.c: 65:     if (number & 0b000010000){ LATAbits.LATA4 = 1 ; }
   1516   001364  A801               	btfss	LEDarray_disp_bin@number^0,4,c
-  1517   001366  EFB7  F009         	goto	u811
-  1518   00136A  EFB9  F009         	goto	u810
-  1519   00136E                     u811:
+  1517   001366  EFB7  F009         	goto	u821
+  1518   00136A  EFB9  F009         	goto	u820
+  1519   00136E                     u821:
   1520   00136E  EFBC  F009         	goto	l107
-  1521   001372                     u810:
+  1521   001372                     u820:
   1522   001372  8879               	bsf	121,4,c	;volatile
   1523   001374  EFBD  F009         	goto	l108
   1524   001378                     l107:
@@ -1573,11 +1573,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1527                           
   1528                           ;LEDarray.c: 68:     if (number & 0b000100000){ LATAbits.LATA5 = 1 ; }
   1529   00137A  AA01               	btfss	LEDarray_disp_bin@number^0,5,c
-  1530   00137C  EFC2  F009         	goto	u821
-  1531   001380  EFC4  F009         	goto	u820
-  1532   001384                     u821:
+  1530   00137C  EFC2  F009         	goto	u831
+  1531   001380  EFC4  F009         	goto	u830
+  1532   001384                     u831:
   1533   001384  EFC7  F009         	goto	l109
-  1534   001388                     u820:
+  1534   001388                     u830:
   1535   001388  8A79               	bsf	121,5,c	;volatile
   1536   00138A  EFC8  F009         	goto	l110
   1537   00138E                     l109:
@@ -1586,11 +1586,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1540                           
   1541                           ;LEDarray.c: 71:     if (number & 0b001000000){ LATFbits.LATF0 = 1 ; }
   1542   001390  AC01               	btfss	LEDarray_disp_bin@number^0,6,c
-  1543   001392  EFCD  F009         	goto	u831
-  1544   001396  EFCF  F009         	goto	u830
-  1545   00139A                     u831:
+  1543   001392  EFCD  F009         	goto	u841
+  1544   001396  EFCF  F009         	goto	u840
+  1545   00139A                     u841:
   1546   00139A  EFD2  F009         	goto	l111
-  1547   00139E                     u830:
+  1547   00139E                     u840:
   1548   00139E  807E               	bsf	126,0,c	;volatile
   1549   0013A0  EFD3  F009         	goto	l112
   1550   0013A4                     l111:
@@ -1599,11 +1599,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1553                           
   1554                           ;LEDarray.c: 74:     if (number & 0b010000000){ LATBbits.LATB0 = 1 ; }
   1555   0013A6  AE01               	btfss	LEDarray_disp_bin@number^0,7,c
-  1556   0013A8  EFD8  F009         	goto	u841
-  1557   0013AC  EFDA  F009         	goto	u840
-  1558   0013B0                     u841:
+  1556   0013A8  EFD8  F009         	goto	u851
+  1557   0013AC  EFDA  F009         	goto	u850
+  1558   0013B0                     u851:
   1559   0013B0  EFDD  F009         	goto	l113
-  1560   0013B4                     u840:
+  1560   0013B4                     u850:
   1561   0013B4  807A               	bsf	122,0,c	;volatile
   1562   0013B6  EFDE  F009         	goto	l114
   1563   0013BA                     l113:
@@ -1612,11 +1612,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1566                           
   1567                           ;LEDarray.c: 77:     if (number & 0b100000000){ LATBbits.LATB1 = 1 ; }
   1568   0013BC  A002               	btfss	(LEDarray_disp_bin@number+1)^0,0,c
-  1569   0013BE  EFE3  F009         	goto	u851
-  1570   0013C2  EFE5  F009         	goto	u850
-  1571   0013C6                     u851:
+  1569   0013BE  EFE3  F009         	goto	u861
+  1570   0013C2  EFE5  F009         	goto	u860
+  1571   0013C6                     u861:
   1572   0013C6  EFE8  F009         	goto	l115
-  1573   0013CA                     u850:
+  1573   0013CA                     u860:
   1574   0013CA  827A               	bsf	122,1,c	;volatile
   1575   0013CC  EFE9  F009         	goto	l117
   1576   0013D0                     l115:
@@ -1690,11 +1690,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1639                           
   1640 ;; *************** function _ArrayAppend *****************
   1641 ;; Defined at:
-  1642 ;;		line 6 in file "synchronisation.c"
+  1642 ;;		line 6 in file "arrayfunction.c"
   1643 ;; Parameters:    Size  Location     Type
   1644 ;;  arrayTime       2    0[COMRAM] PTR int 
-  1645 ;;		 -> RAM(3583), main@14172(14), main@14170(14), main@14168(14), 
-  1646 ;;		 -> main@14166(14), 
+  1645 ;;		 -> RAM(3583), main@14175(14), main@14173(14), main@14171(14), 
+  1646 ;;		 -> main@14169(14), 
   1647 ;;  size            2    2[COMRAM] int 
   1648 ;;  Time            2    4[COMRAM] int 
   1649 ;; Auto vars:     Size  Location     Type
@@ -1733,21 +1733,21 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1677   0013D4                     _ArrayAppend:
   1678                           	callstack 29
   1679   0013D4                     
-  1680                           ;synchronisation.c: 8:         for (int i = 1; i <= size-1; i++) {
+  1680                           ;arrayfunction.c: 8:         for (int i = 1; i <= size-1; i++) {
   1681   0013D4  0E00               	movlw	0
   1682   0013D6  6E0B               	movwf	(ArrayAppend@i+1)^0,c
   1683   0013D8  0E01               	movlw	1
   1684   0013DA  6E0A               	movwf	ArrayAppend@i^0,c
-  1685   0013DC  EF10  F00A         	goto	l1504
-  1686   0013E0                     l1494:
+  1685   0013DC  EF10  F00A         	goto	l1522
+  1686   0013E0                     l1512:
   1687                           
-  1688                           ;synchronisation.c: 10:             if (i = 6) {
+  1688                           ;arrayfunction.c: 10:             if (i = 6) {
   1689   0013E0  0E00               	movlw	0
   1690   0013E2  6E0B               	movwf	(ArrayAppend@i+1)^0,c
   1691   0013E4  0E06               	movlw	6
   1692   0013E6  6E0A               	movwf	ArrayAppend@i^0,c
   1693   0013E8                     
-  1694                           ;synchronisation.c: 11:                 arrayTime[i-1] = arrayTime[i];
+  1694                           ;arrayfunction.c: 11:                 arrayTime[i-1] = arrayTime[i];
   1695   0013E8  EE20 F00C          	lfsr	2,12
   1696   0013EC  5001               	movf	ArrayAppend@arrayTime^0,w,c
   1697   0013EE  26D9               	addwf	fsr2l,f,c
@@ -1761,7 +1761,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1705   001400  CFDE FFE6          	movff	postinc2,postinc1
   1706   001404  CFDD FFE5          	movff	postdec2,postdec1
   1707   001408                     
-  1708                           ;synchronisation.c: 12:                 arrayTime[i] = Time;
+  1708                           ;arrayfunction.c: 12:                 arrayTime[i] = Time;
   1709   001408  EE20 F00C          	lfsr	2,12
   1710   00140C  5001               	movf	ArrayAppend@arrayTime^0,w,c
   1711   00140E  26D9               	addwf	fsr2l,f,c
@@ -1770,10 +1770,10 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1714   001414  C005  FFDE         	movff	ArrayAppend@Time,postinc2
   1715   001418  C006  FFDD         	movff	ArrayAppend@Time+1,postdec2
   1716   00141C                     
-  1717                           ;synchronisation.c: 18:         }
+  1717                           ;arrayfunction.c: 18:         }
   1718   00141C  4A0A               	infsnz	ArrayAppend@i^0,f,c
   1719   00141E  2A0B               	incf	(ArrayAppend@i+1)^0,f,c
-  1720   001420                     l1504:
+  1720   001420                     l1522:
   1721   001420  0EFF               	movlw	255
   1722   001422  2403               	addwf	ArrayAppend@size^0,w,c
   1723   001424  6E07               	movwf	??_ArrayAppend^0,c
@@ -1789,11 +1789,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1733   001438  0A80               	xorlw	128
   1734   00143A  5809               	subwfb	(??_ArrayAppend+2)^0,w,c
   1735   00143C  B0D8               	btfsc	status,0,c
-  1736   00143E  EF23  F00A         	goto	u871
-  1737   001442  EF25  F00A         	goto	u870
-  1738   001446                     u871:
-  1739   001446  EFF0  F009         	goto	l1494
-  1740   00144A                     u870:
+  1736   00143E  EF23  F00A         	goto	u881
+  1737   001442  EF25  F00A         	goto	u880
+  1738   001446                     u881:
+  1739   001446  EFF0  F009         	goto	l1512
+  1740   00144A                     u880:
   1741   00144A  0012               	return		;funcret
   1742   00144C                     __end_of_ArrayAppend:
   1743                           	callstack 0
@@ -1921,11 +1921,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1855   00144C  8060               	bsf	96,0,c	;volatile
   1856   00144E                     l74:
   1857   00144E  B060               	btfsc	96,0,c	;volatile
-  1858   001450  EF2C  F00A         	goto	u861
-  1859   001454  EF2E  F00A         	goto	u860
-  1860   001458                     u861:
+  1858   001450  EF2C  F00A         	goto	u871
+  1859   001454  EF2E  F00A         	goto	u870
+  1860   001458                     u871:
   1861   001458  EF27  F00A         	goto	l74
-  1862   00145C                     u860:
+  1862   00145C                     u870:
   1863   00145C                     
   1864                           ;ADC.c: 30:     tmpval = ADRESH;
   1865   00145C  CF64 F003          	movff	3940,ADC_getval@tmpval	;volatile
@@ -1994,11 +1994,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1923                           ;interrupts.c: 35:     if(PIR0bits.TMR0IF){
   1924   00000A  010E               	movlb	14	; () banked
   1925   00000C  AB33               	btfss	51,5,b	;volatile
-  1926   00000E  EF0B  F000         	goto	i2u100_41
-  1927   000012  EF0D  F000         	goto	i2u100_40
-  1928   000016                     i2u100_41:
+  1926   00000E  EF0B  F000         	goto	i2u101_41
+  1927   000012  EF0D  F000         	goto	i2u101_40
+  1928   000016                     i2u101_41:
   1929   000016  EF16  F000         	goto	i2l232
-  1930   00001A                     i2u100_40:
+  1930   00001A                     i2u101_40:
   1931   00001A                     
   1932                           ; BSR set to: 14
   1933                           ;interrupts.c: 37:         TMR0H = 0b00001011;
@@ -2149,7 +2149,7 @@ Auto Spaces:
 Pointer List with Targets:
 
     ArrayAppend@arrayTime	PTR int  size(2) Largest target is 3583
-		 -> main@14166(BANK1[14]), main@14168(BANK1[14]), main@14170(BANK1[14]), main@14172(BANK1[14]), 
+		 -> main@14169(BANK1[14]), main@14171(BANK1[14]), main@14173(BANK1[14]), main@14175(BANK1[14]), 
 		 -> RAM(DATA[3583]), 
 
     UpdateClock@days	PTR int  size(2) Largest target is 8
@@ -2413,7 +2413,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Thu Feb 08 23:16:35 2024
+Symbol Table                                                                                   Fri Feb 09 00:30:11 2024
 
                        l43 10D6                         l45 10D0                         l71 14DA  
                        l74 144E                         l76 145C                         l77 147A  
@@ -2425,67 +2425,67 @@ Symbol Table                                                                    
                       l115 13D0                        l107 1378                        l108 137A  
                       l117 13D2                        l109 138E                        l226 14FE  
                       l260 130A                        l245 14C0                        l268 144A  
-                      u800 135C                        u801 1358                        u810 1372  
-                      u811 136E                        u820 1388                        u821 1384  
-                      u830 139E                        u831 139A                        u840 13B4  
-                      u841 13B0                        u850 13CA                        u770 131A  
-                      u851 13C6                        u771 1316                        u860 145C  
-                      u780 1330                        u861 1458                        u781 132C  
-                      u870 144A                        u790 1346                        u871 1446  
-                      u791 1342                        wreg 0FE8                       l1420 14AA  
-                     l1430 14CC                       l1502 141C                       l1422 14B4  
-                     l1432 14D4                       l1504 1420                       l1416 147C  
-                     l1424 14BE                       l1434 14D6                       l1426 14F2  
-                     l1418 14A2                       l1436 14D8                       l1428 14C2  
-                     l1470 1346                       l1710 11CE                       l1480 13B4  
-                     l1472 135C                       l1464 130C                       l1720 127A  
-                     l1712 11F6                       l1704 1176                       l1800 0EF8  
-                     l1482 13CA                       l1474 1372                       l1466 131A  
-                     l1722 1286                       l1714 121E                       l1706 118E  
-                     l1810 0F20                       l1802 0F00                       l1730 0E02  
-                     l1484 144C                       l1492 13D4                       l1476 1388  
-                     l1468 1330                       l1724 12AE                       l1716 122A  
-                     l1708 11B6                       l1820 0F48                       l1812 0F28  
-                     l1804 0F08                       l1740 0E12                       l1732 0E06  
-                     l1486 1462                       l1494 13E0                       l1478 139E  
-                     l1726 12D6                       l1718 1252                       l1910 112C  
-                     l1902 1100                       l1830 0F70                       l1822 0F50  
-                     l1814 0F30                       l1806 0F10                       l1750 0E30  
-                     l1742 0E14                       l1734 0E0A                       l1488 1472  
-                     l1496 13E8                       l1728 12E2                       l1912 1134  
-                     l1904 1116                       l1840 0F9C                       l1832 0F78  
-                     l1824 0F58                       l1816 0F38                       l1808 0F18  
-                     l1760 0E58                       l1752 0E38                       l1744 0E16  
-                     l1736 0E0E                       l1498 1408                       l1914 1148  
-                     l1906 1126                       l1850 0FCC                       l1842 0FA8  
-                     l1834 0F80                       l1826 0F60                       l1818 0F40  
-                     l1770 0E80                       l1762 0E60                       l1754 0E40  
-                     l1746 0E20                       l1738 0E10                       l1916 114C  
-                     l1908 112A                       l1860 1006                       l1852 0FD4  
-                     l1844 0FB0                       l1836 0F88                       l1828 0F68  
-                     l1780 0EA8                       l1772 0E88                       l1764 0E68  
-                     l1756 0E48                       l1748 0E28                       l1918 1164  
-                     l1870 1062                       l1862 100E                       l1854 0FE0  
-                     l1846 0FB8                       l1838 0F94                       l1790 0ED0  
-                     l1782 0EB0                       l1774 0E90                       l1766 0E70  
-                     l1758 0E50                       l1872 107C                       l1864 1032  
-                     l1856 0FE8                       l1848 0FC0                       l1792 0ED8  
-                     l1784 0EB8                       l1776 0E98                       l1768 0E78  
-                     l1890 10F6                       l1874 1098                       l1866 103E  
-                     l1858 0FFE                       l1794 0EE0                       l1786 0EC0  
-                     l1778 0EA0                       l1892 10F8                       l1876 10B4  
-                     l1868 104A                       l1796 0EE8                       l1788 0EC8  
-                     l1878 10D8                       l1798 0EF0                       l1888 10E0  
-                     u1010 11B6                       u1011 11B2                       u1020 121E  
-                     u1100 107C                       u1021 121A                       u1101 1078  
-                     u1030 127A                       u1110 1098                       u1031 1276  
-                     u1111 1094                       u1040 12D6                       u1120 10B4  
-                     u1041 12D2                       u1121 10B0                       u1130 10D0  
-                     u1131 10CC                       u1051 0F8E                       u1140 10F6  
-                     u1141 10F2                       u1061 0FA2                       u1150 1116  
-                     u1151 1112                       u1071 0FC6                       u1160 1148  
-                     u1161 1144                       u1081 0FDA                       u1090 1062  
-                     u1091 105E                       u1177 1156                       _main 0E02  
+                      u800 1346                        u801 1342                        u810 135C  
+                      u811 1358                        u820 1372                        u821 136E  
+                      u830 1388                        u831 1384                        u840 139E  
+                      u841 139A                        u850 13B4                        u851 13B0  
+                      u860 13CA                        u780 131A                        u861 13C6  
+                      u781 1316                        u870 145C                        u790 1330  
+                      u871 1458                        u791 132C                        u880 144A  
+                      u881 1446                        wreg 0FE8                       l1500 13CA  
+                     l1502 144C                       l1510 13D4                       l1504 1462  
+                     l1520 141C                       l1512 13E0                       l1440 14B4  
+                     l1506 1472                       l1450 14D4                       l1514 13E8  
+                     l1522 1420                       l1434 147C                       l1442 14BE  
+                     l1452 14D6                       l1516 1408                       l1444 14F2  
+                     l1436 14A2                       l1454 14D8                       l1446 14C2  
+                     l1438 14AA                       l1448 14CC                       l1800 0EB0  
+                     l1490 135C                       l1482 130C                       l1730 11F6  
+                     l1722 1176                       l1810 0ED8                       l1802 0EB8  
+                     l1492 1372                       l1484 131A                       l1740 1286  
+                     l1732 121E                       l1724 118E                       l1820 0F00  
+                     l1812 0EE0                       l1804 0EC0                       l1494 1388  
+                     l1486 1330                       l1742 12AE                       l1734 122A  
+                     l1726 11B6                       l1910 10F8                       l1830 0F28  
+                     l1822 0F08                       l1814 0EE8                       l1806 0EC8  
+                     l1750 0E06                       l1496 139E                       l1488 1346  
+                     l1744 12D6                       l1736 1252                       l1728 11CE  
+                     l1920 1100                       l1840 0F50                       l1832 0F30  
+                     l1824 0F10                       l1816 0EF0                       l1808 0ED0  
+                     l1760 0E14                       l1752 0E0A                       l1498 13B4  
+                     l1746 12E2                       l1738 127A                       l1930 1134  
+                     l1922 1116                       l1906 10E0                       l1850 0F78  
+                     l1842 0F58                       l1834 0F38                       l1826 0F18  
+                     l1818 0EF8                       l1770 0E38                       l1762 0E16  
+                     l1754 0E0E                       l1932 1148                       l1924 1126  
+                     l1908 10F6                       l1860 0FA8                       l1852 0F80  
+                     l1844 0F60                       l1836 0F40                       l1828 0F20  
+                     l1780 0E60                       l1772 0E40                       l1764 0E20  
+                     l1756 0E10                       l1748 0E02                       l1934 114C  
+                     l1926 112A                       l1870 0FD4                       l1862 0FB0  
+                     l1854 0F88                       l1846 0F68                       l1838 0F48  
+                     l1790 0E88                       l1782 0E68                       l1774 0E48  
+                     l1766 0E28                       l1758 0E12                       l1936 1164  
+                     l1928 112C                       l1880 100E                       l1872 0FE0  
+                     l1864 0FB8                       l1856 0F94                       l1848 0F70  
+                     l1792 0E90                       l1784 0E70                       l1776 0E50  
+                     l1768 0E30                       l1890 107C                       l1882 1032  
+                     l1874 0FE8                       l1866 0FC0                       l1858 0F9C  
+                     l1794 0E98                       l1786 0E78                       l1778 0E58  
+                     l1892 1098                       l1884 103E                       l1876 0FFE  
+                     l1868 0FCC                       l1796 0EA0                       l1788 0E80  
+                     l1894 10B4                       l1886 104A                       l1878 1006  
+                     l1798 0EA8                       l1896 10D8                       l1888 1062  
+                     u1020 11B6                       u1100 1062                       u1021 11B2  
+                     u1101 105E                       u1030 121E                       u1110 107C  
+                     u1031 121A                       u1111 1078                       u1040 127A  
+                     u1120 1098                       u1041 1276                       u1121 1094  
+                     u1050 12D6                       u1130 10B4                       u1051 12D2  
+                     u1131 10B0                       u1140 10D0                       u1141 10CC  
+                     u1061 0F8E                       u1150 10F6                       u1151 10F2  
+                     u1071 0FA2                       u1160 1116                       u1161 1112  
+                     u1081 0FC6                       u1170 1148                       u1171 1144  
+                     u1091 0FDA                       u1187 1156                       _main 0E02  
                      fsr1h 0FE2                       fsr2h 0FDA                       fsr1l 0FE1  
                      fsr2l 0FD9                       btemp 000E                       start 0030  
          __end_of_ADC_init 14DC        main@light_threshold 013C            __end_of_HighISR 0030  
@@ -2496,8 +2496,8 @@ Symbol Table                                                                    
                     status 0FD8                      wtemp8 000F            __initialization 14DC  
           ArrayAppend@Time 0005               __end_of_main 1176            ArrayAppend@size 0003  
                    ??_main 000C              __activetblptr 0000                     _ADRESH 0F64  
-         UpdateClock@hours 0005                     i2l1700 0022                     i2l1702 0028  
-                   i2l1696 000A                     i2l1698 001A                  ??_HighISR 0001  
+         UpdateClock@hours 0005                     i2l1720 0028                     i2l1714 000A  
+                   i2l1716 001A                     i2l1718 0022                  ??_HighISR 0001  
               _ArrayAppend 13D4          _LEDarray_disp_bin 130C         ?_LEDarray_disp_bin 0001  
              ??_ADC_getval 0003              ??_Timer0_init 0001        ??_LEDarray_disp_bin 0003  
                    clear_0 14E2                     isa$std 0001               __mediumconst 0000  
@@ -2519,8 +2519,8 @@ Symbol Table                                                                    
                   main@Nov 017C       end_of_initialization 14E8           ADC_getval@tmpval 0003  
           ??_LEDarray_init 0001                _UpdateClock 1176               ?_ArrayAppend 0001  
                   postdec1 0FE5                    postdec2 0FDD                    postinc0 0FEE  
-                  postinc1 0FE6                    postinc2 0FDE                 main@F14171 01A8  
-               main@F14165 01D2                 main@F14167 01C4                 main@F14169 01B6  
+                  postinc1 0FE6                    postinc2 0FDE                 main@F14170 01C4  
+               main@F14172 01B6                 main@F14174 01A8                 main@F14168 01D2  
                 _TRISAbits 0F81                  _TRISBbits 0F82                  _TRISDbits 0F84  
                 _TRISFbits 0F86                  _TRISGbits 0F87                  _TRISHbits 0F88  
     main@previousClockDays 0138                _CM1CON0bits 0ED0                _CM1CON1bits 0ED1  
@@ -2531,9 +2531,9 @@ Symbol Table                                                                    
                  _LATAbits 0F79         UpdateClock@minutes 0003         UpdateClock@seconds 0001  
                  _LATBbits 0F7A                   _LATDbits 0F7C                   _LATFbits 0F7E  
                  _LATGbits 0F7F                   _LATHbits 0F80                   _IPR0bits 0E1F  
-                 _PIE0bits 0E29                   i2u100_40 001A                   i2u100_41 0016  
-                 _PIR0bits 0E33                  main@14170 011C                  main@14172 012A  
-                main@14166 0100                  main@14168 010E                  main@DSTon 0188  
+                 _PIE0bits 0E29                   i2u101_40 001A                   i2u101_41 0016  
+                 _PIR0bits 0E33                  main@14171 010E                  main@14173 011C  
+                main@14175 012A                  main@14169 0100                  main@DSTon 0188  
                _ADCON0bits 0F60                  main@clock 01A0                 _CM1NCHbits 0ED2  
                _CM1PCHbits 0ED3      __end_of_LEDarray_init 14A2                   __Hrparam 0000  
                _ADC_getval 144C                   __Lrparam 0000                 _ANSELAbits 0E92  

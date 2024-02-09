@@ -17,7 +17,7 @@
 #include "seconds.h"
 #include "clock.h"
 #include "ADC.h"
-#include "synchronisation.h"
+#include "arrayfunction.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
@@ -309,7 +309,9 @@ void main(void)
                 
                 //function here to average all the dawn/dusk times and compare with known value
                 
-            }
+                
+                
+            
                 
                 
                 

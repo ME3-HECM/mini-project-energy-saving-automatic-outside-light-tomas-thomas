@@ -1,5 +1,5 @@
-#ifndef _synchronisation_H
-#define _synchronisation_H
+#ifndef _arrayfunction_H
+#define _arrayfunction_H
 
 #include <xc.h>
 
@@ -7,6 +7,6 @@
 
 int ArrayAppend(int arrayTime[], int size, int Time);
 
-
+int ArrayAverage(int arrayTime[], int size);
 
 #endif

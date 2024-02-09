@@ -7,6 +7,8 @@
 [v _ADC_init ADC_init `(v  1 e 1 0 ]
 "22
 [v _ADC_getval ADC_getval `(ui  1 e 2 0 ]
+"6 C:\Users\thoma\Desktop\ME3 ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\arrayfunction.c
+[v _ArrayAppend ArrayAppend `(i  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\float.c
@@ -19,6 +21,8 @@
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
 "19 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
@@ -47,8 +51,6 @@
 [v _LEDarray_disp_bin LEDarray_disp_bin `(v  1 e 1 0 ]
 "28 C:\Users\thoma\Desktop\ME3 ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"6 C:\Users\thoma\Desktop\ME3 ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\synchronisation.c
-[v _ArrayAppend ArrayAppend `(i  1 e 2 0 ]
 "8 C:\Users\thoma\Desktop\ME3 ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
 "8 C:\Users\thoma\Desktop\ME3 ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X/seconds.h
@@ -497,13 +499,13 @@
 "271
 [v main@curval curval `ui  1 a 2 62 ]
 "225
-[v main@14172 F14172 `[7]i  1 a 14 42 ]
+[v main@14175 F14175 `[7]i  1 a 14 42 ]
 "224
-[v main@14170 F14170 `[7]i  1 a 14 28 ]
+[v main@14173 F14173 `[7]i  1 a 14 28 ]
 "219
-[v main@14168 F14168 `[7]i  1 a 14 14 ]
+[v main@14171 F14171 `[7]i  1 a 14 14 ]
 "218
-[v main@14166 F14166 `[7]i  1 a 14 0 ]
+[v main@14169 F14169 `[7]i  1 a 14 0 ]
 [s S162 time_structure 8 `i 1 seconds 2 0 `i 1 minutes 2 2 `i 1 hours 2 4 `i 1 days 2 6 ]
 "54
 [v main@clock clock `S162  1 a 8 160 ]
@@ -545,7 +547,7 @@
 [v main@daycount daycount `ui  1 a 2 58 ]
 "245
 [v main@previousClockDays previousClockDays `ui  1 a 2 56 ]
-"322
+"329
 } 0
 "24 C:\Users\thoma\Desktop\ME3 ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\clock.c
 [v _UpdateClock UpdateClock `(v  1 e 1 0 ]
@@ -577,7 +579,7 @@
 {
 "25
 } 0
-"6 C:\Users\thoma\Desktop\ME3 ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\synchronisation.c
+"6 C:\Users\thoma\Desktop\ME3 ECM\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X\arrayfunction.c
 [v _ArrayAppend ArrayAppend `(i  1 e 2 0 ]
 {
 "8

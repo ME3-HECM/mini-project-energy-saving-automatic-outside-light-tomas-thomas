@@ -101,8 +101,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9 ./ADC.h
 [; ;./ADC.h: 9: unsigned int ADC_getval(void);
 [v _ADC_getval `(ui ~T0 @X0 0 ef ]
-"8 ./synchronisation.h
-[; ;./synchronisation.h: 8: int ArrayAppend(int arrayTime[], int size, int Time);
+"8 ./arrayfunction.h
+[; ;./arrayfunction.h: 8: int ArrayAppend(int arrayTime[], int size, int Time);
 [v _ArrayAppend `(i ~T0 @X0 0 ef3`*i`i`i ]
 [v F205 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
@@ -2103,8 +2103,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _main ]
 [f ]
-[v F14165 `i ~T0 @X0 -> 7 `i s ]
-[i F14165
+[v F14168 `i ~T0 @X0 -> 7 `i s ]
+[i F14168
 :U ..
 -> 0 `i
 -> 0 `i
@@ -2117,9 +2117,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "218
 [; ;main.c: 218:         Dawn.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
-[v F14166 `i ~T0 @X0 -> 7 `i a ]
-[v F14167 `i ~T0 @X0 -> 7 `i s ]
-[i F14167
+[v F14169 `i ~T0 @X0 -> 7 `i a ]
+[v F14170 `i ~T0 @X0 -> 7 `i s ]
+[i F14170
 :U ..
 -> 0 `i
 -> 0 `i
@@ -2132,9 +2132,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "219
 [; ;main.c: 219:         Dawn.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-[v F14168 `i ~T0 @X0 -> 7 `i a ]
-[v F14169 `i ~T0 @X0 -> 7 `i s ]
-[i F14169
+[v F14171 `i ~T0 @X0 -> 7 `i a ]
+[v F14172 `i ~T0 @X0 -> 7 `i s ]
+[i F14172
 :U ..
 -> 0 `i
 -> 0 `i
@@ -2147,9 +2147,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "224
 [; ;main.c: 224:         Dusk.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
-[v F14170 `i ~T0 @X0 -> 7 `i a ]
-[v F14171 `i ~T0 @X0 -> 7 `i s ]
-[i F14171
+[v F14173 `i ~T0 @X0 -> 7 `i a ]
+[v F14174 `i ~T0 @X0 -> 7 `i s ]
+[i F14174
 :U ..
 -> 0 `i
 -> 0 `i
@@ -2162,7 +2162,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "225
 [; ;main.c: 225:         Dusk.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-[v F14172 `i ~T0 @X0 -> 7 `i a ]
+[v F14175 `i ~T0 @X0 -> 7 `i a ]
 "31
 [; ;main.c: 31:     LEDarray_init();
 [e ( _LEDarray_init ..  ]
@@ -2369,10 +2369,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . _Dawn 1 -> 0 `i ]
 "218
 [; ;main.c: 218:         Dawn.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
-[e = . _Dawn 2 -> &U ; = F14166 F14165 F14166 `i ]
+[e = . _Dawn 2 -> &U ; = F14169 F14168 F14169 `i ]
 "219
 [; ;main.c: 219:         Dawn.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-[e = . _Dawn 3 -> &U ; = F14168 F14167 F14168 `i ]
+[e = . _Dawn 3 -> &U ; = F14171 F14170 F14171 `i ]
 "221
 [; ;main.c: 221:     struct array_structure Dusk;
 [v _Dusk `S2018 ~T0 @X0 1 a ]
@@ -2384,10 +2384,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . _Dusk 1 -> 0 `i ]
 "224
 [; ;main.c: 224:         Dusk.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
-[e = . _Dusk 2 -> &U ; = F14170 F14169 F14170 `i ]
+[e = . _Dusk 2 -> &U ; = F14173 F14172 F14173 `i ]
 "225
 [; ;main.c: 225:         Dusk.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-[e = . _Dusk 3 -> &U ; = F14172 F14171 F14172 `i ]
+[e = . _Dusk 3 -> &U ; = F14175 F14174 F14175 `i ]
 "236
 [; ;main.c: 236:     ADC_init();
 [e ( _ADC_init ..  ]
@@ -2396,9 +2396,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _light_threshold `ui ~T0 @X0 1 a ]
 [e = _light_threshold -> -> 70 `i `ui ]
 "242
-[; ;main.c: 242:     unsigned int daycount = 6;
+[; ;main.c: 242:     unsigned int daycount = 0;
 [v _daycount `ui ~T0 @X0 1 a ]
-[e = _daycount -> -> 6 `i `ui ]
+[e = _daycount -> -> 0 `i `ui ]
 "245
 [; ;main.c: 245:     unsigned int previousClockDays = clock.days;
 [v _previousClockDays `ui ~T0 @X0 1 a ]
@@ -2518,33 +2518,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 308:             if (daycount == 7) {
 [e $ ! == _daycount -> -> 7 `i `ui 2029  ]
 {
-"311
-[; ;main.c: 311:                 LATDbits.LATD7 = 1;
-[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
-"312
-[; ;main.c: 312:                 LATHbits.LATH3 = 1;
-[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-"313
-[; ;main.c: 313:                 _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "318
-[; ;main.c: 318:                 daycount = 0;
-[e = _daycount -> -> 0 `i `ui ]
+[; ;main.c: 318:                 LATDbits.LATD7 = 1;
+[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
 "319
-[; ;main.c: 319:             }
+[; ;main.c: 319:                 LATHbits.LATH3 = 1;
+[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
+"320
+[; ;main.c: 320:                 _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"325
+[; ;main.c: 325:                 daycount = 0;
+[e = _daycount -> -> 0 `i `ui ]
+"326
+[; ;main.c: 326:             }
 }
 [e :U 2029 ]
-"320
-[; ;main.c: 320:         }
+"327
+[; ;main.c: 327:         }
 }
 [e :U 2028 ]
-"321
-[; ;main.c: 321:     }
+"328
+[; ;main.c: 328:     }
 }
 [e :U 2019 ]
 [e $U 2020  ]
 [e :U 2021 ]
-"322
-[; ;main.c: 322: }
+"329
+[; ;main.c: 329: }
 [e :UE 2015 ]
 }

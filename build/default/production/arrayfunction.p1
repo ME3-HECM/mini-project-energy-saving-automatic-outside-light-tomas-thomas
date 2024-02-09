@@ -1,64 +1,4 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"40155 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40155:     struct {
-[s S1985 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1985 . INT0EDG INT1EDG INT2EDG INT3EDG . IPEN PEIE_GIEL GIE_GIEH ]
-"40165
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40165:     struct {
-[s S1986 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1986 . . PEIE GIE ]
-"40170
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40170:     struct {
-[s S1987 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1987 . . GIEL GIEH ]
-"40154
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40154: typedef union {
-[u S1984 `S1985 1 `S1986 1 `S1987 1 ]
-[n S1984 . . . . ]
-"40176
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40176: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
-[v _INTCONbits `VS1984 ~T0 @X0 0 e@4082 ]
-"4548
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 4548:     struct {
-[s S262 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S262 . INT0IE INT1IE INT2IE INT3IE IOCIE TMR0IE ]
-"4547
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 4547: typedef union {
-[u S261 `S262 1 ]
-[n S261 . . ]
-"4557
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 4557: extern volatile PIE0bits_t PIE0bits __attribute__((address(0xE29)));
-[v _PIE0bits `VS261 ~T0 @X0 0 e@3625 ]
-"5093
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 5093:     struct {
-[s S286 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S286 . INT0IF INT1IF INT2IF INT3IF IOCIF TMR0IF ]
-"5092
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 5092: typedef union {
-[u S285 `S286 1 ]
-[n S285 . . ]
-"5102
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 5102: extern volatile PIR0bits_t PIR0bits __attribute__((address(0xE33)));
-[v _PIR0bits `VS285 ~T0 @X0 0 e@3635 ]
-"4000
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 4000:     struct {
-[s S237 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S237 . INT0IP INT1IP INT2IP INT3IP IOCIP TMR0IP ]
-"3999
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 3999: typedef union {
-[u S236 `S237 1 ]
-[n S236 . . ]
-"4009
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 4009: extern volatile IPR0bits_t IPR0bits __attribute__((address(0xE1F)));
-[v _IPR0bits `VS236 ~T0 @X0 0 e@3615 ]
-[t ~ __interrupt . k ]
-[t T2 __interrupt high_priority ]
-"39003
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 39003: extern volatile unsigned char TMR0H __attribute__((address(0xFD4)));
-[v _TMR0H `Vuc ~T0 @X0 0 e@4052 ]
-"38865
-[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 38865: extern volatile unsigned char TMR0L __attribute__((address(0xFD3)));
-[v _TMR0L `Vuc ~T0 @X0 0 e@4051 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2033,69 +1973,106 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40592
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"8 ./seconds.h
-[; ;./seconds.h: 8: unsigned int GLOBALsecs = 0;
-[v _GLOBALsecs `ui ~T0 @X0 1 e ]
-[i _GLOBALsecs
--> -> 0 `i `ui
-]
-"9 interrupts.c
-[; ;interrupts.c: 9: void Interrupts_init(void)
-[v _Interrupts_init `(v ~T0 @X0 1 ef ]
-"10
-[; ;interrupts.c: 10: {
+"6 arrayfunction.c
+[; ;arrayfunction.c: 6: int ArrayAppend(int arrayTime[], int size, int Time) {
+[v _ArrayAppend `(i ~T0 @X0 1 ef3`*i`i`i ]
 {
-[e :U _Interrupts_init ]
+[e :U _ArrayAppend ]
+[v _arrayTime `*i ~T0 @X0 1 r1 ]
+[v _size `i ~T0 @X0 1 r2 ]
+[v _Time `i ~T0 @X0 1 r3 ]
 [f ]
+"8
+[; ;arrayfunction.c: 8:         for (int i = 1; i <= size-1; i++) {
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 1 `i ]
+[e $U 2019  ]
+[e :U 2016 ]
+{
+"10
+[; ;arrayfunction.c: 10:             if (i = 6) {
+[e $ ! != = _i -> 6 `i -> 0 `i 2020  ]
+{
+"11
+[; ;arrayfunction.c: 11:                 arrayTime[i-1] = arrayTime[i];
+[e = *U + _arrayTime * -> - _i -> 1 `i `x -> -> # *U _arrayTime `i `x *U + _arrayTime * -> _i `x -> -> # *U _arrayTime `i `x ]
+"12
+[; ;arrayfunction.c: 12:                 arrayTime[i] = Time;
+[e = *U + _arrayTime * -> _i `x -> -> # *U _arrayTime `i `x _Time ]
+"13
+[; ;arrayfunction.c: 13:             }
+}
+[e $U 2021  ]
 "15
-[; ;interrupts.c: 15:   INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 1 1 -> -> 1 `i `uc ]
-"19
-[; ;interrupts.c: 19:     PIE0bits.TMR0IE = 1;
-[e = . . _PIE0bits 0 5 -> -> 1 `i `uc ]
+[; ;arrayfunction.c: 15:             else {
+[e :U 2020 ]
+{
+"16
+[; ;arrayfunction.c: 16:                 arrayTime[i-1] = arrayTime[i];
+[e = *U + _arrayTime * -> - _i -> 1 `i `x -> -> # *U _arrayTime `i `x *U + _arrayTime * -> _i `x -> -> # *U _arrayTime `i `x ]
+"17
+[; ;arrayfunction.c: 17:             }
+}
+[e :U 2021 ]
+"18
+[; ;arrayfunction.c: 18:         }
+}
+[e ++ _i -> 1 `i ]
+[e :U 2019 ]
+[e $ <= _i - _size -> 1 `i 2016  ]
+[e :U 2017 ]
+}
 "20
-[; ;interrupts.c: 20:     PIR0bits.TMR0IF = 0;
-[e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
+[; ;arrayfunction.c: 20:         return arrayTime;
+[e ) -> _arrayTime `i ]
+[e $UE 2015  ]
 "21
-[; ;interrupts.c: 21:     IPR0bits.TMR0IP = 1;
-[e = . . _IPR0bits 0 5 -> -> 1 `i `uc ]
-"24
-[; ;interrupts.c: 24:     INTCONbits.GIE=1;
-[e = . . _INTCONbits 1 2 -> -> 1 `i `uc ]
-"25
-[; ;interrupts.c: 25: }
+[; ;arrayfunction.c: 21:     }
 [e :UE 2015 ]
 }
-[v $root$_HighISR `(v ~T0 @X0 0 e ]
-"31
-[; ;interrupts.c: 31: void __attribute__((picinterrupt(("high_priority")))) HighISR()
-[v _HighISR `(v ~T2 @X0 1 ef ]
-"32
-[; ;interrupts.c: 32: {
+"24
+[; ;arrayfunction.c: 24: int ArrayAverage(int arrayTime[], int size) {
+[v _ArrayAverage `(i ~T0 @X0 1 ef2`*i`i ]
 {
-[e :U _HighISR ]
+[e :U _ArrayAverage ]
+[v _arrayTime `*i ~T0 @X0 1 r1 ]
+[v _size `i ~T0 @X0 1 r2 ]
 [f ]
-"35
-[; ;interrupts.c: 35:     if(PIR0bits.TMR0IF){
-[e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2017  ]
+"25
+[; ;arrayfunction.c: 25:     unsigned int sum = 0;
+[v _sum `ui ~T0 @X0 1 a ]
+[e = _sum -> -> 0 `i `ui ]
+"26
+[; ;arrayfunction.c: 26:     unsigned int average;
+[v _average `ui ~T0 @X0 1 a ]
+"28
+[; ;arrayfunction.c: 28:     for (int i = 0; i <= size-1; i++) {
 {
-"37
-[; ;interrupts.c: 37:         TMR0H = 0b00001011;
-[e = _TMR0H -> -> 11 `i `uc ]
-"38
-[; ;interrupts.c: 38:         TMR0L = 0b11011100;
-[e = _TMR0L -> -> 220 `i `uc ]
-"39
-[; ;interrupts.c: 39:         GLOBALsecs++;
-[e ++ _GLOBALsecs -> -> 1 `i `ui ]
-"40
-[; ;interrupts.c: 40:         PIR0bits.TMR0IF=0;
-[e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
-"41
-[; ;interrupts.c: 41:  }
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 2026  ]
+[e :U 2023 ]
+{
+"29
+[; ;arrayfunction.c: 29:         sum = sum + arrayTime[i];
+[e = _sum + _sum -> *U + _arrayTime * -> _i `x -> -> # *U _arrayTime `i `x `ui ]
+"30
+[; ;arrayfunction.c: 30:     }
 }
-[e :U 2017 ]
-"43
-[; ;interrupts.c: 43: }
-[e :UE 2016 ]
+[e ++ _i -> 1 `i ]
+[e :U 2026 ]
+[e $ <= _i - _size -> 1 `i 2023  ]
+[e :U 2024 ]
+}
+"32
+[; ;arrayfunction.c: 32:     average = sum/size;
+[e = _average / _sum -> _size `ui ]
+"34
+[; ;arrayfunction.c: 34:     return average;
+[e ) -> _average `i ]
+[e $UE 2022  ]
+"35
+[; ;arrayfunction.c: 35: }
+[e :UE 2022 ]
 }
