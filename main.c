@@ -43,14 +43,14 @@ void main(void)
     };
    //~~~~~~~~~~~~~~~~~~~         TEST     MODE        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         
-    int TestMode = 1;       // 0 if off     1 if on
+    int TestMode = 0;       // 0 if off     1 if on
         
     
     
    //~~~~~~~~~~~~~~~~~~~       Time Data Input         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     struct time_structure clock;    //creates clock, which is of the structure time_structure
         // set the initial starting time when the sensor is set up
-        GLOBALsecs = 55;
+        GLOBALsecs = 00;
         clock.minutes = 59;
         clock.hours = 22;
         clock.days = 28;
@@ -84,64 +84,67 @@ void main(void)
         
     // setting up a time structure to be used for the clock, and time keeping
     struct month_structure { //set up time structure - we haven't actually called it yet
-        int solarMidMinutes[12];
-        int solarMidHours[12];
         int days[12];
+        int MidHours[12];
+        int MidMinutes[12];  
     };
     
-    struct month_structure SolarPerMonth;
-    SolarPerMonth.days =            {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};        // Days in each month
-    SolarPerMonth.solarMidHours =   {0,   0,  0,  0, 23,  0,  0,  0, 23, 23, 23, 23};        // Solar mid-hours
-    SolarPerMonth.solarMidMinutes = {9,  13,  8,  1, 57,  1,  5,  3, 55, 47, 46, 56};
+    struct month_structure SolarPerMonth = {
+    {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}, // Days in each month
+    {0, 0, 0, 0, 23, 0, 0, 0, 23, 23, 23, 23},        // Solar mid-hours
+    {9, 13, 8, 1, 57, 1, 5, 3, 55, 47, 46, 56}       // Solar mid-minutes
+    };
+    
+    
     //All timings are in GMT (+00), therefore we need to account for Daylight saving time with some of the solar midnight values
     
 //Define 4 arrays: Dawn and Dusk hours and minutes, with a predetermined size of 7 items.
 //This allows us to store the times where dawn and dusk are measured by the LDR over a seven day period
 //We can then take averages, calculate average solar midnight and then compare this to our known solar midnight for each month
 //The difference can then be added(/subtracted) to re-calibrate/synchronise the clock
-   
-    struct array_structure { //set up time structure - we haven't actually called it yet
-        int size;
-        int count;
-        int hours;
-        int minutes;
-    };
-    
-    struct array_structure Dawn;
-        Dawn.size = 7;
-        Dawn.count = 0;                                 //ensures that Dawn is only counted once a day
-        Dawn.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
-        Dawn.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-        
-    struct array_structure Dusk;
-        Dusk.size = 7;
-        Dusk.count = 0;                                 //ensures that Dusk is only counted once a day
-        Dusk.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
-        Dusk.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-    
-//    int size = 7; //size of the array to hold 7 days worth of dawn and dusk timings
-//    int DawnHours[7] = {0,0,0,0,0,0,0};
-//    int DawnMinutes[7] = {0,0,0,0,0,0,0};
-//    int DuskHours[7] = {0,0,0,0,0,0,0};
-//    int DuskMinutes[7] = {0,0,0,0,0,0,0};
-    
-    //Function to take measured Dawn and Dusk timings and add it to the 7 day moving average list.
-    //Each timing is moved down by one and the new timing is added to the end of the array.
-    
-    
-    //Defining light levels for turning LED on in dark and off in light
-    unsigned int light_threshold = 70;     // CalibrationNumber any number from 0 to 255  - Used as transition threshold light level at dawn/dusk.
-                                            //Only one light level is needed - represents both Dawn and Dusk - this is the transition from light to dark and vice versa.
-    
-    unsigned int daycount = 0; //keep track of the number of days since the last Sun synchronisation. 
-                               //this will go up to 7 where it will calculate the average solar midnight and then compare with known value
-                               //for re-calibration.
-    unsigned int previousClockDays = clock.days; //To store the current/previous day to indicate when a day has passed.
-    
-    
-     //This is to display bits to calibrate LDR for Dawn and Dusk
-//      unsigned int calibration_level = ADC_getval();
-//      LEDarray_disp_bin(calibration_level);
+//   
+//    struct array_structure { //set up time structure - we haven't actually called it yet
+//        int size;
+//        int count;
+//        int hours;
+//        int minutes;
+//    };
+//    
+//    struct array_structure Dawn;
+//        Dawn.size = 7;
+//        Dawn.count = 0;                                 //ensures that Dawn is only counted once a day
+//        Dawn.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
+//        Dawn.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
+//        
+//    struct array_structure Dusk;
+//        Dusk.size = 7;
+//        Dusk.count = 0;                                 //ensures that Dusk is only counted once a day
+//        Dusk.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
+//        Dusk.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
+//    
+////    int size = 7; //size of the array to hold 7 days worth of dawn and dusk timings
+////    int DawnHours[7] = {0,0,0,0,0,0,0};
+////    int DawnMinutes[7] = {0,0,0,0,0,0,0};
+////    int DuskHours[7] = {0,0,0,0,0,0,0};
+////    int DuskMinutes[7] = {0,0,0,0,0,0,0};
+//    
+//    //Function to take measured Dawn and Dusk timings and add it to the 7 day moving average list.
+//    //Each timing is moved down by one and the new timing is added to the end of the array.
+//    
+//    
+//    //Defining light levels for turning LED on in dark and off in light
+//    unsigned int light_threshold = 70;     // CalibrationNumber any number from 0 to 255  - Used as transition threshold light level at dawn/dusk.
+//                                            //Only one light level is needed - represents both Dawn and Dusk - this is the transition from light to dark and vice versa.
+//    
+//    unsigned int daycount = 0; //keep track of the number of days since the last Sun synchronisation. 
+//                               //this will go up to 7 where it will calculate the average solar midnight and then compare with known value
+//                               //for re-calibration.
+//    unsigned int previousClockDays = clock.days; //To store the current/previous day to indicate when a day has passed.
+//    
+//    
+//     //This is to display bits to calibrate LDR for Dawn and Dusk
+////      unsigned int calibration_level = ADC_getval();
+////      LEDarray_disp_bin(calibration_level);
           
     clock.seconds = GLOBALsecs; 
         if (TestMode == 1){
@@ -163,63 +166,70 @@ void main(void)
         sprintf(buffer, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW); //Sets buffer string to take the first int part value and the first 2 values in the frac part variable
         LCD_sendstring(buffer); //Prints string buf  in LCD display - //displays the hours, minutes, seconds, and day of the week in the clock
         LCD_setline(2);
-        sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
+//        sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
+        sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, SolarPerMonth.MidMinutes[GLOBALsecs]); //testing - delete for submission
         LCD_sendstring(buffer); //Prints buf value in LCD  -  displays the days, months, and years of the clock
 
-        // light turning off or on depending on task brief conditions 
-        if (ADC_getval() < light_threshold){  // if the ADC is bigger than our threshold - if dark enough turn on
-            if ((clock.hours >= 1 && clock.hours < 5) || (clock.hours >= 8 && clock.hours < 15)) {   //check that its not energy saving time or that nothing external is blocking the LDR during daylight hours. 
-                LED_Right = 0;                                  //this ensures that if external factors such as birds block the LDR,
-            }                                                    //the light will not go on during the day. 8am-3pm chosen, as dawn/dusk can be as late/early as 8-3 respectively at winter solstice.
-            
-            else {                  //If light levels have lowered further than the threshold at dusk, turn the LED on.
-                LED_Right = 1;      //must not be energy saving time therefore turn light on
-                if ((Dusk.count = 0)&&(clock.hours >=15 && clock.hours < 8)) {
-                    ArrayAppend(Dusk.hours, Dusk.size, clock.hours);
-                    ArrayAppend(Dusk.minutes, Dusk.size,  clock.minutes);
-                    Dusk.count = 1;
-                }
-            }
-        }  
         
         
-        if (ADC_getval() > light_threshold){ //if light enough, turn LED off
-            LED_Right = 0;
-            if ((Dawn.count = 0)&&(clock.hours >=4 && clock.hours < 8)) { //Dawn only occurs between 4am and 8am
-                ArrayAppend(Dawn.hours, Dawn.size, clock.hours);
-                ArrayAppend(Dawn.minutes, Dawn.size,  clock.minutes);
-                Dawn.count = 1;
-            }
-        }
+        ////
         
-        if (clock.days > previousClockDays) {
-            Dawn.count = 0;
-            Dusk.count = 0;
-            daycount++;
-            
-            LED_Left = 1;
-            previousClockDays = clock.days;
         
-            if (daycount == 7) {
-                
-                //function here to average all the dawn/dusk times and compare with known value
-                
-                
-                
-            
-                
-                
-                
-                LED_Left = 1;
-                LED_Right = 1;
-                __delay_ms(500);
-                
-                
-                //correction added to time
-                
-                daycount = 0;
-            }
-        }
+//        
+//        // light turning off or on depending on task brief conditions 
+//        if (ADC_getval() < light_threshold){  // if the ADC is bigger than our threshold - if dark enough turn on
+//            if ((clock.hours >= 1 && clock.hours < 5) || (clock.hours >= 8 && clock.hours < 15)) {   //check that its not energy saving time or that nothing external is blocking the LDR during daylight hours. 
+//                LED_Right = 0;                                  //this ensures that if external factors such as birds block the LDR,
+//            }                                                    //the light will not go on during the day. 8am-3pm chosen, as dawn/dusk can be as late/early as 8-3 respectively at winter solstice.
+//            
+//            else {                  //If light levels have lowered further than the threshold at dusk, turn the LED on.
+//                LED_Right = 1;      //must not be energy saving time therefore turn light on
+//                if ((Dusk.count = 0)&&(clock.hours >=15 && clock.hours < 8)) {
+//                    ArrayAppend(Dusk.hours, Dusk.size, clock.hours);
+//                    ArrayAppend(Dusk.minutes, Dusk.size,  clock.minutes);
+//                    Dusk.count = 1;
+//                }
+//            }
+//        }  
+//        
+//        
+//        if (ADC_getval() > light_threshold){ //if light enough, turn LED off
+//            LED_Right = 0;
+//            if ((Dawn.count = 0)&&(clock.hours >=4 && clock.hours < 8)) { //Dawn only occurs between 4am and 8am
+//                ArrayAppend(Dawn.hours, Dawn.size, clock.hours);
+//                ArrayAppend(Dawn.minutes, Dawn.size,  clock.minutes);
+//                Dawn.count = 1;
+//            }
+//        }
+//        
+//        if (clock.days > previousClockDays) {
+//            Dawn.count = 0;
+//            Dusk.count = 0;
+//            daycount++;
+//            
+//            LED_Left = 1;
+//            previousClockDays = clock.days;
+//        
+//            if (daycount == 7) {
+//                
+//                //function here to average all the dawn/dusk times and compare with known value
+//                
+//                
+//                
+//            
+//                
+//                
+//                
+//                LED_Left = 1;
+//                LED_Right = 1;
+//                __delay_ms(500);
+//                
+//                
+//                //correction added to time
+//                
+//                daycount = 0;
+//            }
+//        }
     }  
 }
         

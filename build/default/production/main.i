@@ -24359,9 +24359,15 @@ void main(void)
         unsigned int seconds; unsigned int minutes; unsigned int hours; unsigned int days; unsigned int DoW; unsigned int months; unsigned int years; unsigned int DSTstate;
     };
 
+
+    int TestMode = 0;
+
+
+
+
     struct time_structure clock;
 
-        GLOBALsecs = 55;
+        GLOBALsecs = 00;
         clock.minutes = 59;
         clock.hours = 22;
         clock.days = 28;
@@ -24369,68 +24375,24 @@ void main(void)
         clock.months = 2;
         clock.years = 2024;
         clock.DSTstate = 0;
-# 75 "main.c"
-        int TestMode = 1;
+# 86 "main.c"
+    struct month_structure {
+        int days[12];
+        int MidHours[12];
+        int MidMinutes[12];
+    };
 
-        clock.seconds = GLOBALsecs;
+    struct month_structure SolarPerMonth = {
+    {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31},
+    {0, 0, 0, 0, 23, 0, 0, 0, 23, 23, 23, 23},
+    {9, 13, 8, 1, 57, 1, 5, 3, 55, 47, 46, 56}
+    };
+# 149 "main.c"
+    clock.seconds = GLOBALsecs;
         if (TestMode == 1){
             clock.seconds = 0;
             GLOBALsecs = clock.hours;
         }
-
-
-
-
-
-
-    struct month_structure {
-        int solarMidMinutes[12];
-        int solarMidHours[12];
-        int days[12];
-    };
-
-    struct month_structure SolarPerMonth;
-    SolarPerMonth.days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    SolarPerMonth.solarMidHours = {0, 0, 0, 0, 23, 0, 0, 0, 23, 23, 23, 23};
-    SolarPerMonth.solarMidMinutes = {9, 13, 8, 1, 57, 1, 5, 3, 55, 47, 46, 56};
-
-
-
-
-
-
-
-    struct array_structure {
-        int size;
-        int count;
-        int hours;
-        int minutes;
-    };
-
-    struct array_structure Dawn;
-        Dawn.size = 7;
-        Dawn.count = 0;
-        Dawn.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
-        Dawn.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-
-    struct array_structure Dusk;
-        Dusk.size = 7;
-        Dusk.count = 0;
-        Dusk.hours = (int[]){0, 0, 0, 0, 0, 0, 0};
-        Dusk.minutes = (int[]){0, 0, 0, 0, 0, 0, 0};
-# 135 "main.c"
-    unsigned int light_threshold = 70;
-
-
-    unsigned int daycount = 0;
-
-
-    unsigned int previousClockDays = clock.days;
-
-
-
-
-
 
     while (1) {
 
@@ -24446,54 +24408,9 @@ void main(void)
         sprintf(buffer, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW);
         LCD_sendstring(buffer);
         LCD_setline(2);
-        sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
+
+        sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, SolarPerMonth.MidMinutes[GLOBALsecs]);
         LCD_sendstring(buffer);
-
-
-        if (ADC_getval() < light_threshold){
-            if ((clock.hours >= 1 && clock.hours < 5) || (clock.hours >= 8 && clock.hours < 15)) {
-                LATHbits.LATH3 = 0;
-            }
-
-            else {
-                LATHbits.LATH3 = 1;
-                if ((Dusk.count = 0)&&(clock.hours >=15 && clock.hours < 8)) {
-                    ArrayAppend(Dusk.hours, Dusk.size, clock.hours);
-                    ArrayAppend(Dusk.minutes, Dusk.size, clock.minutes);
-                    Dusk.count = 1;
-                }
-            }
-        }
-
-
-        if (ADC_getval() > light_threshold){
-            LATHbits.LATH3 = 0;
-            if ((Dawn.count = 0)&&(clock.hours >=4 && clock.hours < 8)) {
-                ArrayAppend(Dawn.hours, Dawn.size, clock.hours);
-                ArrayAppend(Dawn.minutes, Dawn.size, clock.minutes);
-                Dawn.count = 1;
-            }
-        }
-
-        if (clock.days > previousClockDays) {
-            Dawn.count = 0;
-            Dusk.count = 0;
-            daycount++;
-
-            LATDbits.LATD7 = 1;
-            previousClockDays = clock.days;
-
-            if (daycount == 7) {
-# 209 "main.c"
-                LATDbits.LATD7 = 1;
-                LATHbits.LATH3 = 1;
-                _delay((unsigned long)((500)*(64000000/4000.0)));
-
-
-
-
-                daycount = 0;
-            }
-        }
+# 233 "main.c"
     }
 }
