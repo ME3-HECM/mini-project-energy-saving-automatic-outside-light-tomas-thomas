@@ -602,12 +602,12 @@
 [v _main main `(v  1 e 1 0 ]
 {
 "40
-[v main@buf buf `[20]uc  1 a 20 0 ]
+[v main@buffer buffer `[18]uc  1 a 18 0 ]
 [s S170 time_structure 16 `ui 1 seconds 2 0 `ui 1 minutes 2 2 `ui 1 hours 2 4 `ui 1 days 2 6 `ui 1 DoW 2 8 `ui 1 months 2 10 `ui 1 years 2 12 `ui 1 DSTstate 2 14 ]
 "64
-[v main@clock clock `S170  1 a 16 22 ]
+[v main@clock clock `S170  1 a 16 20 ]
 "94
-[v main@TestMode TestMode `i  1 a 2 20 ]
+[v main@TestMode TestMode `i  1 a 2 18 ]
 "152
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c

@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Fri Feb 09 00:29:09 2024
+                                                                                               Fri Feb 09 00:39:06 2024
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	18F67K40
@@ -243,7 +243,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    229   001DA4  6EF7               	movwf	tblptrh,c
    230   001DA6  0E00               	movlw	low (__pidataBANK0 shr (0+16))
    231   001DA8  6EF8               	movwf	tblptru,c
-   232   001DAA  EE00  F0A8         	lfsr	0,__pdataBANK0
+   232   001DAA  EE00  F0A6         	lfsr	0,__pdataBANK0
    233   001DAE  EE10 F018          	lfsr	1,24
    234   001DB2                     copy_data0:
    235   001DB2  0009               	tblrd		*+
@@ -253,7 +253,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    239   001DBC  E1FA               	bnz	copy_data0
    240                           
    241                           ; Clear objects allocated to BANK0 (34 bytes)
-   242   001DBE  EE00  F086         	lfsr	0,__pbssBANK0
+   242   001DBE  EE00  F084         	lfsr	0,__pbssBANK0
    243   001DC2  0E22               	movlw	34
    244   001DC4                     clear_0:
    245   001DC4  6AEE               	clrf	postinc0,c
@@ -289,40 +289,40 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    275   00004A                     	ds	1
    276                           
    277                           	psect	bssBANK0
-   278   000086                     __pbssBANK0:
+   278   000084                     __pbssBANK0:
    279                           	callstack 0
-   280   000086                     _dbuf:
+   280   000084                     _dbuf:
    281                           	callstack 0
-   282   000086                     	ds	32
-   283   0000A6                     _GLOBALsecs:
+   282   000084                     	ds	32
+   283   0000A4                     _GLOBALsecs:
    284                           	callstack 0
-   285   0000A6                     	ds	2
+   285   0000A4                     	ds	2
    286                           
    287                           	psect	dataBANK0
-   288   0000A8                     __pdataBANK0:
+   288   0000A6                     __pdataBANK0:
    289                           	callstack 0
-   290   0000A8                     UpdateClock@F14152:
+   290   0000A6                     UpdateClock@F14152:
    291                           	callstack 0
-   292   0000A8                     	ds	24
+   292   0000A6                     	ds	24
    293                           
    294                           	psect	cstackBANK0
    295   000060                     __pcstackBANK0:
    296                           	callstack 0
-   297   000060                     main@buf:
+   297   000060                     main@buffer:
    298                           	callstack 0
    299                           
-   300                           ; 20 bytes @ 0x0
-   301   000060                     	ds	20
-   302   000074                     main@TestMode:
+   300                           ; 18 bytes @ 0x0
+   301   000060                     	ds	18
+   302   000072                     main@TestMode:
    303                           	callstack 0
    304                           
-   305                           ; 2 bytes @ 0x14
-   306   000074                     	ds	2
-   307   000076                     main@clock:
+   305                           ; 2 bytes @ 0x12
+   306   000072                     	ds	2
+   307   000074                     main@clock:
    308                           	callstack 0
    309                           
-   310                           ; 16 bytes @ 0x16
-   311   000076                     	ds	16
+   310                           ; 16 bytes @ 0x14
+   311   000074                     	ds	16
    312                           
    313                           	psect	cstackCOMRAM
    314   000001                     __pcstackCOMRAM:
@@ -612,9 +612,9 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    598 ;; Parameters:    Size  Location     Type
    599 ;;		None
    600 ;; Auto vars:     Size  Location     Type
-   601 ;;  buf            20    0[BANK0 ] unsigned char [20]
-   602 ;;  clock          16   22[BANK0 ] struct time_structure
-   603 ;;  TestMode        2   20[BANK0 ] int 
+   601 ;;  buffer         18    0[BANK0 ] unsigned char [18]
+   602 ;;  clock          16   20[BANK0 ] struct time_structure
+   603 ;;  TestMode        2   18[BANK0 ] int 
    604 ;; Return value:  Size  Location     Type
    605 ;;                  1    wreg      void 
    606 ;; Registers used:
@@ -627,13 +627,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
       +1  BANK12  BANK13
    613 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0
-   614 ;;      Locals:         0      38       0       0       0       0       0       0       0       0       0       0       
+   614 ;;      Locals:         0      36       0       0       0       0       0       0       0       0       0       0       
       +0       0       0
    615 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0
-   616 ;;      Totals:         0      38       0       0       0       0       0       0       0       0       0       0       
+   616 ;;      Totals:         0      36       0       0       0       0       0       0       0       0       0       0       
       +0       0       0
-   617 ;;Total ram usage:       38 bytes
+   617 ;;Total ram usage:       36 bytes
    618 ;; Hardware stack levels required when called: 9
    619 ;; This function calls:
    620 ;;		_ADC_init
@@ -672,7 +672,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    653                           ;main.c: 38:     ADC_init();
    654   001680  ECBD  F00F         	call	_ADC_init	;wreg free
    655   001684                     
-   656                           ;main.c: 40:     char buf[20];;main.c: 44:     TRISDbits.TRISD7 = 0;
+   656                           ;main.c: 40:     char buffer[18];;main.c: 44:     TRISDbits.TRISD7 = 0;
    657   001684  9E84               	bcf	132,7,c	;volatile
    658   001686                     
    659                           ;main.c: 45:     LATDbits.LATD7 = 0;
@@ -687,88 +687,88 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    668                           ;main.c: 64:     struct time_structure clock;;main.c: 66:         GLOBALsecs = 55;
    669   00168C  0E00               	movlw	0
    670   00168E  0100               	movlb	0	; () banked
-   671   001690  6FA7               	movwf	(_GLOBALsecs+1)& (0+255),b
+   671   001690  6FA5               	movwf	(_GLOBALsecs+1)& (0+255),b
    672   001692  0E37               	movlw	55
-   673   001694  6FA6               	movwf	_GLOBALsecs& (0+255),b
+   673   001694  6FA4               	movwf	_GLOBALsecs& (0+255),b
    674   001696                     
    675                           ; BSR set to: 0
    676                           ;main.c: 76:         clock.minutes = 59;
    677   001696  0E00               	movlw	0
-   678   001698  6F79               	movwf	(main@clock+3)& (0+255),b
+   678   001698  6F77               	movwf	(main@clock+3)& (0+255),b
    679   00169A  0E3B               	movlw	59
-   680   00169C  6F78               	movwf	(main@clock+2)& (0+255),b
+   680   00169C  6F76               	movwf	(main@clock+2)& (0+255),b
    681   00169E                     
    682                           ; BSR set to: 0
    683                           ;main.c: 77:         clock.hours = 0;
    684   00169E  0E00               	movlw	0
-   685   0016A0  6F7B               	movwf	(main@clock+5)& (0+255),b
+   685   0016A0  6F79               	movwf	(main@clock+5)& (0+255),b
    686   0016A2  0E00               	movlw	0
-   687   0016A4  6F7A               	movwf	(main@clock+4)& (0+255),b
+   687   0016A4  6F78               	movwf	(main@clock+4)& (0+255),b
    688   0016A6                     
    689                           ; BSR set to: 0
    690                           ;main.c: 78:         clock.days = 30;
    691   0016A6  0E00               	movlw	0
-   692   0016A8  6F7D               	movwf	(main@clock+7)& (0+255),b
+   692   0016A8  6F7B               	movwf	(main@clock+7)& (0+255),b
    693   0016AA  0E1E               	movlw	30
-   694   0016AC  6F7C               	movwf	(main@clock+6)& (0+255),b
+   694   0016AC  6F7A               	movwf	(main@clock+6)& (0+255),b
    695   0016AE                     
    696                           ; BSR set to: 0
    697                           ;main.c: 79:         clock.DoW = 7;
    698   0016AE  0E00               	movlw	0
-   699   0016B0  6F7F               	movwf	(main@clock+9)& (0+255),b
+   699   0016B0  6F7D               	movwf	(main@clock+9)& (0+255),b
    700   0016B2  0E07               	movlw	7
-   701   0016B4  6F7E               	movwf	(main@clock+8)& (0+255),b
+   701   0016B4  6F7C               	movwf	(main@clock+8)& (0+255),b
    702   0016B6                     
    703                           ; BSR set to: 0
    704                           ;main.c: 80:         clock.months = 10;
    705   0016B6  0E00               	movlw	0
-   706   0016B8  6F81               	movwf	(main@clock+11)& (0+255),b
+   706   0016B8  6F7F               	movwf	(main@clock+11)& (0+255),b
    707   0016BA  0E0A               	movlw	10
-   708   0016BC  6F80               	movwf	(main@clock+10)& (0+255),b
+   708   0016BC  6F7E               	movwf	(main@clock+10)& (0+255),b
    709   0016BE                     
    710                           ; BSR set to: 0
    711                           ;main.c: 81:         clock.years = 2022;
    712   0016BE  0E07               	movlw	7
-   713   0016C0  6F83               	movwf	(main@clock+13)& (0+255),b
+   713   0016C0  6F81               	movwf	(main@clock+13)& (0+255),b
    714   0016C2  0EE6               	movlw	230
-   715   0016C4  6F82               	movwf	(main@clock+12)& (0+255),b
+   715   0016C4  6F80               	movwf	(main@clock+12)& (0+255),b
    716   0016C6                     
    717                           ; BSR set to: 0
    718                           ;main.c: 82:         clock.DSTstate = 1;
    719   0016C6  0E00               	movlw	0
-   720   0016C8  6F85               	movwf	(main@clock+15)& (0+255),b
+   720   0016C8  6F83               	movwf	(main@clock+15)& (0+255),b
    721   0016CA  0E01               	movlw	1
-   722   0016CC  6F84               	movwf	(main@clock+14)& (0+255),b
+   722   0016CC  6F82               	movwf	(main@clock+14)& (0+255),b
    723   0016CE                     
    724                           ; BSR set to: 0
    725                           ;main.c: 94:         int TestMode = 1;
    726   0016CE  0E00               	movlw	0
-   727   0016D0  6F75               	movwf	(main@TestMode+1)& (0+255),b
+   727   0016D0  6F73               	movwf	(main@TestMode+1)& (0+255),b
    728   0016D2  0E01               	movlw	1
-   729   0016D4  6F74               	movwf	main@TestMode& (0+255),b
+   729   0016D4  6F72               	movwf	main@TestMode& (0+255),b
    730   0016D6                     
    731                           ; BSR set to: 0
    732                           ;main.c: 96:         clock.seconds = GLOBALsecs;
-   733   0016D6  C0A6  F076         	movff	_GLOBALsecs,main@clock
-   734   0016DA  C0A7  F077         	movff	_GLOBALsecs+1,main@clock+1
+   733   0016D6  C0A4  F074         	movff	_GLOBALsecs,main@clock
+   734   0016DA  C0A5  F075         	movff	_GLOBALsecs+1,main@clock+1
    735   0016DE                     
    736                           ; BSR set to: 0
    737                           ;main.c: 98:             clock.seconds = 0;
    738   0016DE  0E00               	movlw	0
-   739   0016E0  6F77               	movwf	(main@clock+1)& (0+255),b
+   739   0016E0  6F75               	movwf	(main@clock+1)& (0+255),b
    740   0016E2  0E00               	movlw	0
-   741   0016E4  6F76               	movwf	main@clock& (0+255),b
+   741   0016E4  6F74               	movwf	main@clock& (0+255),b
    742   0016E6                     
    743                           ; BSR set to: 0
    744                           ;main.c: 99:             GLOBALsecs = clock.hours;
-   745   0016E6  C07A  F0A6         	movff	main@clock+4,_GLOBALsecs
-   746   0016EA  C07B  F0A7         	movff	main@clock+5,_GLOBALsecs+1
+   745   0016E6  C078  F0A4         	movff	main@clock+4,_GLOBALsecs
+   746   0016EA  C079  F0A5         	movff	main@clock+5,_GLOBALsecs+1
    747   0016EE                     l2413:
    748                           
    749                           ;main.c: 105:         if (TestMode == 0){clock.seconds = GLOBALsecs;}
    750   0016EE  0100               	movlb	0	; () banked
-   751   0016F0  5174               	movf	main@TestMode& (0+255),w,b
-   752   0016F2  1175               	iorwf	(main@TestMode+1)& (0+255),w,b
+   751   0016F0  5172               	movf	main@TestMode& (0+255),w,b
+   752   0016F2  1173               	iorwf	(main@TestMode+1)& (0+255),w,b
    753   0016F4  A4D8               	btfss	status,2,c
    754   0016F6  EF7F  F00B         	goto	u2141
    755   0016FA  EF81  F00B         	goto	u2140
@@ -777,60 +777,60 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    758   001702                     u2140:
    759   001702                     
    760                           ; BSR set to: 0
-   761   001702  C0A6  F076         	movff	_GLOBALsecs,main@clock
-   762   001706  C0A7  F077         	movff	_GLOBALsecs+1,main@clock+1
+   761   001702  C0A4  F074         	movff	_GLOBALsecs,main@clock
+   762   001706  C0A5  F075         	movff	_GLOBALsecs+1,main@clock+1
    763   00170A                     l2417:
    764                           
    765                           ; BSR set to: 0
    766                           ;main.c: 107:         UpdateClock(&GLOBALsecs, &clock.minutes, &clock.hours, &clock.days
       +                          , &clock.DoW, &clock.months, &clock.years, &clock.DSTstate, TestMode);
-   767   00170A  0EA6               	movlw	low _GLOBALsecs
+   767   00170A  0EA4               	movlw	low _GLOBALsecs
    768   00170C  6E07               	movwf	UpdateClock@seconds^0,c
-   769   00170E  0E78               	movlw	low (main@clock+2)
+   769   00170E  0E76               	movlw	low (main@clock+2)
    770   001710  6E08               	movwf	UpdateClock@minutes^0,c
-   771   001712  0E7A               	movlw	low (main@clock+4)
+   771   001712  0E78               	movlw	low (main@clock+4)
    772   001714  6E09               	movwf	UpdateClock@hours^0,c
-   773   001716  0E7C               	movlw	low (main@clock+6)
+   773   001716  0E7A               	movlw	low (main@clock+6)
    774   001718  6E0A               	movwf	UpdateClock@days^0,c
-   775   00171A  0E7E               	movlw	low (main@clock+8)
+   775   00171A  0E7C               	movlw	low (main@clock+8)
    776   00171C  6E0B               	movwf	UpdateClock@DoW^0,c
-   777   00171E  0E80               	movlw	low (main@clock+10)
+   777   00171E  0E7E               	movlw	low (main@clock+10)
    778   001720  6E0C               	movwf	UpdateClock@months^0,c
-   779   001722  0E82               	movlw	low (main@clock+12)
+   779   001722  0E80               	movlw	low (main@clock+12)
    780   001724  6E0D               	movwf	UpdateClock@years^0,c
-   781   001726  0E84               	movlw	low (main@clock+14)
+   781   001726  0E82               	movlw	low (main@clock+14)
    782   001728  6E0E               	movwf	UpdateClock@DSTstate^0,c
-   783   00172A  C074  F00F         	movff	main@TestMode,UpdateClock@TestMode
-   784   00172E  C075  F010         	movff	main@TestMode+1,UpdateClock@TestMode+1
+   783   00172A  C072  F00F         	movff	main@TestMode,UpdateClock@TestMode
+   784   00172E  C073  F010         	movff	main@TestMode+1,UpdateClock@TestMode+1
    785   001732  EC23  F007         	call	_UpdateClock	;wreg free
    786   001736                     
    787                           ;main.c: 115:         LEDarray_disp_bin(clock.hours);
-   788   001736  C07A  F001         	movff	main@clock+4,LEDarray_disp_bin@number
-   789   00173A  C07B  F002         	movff	main@clock+5,LEDarray_disp_bin@number+1
+   788   001736  C078  F001         	movff	main@clock+4,LEDarray_disp_bin@number
+   789   00173A  C079  F002         	movff	main@clock+5,LEDarray_disp_bin@number+1
    790   00173E  EC6B  F00C         	call	_LEDarray_disp_bin	;wreg free
    791   001742                     
    792                           ;main.c: 119:         LCD_setline(1);
    793   001742  0E01               	movlw	1
    794   001744  EC0D  F00F         	call	_LCD_setline
    795   001748                     
-   796                           ;main.c: 121:         sprintf(buf, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minute
-      +                          s, clock.seconds, clock.DoW);
-   797   001748  0E60               	movlw	low main@buf
+   796                           ;main.c: 121:         sprintf(buffer, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.min
+      +                          utes, clock.seconds, clock.DoW);
+   797   001748  0E60               	movlw	low main@buffer
    798   00174A  6E2F               	movwf	sprintf@s^0,c
    799   00174C  0E01               	movlw	low STR_1
    800   00174E  6E30               	movwf	sprintf@fmt^0,c
-   801   001750  C07A  F031         	movff	main@clock+4,?_sprintf+2
-   802   001754  C07B  F032         	movff	main@clock+5,?_sprintf+3
-   803   001758  C078  F033         	movff	main@clock+2,?_sprintf+4
-   804   00175C  C079  F034         	movff	main@clock+3,?_sprintf+5
-   805   001760  C076  F035         	movff	main@clock,?_sprintf+6
-   806   001764  C077  F036         	movff	main@clock+1,?_sprintf+7
-   807   001768  C07E  F037         	movff	main@clock+8,?_sprintf+8
-   808   00176C  C07F  F038         	movff	main@clock+9,?_sprintf+9
+   801   001750  C078  F031         	movff	main@clock+4,?_sprintf+2
+   802   001754  C079  F032         	movff	main@clock+5,?_sprintf+3
+   803   001758  C076  F033         	movff	main@clock+2,?_sprintf+4
+   804   00175C  C077  F034         	movff	main@clock+3,?_sprintf+5
+   805   001760  C074  F035         	movff	main@clock,?_sprintf+6
+   806   001764  C075  F036         	movff	main@clock+1,?_sprintf+7
+   807   001768  C07C  F037         	movff	main@clock+8,?_sprintf+8
+   808   00176C  C07D  F038         	movff	main@clock+9,?_sprintf+9
    809   001770  EC2A  F00F         	call	_sprintf	;wreg free
    810   001774                     
-   811                           ;main.c: 122:         LCD_sendstring(buf);
-   812   001774  0E60               	movlw	low main@buf
+   811                           ;main.c: 122:         LCD_sendstring(buffer);
+   812   001774  0E60               	movlw	low main@buffer
    813   001776  6E04               	movwf	LCD_sendstring@string^0,c
    814   001778  EC5E  F00F         	call	_LCD_sendstring	;wreg free
    815   00177C                     
@@ -838,22 +838,22 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    817   00177C  0E02               	movlw	2
    818   00177E  EC0D  F00F         	call	_LCD_setline
    819   001782                     
-   820                           ;main.c: 125:         sprintf(buf, "Date:%02d/%02d/%04d",clock.days, clock.months, clock
-      +                          .years);
-   821   001782  0E60               	movlw	low main@buf
+   820                           ;main.c: 125:         sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, cl
+      +                          ock.years);
+   821   001782  0E60               	movlw	low main@buffer
    822   001784  6E2F               	movwf	sprintf@s^0,c
    823   001786  0E30               	movlw	low STR_2
    824   001788  6E30               	movwf	sprintf@fmt^0,c
-   825   00178A  C07C  F031         	movff	main@clock+6,?_sprintf+2
-   826   00178E  C07D  F032         	movff	main@clock+7,?_sprintf+3
-   827   001792  C080  F033         	movff	main@clock+10,?_sprintf+4
-   828   001796  C081  F034         	movff	main@clock+11,?_sprintf+5
-   829   00179A  C082  F035         	movff	main@clock+12,?_sprintf+6
-   830   00179E  C083  F036         	movff	main@clock+13,?_sprintf+7
+   825   00178A  C07A  F031         	movff	main@clock+6,?_sprintf+2
+   826   00178E  C07B  F032         	movff	main@clock+7,?_sprintf+3
+   827   001792  C07E  F033         	movff	main@clock+10,?_sprintf+4
+   828   001796  C07F  F034         	movff	main@clock+11,?_sprintf+5
+   829   00179A  C080  F035         	movff	main@clock+12,?_sprintf+6
+   830   00179E  C081  F036         	movff	main@clock+13,?_sprintf+7
    831   0017A2  EC2A  F00F         	call	_sprintf	;wreg free
    832   0017A6                     
-   833                           ;main.c: 126:         LCD_sendstring(buf);
-   834   0017A6  0E60               	movlw	low main@buf
+   833                           ;main.c: 126:         LCD_sendstring(buffer);
+   834   0017A6  0E60               	movlw	low main@buffer
    835   0017A8  6E04               	movwf	LCD_sendstring@string^0,c
    836   0017AA  EC5E  F00F         	call	_LCD_sendstring	;wreg free
    837   0017AE  EF77  F00B         	goto	l2413
@@ -866,7 +866,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    844 ;;		line 9 in file "C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c"
    845 ;; Parameters:    Size  Location     Type
    846 ;;  s               1   46[COMRAM] PTR unsigned char 
-   847 ;;		 -> main@buf(20), 
+   847 ;;		 -> main@buffer(18), 
    848 ;;  fmt             1   47[COMRAM] PTR const unsigned char 
    849 ;;		 -> STR_3(21), STR_2(20), STR_1(26), 
    850 ;; Auto vars:     Size  Location     Type
@@ -1728,7 +1728,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
       +                          = '\0';
   1621   00156E  0E00               	movlw	0
   1622   001570  0100               	movlb	0	; () banked
-  1623   001572  6FA5               	movwf	(_dbuf+31)& (0+255),b
+  1623   001572  6FA3               	movwf	(_dbuf+31)& (0+255),b
   1624                           
   1625                           ;C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c: 554:     while (!
       +                          (i < 1) && (d != 0
@@ -1744,7 +1744,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1634                           ;C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c: 565:         dbuf
       +                          [i] = (char)((int)'0' + abs(d % 10));
   1635   00157E  501E               	movf	dtoa@i^0,w,c
-  1636   001580  0F86               	addlw	low _dbuf
+  1636   001580  0F84               	addlw	low _dbuf
   1637   001582  6ED9               	movwf	fsr2l,c
   1638   001584  6ADA               	clrf	fsr2h,c
   1639   001586  C016  F001         	movff	dtoa@d,___awmod@dividend
@@ -1848,7 +1848,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1734                           ;C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c: 578:         dbuf
       +                          [i] = s;
   1735   00164C  501E               	movf	dtoa@i^0,w,c
-  1736   00164E  0F86               	addlw	low _dbuf
+  1736   00164E  0F84               	addlw	low _dbuf
   1737   001650  6ED9               	movwf	fsr2l,c
   1738   001652  6ADA               	clrf	fsr2h,c
   1739   001654  C01D  FFDF         	movff	dtoa@s,indf2
@@ -1858,7 +1858,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
       +                          void) pad(fp, &dbuf[i], w);
   1743   001658  C015  F00E         	movff	dtoa@fp,pad@fp
   1744   00165C  501E               	movf	dtoa@i^0,w,c
-  1745   00165E  0F86               	addlw	low _dbuf
+  1745   00165E  0F84               	addlw	low _dbuf
   1746   001660  6E0F               	movwf	pad@buf^0,c
   1747   001662  C01B  F010         	movff	dtoa@w,pad@p
   1748   001666  C01C  F011         	movff	dtoa@w+1,pad@p+1
@@ -2519,7 +2519,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2357                           	callstack 28
   2358   000E46                     
   2359                           ;clock.c: 9:     int DaysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-  2360   000E46  EE20  F0A8         	lfsr	2,UpdateClock@F14152
+  2360   000E46  EE20  F0A6         	lfsr	2,UpdateClock@F14152
   2361   000E4A  EE10  F017         	lfsr	1,UpdateClock@DaysInMonth
   2362   000E4E  0E17               	movlw	23
   2363   000E50                     u1761:
@@ -3744,7 +3744,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3554 ;;		line 136 in file "LCD.c"
   3555 ;; Parameters:    Size  Location     Type
   3556 ;;  string          1    3[COMRAM] PTR unsigned char 
-  3557 ;;		 -> main@buf(20), 
+  3557 ;;		 -> main@buffer(18), 
   3558 ;; Auto vars:     Size  Location     Type
   3559 ;;		None
   3560 ;; Return value:  Size  Location     Type
@@ -4516,8 +4516,8 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4283                           ; BSR set to: 14
   4284                           ;interrupts.c: 39:         GLOBALsecs++;
   4285   000022  0100               	movlb	0	; () banked
-  4286   000024  4BA6               	infsnz	_GLOBALsecs& (0+255),f,b
-  4287   000026  2BA7               	incf	(_GLOBALsecs+1)& (0+255),f,b
+  4286   000024  4BA4               	infsnz	_GLOBALsecs& (0+255),f,b
+  4287   000026  2BA5               	incf	(_GLOBALsecs+1)& (0+255),f,b
   4288   000028                     
   4289                           ; BSR set to: 0
   4290                           ;interrupts.c: 40:         PIR0bits.TMR0IF=0;
@@ -4629,7 +4629,7 @@ Data Sizes:
 Auto Spaces:
     Space          Size  Autos    Used
     COMRAM           94     69      74
-    BANK0           160     38      96
+    BANK0           160     36      94
     BANK1           256      0       0
     BANK2           256      0       0
     BANK3           256      0       0
@@ -4666,8 +4666,8 @@ Pointer List with Targets:
     fputs@s	PTR const unsigned char  size(1) Largest target is 32
 		 -> dbuf(BANK0[32]), 
 
-    LCD_sendstring@string	PTR unsigned char  size(1) Largest target is 20
-		 -> main@buf(BANK0[20]), 
+    LCD_sendstring@string	PTR unsigned char  size(1) Largest target is 18
+		 -> main@buffer(BANK0[18]), 
 
     pad@buf	PTR unsigned char  size(1) Largest target is 32
 		 -> dbuf(BANK0[32]), 
@@ -4691,8 +4691,8 @@ Pointer List with Targets:
     sprintf@fmt	PTR const unsigned char  size(1) Largest target is 26
 		 -> STR_1(CODE[26]), STR_2(CODE[20]), STR_3(CODE[21]), 
 
-    sprintf@s	PTR unsigned char  size(1) Largest target is 20
-		 -> main@buf(BANK0[20]), 
+    sprintf@s	PTR unsigned char  size(1) Largest target is 18
+		 -> main@buffer(BANK0[18]), 
 
     UpdateClock@days	PTR int  size(1) Largest target is 16
 		 -> main@clock(BANK0[16]), 
@@ -4881,8 +4881,8 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                38    38      0   16970
-                                              0 BANK0     38    38      0
+ (0) _main                                                36    36      0   16970
+                                              0 BANK0     36    36      0
                            _ADC_init
                     _Interrupts_init
                            _LCD_Init
@@ -5063,7 +5063,7 @@ BANK1              100      0       0       7        0.0%
 BITBANK13           EA      0       0      30        0.0%
 BANK13              EA      0       0      31        0.0%
 BITBANK0            A0      0       0       4        0.0%
-BANK0               A0     26      60       5       60.0%
+BANK0               A0     24      5E       5       58.8%
 BITBIGSFRllhhhh     84      0       0      38        0.0%
 BITBIGSFRllhhll     5E      0       0      41        0.0%
 BITCOMRAM           5E      0       0       0        0.0%
@@ -5090,13 +5090,13 @@ BITSFR               0      0       0     200        0.0%
 SFR                  0      0       0     200        0.0%
 STACK                0      0       0       2        0.0%
 NULL                 0      0       0       0        0.0%
-ABS                  0      0      AA      45        0.0%
-DATA                 0      0      AA       3        0.0%
+ABS                  0      0      A8      45        0.0%
+DATA                 0      0      A8       3        0.0%
 CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Fri Feb 09 00:29:09 2024
+Symbol Table                                                                                   Fri Feb 09 00:39:06 2024
 
                         l53 1F78                          l73 1FC6                ___awdiv@sign 0006  
        ___wmul@multiplicand 0003           ??_Interrupts_init 0001                         l121 18EA  
@@ -5206,7 +5206,7 @@ Symbol Table                                                                    
                       l1889 1DDE                        l1993 1CB6                        l1985 1C78  
                       l1897 1EEA                        l1979 1B08                        l1995 1CBA  
                       l1987 1C84                        l1899 1F06                        l1997 1CE6  
-                      l1989 1C92                        l1999 1E88                main@TestMode 0074  
+                      l1989 1C92                        l1999 1E88                main@TestMode 0072  
                       STR_1 0E01                        STR_2 0E30                        STR_3 0E1B  
                       u2000 12FA                        u2001 12F6                        u2010 1352  
                       u2011 134E                        u2100 1994                        u2020 18E4  
@@ -5268,7 +5268,7 @@ Symbol Table                                                                    
                       u2587 1886                        u1971 126A                        u1891 1114  
                       u1980 1288                        u2597 18A4                        u1981 1284  
                       u1990 12B4                        u1991 12B0                        i2l79 002C  
-                      abs@a 0007                        _dbuf 0086                        _main 1670  
+                      abs@a 0007                        _dbuf 0084                        _main 1670  
                       _dtoa 1508                        _prec 0048                        pad@i 0013  
                       pad@p 0010                        fsr1h 0FE2                        fsr2h 0FDA  
                       indf1 0FE7                        indf2 0FDF                        fsr1l 0FE1  
@@ -5309,8 +5309,8 @@ Symbol Table                                                                    
            _Interrupts_init 1FBA              __pcstackCOMRAM 0001                __pidataBANK0 1F94  
              __end_of_fputc 1C6A               __end_of_fputs 1E1A               __end_of_putch 1FCA  
        __end_of_Timer0_init 1F7A                  ??_ADC_init 0001                     ??_fputc 0004  
-                   ??_fputs 000B                     ??_putch 0001           UpdateClock@F14152 00A8  
-                __pbssBANK0 0086         UpdateClock@DSTstate 000E                  ??_LCD_Init 0004  
+                   ??_fputs 000B                     ??_putch 0001           UpdateClock@F14152 00A6  
+                __pbssBANK0 0084         UpdateClock@DSTstate 000E                  ??_LCD_Init 0004  
             _LCD_sendnibble 1CF4              ?_LEDarray_init 0001              _LCD_sendstring 1EBC  
        __end_of_UpdateClock 1386                     ?___wmul 0001        __end_of_LCD_sendbyte 1F5A  
          UpdateClock@months 000C      __end_of_LCD_sendnibble 1D5C         UpdateClock@TestMode 000F  
@@ -5323,22 +5323,22 @@ Symbol Table                                                                    
                    __ptext5 1EEA                     __ptext6 1508                     __ptext7 1C6A  
                    __ptext8 1DDE                     __ptext9 1BC0       read_prec_or_width@fmt 0007  
           ___awmod@dividend 0001                   _LCD_E_TOG 1FAC             LCD_setline@line 0004  
-                   main@buf 0060                     _sprintf 1E54        end_of_initialization 1DD4  
-           ?_LCD_sendnibble 0001                     fputc@fp 0003             ??_LEDarray_init 0001  
-                   fputs@fp 000A                 _UpdateClock 0E46             ?_LCD_sendstring 0004  
-        _read_prec_or_width 1B12           __end_of_vfpfcnvrt 1508                     postdec1 0FE5  
-                   postdec2 0FDD         ?_read_prec_or_width 0007                     postinc0 0FEE  
-                   postinc1 0FE6                     postinc2 0FDE            vfpfcnvrt@convarg 0025  
-                ??_vfprintf 002E                  ?_LCD_E_TOG 0001                   _TRISAbits 0F81  
-                 _TRISBbits 0F82                   _TRISCbits 0F83                   _TRISDbits 0F84  
-                 _TRISEbits 0F85                   _TRISFbits 0F86                   _TRISGbits 0F87  
-                 _TRISHbits 0F88        ??_read_prec_or_width 0009                 _CM1CON0bits 0ED0  
-               _CM1CON1bits 0ED1            ?_Interrupts_init 0001                 vfpfcnvrt@ap 0022  
+                   _sprintf 1E54        end_of_initialization 1DD4             ?_LCD_sendnibble 0001  
+                   fputc@fp 0003             ??_LEDarray_init 0001                     fputs@fp 000A  
+               _UpdateClock 0E46             ?_LCD_sendstring 0004          _read_prec_or_width 1B12  
+         __end_of_vfpfcnvrt 1508                     postdec1 0FE5                     postdec2 0FDD  
+       ?_read_prec_or_width 0007                     postinc0 0FEE                     postinc1 0FE6  
+                   postinc2 0FDE            vfpfcnvrt@convarg 0025                  ??_vfprintf 002E  
+                ?_LCD_E_TOG 0001                   _TRISAbits 0F81                   _TRISBbits 0F82  
+                 _TRISCbits 0F83                   _TRISDbits 0F84                   _TRISEbits 0F85  
+                 _TRISFbits 0F86                   _TRISGbits 0F87                   _TRISHbits 0F88  
+      ??_read_prec_or_width 0009                 _CM1CON0bits 0ED0                 _CM1CON1bits 0ED1  
+          ?_Interrupts_init 0001                  main@buffer 0060                 vfpfcnvrt@ap 0022  
                vfpfcnvrt@cp 002A                 vfpfcnvrt@fp 0020              __end_of___wmul 1F10  
       LCD_sendnibble@number 0001         start_initialization 1D9E                 __end_of_abs 1EBC  
                __end_of_pad 1CF4                _LCD_sendbyte 1F36             UpdateClock@days 000A  
              ??_LCD_setline 0004                 vfprintf@fmt 002C        LCD_sendstring@string 0004  
-                  ??___wmul 0005                 __pdataBANK0 00A8                 __pbssCOMRAM 0046  
+                  ??___wmul 0005                 __pdataBANK0 00A6                 __pbssCOMRAM 0046  
                ??_LCD_E_TOG 0001               __pcstackBANK0 0060                    ?_HighISR 0001  
                  _dtoa$1868 0018                ?_Timer0_init 0001                   __pintcode 0008  
                   ?___awdiv 0001                    ?___awmod 0001         __end_of_LCD_setline 1E54  
@@ -5351,7 +5351,7 @@ Symbol Table                                                                    
                   _LATGbits 0F7F                    _LATHbits 0F80                    _IPR0bits 0E1F  
                   _PIE0bits 0E29                    i2u215_40 001A                    i2u215_41 0016  
                   _PIR0bits 0E33                   _vfpfcnvrt 1386                  _ADCON0bits 0F60  
-         ___wmul@multiplier 0001                   main@clock 0076      UpdateClock@DaysInMonth 0017  
+         ___wmul@multiplier 0001                   main@clock 0074      UpdateClock@DaysInMonth 0017  
                 _CM1NCHbits 0ED2                  _CM1PCHbits 0ED3                   copy_data0 1DB2  
      __end_of_LEDarray_init 1F36              UpdateClock@DoW 000B                 _LCD_setline 1E1A  
                   __Hrparam 0000                  vfprintf@ap 002D                    __Lrparam 0000  
@@ -5362,7 +5362,7 @@ Symbol Table                                                                    
                   __ptext22 1CF4                    __ptext14 1A62                    __ptext23 1FAC  
                   __ptext15 1F5A                    __ptext24 1FBA                    __ptext16 1F10  
                   __ptext25 1F7A                    __ptext17 18D6                    __ptext18 1E1A  
-                  __ptext19 1EBC     LEDarray_disp_bin@number 0001                  _GLOBALsecs 00A6  
+                  __ptext19 1EBC     LEDarray_disp_bin@number 0001                  _GLOBALsecs 00A4  
                   isa$xinst 0000                    int$flags 004B                    _vfprintf 1D5C  
                 _INTCONbits 0FF2                    intlevel2 0000                   sprintf@ap 0039  
               _DAC1CON0bits 0EC6                _DAC1CON1bits 0EC7                 ??_vfpfcnvrt 0023  

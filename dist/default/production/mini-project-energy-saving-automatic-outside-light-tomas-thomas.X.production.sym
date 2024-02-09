@@ -3,7 +3,7 @@ sprintf@f 3A 0 COMRAM 1
 LCD_sendnibble@number 1 0 COMRAM 1
 UpdateClock@minutes 8 0 COMRAM 1
 __S0 1FCA 0 ABS 0
-__S1 C0 0 ABS 0
+__S1 BE 0 ABS 0
 __S4 0 0 ABS 0
 __S5 0 0 ABS 0
 read_prec_or_width@ap 8 0 COMRAM 1
@@ -18,7 +18,7 @@ pad@i 13 0 COMRAM 1
 pad@p 10 0 COMRAM 1
 _prec 48 0 COMRAM 1
 _dtoa 1508 0 CODE 0
-_dbuf 86 0 BANK0 1
+_dbuf 84 0 BANK0 1
 ?_abs 7 0 COMRAM 1
 _main 1670 0 CODE 0
 ___sp 0 0 STACK 2
@@ -131,7 +131,7 @@ __LnvFARRAM 0 0 FARRAM 0
 UpdateClock@TestMode F 0 COMRAM 1
 ___heap_hi 0 0 ABS 0
 fputc@c 1 0 COMRAM 1
-main@clock 76 0 BANK0 1
+main@clock 74 0 BANK0 1
 fputs@c B 0 COMRAM 1
 UpdateClock@days A 0 COMRAM 1
 fputs@i C 0 COMRAM 1
@@ -145,7 +145,7 @@ pad@buf F 0 COMRAM 1
 stackhi 0 0 ABS 0
 __Hheap 0 0 HEAP 7
 __Lheap 0 0 HEAP 7
-UpdateClock@F14152 A8 0 BANK0 1
+UpdateClock@F14152 A6 0 BANK0 1
 __HcstackBANK0 0 0 ABS 0
 __LcstackBANK0 0 0 ABS 0
 __pcstackBANK0 60 0 BANK0 1
@@ -170,7 +170,7 @@ ___wmul@multiplier 1 0 COMRAM 1
 ___heap_lo 0 0 ABS 0
 __HdataBANK0 0 0 ABS 0
 __LdataBANK0 0 0 ABS 0
-__pdataBANK0 A8 0 BANK0 1
+__pdataBANK0 A6 0 BANK0 1
 end_of_initialization 1DD4 0 CODE 0
 ___awdiv@sign 6 0 COMRAM 1
 __end_of_LEDarray_init 1F36 0 CODE 0
@@ -191,7 +191,7 @@ vfpfcnvrt@convarg 25 0 COMRAM 1
 _TRISFbits F86 0 ABS 0
 _TRISGbits F87 0 ABS 0
 _TRISHbits F88 0 ABS 0
-main@TestMode 74 0 BANK0 1
+main@TestMode 72 0 BANK0 1
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
 UpdateClock@DSTstate E 0 COMRAM 1
@@ -277,7 +277,6 @@ __Lrdata 0 0 COMRAM 1
 fputc@fp 3 0 COMRAM 1
 __Hidloc 0 0 ABS 0
 __Lidloc 0 0 ABS 0
-main@buf 60 0 BANK0 1
 fputs@fp A 0 COMRAM 1
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
@@ -290,11 +289,11 @@ __Lspace_0 0 0 ABS 0
 __LcstackCOMRAM 0 0 ABS 0
 __pcstackCOMRAM 1 0 COMRAM 1
 _sprintf 1E54 0 CODE 0
-__Hspace_1 C0 0 ABS 0
+__Hspace_1 BE 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __Hsmallconst E46 0 SMALLCONST 0
 __Lsmallconst E00 0 SMALLCONST 0
-_GLOBALsecs A6 0 BANK0 1
+_GLOBALsecs A4 0 BANK0 1
 __psmallconst E00 0 SMALLCONST 0
 __Hspace_2 0 0 ABS 0
 __Lspace_2 0 0 ABS 0
@@ -317,12 +316,13 @@ __HidataBANK0 0 0 ABS 0
 __LidataBANK0 0 0 ABS 0
 __pidataBANK0 1F94 0 CODE 0
 __end_of_sprintf 1E88 0 CODE 0
+main@buffer 60 0 BANK0 1
 _LCD_E_TOG 1FAC 0 CODE 0
 __end_of_pad 1CF4 0 CODE 0
 __HbssBANK0 0 0 ABS 0
 __LbssBANK0 0 0 ABS 0
 __Hbank10 0 0 ABS 0
-__pbssBANK0 86 0 BANK0 1
+__pbssBANK0 84 0 BANK0 1
 __Lbank10 0 0 ABS 0
 vfpfcnvrt@done 29 0 COMRAM 1
 sprintf@fmt 30 0 COMRAM 1
@@ -446,11 +446,11 @@ reset_vec 0 3 CODE 0 0
 intcode 8 33 CODE 8 0
 smallconst E00 E45 SMALLCONST E00 0
 cstackCOMRAM 1 4B COMRAM 1 1
-cstackBANK0 60 BF BANK0 60 1
+cstackBANK0 60 BD BANK0 60 1
 text13 E46 1FC9 CODE E46 0
 %locals
 dist/default/production\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.production.o
-C:\Users\tjhla\AppData\Local\Temp\xcAs16ns.\driver_tmp_1.s
+C:\Users\tjhla\AppData\Local\Temp\xcBsr30.1\driver_tmp_1.s
 10860 1D9E 0 CODE 0
 10862 1D9E 0 CODE 0
 10865 1D9E 0 CODE 0
@@ -873,7 +873,7 @@ ADC.c
 18 1F8E 0 CODE 0
 19 1F90 0 CODE 0
 20 1F92 0 CODE 0
-C:\Users\tjhla\AppData\Local\Temp\xcAs16ns.\driver_tmp_1.s
+C:\Users\tjhla\AppData\Local\Temp\xcBsr30.1\driver_tmp_1.s
 16438 8 0 CODE 0
 interrupts.c
 31 8 0 CODE 0

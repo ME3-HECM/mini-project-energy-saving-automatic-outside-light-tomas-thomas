@@ -8,10 +8,10 @@ Linker command line:
   -h+dist/default/production\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.production.sym \
   --cmf=dist/default/production\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.production.cmf \
   -z -Q18F67K40 \
-  -oC:\Users\tjhla\AppData\Local\Temp\xcAs16ns.\driver_tmp_3.o \
+  -oC:\Users\tjhla\AppData\Local\Temp\xcBsr30.1\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.production.map \
-  --md=C:\Users\tjhla\AppData\Local\Temp\xcAs16ns.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\tjhla\AppData\Local\Temp\xcBsr30.1\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=0E00h-0EFFhx498 -AMEDIUMCONST=0E00h-0FFFFh,010E00h-01FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0DE9h -ABIGRAM=01h-0DE9h \
@@ -31,7 +31,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\tjhla\AppData\Local\Temp\xcAs16ns.\driver_tmp_14.o \
+  C:\Users\tjhla\AppData\Local\Temp\xcBsr30.1\driver_tmp_14.o \
   dist/default/production\mini-project-energy-saving-automatic-outside-light-tomas-thomas.X.production.o 
 
 Object code version is 3.11
@@ -41,7 +41,7 @@ Machine type is 18F67K40
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\tjhla\AppData\Local\Temp\xcAs16ns.\driver_tmp_14.o
+C:\Users\tjhla\AppData\Local\Temp\xcBsr30.1\driver_tmp_14.o
                 config                           300000   300000        6        0       4
                 init                                 30       30        4        4       0
                 reset_vec                             0        0        4        0       0
@@ -77,9 +77,9 @@ dist/default/production\mini-project-energy-saving-automatic-outside-light-tomas
                 text1                              1E54     1E54       34      723       0
                 text0                              1670     1670      146      723       0
                 cstackCOMRAM                          1        1       45        1       1
-                cstackBANK0                          60       60       26       60       1
-                dataBANK0                            A8       A8       18       60       1
-                bssBANK0                             86       86       22       60       1
+                cstackBANK0                          60       60       24       60       1
+                dataBANK0                            A6       A6       18       60       1
+                bssBANK0                             84       84       22       60       1
                 bssCOMRAM                            46       46        5        1       1
                 cinit                              1D9E     1D9E       40      723       0
                 idataBANK0                         1F94     1F94       18      723       0
@@ -137,9 +137,9 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   RAM            
 
         CLASS   BANK0          
-                cstackBANK0                          60       60       26         1
-                dataBANK0                            A8       A8       18         1
-                bssBANK0                             86       86       22         1
+                cstackBANK0                          60       60       24         1
+                dataBANK0                            A6       A6       18         1
+                bssBANK0                             84       84       22         1
 
         CLASS   BANK1          
 
@@ -191,7 +191,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 reset_vec                      000000  000004  000004         0       0  CODE    
                 cstackCOMRAM                   000001  00004B  00004C         1       1  COMRAM  
                 intcode                        000008  00002C  000034         4       0  CODE    
-                cstackBANK0                    000060  000060  0000C0        60       1  BANK0   
+                cstackBANK0                    000060  00005E  0000BE        60       1  BANK0   
                 smallconst                     000E00  000046  000E46       700       0  SMALLCON
                 text13                         000E46  001184  001FCA       723       0  CODE    
 
@@ -199,7 +199,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            0000C0-0000FF               40
+        BANK0            0000BE-0000FF               42
         BANK1            000100-0001FF              100
         BANK10           000A00-000AFF              100
         BANK11           000B00-000BFF              100
@@ -214,7 +214,7 @@ UNUSED ADDRESS RANGES
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
         BIGRAM           00004C-00005F               14
-                         0000C0-000DE9              D2A
+                         0000BE-000DE9              D2C
         BIGSFR           000DEF-000FFF              211
         CODE             000004-000007                4
                          000034-000DFF              DCC
@@ -228,7 +228,7 @@ UNUSED ADDRESS RANGES
         IDLOC            200000-20000F               10
         MEDIUMCONST      001FCA-00FFFF             E036
                          010E00-01FFFF             F200
-        RAM              0000C0-000DE9              100
+        RAM              0000BE-000DE9              100
         SFR              000DEF-000FFF              100
         SMALLCONST       001FCA-01FFFF              100
 
@@ -250,7 +250,7 @@ LEDarray_disp_bin@number    cstackCOMRAM 000001
 UpdateClock@DSTstate        cstackCOMRAM 00000E
 UpdateClock@DaysInMonth     cstackCOMRAM 000017
 UpdateClock@DoW             cstackCOMRAM 00000B
-UpdateClock@F14152          dataBANK0    0000A8
+UpdateClock@F14152          dataBANK0    0000A6
 UpdateClock@TestMode        cstackCOMRAM 00000F
 UpdateClock@days            cstackCOMRAM 00000A
 UpdateClock@hours           cstackCOMRAM 000009
@@ -270,7 +270,7 @@ _CM1NCHbits                 (abs)        000ED2
 _CM1PCHbits                 (abs)        000ED3
 _DAC1CON0bits               (abs)        000EC6
 _DAC1CON1bits               (abs)        000EC7
-_GLOBALsecs                 bssBANK0     0000A6
+_GLOBALsecs                 bssBANK0     0000A4
 _HighISR                    intcode      000008
 _INTCONbits                 (abs)        000FF2
 _IPR0bits                   (abs)        000E1F
@@ -373,7 +373,7 @@ __Hrparam                   rparam       000000
 __Hsfr                      sfr          000000
 __Hsmallconst               smallconst   000E46
 __Hspace_0                  (abs)        001FCA
-__Hspace_1                  (abs)        0000C0
+__Hspace_1                  (abs)        0000BE
 __Hspace_2                  (abs)        000000
 __Hspace_4                  (abs)        600006
 __Hstack                    stack        000000
@@ -506,7 +506,7 @@ __Ltext7                    text7        000000
 __Ltext8                    text8        000000
 __Ltext9                    text9        000000
 __S0                        (abs)        001FCA
-__S1                        (abs)        0000C0
+__S1                        (abs)        0000BE
 __S4                        (abs)        000000
 __S5                        (abs)        000000
 ___awdiv                    text12       00199E
@@ -569,12 +569,12 @@ __end_of_vfpfcnvrt          text3        001508
 __end_of_vfprintf           text2        001D9E
 __initialization            cinit        001D9E
 __mediumconst               mediumconst  000000
-__pbssBANK0                 bssBANK0     000086
+__pbssBANK0                 bssBANK0     000084
 __pbssCOMRAM                bssCOMRAM    000046
 __pcinit                    cinit        001D9E
 __pcstackBANK0              cstackBANK0  000060
 __pcstackCOMRAM             cstackCOMRAM 000001
-__pdataBANK0                dataBANK0    0000A8
+__pdataBANK0                dataBANK0    0000A6
 __pidataBANK0               idataBANK0   001F94
 __pintcode                  intcode      000008
 __psmallconst               smallconst   000E00
@@ -607,7 +607,7 @@ __ptext9                    text9        001BC0
 __ramtop                    ramtop       000E00
 __smallconst                smallconst   000E00
 _abs                        text11       001E88
-_dbuf                       bssBANK0     000086
+_dbuf                       bssBANK0     000084
 _dtoa                       text6        001508
 _dtoa$1868                  cstackCOMRAM 000018
 _flags                      bssCOMRAM    00004A
@@ -644,9 +644,9 @@ intlevel2                   text         000000
 intlevel3                   text         000000
 isa$std                     (abs)        000001
 isa$xinst                   (abs)        000000
-main@TestMode               cstackBANK0  000074
-main@buf                    cstackBANK0  000060
-main@clock                  cstackBANK0  000076
+main@TestMode               cstackBANK0  000072
+main@buffer                 cstackBANK0  000060
+main@clock                  cstackBANK0  000074
 pad@buf                     cstackCOMRAM 00000F
 pad@fp                      cstackCOMRAM 00000E
 pad@i                       cstackCOMRAM 000013

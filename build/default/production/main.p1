@@ -2113,8 +2113,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 38:     ADC_init();
 [e ( _ADC_init ..  ]
 "40
-[; ;main.c: 40:     char buf[20];
-[v _buf `uc ~T0 @X0 -> 20 `i a ]
+[; ;main.c: 40:     char buffer[18];
+[v _buffer `uc ~T0 @X0 -> 18 `i a ]
 "44
 [; ;main.c: 44:     TRISDbits.TRISD7 = 0;
 [e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
@@ -2196,20 +2196,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 119:         LCD_setline(1);
 [e ( _LCD_setline (1 -> -> 1 `i `uc ]
 "121
-[; ;main.c: 121:         sprintf(buf, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW);
-[e ( _sprintf (1 , , , , (. , &U _buf :s 1C . _clock 2 . _clock 1 . _clock 0 . _clock 4 ]
+[; ;main.c: 121:         sprintf(buffer, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW);
+[e ( _sprintf (1 , , , , (. , &U _buffer :s 1C . _clock 2 . _clock 1 . _clock 0 . _clock 4 ]
 "122
-[; ;main.c: 122:         LCD_sendstring(buf);
-[e ( _LCD_sendstring (1 &U _buf ]
+[; ;main.c: 122:         LCD_sendstring(buffer);
+[e ( _LCD_sendstring (1 &U _buffer ]
 "123
 [; ;main.c: 123:         LCD_setline(2);
 [e ( _LCD_setline (1 -> -> 2 `i `uc ]
 "125
-[; ;main.c: 125:         sprintf(buf, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
-[e ( _sprintf (1 , , , (. , &U _buf :s 2C . _clock 3 . _clock 5 . _clock 6 ]
+[; ;main.c: 125:         sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
+[e ( _sprintf (1 , , , (. , &U _buffer :s 2C . _clock 3 . _clock 5 . _clock 6 ]
 "126
-[; ;main.c: 126:         LCD_sendstring(buf);
-[e ( _LCD_sendstring (1 &U _buf ]
+[; ;main.c: 126:         LCD_sendstring(buffer);
+[e ( _LCD_sendstring (1 &U _buffer ]
 "151
 [; ;main.c: 151:     }
 }

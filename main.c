@@ -37,7 +37,7 @@ void main(void)
     LCD_Init(); 
     ADC_init();
     
-    char buf[20];
+    char buffer[18];    //experimental found 18 to be the limit on the LCD screen
 
 // setting up the LEDS on the board with more helpful names
     #define LED_Left LATDbits.LATD7
@@ -118,12 +118,12 @@ void main(void)
         //setting up the LCD screen to display our values
         LCD_setline(1);
         //displays the hours, minutes, seconds, and day of the week in the clock
-        sprintf(buf, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW); //Sets buf string to take the first int part value and the first 2 values in the frac part variable
-        LCD_sendstring(buf); //Prints string buf  in LCD display
+        sprintf(buffer, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW); //Sets buffer string to take the first int part value and the first 2 values in the frac part variable
+        LCD_sendstring(buffer); //Prints string buf  in LCD display
         LCD_setline(2);
         //displays the days, months, and years of the clock
-        sprintf(buf, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
-        LCD_sendstring(buf); //Prints buf value in LCD display
+        sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
+        LCD_sendstring(buffer); //Prints buf value in LCD display
        
 //// #####################################
 //        //debugging tools 

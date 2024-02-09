@@ -24354,7 +24354,7 @@ void main(void)
     LCD_Init();
     ADC_init();
 
-    char buf[20];
+    char buffer[18];
 
 
 
@@ -24417,12 +24417,12 @@ void main(void)
 
         LCD_setline(1);
 
-        sprintf(buf, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW);
-        LCD_sendstring(buf);
+        sprintf(buffer, "Time:%02d:%02d:%02d D%01d",clock.hours, clock.minutes, clock.seconds, clock.DoW);
+        LCD_sendstring(buffer);
         LCD_setline(2);
 
-        sprintf(buf, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
-        LCD_sendstring(buf);
+        sprintf(buffer, "Date:%02d/%02d/%04d",clock.days, clock.months, clock.years);
+        LCD_sendstring(buffer);
 # 151 "main.c"
     }
 }
