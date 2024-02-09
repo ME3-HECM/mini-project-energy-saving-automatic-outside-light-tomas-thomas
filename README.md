@@ -96,6 +96,19 @@ Sun synchronisation was done to correct the clock if it lost accuracy due to its
 # Sync Design
 One key component of the design is using a combination of dawn and dusk values, on a moving average of every seven days. This is weekly calibration, where the clock will re-sync every seven days based off its previous measurements. This was designed to provide a more robust method for recalibration. By using a dataset of a week, an average can be taken, minimising the error due to cloudy weather and other external factors, leading to more accurate results. The design accounts for daylight saving time, by adding 1 hour onto all the monthly solar midnight values automatically, during the period. A counter features for both dawn and dusk measurements, to ensure that only one measurement is taken each day, and is reset at the start of each day.
 
+# Video Demonstrations 
+Video 1 - Daylight Saving Turning on
+https://imperiallondon-my.sharepoint.com/:v:/g/personal/tmy21_ic_ac_uk/EbNsBKcomwNPkMXuyOmhF70BgUrL67NscfKjAWXrxpA5qw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=8rRdid
+
+Video 2 - Daylight Saving Turning off
+https://imperiallondon-my.sharepoint.com/:v:/g/personal/tmy21_ic_ac_uk/EXIqOilbpKtCo6_U1XmnMw8B0zI7KGrlAVxx5FEj2BXgow?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=K6db6z
+
+Video 3 - LED Lamp Functionality - LED turns on in darkness and off between hours of 1am-5am.
+https://imperiallondon-my.sharepoint.com/:v:/g/personal/tmy21_ic_ac_uk/EXzKluB0xsFGniDBB9gUvQcBT5ZbJFzD5ymf09egn4CVqQ?e=BuKOfG&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
+
+Video 4 - All Overflows Working Correctly
+https://imperiallondon-my.sharepoint.com/:v:/g/personal/tmy21_ic_ac_uk/ER_qpBM0miJJmGYtS7bkkkABy5B0NxJ96RDX7rRzhh_6Fw?e=AHh1dS&nav=eyJwbGF5YmFja09wdGlvbnMiOnt9LCJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJwb3N0cm9sbC1jb3B5bGluay0yIn19
+
 
 # Orignal Assignment Brief
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/hkDdx-pz)
