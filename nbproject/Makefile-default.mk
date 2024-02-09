@@ -51,31 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-<<<<<<< Updated upstream
-SOURCEFILES_QUOTED_IF_SPACED=main.c timers.c interrupts.c comparator.c LEDarray.c ADC.c clock.c LCD.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c timers.c interrupts.c LEDarray.c ADC.c clock.c LCD.c SunSync.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/timers.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/comparator.p1 ${OBJECTDIR}/LEDarray.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/clock.p1 ${OBJECTDIR}/LCD.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/timers.p1.d ${OBJECTDIR}/interrupts.p1.d ${OBJECTDIR}/comparator.p1.d ${OBJECTDIR}/LEDarray.p1.d ${OBJECTDIR}/ADC.p1.d ${OBJECTDIR}/clock.p1.d ${OBJECTDIR}/LCD.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/timers.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/LEDarray.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/clock.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/SunSync.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/timers.p1.d ${OBJECTDIR}/interrupts.p1.d ${OBJECTDIR}/LEDarray.p1.d ${OBJECTDIR}/ADC.p1.d ${OBJECTDIR}/clock.p1.d ${OBJECTDIR}/LCD.p1.d ${OBJECTDIR}/SunSync.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/timers.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/comparator.p1 ${OBJECTDIR}/LEDarray.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/clock.p1 ${OBJECTDIR}/LCD.p1
+OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/timers.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/LEDarray.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/clock.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/SunSync.p1
 
 # Source Files
-SOURCEFILES=main.c timers.c interrupts.c comparator.c LEDarray.c ADC.c clock.c LCD.c
-=======
-SOURCEFILES_QUOTED_IF_SPACED=main.c timers.c interrupts.c comparator.c LEDarray.c ADC.c clock.c LCD.c arrayfunction.c SunSync.c
-
-# Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/timers.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/comparator.p1 ${OBJECTDIR}/LEDarray.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/clock.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/arrayfunction.p1 ${OBJECTDIR}/SunSync.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/timers.p1.d ${OBJECTDIR}/interrupts.p1.d ${OBJECTDIR}/comparator.p1.d ${OBJECTDIR}/LEDarray.p1.d ${OBJECTDIR}/ADC.p1.d ${OBJECTDIR}/clock.p1.d ${OBJECTDIR}/LCD.p1.d ${OBJECTDIR}/arrayfunction.p1.d ${OBJECTDIR}/SunSync.p1.d
-
-# Object Files
-OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/timers.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/comparator.p1 ${OBJECTDIR}/LEDarray.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/clock.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/arrayfunction.p1 ${OBJECTDIR}/SunSync.p1
-
-# Source Files
-SOURCEFILES=main.c timers.c interrupts.c comparator.c LEDarray.c ADC.c clock.c LCD.c arrayfunction.c SunSync.c
->>>>>>> Stashed changes
+SOURCEFILES=main.c timers.c interrupts.c LEDarray.c ADC.c clock.c LCD.c SunSync.c
 
 
 
@@ -126,14 +112,6 @@ ${OBJECTDIR}/interrupts.p1: interrupts.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/interrupts.d ${OBJECTDIR}/interrupts.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/interrupts.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/comparator.p1: comparator.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/comparator.p1.d 
-	@${RM} ${OBJECTDIR}/comparator.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/comparator.p1 comparator.c 
-	@-${MV} ${OBJECTDIR}/comparator.d ${OBJECTDIR}/comparator.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/comparator.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/LEDarray.p1: LEDarray.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/LEDarray.p1.d 
@@ -166,16 +144,6 @@ ${OBJECTDIR}/LCD.p1: LCD.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/LCD.d ${OBJECTDIR}/LCD.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/LCD.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-<<<<<<< Updated upstream
-=======
-${OBJECTDIR}/arrayfunction.p1: arrayfunction.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/arrayfunction.p1.d 
-	@${RM} ${OBJECTDIR}/arrayfunction.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/arrayfunction.p1 arrayfunction.c 
-	@-${MV} ${OBJECTDIR}/arrayfunction.d ${OBJECTDIR}/arrayfunction.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/arrayfunction.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/SunSync.p1: SunSync.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/SunSync.p1.d 
@@ -184,7 +152,6 @@ ${OBJECTDIR}/SunSync.p1: SunSync.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/SunSync.d ${OBJECTDIR}/SunSync.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/SunSync.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
->>>>>>> Stashed changes
 else
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -209,14 +176,6 @@ ${OBJECTDIR}/interrupts.p1: interrupts.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/interrupts.p1 interrupts.c 
 	@-${MV} ${OBJECTDIR}/interrupts.d ${OBJECTDIR}/interrupts.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/interrupts.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/comparator.p1: comparator.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/comparator.p1.d 
-	@${RM} ${OBJECTDIR}/comparator.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/comparator.p1 comparator.c 
-	@-${MV} ${OBJECTDIR}/comparator.d ${OBJECTDIR}/comparator.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/comparator.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/LEDarray.p1: LEDarray.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -250,16 +209,6 @@ ${OBJECTDIR}/LCD.p1: LCD.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/LCD.d ${OBJECTDIR}/LCD.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/LCD.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-<<<<<<< Updated upstream
-=======
-${OBJECTDIR}/arrayfunction.p1: arrayfunction.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/arrayfunction.p1.d 
-	@${RM} ${OBJECTDIR}/arrayfunction.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/arrayfunction.p1 arrayfunction.c 
-	@-${MV} ${OBJECTDIR}/arrayfunction.d ${OBJECTDIR}/arrayfunction.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/arrayfunction.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/SunSync.p1: SunSync.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/SunSync.p1.d 
@@ -268,7 +217,6 @@ ${OBJECTDIR}/SunSync.p1: SunSync.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/SunSync.d ${OBJECTDIR}/SunSync.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/SunSync.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
->>>>>>> Stashed changes
 endif
 
 # ------------------------------------------------------------------------------------

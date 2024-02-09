@@ -9,19 +9,12 @@ void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, in
     int DaysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}; //this should be in an intialisation function 
     
     if (TestMode == 1){
-<<<<<<< Updated upstream
        *hours = *seconds;    //every IRL second = 1 hour on the clock
         if (*seconds >= 24 ){   // whilst in this mode we need to reset the seconds counter at 24 to be like the days
             *seconds = 0;       // reset to zero
-        } 
-=======
-        *minutes = *ticker;
-        if(*ticker >= 60){
-            *ticker = 0;
         }
->>>>>>> Stashed changes
     }
-    
+  
     if (*seconds >= 60 ){
         *seconds = 0;
         *minutes = *minutes + 1;
@@ -38,7 +31,7 @@ void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, in
         *DoW = *DoW + 1;
     }
     
-    if  (*DoW >= 8){  
+    if  (*DoW >= 8){  // resets the Day of the week when counter when it hits 7 
         *DoW = 1;
     }
     

@@ -24118,15 +24118,9 @@ void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, in
     int DaysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     if (TestMode == 1){
-<<<<<<< Updated upstream
        *hours = *seconds;
         if (*seconds >= 24 ){
             *seconds = 0;
-=======
-        *minutes = *ticker;
-        if(*ticker >= 60){
-            *ticker = 0;
->>>>>>> Stashed changes
         }
     }
 

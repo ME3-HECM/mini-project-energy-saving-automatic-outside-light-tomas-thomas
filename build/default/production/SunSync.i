@@ -24089,6 +24089,16 @@ unsigned char __t3rd16on(void);
 # 1 "SunSync.c" 2
 
 # 1 "./SunSync.h" 1
+
+
+
+
+
+
+
+void SunSynnInit();
+void LightDetection(int ADC_val, int hours);
+int DuskAndDawnCollect(int ADC_val, int months, int days, int hours, int mins, int DSTstate, *DawnDetected, *DuskDetected, *DawnStartMins,*DawnStartHours, *DuskStartMins, *DuskStartHours, KnownSolarMins, KnownSolarHours);
 # 2 "SunSync.c" 2
 
 # 1 "./seconds.h" 1
@@ -24100,10 +24110,7 @@ unsigned char __t3rd16on(void);
 
 
 unsigned int GLOBALsecs = 0;
-
-unsigned int ticker = 0;
 # 3 "SunSync.c" 2
-
 
 
 void SunSynnInit(){
@@ -24118,75 +24125,44 @@ void SunSynnInit(){
     {9, 13, 8, 1, 57, 1, 5, 3, 55, 47, 46, 56}
     };
 
-    int DawnLightVals[4];
-    int DuskLightVals[4]
-    int lightLL = 70;
+    TRISHbits.TRISH3 = 0;
+    LATHbits.LATH3 = 0;
 }
 
-void DuskAndDawnCollect(int ADC_val, int months, int days, int hours, int mins ){
-    if (ADC_val >= lightLL && (hours <= 8){
-
+void LightDetection(int light, int hours){
+    if (light <= 70 && ((hours < 1) || (hours>=5)) ){
+        LATHbits.LATH3 = 1;
+    }
+    else{
+       LATHbits.LATH3 = 0;
     }
 }
 
-void SunFun(){
-    if (ADC_getval() > light_threshold){
-            LED_Right = 0;
-            if ((Dawn.count == 0)&&(clock.hours >=4 && clock.hours < 8)) {
-                ArrayAppend(Dawn.hours, Dawn.size, clock.hours);
-                ArrayAppend(Dawn.minutes, Dawn.size, clock.minutes);
-                Dawn.count = 1;
-            }
-        }
+int DuskAndDawnCollect(int ADC_val, int months, int days, int hours, int mins, int DSTstate, *DawnDetected, *DuskDetected, *DawnStartMins,*DawnStartHours, *DuskStartMins, *DuskStartHours, KnownSolarMins, KnownSolarHours){
+    int SolarMidnightCalculated;
+    int SolarMidnightConstant;
+    int delta;
 
-        if (clock.days > previousClockDays) {
-            Dawn.count = 0;
-            Dusk.count = 0;
-            daycount++;
+    if (*DawnDetected == 0 && (ADC_val >= 70) && (hours >= 4 && hours < 8)){
+        *DawnStartHours = hours;
+        *DawnStartMins = mins;
+        *DawnDetected = 1;
 
-            previousClockDays = clock.days;
+    }
+     if (*DuskDetected == 0 && (ADC_val <= 70) && (hours >= 15 && hours < 20)){
+        *DuskStartHours = hours;
+        *DuskStartMins = mins;
+        *DuskDetected = 1;
 
-            if (daycount == 7) {
+    }
+    SolarMidnightCalculated = 12*60 + 0.5*((*DawnStartHours * 60 + *DawnStartMins) + (*DuskStartHours * 60 + *DuskStartMins));
 
+    if (DSTstate == 1) {
+        KnownSolarHours = KnownSolarHours + 1;
+    }
+    if (KnownSolarHours == 0 || KnownSolarHours == 1) {KnownSolarHours = KnownSolarHours + 24;}
 
-
-
-
-                int operation = 0;
-
-                int hours_temp = SolarPerMonth.solarMidHours[(clock.months - 1)];
-                int minutes_temp = SolarPerMonth.solarMidMinutes[(clock.months - 1)];
-
-                if (clock.DSTstate = 1) {hours_temp = hours_temp + 1;}
-                if (hours_temp = 0 || hours_temp == 1) {hours_temp = hours_temp + 24;}
-
-
-                int knownSolarMidnight = hours_temp*60 + minutes_temp;
-
-                struct array_structure SolarMidnight;
-                    SolarMidnight.minutes[0] = 0;
-                    SolarMidnight.minutes[1] = 0;
-                    SolarMidnight.minutes[2] = 0;
-                    SolarMidnight.minutes[3] = 0;
-                    SolarMidnight.minutes[4] = 0;
-                    SolarMidnight.minutes[5] = 0;
-                    SolarMidnight.minutes[6] = 0;
-
-
-                for (int i = 0; i <= Dawn.size-1; i++) {
-                    operation = (Dawn.hours[i] * 60 + Dawn.minutes[i]) + (Dusk.hours[i]*60 + Dusk.minutes[i]);
-                    operation = operation * 0.5 + 12*60;
-                    ArrayAppend(SolarMidnight.minutes, 7, operation);
-                }
-                avgSolarMidnight = ArrayAverage(SolarMidnight.minutes, 7);
-                int minute_diff = knownSolarMidnight - avgSolarMidnight;
-
-
-                clock.minutes = clock.minutes + minute_diff;
-
-
-
-                daycount = 0;
-            }
-        }
+    SolarMidnightConstant = (KnownSolarHours * 60 + KnownSolarMins) ;
+    delta = SolarMidnightConstant - SolarMidnightCalculated;
+    return(delta);
 }

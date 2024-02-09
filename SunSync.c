@@ -2,7 +2,6 @@
 #include "SunSync.h"
 #include "seconds.h"
 
-// setting up a time structure to be used for the clock, and time keeping
 void SunSynnInit(){
     struct month_structure { //set up time structure - we haven't actually called it yet
         int days[12];
@@ -14,80 +13,111 @@ void SunSynnInit(){
     {0, 0, 0, 0, 23, 0, 0, 0, 23, 23, 23, 23},        // Solar mid-hours
     {9, 13, 8, 1, 57, 1, 5, 3, 55, 47, 46, 56}       // Solar mid-minutes
     };
-    
-    int DawnLightVals[4];
-    int DuskLightVals[4]
-    int lightLL = 70;
+   
+    TRISHbits.TRISH3 = 0;   // setting up as an output
+    LATHbits.LATH3 = 0; 
 } 
 
-void DuskAndDawnCollect(int ADC_val, int months, int days, int hours, int mins ){
-    if (ADC_val >= lightLL && (hours <= 8){
+void LightDetection(int light, int hours){
+    if (light <= 70 && ((hours < 1) || (hours>=5)) ){   //turn on if there is less than 70 light and not betweeen 1 and 5am.
+        LATHbits.LATH3 = 1;
+    }
+    else{
+       LATHbits.LATH3 = 0; 
+    } 
+}
+
+int DuskAndDawnCollect(int ADC_val, int months, int days, int hours, int mins, int DSTstate, *DawnDetected, *DuskDetected, *DawnStartMins,*DawnStartHours, *DuskStartMins, *DuskStartHours, KnownSolarMins, KnownSolarHours){    // on the input CSM[clock.months - 1]
+    int SolarMidnightCalculated;
+    int SolarMidnightConstant;
+    int delta;
+    
+    if (*DawnDetected == 0 && (ADC_val >= 70) && (hours >= 4 && hours < 8)){ //if we've seen light, and we're in the hours we expect to see dawn
+        *DawnStartHours = hours;
+        *DawnStartMins = mins;
+        *DawnDetected = 1;
         //add the ADC_value to the list 
     }
+     if (*DuskDetected == 0 && (ADC_val <= 70) && (hours >= 15 && hours < 20)){ //if we've seen light, and we're in the hours we expect to see dawn
+        *DuskStartHours = hours;
+        *DuskStartMins = mins;
+        *DuskDetected = 1;
+        //add the ADC_value to the list 
+    }
+    SolarMidnightCalculated = 12*60 + 0.5*((*DawnStartHours * 60 + *DawnStartMins) + (*DuskStartHours * 60 + *DuskStartMins));
+              
+    if (DSTstate == 1) {
+        KnownSolarHours = KnownSolarHours + 1;
+    } //account for daylight saving time in the known solar midnight values which are GMT
+    if (KnownSolarHours == 0 || KnownSolarHours == 1) {KnownSolarHours = KnownSolarHours + 24;} //if solar midnight is past midnight, reference this as 24 in the hours rather than 00
+        
+    SolarMidnightConstant =  (KnownSolarHours * 60 + KnownSolarMins) ; 
+    delta = SolarMidnightConstant - SolarMidnightCalculated;
+    return(delta);
 }
-    
-void SunFun(){
-    if (ADC_getval() > light_threshold){ //if light enough, turn LED off
-            LED_Right = 0;
-            if ((Dawn.count == 0)&&(clock.hours >=4 && clock.hours < 8)) { //Dawn only occurs between 4am and 8am
-                ArrayAppend(Dawn.hours, Dawn.size, clock.hours);
-                ArrayAppend(Dawn.minutes, Dawn.size,  clock.minutes);
-                Dawn.count = 1;
-            }
-        }
-        
-        if (clock.days > previousClockDays) {
-            Dawn.count = 0;
-            Dusk.count = 0;
-            daycount++;
-            
-            previousClockDays = clock.days;
-        
-            if (daycount == 7) {
-                
-                //function here to average all the dawn/dusk times and compare with known value
-                
-                //solar midnight occurs naturally between 23:00 and 01:00 GMT 
-                
-                int operation = 0;
-                
-                int hours_temp = SolarPerMonth.solarMidHours[(clock.months - 1)]; //average solar midnight hour time for the specific month
-                int minutes_temp = SolarPerMonth.solarMidMinutes[(clock.months - 1)]; //average solar midnight minutes time for the specific month
-                
-                if (clock.DSTstate = 1) {hours_temp = hours_temp + 1;} //account for daylight saving time in the known solar midnight values which are GMT
-                if (hours_temp = 0 || hours_temp == 1) {hours_temp = hours_temp + 24;} //if solar midnight is past midnight, reference this as 24 in the hours rather than 00
-                
-                
-                int knownSolarMidnight = hours_temp*60 + minutes_temp;
-                
-                struct array_structure SolarMidnight;
-                    SolarMidnight.minutes[0] = 0;
-                    SolarMidnight.minutes[1] = 0;
-                    SolarMidnight.minutes[2] = 0;
-                    SolarMidnight.minutes[3] = 0;
-                    SolarMidnight.minutes[4] = 0;
-                    SolarMidnight.minutes[5] = 0;
-                    SolarMidnight.minutes[6] = 0;
-                                                    //array defining the total minutes for solar midnight
 
-                for (int i = 0; i <= Dawn.size-1; i++) {
-                    operation = (Dawn.hours[i] * 60 + Dawn.minutes[i]) + (Dusk.hours[i]*60 + Dusk.minutes[i]); //sum their total minutes
-                    operation = operation * 0.5 + 12*60; //find the average of the sum of their minutes and then add 12 hours to find solar midnight in minutes
-                    ArrayAppend(SolarMidnight.minutes, 7, operation); //add the solar midnight value to the array
-                }
-                avgSolarMidnight = ArrayAverage(SolarMidnight.minutes, 7); //calculate average solar midnight from measurements over past week
-                int minute_diff = knownSolarMidnight - avgSolarMidnight; //compare with known solar midnight
-                
-                
-                clock.minutes = clock.minutes + minute_diff;
-                
-                //correction added to time
-                
-                daycount = 0;
-            }
-        }
-}
-    
+//experimental 7 day average scheme
+//void SunFun(){
+//    if (ADC_getval() > light_threshold){ //if light enough, turn LED off
+//            LED_Right = 0;
+//            if ((Dawn.count == 0)&&(clock.hours >=4 && clock.hours < 8)) { //Dawn only occurs between 4am and 8am
+//                ArrayAppend(Dawn.hours, Dawn.size, clock.hours);
+//                ArrayAppend(Dawn.minutes, Dawn.size,  clock.minutes);
+//                Dawn.count = 1;
+//            }
+//        }
+//        
+//        if (clock.days > previousClockDays) {
+//            Dawn.count = 0;
+//            Dusk.count = 0;
+//            daycount++;
+//            
+//            previousClockDays = clock.days;
+//        
+//            if (daycount == 7) {
+//                
+//                //function here to average all the dawn/dusk times and compare with known value
+//                
+//                //solar midnight occurs naturally between 23:00 and 01:00 GMT 
+//                
+//                int operation = 0;
+//                
+//                int hours_temp = SolarPerMonth.solarMidHours[(clock.months - 1)]; //average solar midnight hour time for the specific month
+//                int minutes_temp = SolarPerMonth.solarMidMinutes[(clock.months - 1)]; //average solar midnight minutes time for the specific month
+//                
+//              
+//                
+//                
+//                int knownSolarMidnight = hours_temp*60 + minutes_temp;
+//                
+//                struct array_structure SolarMidnight;
+//                    SolarMidnight.minutes[0] = 0;
+//                    SolarMidnight.minutes[1] = 0;
+//                    SolarMidnight.minutes[2] = 0;
+//                    SolarMidnight.minutes[3] = 0;
+//                    SolarMidnight.minutes[4] = 0;
+//                    SolarMidnight.minutes[5] = 0;
+//                    SolarMidnight.minutes[6] = 0;
+//                                                    //array defining the total minutes for solar midnight
+//
+//                for (int i = 0; i <= Dawn.size-1; i++) {
+//                    operation = (Dawn.hours[i] * 60 + Dawn.minutes[i]) + (Dusk.hours[i]*60 + Dusk.minutes[i]); //sum their total minutes
+//                    operation = operation * 0.5 + 12*60; //find the average of the sum of their minutes and then add 12 hours to find solar midnight in minutes
+//                    ArrayAppend(SolarMidnight.minutes, 7, operation); //add the solar midnight value to the array
+//                }
+//                avgSolarMidnight = ArrayAverage(SolarMidnight.minutes, 7); //calculate average solar midnight from measurements over past week
+//                int minute_diff = knownSolarMidnight - avgSolarMidnight; //compare with known solar midnight
+//                
+//                
+//                clock.minutes = clock.minutes + minute_diff;
+//                
+//                //correction added to time
+//                
+//                daycount = 0;
+//            }
+//        }
+//}
+//    
 //    struct month_structure SolarPerMonth;
 //    SolarPerMonth.days[0] = 31;
 //    SolarPerMonth.days[1] = 28;
