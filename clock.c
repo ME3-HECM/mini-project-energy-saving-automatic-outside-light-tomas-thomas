@@ -2,7 +2,6 @@
 #include "clock.h"
 #include "seconds.h"
 
-
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 void UpdateClock(int *seconds, int *minutes, int *hours, int *days, int *DoW, int *months, int *years, int *DSTstate, int TestMode){
 
