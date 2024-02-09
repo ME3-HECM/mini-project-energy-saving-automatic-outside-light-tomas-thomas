@@ -496,13 +496,15 @@
 [v main@buffer buffer `[18]uc  1 a 18 20 ]
 [s S52 time_structure 16 `ui 1 seconds 2 0 `ui 1 minutes 2 2 `ui 1 hours 2 4 `ui 1 days 2 6 `ui 1 DoW 2 8 `ui 1 months 2 10 `ui 1 years 2 12 `ui 1 DSTstate 2 14 ]
 "76
-[v main@clock clock `S52  1 a 16 124 ]
+[v main@clock clock `S52  1 a 16 126 ]
 "106
-[v main@TestMode TestMode `i  1 a 2 122 ]
+[v main@TestMode TestMode `i  1 a 2 124 ]
 "59
-[v main@DuskDetected DuskDetected `i  1 a 2 120 ]
+[v main@DuskDetected DuskDetected `i  1 a 2 122 ]
 "58
-[v main@DawnDetected DawnDetected `i  1 a 2 46 ]
+[v main@DawnDetected DawnDetected `i  1 a 2 120 ]
+"61
+[v main@delta delta `i  1 a 2 46 ]
 "57
 [v main@DuskStartHours DuskStartHours `i  1 a 2 44 ]
 "55
@@ -513,7 +515,7 @@
 [v main@DawnStartMins DawnStartMins `i  1 a 2 38 ]
 "41
 [v main@F14520 F14520 `S48  1 s 72 F14520 ]
-"146
+"147
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]

@@ -44,13 +44,13 @@ void main(void)
         int MidMinutes[12];
         int MidHours[12];
         int days[12];
-};
+    };
 
-struct month_structure Solar = {
-    {9, 13, 8, 1, 57, 1, 5, 3, 55, 47, 46, 56},       // Solar mid-minutes
-    {0, 0, 0, 0, 23, 0, 0, 0, 23, 23, 23, 23},        // Solar mid-hours
-    {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31} // Days in each month
-};
+    struct month_structure Solar = {
+        {9, 13, 8, 1, 57, 1, 5, 3, 55, 47, 46, 56},       // Solar mid-minutes
+        {0, 0, 0, 0, 23, 0, 0, 0, 23, 23, 23, 23},        // Solar mid-hours
+        {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31} // Days in each month
+    };
         int DawnStartMins;
         int DawnStartHours = 0;
         int DuskStartMins;
@@ -58,7 +58,7 @@ struct month_structure Solar = {
         int DawnDetected=0;
         int DuskDetected=0;
         
-        unsigned int delta;    
+        int delta;    
     
     
 // setting up a time structure to be used for the clock, and time keeping
@@ -77,7 +77,7 @@ struct month_structure Solar = {
         // set the initial starting time when the sensor is set up
         GLOBALsecs = 55;
         clock.minutes = 59;
-        clock.hours = 20;
+        clock.hours = 4;
         clock.days = 31;
         clock.DoW = 1;              //1-Monday 2-Tuesday 3-Wednesday 4-Thursday 5-Friday 6-Saturday 7-Sunday
         clock.months = 12;
@@ -124,13 +124,14 @@ struct month_structure Solar = {
         
         LightDetection(ADC_getval(), clock.hours);
         
-        if(clock.hours >= 16 && (ADC_getval()<=70) && DuskDetected == 0){
-            clock.hours;
-            clock.minutes;
-            
-        }
         delta = DuskAndDawnCollect(ADC_getval(), clock.months, clock.days, clock.hours, clock.minutes, clock.DSTstate, &DawnDetected, &DuskDetected, &DawnStartMins,&DawnStartHours, &DuskStartMins, &DuskStartHours, Solar.MidMinutes[clock.months - 1], Solar.MidHours[clock.months - 1]);
-//        clock.minutes = clock.minutes - delta;
+        if(clock.hours == 23 && DawnDetected==1 && DuskDetected==1){
+            clock.minutes = clock.minutes + delta%60;  
+            clock.hours = clock.hours + delta/60;
+            DawnDetected=0;
+            DuskDetected=0;    
+        }
+ 
         
         //setting up the LCD screen to display our values
         LCD_setline(1);
